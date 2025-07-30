@@ -46,33 +46,33 @@ return 0;
 //lpwstr-> retazec priradeny pri vytvarani
 //ncmdshow-> ako sa ma hl okno zobrazovat
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow){  //main funkcia 
-     const wchar_t CLASSNAME[] =  L"MojeOknoTrieda";
+     const wchar_t CLASSNAME[] =  L"MojeOknoTrieda";      //Tu si mozme nastavit hlavicku okna
 
-     WNDCLASSW wc {};
-     wc.lpfnWndProc = WindowProc;
-     wc.hInstance = hInstance;
-     wc.lpszClassName = CLASSNAME;
-     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW +5);
-     wc.hCursor =  LoadCursor(NULL,IDC_ARROW);
+     WNDCLASSW wc {};                   //vytvorenie classy appky
+     wc.lpfnWndProc = WindowProc;         //ukaze na funkciu ktoru sme si hore zadefinovali
+     wc.hInstance = hInstance;            //priraduje handle 
+     wc.lpszClassName = CLASSNAME;        //priradi meno okna
+     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW +5);          //nastavi styl a farbu okna
+     wc.hCursor =  LoadCursor(NULL,IDC_ARROW);        //nacita kurzor a nastavi styl
 
-     RegisterClassW(&wc);
+     RegisterClassW(&wc);    //regitruje classu do windows az po tomto kroku mozme vytvorit okno
 
-       HWND hwnd = CreateWindowExW(
+       HWND hwnd = CreateWindowExW(        //vytvorenie hl okna
         0,
         CLASSNAME,
-        Buffer_For_Text,
+        L"Moja Appka",
         WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, CW_USEDEFAULT, 300, 250,
         NULL, NULL, hInstance, NULL
     );
 
-    if (!hwnd) return 0;
+    if (!hwnd) return 0;             //kontrola handlu 
 
-    ShowWindow(hwnd, nCmdShow);
-    UpdateWindow(hwnd);
-
-    MSG msg = {};
-    while (GetMessage(&msg, NULL, 0, 0)) {
+    ShowWindow(hwnd, nCmdShow);         //toto musi byt aby sa okno zobrazilo 
+    UpdateWindow(hwnd);                //Po tomto mozme prekreslovat atd
+ 
+    MSG msg = {};                 
+    while (GetMessage(&msg, NULL, 0, 0)) {           //Caka na podnety z von ak sa bude rovnat nule appka sa vypne
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
