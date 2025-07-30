@@ -14,12 +14,13 @@ wchar_t Buffer_For_Text[300];
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 {
     static signed int Page_Num{};
+    static HWND Buttons[20];
     switch (umsg)
     {
         // vytvori okna tlacidlo 1,2 a edit okienko
     case WM_CREATE:
         // vytvori tlacidlo button->co to ma byt....zobraz text->text na tlacidle...WS ->styly a vyzor... poloha a velkost...
-        CreateWindowW(L"BUTTON", L"Zobraz text", WS_VISIBLE | WS_CHILD, 500, 10, 150, 100, hwnd, (HMENU)ID_BUTTON_SHOW_TEXT, NULL, NULL);
+        Buttons[0] = CreateWindow(L"BUTTON", L"Zobraz text",  WS_CHILD, 500, 10, 150, 100, hwnd, (HMENU)ID_BUTTON_SHOW_TEXT, NULL, NULL);
         CreateWindowW(L"BUTTON", L"Koniec", WS_VISIBLE | WS_CHILD, 1000, 10, 150, 100, hwnd, (HMENU)ID_BUTTON_END, NULL, NULL);
         CreateWindowW(L"EDIT", L"", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_LEFT, 10, 10, 150, 100, hwnd, (HMENU)ID_EDIT, NULL, NULL);
         CreateWindowW(L"BUTTON", L"NEXT SLIDE", WS_VISIBLE | WS_CHILD, 10, 300, 150, 100, hwnd, (HMENU)NEXT_SLIDE_BUTTON, NULL, NULL);
@@ -38,7 +39,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
             MessageBoxW(hwnd,buffer_for_num, L"Sprava", MB_OK | MB_ICONINFORMATION);
             break;
         }
-
+        //Priratoavanie a odratavanie stran
         case ID_BUTTON_END:
             PostQuitMessage(0);
             break;
@@ -65,6 +66,18 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
         return DefWindowProc(hwnd, umsg, wparam, lparam);
         break;
     }
+    //prepinanie stran a nastavovanie tlacitok
+      switch (Page_Num)
+        {
+        case 0:
+            ShowWindow(Buttons[0],SW_SHOW);
+            break;
+        case 1:
+            ShowWindow(Buttons[0],SW_HIDE);
+            break;
+        default:
+            break;
+        }
     return 0;
 }
 
