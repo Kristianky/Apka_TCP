@@ -12,7 +12,9 @@
 				"${file}",
 				"-o",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe",
-				"-lws2_32"
+				"-lws2_32",
+				"-municode",
+				"-mwindows",
 			],
 			"options": {
 				"cwd": "${fileDirname}"
