@@ -1,4 +1,4 @@
-cmake_minimum_required(version 3.22)
+cmake_minimum_required(VERSION 3.22)
 
 project(Cpp_Project_Template VERSION 1.0.0 LANGUAGES C CXX)
 

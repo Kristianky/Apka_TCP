@@ -1,3 +1,5 @@
+#define UNICODE
+#define _UNICODE
 #include <windows.h>
 
 #define ID_BUTTON_SHOW_TEXT 1
@@ -8,6 +10,7 @@
 
 wchar_t Buffer_For_Text[300];
 // hwnd->okno ktoremu je sprava urcena...
+
 // uint -> premmene napr z klavesnice mysi atd..
 // wparam-> stavovy parameter doplnujuce info
 // lparam -> dalsie parametre napr poloha kurzora atd
