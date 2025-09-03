@@ -1,12 +1,7 @@
-#define UNICODE
-#define _UNICODE
+
 #include <windows.h>
 
-#define ID_BUTTON_SHOW_TEXT 1
-#define ID_BUTTON_END 2
-#define ID_EDIT 3
-#define NEXT_SLIDE_BUTTON 4
-#define PREV_SLIDE_BUTTON 5
+#define ID_BUTTONS 1
 
 wchar_t Buffer_For_Text[300];
 // hwnd->okno ktoremu je sprava urcena...
@@ -18,23 +13,33 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 {
     static signed int Page_Num{};
     static HWND Buttons[20];
+    static HWND TEXTS[10];
+    static int Number_Of_Buttons{20};
+    static const wchar_t *Buttons_Funcionallity []{{L"BUTTON"},{L"EDIT"}};
+    static const wchar_t *Buttons_Names [] {{L"Zobraz Text"},{L"Vloz Text"},{L"Previous slide"},{L"Next slide"},{L"Exit"}};
+    static int Button_X[]{0,600,0,0,1300};
+    static int Butoon_Y[]{10,10,210,410,700};
     switch (umsg)
     {
         // vytvori okna tlacidlo 1,2 a edit okienko
     case WM_CREATE:
         // vytvori tlacidlo button->co to ma byt....zobraz text->text na tlacidle...WS ->styly a vyzor... poloha a velkost...
-        Buttons[0] = CreateWindow(L"BUTTON", L"Zobraz text",  WS_CHILD, 500, 10, 150, 100, hwnd, (HMENU)ID_BUTTON_SHOW_TEXT, NULL, NULL);
-        CreateWindowW(L"BUTTON", L"Koniec", WS_VISIBLE | WS_CHILD, 1000, 10, 150, 100, hwnd, (HMENU)ID_BUTTON_END, NULL, NULL);
-        CreateWindowW(L"EDIT", L"", WS_VISIBLE | WS_CHILD | WS_BORDER | ES_LEFT, 10, 10, 150, 100, hwnd, (HMENU)ID_EDIT, NULL, NULL);
-        CreateWindowW(L"BUTTON", L"NEXT SLIDE", WS_VISIBLE | WS_CHILD, 10, 300, 150, 100, hwnd, (HMENU)NEXT_SLIDE_BUTTON, NULL, NULL);
-        CreateWindowW(L"BUTTON", L"PREV SLIDE", WS_VISIBLE | WS_CHILD, 10, 450, 150, 100, hwnd, (HMENU)PREV_SLIDE_BUTTON, NULL, NULL);
+        for(int i{};i < 5;i++){
+            int j{};
+               if(i == 0){j = 0;}
+               else if(i == 1){j = 1;}
+               else if(i == 2){j = 0;}
+               else if(i == 3){j = 0;}
+               else if(i == 4){j = 0;}
+        CreateWindow(Buttons_Funcionallity[j], Buttons_Names [i],  WS_CHILD|WS_VISIBLE, Button_X[i], Butoon_Y[i], 150, 100, hwnd, (HMENU)(ID_BUTTONS+i), NULL, NULL);
+        }
         break;
     case WM_COMMAND:
         switch (LOWORD(wparam)) // toto urcuje ktore tlacidlo bolo stlacene alebo ine stavy
         {
-        case ID_BUTTON_SHOW_TEXT:
+        case (ID_BUTTONS + 0):            //tlacidlo zobraz text
         {
-            HWND h_Edit = GetDlgItem(hwnd, ID_EDIT); // urci co sa stane po stlaceni tlacidla 1 v tomto pripade precita text z edit a zapise ho do buffera
+            HWND h_Edit = GetDlgItem(hwnd, (ID_BUTTONS+1)); // urci co sa stane po stlaceni tlacidla 1 v tomto pripade precita text z edit a zapise ho do buffera
             GetWindowTextW(h_Edit, Buffer_For_Text, 300);
             wchar_t buffer_for_num[1];
             wsprintfW(buffer_for_num,L"%d",Page_Num);
@@ -43,17 +48,17 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
             break;
         }
         //Priratoavanie a odratavanie stran
-        case ID_BUTTON_END:
+        case (ID_BUTTONS + 4):          //tlacidlo exit
             PostQuitMessage(0);
             break;
-        case NEXT_SLIDE_BUTTON:
+        case (ID_BUTTONS + 3):       //tlacidlo next slide
             Page_Num++;
             if (Page_Num > 5)
             {
                 Page_Num = 0;
             }
             break;
-        case PREV_SLIDE_BUTTON:
+        case (ID_BUTTONS + 2):   //tlacidlo prev slide
             Page_Num--;
             if (Page_Num < 0)
             {
