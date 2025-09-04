@@ -7,11 +7,9 @@
 // ncmdshow-> ako sa ma hl okno zobrazovat
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {           
-    Moja_Apka App;                                       // main funkcia
+    Moja_Apka App(hInstance);                                       // main funkcia
     
-    if (!hwnd)
-        return 0; // kontrola handlu
-
+    
     ShowWindow(hwnd, nCmdShow); // toto musi byt aby sa okno zobrazilo
     UpdateWindow(hwnd);         // Po tomto mozme prekreslovat atd
 
