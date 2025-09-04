@@ -2,10 +2,10 @@
 Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
     Button_X = new int [] {0,600,0,0,1300};
     Button_Y = new int [] {10,10,210,410,700};
-    const wchar_t *Buttons_Func [] {{L"BUTTON"},{L"EDIT"}};
+  
     const wchar_t *Buttons_N []  {{L"Zobraz Text"},{L"Vloz Text"},{L"Previous slide"},{L"Next slide"},{L"Exit"}};
-    Buttons_Funcionallity = Buttons_Func;
-    Buttons_Names = Buttons_N;
+    Buttons_Funcionallity = new const wchar_t* [2] {{L"BUTTON"},{L"EDIT"}};;
+    Buttons_Names = new const wchar_t* [5] {{L"Zobraz Text"},{L"Vloz Text"},{L"Previous slide"},{L"Next slide"},{L"Exit"}};
     Page_Num = 0;
     Buttons = new HWND[20];
     TEXTS = new HWND[20];
@@ -27,7 +27,9 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
         L"Moja Appka",
         WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, CW_USEDEFAULT, 300, 250,
-        NULL, NULL, Hinstance, NULL);
+        NULL, NULL, Hinstance, this);
+        ShowWindow(hwnd, SW_SHOW);
+        UpdateWindow(hwnd);
 
 }
 Moja_Apka::~Moja_Apka(){
