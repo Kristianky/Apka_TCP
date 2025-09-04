@@ -38,7 +38,7 @@ Moja_Apka::~Moja_Apka(){
     delete[] Button_X;
     delete[] Button_Y;
 }
-LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
+LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam) 
 {
     switch (umsg)
     {
