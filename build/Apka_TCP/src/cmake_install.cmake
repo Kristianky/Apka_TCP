@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Admin/Desktop/c++/Apka/Apka_TCP
+# Install script for directory: C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,15 +35,5 @@ endif()
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "C:/mingw64/bin/objdump.exe")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/Appka/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/src/cmake_install.cmake")
 endif()
 

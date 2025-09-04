@@ -2,6 +2,9 @@ C:/Users/Admin/Desktop/c++/Apka/build/CMakeFiles/edit_cache.dir
 C:/Users/Admin/Desktop/c++/Apka/build/CMakeFiles/rebuild_cache.dir
 C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/CMakeFiles/edit_cache.dir
 C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/CMakeFiles/rebuild_cache.dir
-C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/Appka/CMakeFiles/Executable.dir
+C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir
 C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/Appka/CMakeFiles/edit_cache.dir
 C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/Appka/CMakeFiles/rebuild_cache.dir
+C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/src/CMakeFiles/MojaApkaLib.dir
+C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/src/CMakeFiles/edit_cache.dir
+C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/src/CMakeFiles/rebuild_cache.dir

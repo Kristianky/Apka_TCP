@@ -10,8 +10,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     Moja_Apka App(hInstance);                                       // main funkcia
     
     
-    ShowWindow(hwnd, nCmdShow); // toto musi byt aby sa okno zobrazilo
-    UpdateWindow(hwnd);         // Po tomto mozme prekreslovat atd
+    ShowWindow(App.Get_HWND(), nCmdShow); // toto musi byt aby sa okno zobrazilo
+    UpdateWindow(App.Get_HWND());         // Po tomto mozme prekreslovat atd
 
     MSG msg = {};
     while (GetMessage(&msg, NULL, 0, 0))

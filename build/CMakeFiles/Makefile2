@@ -78,21 +78,24 @@ clean: Apka_TCP/clean
 
 # Recursive "all" directory target.
 Apka_TCP/all: Apka_TCP/Appka/all
+Apka_TCP/all: Apka_TCP/src/all
 .PHONY : Apka_TCP/all
 
 # Recursive "preinstall" directory target.
 Apka_TCP/preinstall: Apka_TCP/Appka/preinstall
+Apka_TCP/preinstall: Apka_TCP/src/preinstall
 .PHONY : Apka_TCP/preinstall
 
 # Recursive "clean" directory target.
 Apka_TCP/clean: Apka_TCP/Appka/clean
+Apka_TCP/clean: Apka_TCP/src/clean
 .PHONY : Apka_TCP/clean
 
 #=============================================================================
 # Directory level rules for directory Apka_TCP/Appka
 
 # Recursive "all" directory target.
-Apka_TCP/Appka/all: Apka_TCP/Appka/CMakeFiles/Executable.dir/all
+Apka_TCP/Appka/all: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all
 .PHONY : Apka_TCP/Appka/all
 
 # Recursive "preinstall" directory target.
@@ -100,34 +103,75 @@ Apka_TCP/Appka/preinstall:
 .PHONY : Apka_TCP/Appka/preinstall
 
 # Recursive "clean" directory target.
-Apka_TCP/Appka/clean: Apka_TCP/Appka/CMakeFiles/Executable.dir/clean
+Apka_TCP/Appka/clean: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/clean
 .PHONY : Apka_TCP/Appka/clean
 
 #=============================================================================
-# Target rules for target Apka_TCP/Appka/CMakeFiles/Executable.dir
+# Directory level rules for directory Apka_TCP/src
+
+# Recursive "all" directory target.
+Apka_TCP/src/all: Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/all
+.PHONY : Apka_TCP/src/all
+
+# Recursive "preinstall" directory target.
+Apka_TCP/src/preinstall:
+.PHONY : Apka_TCP/src/preinstall
+
+# Recursive "clean" directory target.
+Apka_TCP/src/clean: Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/clean
+.PHONY : Apka_TCP/src/clean
+
+#=============================================================================
+# Target rules for target Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir
 
 # All Build rule for target.
-Apka_TCP/Appka/CMakeFiles/Executable.dir/all:
-	$(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\Executable.dir\build.make Apka_TCP/Appka/CMakeFiles/Executable.dir/depend
-	$(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\Executable.dir\build.make Apka_TCP/Appka/CMakeFiles/Executable.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles --progress-num=1,2 "Built target Executable"
-.PHONY : Apka_TCP/Appka/CMakeFiles/Executable.dir/all
+Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all:
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\MojaApkaEXE.dir\build.make Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/depend
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\MojaApkaEXE.dir\build.make Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles --progress-num=1,2 "Built target MojaApkaEXE"
+.PHONY : Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all
 
 # Build rule for subdir invocation for target.
-Apka_TCP/Appka/CMakeFiles/Executable.dir/rule: cmake_check_build_system
+Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/Appka/CMakeFiles/Executable.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles 0
-.PHONY : Apka_TCP/Appka/CMakeFiles/Executable.dir/rule
+.PHONY : Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/rule
 
 # Convenience name for target.
-Executable: Apka_TCP/Appka/CMakeFiles/Executable.dir/rule
-.PHONY : Executable
+MojaApkaEXE: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/rule
+.PHONY : MojaApkaEXE
 
 # clean rule for target.
-Apka_TCP/Appka/CMakeFiles/Executable.dir/clean:
-	$(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\Executable.dir\build.make Apka_TCP/Appka/CMakeFiles/Executable.dir/clean
-.PHONY : Apka_TCP/Appka/CMakeFiles/Executable.dir/clean
+Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\MojaApkaEXE.dir\build.make Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/clean
+.PHONY : Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/clean
+
+#=============================================================================
+# Target rules for target Apka_TCP/src/CMakeFiles/MojaApkaLib.dir
+
+# All Build rule for target.
+Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/all:
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/depend
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles --progress-num=3,4 "Built target MojaApkaLib"
+.PHONY : Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/all
+
+# Build rule for subdir invocation for target.
+Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles 0
+.PHONY : Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/rule
+
+# Convenience name for target.
+MojaApkaLib: Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/rule
+.PHONY : MojaApkaLib
+
+# clean rule for target.
+Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/clean
+.PHONY : Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

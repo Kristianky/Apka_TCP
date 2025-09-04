@@ -116,25 +116,25 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-Apka_TCP/Appka/CMakeFiles/Executable.dir/rule:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/Appka/CMakeFiles/Executable.dir/rule
-.PHONY : Apka_TCP/Appka/CMakeFiles/Executable.dir/rule
+Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/rule:
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/rule
+.PHONY : Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/rule
 
 # Convenience name for target.
-Executable: Apka_TCP/Appka/CMakeFiles/Executable.dir/rule
-.PHONY : Executable
+MojaApkaEXE: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/rule
+.PHONY : MojaApkaEXE
 
 # fast build rule for target.
-Executable/fast:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\Executable.dir\build.make Apka_TCP/Appka/CMakeFiles/Executable.dir/build
-.PHONY : Executable/fast
+MojaApkaEXE/fast:
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\MojaApkaEXE.dir\build.make Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/build
+.PHONY : MojaApkaEXE/fast
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
 # target to build an object file
 main.cpp.obj:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\Executable.dir\build.make Apka_TCP/Appka/CMakeFiles/Executable.dir/main.cpp.obj
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\MojaApkaEXE.dir\build.make Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -142,7 +142,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\Executable.dir\build.make Apka_TCP/Appka/CMakeFiles/Executable.dir/main.cpp.i
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\MojaApkaEXE.dir\build.make Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -150,7 +150,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\Executable.dir\build.make Apka_TCP/Appka/CMakeFiles/Executable.dir/main.cpp.s
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\MojaApkaEXE.dir\build.make Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Executable
+	@echo ... MojaApkaEXE
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

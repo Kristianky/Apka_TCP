@@ -9,6 +9,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Appka/CMakeLists.txt"
   "C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/CMakeLists.txt"
+  "C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/CMakeLists.txt"
   "C:/Users/Admin/Desktop/c++/Apka/CMakeLists.txt"
   "CMakeFiles/3.30.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.30.4/CMakeCXXCompiler.cmake"
@@ -49,9 +50,11 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "Apka_TCP/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Apka_TCP/Appka/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Apka_TCP/src/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "Apka_TCP/Appka/CMakeFiles/Executable.dir/DependInfo.cmake"
+  "Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/DependInfo.cmake"
+  "Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/DependInfo.cmake"
   )
