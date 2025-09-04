@@ -1,3 +1,0 @@
-C:\mingw64\bin\cmake.exe -E rm -f CMakeFiles\Executable.dir/objects.a
-C:\mingw64\bin\ar.exe qc CMakeFiles\Executable.dir/objects.a @CMakeFiles\Executable.dir\objects1.rsp
-C:\mingw64\bin\c++.exe -mwindows -municode -Wl,--whole-archive CMakeFiles\Executable.dir/objects.a -Wl,--no-whole-archive -o Executable.exe -Wl,--out-implib,libExecutable.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Executable.dir\linkLibs.rsp

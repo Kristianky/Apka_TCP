@@ -6,10 +6,10 @@
 #define ID_BUTTONS 1
 class Moja_Apka{
     private:
-wchar_t Buffer_For_Text[300];
+wchar_t *Buffer_For_Text;
 int Page_Num;
-static HWND TEXTS[10];
-static HWND Buttons[20];
+HWND *TEXTS;
+HWND *Buttons;
 const static int Number_Of_Buttons{5};
 const wchar_t **Buttons_Funcionallity;
 const wchar_t **Buttons_Names;

@@ -7,8 +7,9 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
     Buttons_Funcionallity = Buttons_Func;
     Buttons_Names = Buttons_N;
     Page_Num = 0;
-    delete [] Buttons_Func;
-    delete [] Buttons_N;
+    Buttons = new HWND[20];
+    TEXTS = new HWND[20];
+   
     const wchar_t CLASSNAME[] = L"MojeOknoTrieda"; // Tu si mozme nastavit hlavicku okna
 
     WNDCLASSW wc{};                                // vytvorenie classy appky
@@ -42,7 +43,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         // vytvori okna tlacidlo 1,2 a edit okienko
     case WM_CREATE:
         // vytvori tlacidlo button->co to ma byt....zobraz text->text na tlacidle...WS ->styly a vyzor... poloha a velkost...
-        Buttons[0] = CreateWindow(L"BUTTON",L"Vitajte pre pokracovanie klikni",WS_CHILD|WS_VISIBLE,600,250,400,200,hwnd,(HMENU)(ID_BUTTONS),NULL,NULL);
+        Buttons[0] = CreateWindowW(L"BUTTON",L"Vitajte pre pokracovanie klikni",WS_CHILD|WS_VISIBLE,600,250,400,200,hwnd,(HMENU)(ID_BUTTONS),NULL,NULL);
         break;
     case WM_COMMAND:
         switch (LOWORD(wparam)) // toto urcuje ktore tlacidlo bolo stlacene alebo ine stavy

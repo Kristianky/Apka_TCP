@@ -53,10 +53,10 @@ RM = C:\mingw64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Admin\Desktop\c++\Apka
+CMAKE_SOURCE_DIR = C:\Users\cpp_m\Desktop\Kiko\Apka_TCP
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Admin\Desktop\c++\Apka\build
+CMAKE_BINARY_DIR = C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -125,17 +125,17 @@ Apka_TCP/src/clean: Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/clean
 # Target rules for target Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir
 
 # All Build rule for target.
-Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all:
+Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all: Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/all
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\MojaApkaEXE.dir\build.make Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/depend
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\MojaApkaEXE.dir\build.make Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles --progress-num=1,2 "Built target MojaApkaEXE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\CMakeFiles --progress-num=1,2 "Built target MojaApkaEXE"
 .PHONY : Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all
 
 # Build rule for subdir invocation for target.
 Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\CMakeFiles 0
 .PHONY : Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/rule
 
 # Convenience name for target.
@@ -154,14 +154,14 @@ Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/clean:
 Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/all:
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/depend
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles --progress-num=3,4 "Built target MojaApkaLib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\CMakeFiles --progress-num=3,4 "Built target MojaApkaLib"
 .PHONY : Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/all
 
 # Build rule for subdir invocation for target.
 Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\CMakeFiles 0
 .PHONY : Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/rule
 
 # Convenience name for target.
