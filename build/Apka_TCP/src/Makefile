@@ -115,44 +115,6 @@ depend:
 	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/rule:
-	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/rule
-.PHONY : Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/rule
-
-# Convenience name for target.
-MojaApkaLib: Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/rule
-.PHONY : MojaApkaLib
-
-# fast build rule for target.
-MojaApkaLib/fast:
-	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/build
-.PHONY : MojaApkaLib/fast
-
-Moja_Apka.obj: Moja_Apka.cpp.obj
-.PHONY : Moja_Apka.obj
-
-# target to build an object file
-Moja_Apka.cpp.obj:
-	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/Moja_Apka.cpp.obj
-.PHONY : Moja_Apka.cpp.obj
-
-Moja_Apka.i: Moja_Apka.cpp.i
-.PHONY : Moja_Apka.i
-
-# target to preprocess a source file
-Moja_Apka.cpp.i:
-	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/Moja_Apka.cpp.i
-.PHONY : Moja_Apka.cpp.i
-
-Moja_Apka.s: Moja_Apka.cpp.s
-.PHONY : Moja_Apka.s
-
-# target to generate assembly for a file
-Moja_Apka.cpp.s:
-	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/Moja_Apka.cpp.s
-.PHONY : Moja_Apka.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -161,10 +123,6 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... MojaApkaLib
-	@echo ... Moja_Apka.obj
-	@echo ... Moja_Apka.i
-	@echo ... Moja_Apka.s
 .PHONY : help
 
 

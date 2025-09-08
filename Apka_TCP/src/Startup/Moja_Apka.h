@@ -2,6 +2,8 @@
 #define _MOJA_APKA_H_
 
 #include <windows.h>
+#include "Pages.h"
+#include "Page_Main.h"  
 
 #define ID_BUTTONS 1
 class Moja_Apka
@@ -13,7 +15,7 @@ private:
     // statické setup/redirect
     static LRESULT CALLBACK WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
     static LRESULT CALLBACK WindowProcRedirect(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
-
+     Pages *Page = nullptr;
     // tvoja "pravá" WndProc ako členská metóda
     LRESULT WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
     // hwnd->okno ktoremu je sprava urcena...

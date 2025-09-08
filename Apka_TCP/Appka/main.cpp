@@ -1,5 +1,8 @@
 
 #include "Moja_Apka.h"
+#include "Pages.h"
+#include "Page_Main.h"
+
 
 // histance je unikatne cislo okna
 // Histance hprevinstance je pre zastarale systemy moze byt null

@@ -92,7 +92,9 @@ MojaApkaEXE_EXTERNAL_OBJECTS =
 
 Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/main.cpp.obj
 Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/build.make
-Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/src/libMojaApkaLib.a
+Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/src/Startup/libMojaApkaLib.a
+Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/src/Pages/libMain_Page.a
+Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/src/Pages/libPages.a
 Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/linkLibs.rsp
 Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/objects1.rsp
 Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/link.txt

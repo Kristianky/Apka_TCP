@@ -3,11 +3,12 @@
 
 #include "Pages.h"
 
-class Main_Page:Pages{
+class Main_Page:public Pages{
       public:
          Main_Page();
          virtual ~Main_Page();
-         virtual void Create_Window(HWND hwnd) override;
+         virtual void Create_WindowW (HWND hwnd,int BUTTON) override;
+         virtual void Destroy_WindowW(HWND hwnd) override;
 };
 
 #endif

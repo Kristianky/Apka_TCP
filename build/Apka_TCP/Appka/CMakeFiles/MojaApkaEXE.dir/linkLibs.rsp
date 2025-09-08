@@ -1,1 +1,1 @@
- ../src/libMojaApkaLib.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+ ../src/Startup/libMojaApkaLib.a ../src/Pages/libMain_Page.a ../src/Pages/libPages.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

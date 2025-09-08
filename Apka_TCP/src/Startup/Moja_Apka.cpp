@@ -1,7 +1,7 @@
 #include "Moja_Apka.h"
+
 Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
 
-   
     Page_Num = 0;
     
     const wchar_t CLASSNAME[] = L"MojeOknoTrieda"; // Tu si mozme nastavit hlavicku okna
@@ -14,7 +14,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);      // nacita kurzor a nastavi styl
 
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
-
+    
     HWND hwnd = CreateWindowExW( // vytvorenie hl okna
         0,
         CLASSNAME,
@@ -36,8 +36,8 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         // vytvori okna tlacidlo 1,2 a edit okienko
     case WM_CREATE:
         // vytvori tlacidlo button->co to ma byt....zobraz text->text na tlacidle...WS ->styly a vyzor... poloha a velkost...
-
-        Button = CreateWindow(L"BUTTON",L"Vitajte pre pokracovanie klikni",WS_CHILD|WS_VISIBLE,600,250,400,200,hwnd,(HMENU)(ID_BUTTONS),NULL,NULL);
+       
+        Button = CreateWindowW(L"BUTTON",L"Vitajte pre pokracovanie klikni",WS_CHILD|WS_VISIBLE,600,250,400,200,hwnd,(HMENU)(ID_BUTTONS),NULL,NULL);
 
         break;
     case WM_COMMAND:
@@ -47,8 +47,12 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
               if (Page_Num == 0){
               DestroyWindow(Button);
               Page_Num=1;
-              break;
+              Page = new Main_Page{};
               }
+              if (Page_Num == 1){
+                Page->Create_WindowW(Button,ID_BUTTONS);
+              }
+            break;
     case WM_DESTROY:
         PostQuitMessage(0); // zavrie appku
         break;
@@ -67,8 +71,7 @@ LRESULT CALLBACK Moja_Apka::WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, 
                                                                     //cize vtedy potrebujeme z nej dostat pointer aby sme mohli manipulovat s oknom
         auto self = reinterpret_cast<Moja_Apka*>(cs->lpCreateParams);    //toto ulozi pointer z create struct do nasej appky
         SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)self);   //toto ulozi pointer do pamate ktoru ma windows urcenu pre uzivatelov pri vytvarani okien 
-        SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG_PTR)&Moja_Apka::WindowProcRedirect);  //tu ulozime pointer do urcenej pamate windowsom
-                                                                                      //mozme ptr prepisovat a ukladat ale tato pamat je presne urcena wndproc funkciu 
+        SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG_PTR)&Moja_Apka::WindowProcRedirect);  //tu ulozime pointer do urcenej pamate windowsom                                                                  //mozme ptr prepisovat a ukladat ale tato pamat je presne urcena wndproc funkciu 
         return self->WindowProc(hwnd, msg, wParam, lParam);
     }
     return DefWindowProc(hwnd, msg, wParam, lParam);

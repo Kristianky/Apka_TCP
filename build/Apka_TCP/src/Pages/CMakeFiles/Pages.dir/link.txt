@@ -1,0 +1,2 @@
+C:\mingw64\bin\ar.exe qc libPages.a CMakeFiles/Pages.dir/Pages.cpp.obj
+C:\mingw64\bin\ranlib.exe libPages.a

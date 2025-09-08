@@ -129,6 +129,32 @@ MojaApkaEXE/fast:
 .PHONY : MojaApkaEXE/fast
 
 #=============================================================================
+# Target rules for targets named Pages
+
+# Build rule for target.
+Pages: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Pages
+.PHONY : Pages
+
+# fast build rule for target.
+Pages/fast:
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Pages.dir/build
+.PHONY : Pages/fast
+
+#=============================================================================
+# Target rules for targets named Main_Page
+
+# Build rule for target.
+Main_Page: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Main_Page
+.PHONY : Main_Page
+
+# fast build rule for target.
+Main_Page/fast:
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/build
+.PHONY : Main_Page/fast
+
+#=============================================================================
 # Target rules for targets named MojaApkaLib
 
 # Build rule for target.
@@ -138,7 +164,7 @@ MojaApkaLib: cmake_check_build_system
 
 # fast build rule for target.
 MojaApkaLib/fast:
-	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/build
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Startup\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/build
 .PHONY : MojaApkaLib/fast
 
 # Help Target
@@ -149,8 +175,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Main_Page
 	@echo ... MojaApkaEXE
 	@echo ... MojaApkaLib
+	@echo ... Pages
 .PHONY : help
 
 

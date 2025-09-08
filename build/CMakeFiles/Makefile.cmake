@@ -10,6 +10,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/Appka/CMakeLists.txt"
   "C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/CMakeLists.txt"
   "C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/src/CMakeLists.txt"
+  "C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/src/Pages/CMakeLists.txt"
+  "C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/src/Startup/CMakeLists.txt"
   "C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/CMakeLists.txt"
   "CMakeFiles/3.30.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.30.4/CMakeCXXCompiler.cmake"
@@ -51,10 +53,14 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "Apka_TCP/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Apka_TCP/Appka/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Apka_TCP/src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Apka_TCP/src/Pages/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Apka_TCP/src/Startup/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/DependInfo.cmake"
-  "Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/DependInfo.cmake"
+  "Apka_TCP/src/Pages/CMakeFiles/Pages.dir/DependInfo.cmake"
+  "Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/DependInfo.cmake"
+  "Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/DependInfo.cmake"
   )

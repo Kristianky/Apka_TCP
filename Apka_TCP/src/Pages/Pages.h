@@ -2,7 +2,7 @@
 #ifndef _PAGES_H_
 #define _PAGES_H_
 
-#include "Moja_Apka.h"
+#include <windows.h>
 class Pages 
 {
 protected:
@@ -17,7 +17,8 @@ protected:
 public:
    Pages();
    virtual ~Pages();
-   virtual void Create_Window(HWND hwnd) = 0;
+   virtual void Create_WindowW(HWND hwnd,int BUTTON) = 0;
+   virtual void Destroy_WindowW(HWND hwnd) = 0;
 };
 
 #endif
