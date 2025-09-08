@@ -3,12 +3,18 @@
 #define _PAGES_H_
 
 #include "Moja_Apka.h"
-class Pages:Moja_Apka
+class Pages 
 {
 private:
    HWND *Buttons;
    wchar_t *Buttons_Names;
+   int *Buttons_PositionsX;
+   int *Buttons_PositionsY;
 
+public:
+   Pages();
+   ~Pages();
+   virtual void Create_Window();
 };
 
 #endif
