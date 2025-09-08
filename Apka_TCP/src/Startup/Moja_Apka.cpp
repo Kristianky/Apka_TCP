@@ -1,9 +1,9 @@
 #include "Moja_Apka.h"
 Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
-<<<<<<< HEAD:Apka_TCP/src/Startup/Moja_Apka.cpp
+
    
     Page_Num = 0;
-=======
+
     Button_X = new int [] {0,600,0,0,1300};
     Button_Y = new int [] {10,10,210,410,700};
   
@@ -14,7 +14,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
     Buttons = new HWND[20];
     TEXTS = new HWND[20];
    
->>>>>>> c9ef392a1a47a15076a7992e506eb650ac2431da:Apka_TCP/src/Moja_Apka.cpp
+
     const wchar_t CLASSNAME[] = L"MojeOknoTrieda"; // Tu si mozme nastavit hlavicku okna
 
     WNDCLASSW wc{};                                // vytvorenie classy appky
@@ -47,11 +47,11 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         // vytvori okna tlacidlo 1,2 a edit okienko
     case WM_CREATE:
         // vytvori tlacidlo button->co to ma byt....zobraz text->text na tlacidle...WS ->styly a vyzor... poloha a velkost...
-<<<<<<< HEAD:Apka_TCP/src/Startup/Moja_Apka.cpp
+
         Button = CreateWindow(L"BUTTON",L"Vitajte pre pokracovanie klikni",WS_CHILD|WS_VISIBLE,600,250,400,200,hwnd,(HMENU)(ID_BUTTONS),NULL,NULL);
-=======
+
         Buttons[0] = CreateWindowW(L"BUTTON",L"Vitajte pre pokracovanie klikni",WS_CHILD|WS_VISIBLE,600,250,400,200,hwnd,(HMENU)(ID_BUTTONS),NULL,NULL);
->>>>>>> c9ef392a1a47a15076a7992e506eb650ac2431da:Apka_TCP/src/Moja_Apka.cpp
+
         break;
     case WM_COMMAND:
         switch (LOWORD(wparam)) // toto urcuje ktore tlacidlo bolo stlacene alebo ine stavy
