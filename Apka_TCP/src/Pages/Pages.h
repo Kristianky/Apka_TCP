@@ -5,9 +5,9 @@
 #include "Moja_Apka.h"
 class Pages 
 {
-private:
+protected:
    HWND *Windows;
-   int Number_Of_Windows;
+   int *Number_Of_Windows;
    wchar_t **Windows_CLASS;
    wchar_t **Windows_Names;
    int *Windows_PositionsX;
@@ -17,7 +17,7 @@ private:
 public:
    Pages();
    virtual ~Pages();
-   virtual void Create_Window(HWND hwnd);
+   virtual void Create_Window(HWND hwnd) = 0;
 };
 
 #endif

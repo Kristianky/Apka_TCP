@@ -47,7 +47,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
               DestroyWindow(Button);
               Page_Num=1;
               break;
-  
+        
     case WM_DESTROY:
         PostQuitMessage(0); // zavrie appku
         break;
@@ -76,4 +76,8 @@ LRESULT CALLBACK Moja_Apka::WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, 
 LRESULT CALLBACK Moja_Apka::WindowProcRedirect(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     auto self = reinterpret_cast<Moja_Apka*>(GetWindowLongPtr(hwnd, GWLP_USERDATA));
     return self->WindowProc(hwnd, msg, wParam, lParam);
+}
+
+void Moja_Apka::Render_Page(int Button){
+    
 }

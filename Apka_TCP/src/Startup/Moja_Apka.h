@@ -27,6 +27,7 @@ public:
     ~Moja_Apka();
     void Page_Render();
     HWND Get_HWND() { return hwnd; }
+    void Render_Page(int Button);
 };
 
 #endif
