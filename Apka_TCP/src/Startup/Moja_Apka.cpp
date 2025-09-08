@@ -3,18 +3,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
 
    
     Page_Num = 0;
-
-    Button_X = new int [] {0,600,0,0,1300};
-    Button_Y = new int [] {10,10,210,410,700};
-  
-    const wchar_t *Buttons_N []  {{L"Zobraz Text"},{L"Vloz Text"},{L"Previous slide"},{L"Next slide"},{L"Exit"}};
-    Buttons_Funcionallity = new const wchar_t* [2] {{L"BUTTON"},{L"EDIT"}};;
-    Buttons_Names = new const wchar_t* [5] {{L"Zobraz Text"},{L"Vloz Text"},{L"Previous slide"},{L"Next slide"},{L"Exit"}};
-    Page_Num = 0;
-    Buttons = new HWND[20];
-    TEXTS = new HWND[20];
-   
-
+    
     const wchar_t CLASSNAME[] = L"MojeOknoTrieda"; // Tu si mozme nastavit hlavicku okna
 
     WNDCLASSW wc{};                                // vytvorenie classy appky
