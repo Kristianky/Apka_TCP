@@ -5,7 +5,7 @@
 #include "Pages.h"
 #include "Page_Main.h"  
 
-#define ID_BUTTONS 1
+#define ID_BUTTONS 10000
 class Moja_Apka
 {
 private:
@@ -29,7 +29,7 @@ public:
     ~Moja_Apka();
     void Page_Render();
     HWND Get_HWND() { return hwnd; }
-    void Render_Page(int Button);
+    void Render_Page(int Num_Page);
 };
 
 #endif

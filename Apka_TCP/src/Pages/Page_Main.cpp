@@ -11,12 +11,13 @@ Main_Page::Main_Page()
 Main_Page::~Main_Page(){
     
 }
-void Main_Page::Create_WindowW(HWND hwnd,int BUTTON)
+HWND Main_Page::Create_WindowW(HWND &hwnd,int BUTTON)
 {
     for (int i{}; i < *Number_Of_Windows; i++)
     {
         hwnd = CreateWindowW(Windows_CLASS[i], Windows_Names[i], WS_CHILD | WS_VISIBLE, Windows_PositionsX[i], Windows_PositionsY[i], 200, 100, hwnd, (HMENU)(BUTTON + i +1), NULL, NULL);
     }
+    
 }
 void Main_Page::Destroy_WindowW(HWND hwnd){
 

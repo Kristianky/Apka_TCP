@@ -44,11 +44,16 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         switch (LOWORD(wparam)) // toto urcuje ktore tlacidlo bolo stlacene alebo ine stavy
         {
         case (ID_BUTTONS):
-              if (Page_Num == 0){
+            switch(Page_Num)
+              case 0:
               DestroyWindow(Button);
               Page_Num=1;
-              }
+              Render_Page(Page_Num);
+              break;
+              case 1:
+               MessageBoxW(NULL,L"Ahoj Na Main page",L"INFO",MB_OK);
               break;}
+              break;
     case WM_DESTROY:
         PostQuitMessage(0); // zavrie appku
         break;
@@ -79,6 +84,11 @@ LRESULT CALLBACK Moja_Apka::WindowProcRedirect(HWND hwnd, UINT msg, WPARAM wPara
     return self->WindowProc(hwnd, msg, wParam, lParam);
 }
 
-void Moja_Apka::Render_Page(int Button){
-
+void Moja_Apka::Render_Page(int Page_Num){
+     switch (Page_Num){
+        case 1:
+              Page = new Main_Page{};
+              Page->Create_WindowW(Button,ID_BUTTONS);
+              break;
+     }
 }
