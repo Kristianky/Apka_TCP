@@ -13,7 +13,7 @@ private:
 
 public:
    Pages();
-   ~Pages();
+   virtual ~Pages();
    virtual void Create_Window();
 };
 
