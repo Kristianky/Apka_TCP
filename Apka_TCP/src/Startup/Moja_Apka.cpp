@@ -1,7 +1,20 @@
 #include "Moja_Apka.h"
 Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
+<<<<<<< HEAD:Apka_TCP/src/Startup/Moja_Apka.cpp
    
     Page_Num = 0;
+=======
+    Button_X = new int [] {0,600,0,0,1300};
+    Button_Y = new int [] {10,10,210,410,700};
+  
+    const wchar_t *Buttons_N []  {{L"Zobraz Text"},{L"Vloz Text"},{L"Previous slide"},{L"Next slide"},{L"Exit"}};
+    Buttons_Funcionallity = new const wchar_t* [2] {{L"BUTTON"},{L"EDIT"}};;
+    Buttons_Names = new const wchar_t* [5] {{L"Zobraz Text"},{L"Vloz Text"},{L"Previous slide"},{L"Next slide"},{L"Exit"}};
+    Page_Num = 0;
+    Buttons = new HWND[20];
+    TEXTS = new HWND[20];
+   
+>>>>>>> c9ef392a1a47a15076a7992e506eb650ac2431da:Apka_TCP/src/Moja_Apka.cpp
     const wchar_t CLASSNAME[] = L"MojeOknoTrieda"; // Tu si mozme nastavit hlavicku okna
 
     WNDCLASSW wc{};                                // vytvorenie classy appky
@@ -19,20 +32,26 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
         L"Moja Appka",
         WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, CW_USEDEFAULT, 300, 250,
-        NULL, NULL, Hinstance, NULL);
+        NULL, NULL, Hinstance, this);
+        ShowWindow(hwnd, SW_SHOW);
+        UpdateWindow(hwnd);
 
 }
 Moja_Apka::~Moja_Apka(){
   
 }
-LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
+LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam) 
 {
     switch (umsg)
     {
         // vytvori okna tlacidlo 1,2 a edit okienko
     case WM_CREATE:
         // vytvori tlacidlo button->co to ma byt....zobraz text->text na tlacidle...WS ->styly a vyzor... poloha a velkost...
+<<<<<<< HEAD:Apka_TCP/src/Startup/Moja_Apka.cpp
         Button = CreateWindow(L"BUTTON",L"Vitajte pre pokracovanie klikni",WS_CHILD|WS_VISIBLE,600,250,400,200,hwnd,(HMENU)(ID_BUTTONS),NULL,NULL);
+=======
+        Buttons[0] = CreateWindowW(L"BUTTON",L"Vitajte pre pokracovanie klikni",WS_CHILD|WS_VISIBLE,600,250,400,200,hwnd,(HMENU)(ID_BUTTONS),NULL,NULL);
+>>>>>>> c9ef392a1a47a15076a7992e506eb650ac2431da:Apka_TCP/src/Moja_Apka.cpp
         break;
     case WM_COMMAND:
         switch (LOWORD(wparam)) // toto urcuje ktore tlacidlo bolo stlacene alebo ine stavy

@@ -1,5 +1,6 @@
-Apka_TCP/Appka/CMakeFiles/Executable.dir/main.cpp.obj: \
- C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\Appka\main.cpp \
+Apka_TCP/src/CMakeFiles/MojaApkaLib.dir/Moja_Apka.cpp.obj: \
+ C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\Apka_TCP\src\Moja_Apka.cpp \
+ C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\Apka_TCP\src\Moja_Apka.h \
  C:/mingw64/x86_64-w64-mingw32/include/windows.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
