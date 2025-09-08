@@ -47,18 +47,20 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
               if (Page_Num == 0){
               DestroyWindow(Button);
               Page_Num=1;
+              }
               break;}
     case WM_DESTROY:
         PostQuitMessage(0); // zavrie appku
         break;
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);
-        break;
-    }
+       
+    
     //prepinanie stran a nastavovanie tlacitok
         
-    return 0;
+ 
 }
+ return 0;
 }
 LRESULT CALLBACK Moja_Apka::WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     if (msg == WM_NCCREATE) {                                           //NCCREATE ide este pre CREATE potrebujeme to kvoli this pointru este pred vytvorenim okna
