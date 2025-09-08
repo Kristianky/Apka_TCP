@@ -15,7 +15,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
 
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
     
-    HWND hwnd = CreateWindowExW( // vytvorenie hl okna
+        hwnd = CreateWindowExW( // vytvorenie hl okna
         0,
         CLASSNAME,
         L"Moja Appka",
@@ -47,12 +47,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
               if (Page_Num == 0){
               DestroyWindow(Button);
               Page_Num=1;
-              Page = new Main_Page{};
-              }
-              if (Page_Num == 1){
-                Page->Create_WindowW(Button,ID_BUTTONS);
-              }
-            break;
+              break;}
     case WM_DESTROY:
         PostQuitMessage(0); // zavrie appku
         break;
