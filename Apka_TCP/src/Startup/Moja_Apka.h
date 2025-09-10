@@ -10,7 +10,7 @@ class Moja_Apka
 {
 private:
     int Page_Num;
-    HWND Main_hwnd{};
+    HWND hwnd{};
     HWND *Button;
     // statické setup/redirect
     static LRESULT CALLBACK WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -28,7 +28,7 @@ public:
     Moja_Apka(HINSTANCE Hinstance);
     ~Moja_Apka();
     void Page_Render();
-    HWND Get_HWND() { return Main_hwnd; }
+    HWND Get_HWND() { return hwnd; }
     void Render_Page(int Num_Page);
 };
 
