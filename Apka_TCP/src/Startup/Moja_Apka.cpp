@@ -46,11 +46,13 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         case (ID_BUTTONS):
            
              
-             
+              MessageBoxW(hwnd,L"Ahoj",NULL,NULL);
               Page_Num=1;
+              Page = new Main_Page();
+              Page->Create_WindowW(Button,hwnd,ID_BUTTONS + 1);
               break;
         } 
-          
+        break;
          
     case WM_DESTROY:
         PostQuitMessage(0); // zavrie appku
@@ -63,7 +65,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         
  
 }
- return 0;
+  return 0;
 }
 LRESULT CALLBACK Moja_Apka::WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     if (msg == WM_NCCREATE) {                                           //NCCREATE ide este pre CREATE potrebujeme to kvoli this pointru este pred vytvorenim okna
