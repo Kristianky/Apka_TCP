@@ -46,7 +46,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         case (ID_BUTTONS):
            
              
-              DestroyWindow(Button[0]);
+             
               Page_Num=1;
               break;
         } 
