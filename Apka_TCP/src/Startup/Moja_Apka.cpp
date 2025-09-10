@@ -44,14 +44,20 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         switch (LOWORD(wparam)) // toto urcuje ktore tlacidlo bolo stlacene alebo ine stavy
         {
         case (ID_BUTTONS):
-           
-             
-              MessageBoxW(hwnd,L"Ahoj",NULL,NULL);
+              
+              switch(Page_Num){
+              case 0:
+              DestroyWindow(Button[0]);
               Page_Num=1;
               Page = new Main_Page();
-              Page->Create_WindowW(Button,hwnd,ID_BUTTONS + 1);
+              Page->Create_WindowW(Button,hwnd,ID_BUTTONS);
+              break;
+              case 1:
+              MessageBoxW(hwnd,L"Ahoj",L"Info",MB_OK);
               break;
         } 
+        break;
+    }
         break;
          
     case WM_DESTROY:
