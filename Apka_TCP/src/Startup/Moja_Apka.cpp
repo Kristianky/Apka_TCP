@@ -3,7 +3,7 @@
 Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
 
     Page_Num = 0;
-    
+    Button = new HWND;
     const wchar_t CLASSNAME[] = L"MojeOknoTrieda"; // Tu si mozme nastavit hlavicku okna
 
     WNDCLASSW wc{};                                // vytvorenie classy appky
@@ -15,15 +15,15 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
 
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
     
-        hwnd = CreateWindowExW( // vytvorenie hl okna
+        Main_hwnd = CreateWindowExW( // vytvorenie hl okna
         0,
         CLASSNAME,
         L"Moja Appka",
         WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, CW_USEDEFAULT, 300, 250,
         NULL, NULL, Hinstance, this);
-        ShowWindow(hwnd, SW_SHOW);
-        UpdateWindow(hwnd);
+        ShowWindow(Main_hwnd, SW_SHOW);
+        UpdateWindow(Main_hwnd);
 
 }
 Moja_Apka::~Moja_Apka(){
@@ -37,23 +37,26 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
     case WM_CREATE:
         // vytvori tlacidlo button->co to ma byt....zobraz text->text na tlacidle...WS ->styly a vyzor... poloha a velkost...
        
-        Button = CreateWindowW(L"BUTTON",L"Vitajte pre pokracovanie klikni",WS_CHILD|WS_VISIBLE,600,250,400,200,hwnd,(HMENU)(ID_BUTTONS),NULL,NULL);
+        Button[0] = CreateWindowW(L"BUTTON",L"Vitajte pre pokracovanie klikni",WS_CHILD|WS_VISIBLE,600,250,400,200,hwnd,(HMENU)(ID_BUTTONS),NULL,NULL);
 
         break;
     case WM_COMMAND:
         switch (LOWORD(wparam)) // toto urcuje ktore tlacidlo bolo stlacene alebo ine stavy
         {
         case (ID_BUTTONS):
-            switch(Page_Num)
+            switch(Page_Num){
               case 0:
-              DestroyWindow(Button);
+              DestroyWindow(Button[0]);
+              Page = new Main_Page{};
+              Button[0] = nullptr;
               Page_Num=1;
-              Render_Page(Page_Num);
+             
+              Page->Create_WindowW(Button,Main_hwnd,ID_BUTTONS);
               break;
               case 1:
                MessageBoxW(NULL,L"Ahoj Na Main page",L"INFO",MB_OK);
-              break;}
               break;
+             }}
     case WM_DESTROY:
         PostQuitMessage(0); // zavrie appku
         break;
@@ -88,7 +91,7 @@ void Moja_Apka::Render_Page(int Page_Num){
      switch (Page_Num){
         case 1:
               Page = new Main_Page{};
-              Page->Create_WindowW(Button,ID_BUTTONS);
+              Page->Create_WindowW(Button,Main_hwnd,ID_BUTTONS);
               break;
      }
 }

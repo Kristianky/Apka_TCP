@@ -3,6 +3,7 @@
 Main_Page::Main_Page()
 {
     Windows_Names = new wchar_t *[5]{{L"Data_Structures"}};
+    Windows_CLASS = new wchar_t *[5]{{L"BUTTON"}};
     Number_Of_Windows = new int{1};
     Windows_PositionsX = new int[1]{10};
     Windows_PositionsY = new int[1]{10};
@@ -11,12 +12,14 @@ Main_Page::Main_Page()
 Main_Page::~Main_Page(){
     
 }
-HWND Main_Page::Create_WindowW(HWND &hwnd,int BUTTON)
+void Main_Page::Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON)
 {
+    
     for (int i{}; i < *Number_Of_Windows; i++)
     {
-        hwnd = CreateWindowW(Windows_CLASS[i], Windows_Names[i], WS_CHILD | WS_VISIBLE, Windows_PositionsX[i], Windows_PositionsY[i], 200, 100, hwnd, (HMENU)(BUTTON + i +1), NULL, NULL);
+         Buttons[i] = CreateWindowW(Windows_CLASS[i], Windows_Names[i], WS_CHILD | WS_VISIBLE, Windows_PositionsX[i], Windows_PositionsY[i], 200, 100, Main_Hwnd, (HMENU)(BUTTON + i), NULL, NULL);
     }
+   
     
 }
 void Main_Page::Destroy_WindowW(HWND hwnd){

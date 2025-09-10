@@ -52,10 +52,10 @@ RM = C:\mingw64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\cpp_m\Desktop\Kiko\Apka_TCP
+CMAKE_SOURCE_DIR = C:\Users\Admin\Desktop\c++\Apka
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build
+CMAKE_BINARY_DIR = C:\Users\Admin\Desktop\c++\Apka\build
 
 # Include any dependencies generated for this target.
 include Apka_TCP/src/Pages/CMakeFiles/Pages.dir/depend.make
@@ -70,18 +70,18 @@ include Apka_TCP/src/Pages/CMakeFiles/Pages.dir/flags.make
 
 Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.obj: Apka_TCP/src/Pages/CMakeFiles/Pages.dir/flags.make
 Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.obj: Apka_TCP/src/Pages/CMakeFiles/Pages.dir/includes_CXX.rsp
-Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.obj: C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/src/Pages/Pages.cpp
+Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.obj: C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/Pages.cpp
 Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.obj: Apka_TCP/src/Pages/CMakeFiles/Pages.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.obj"
-	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\Apka_TCP\src\Pages && C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.obj -MF CMakeFiles\Pages.dir\Pages.cpp.obj.d -o CMakeFiles\Pages.dir\Pages.cpp.obj -c C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\Apka_TCP\src\Pages\Pages.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.obj"
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build\Apka_TCP\src\Pages && C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.obj -MF CMakeFiles\Pages.dir\Pages.cpp.obj.d -o CMakeFiles\Pages.dir\Pages.cpp.obj -c C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\Pages.cpp
 
 Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Pages.dir/Pages.cpp.i"
-	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\Apka_TCP\src\Pages && C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\Apka_TCP\src\Pages\Pages.cpp > CMakeFiles\Pages.dir\Pages.cpp.i
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build\Apka_TCP\src\Pages && C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\Pages.cpp > CMakeFiles\Pages.dir\Pages.cpp.i
 
 Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Pages.dir/Pages.cpp.s"
-	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\Apka_TCP\src\Pages && C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\Apka_TCP\src\Pages\Pages.cpp -o CMakeFiles\Pages.dir\Pages.cpp.s
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build\Apka_TCP\src\Pages && C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\Pages.cpp -o CMakeFiles\Pages.dir\Pages.cpp.s
 
 # Object files for target Pages
 Pages_OBJECTS = \
@@ -93,19 +93,19 @@ Pages_EXTERNAL_OBJECTS =
 Apka_TCP/src/Pages/libPages.a: Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.obj
 Apka_TCP/src/Pages/libPages.a: Apka_TCP/src/Pages/CMakeFiles/Pages.dir/build.make
 Apka_TCP/src/Pages/libPages.a: Apka_TCP/src/Pages/CMakeFiles/Pages.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libPages.a"
-	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\Apka_TCP\src\Pages && $(CMAKE_COMMAND) -P CMakeFiles\Pages.dir\cmake_clean_target.cmake
-	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\Apka_TCP\src\Pages && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Pages.dir\link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libPages.a"
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build\Apka_TCP\src\Pages && $(CMAKE_COMMAND) -P CMakeFiles\Pages.dir\cmake_clean_target.cmake
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build\Apka_TCP\src\Pages && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Pages.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Apka_TCP/src/Pages/CMakeFiles/Pages.dir/build: Apka_TCP/src/Pages/libPages.a
 .PHONY : Apka_TCP/src/Pages/CMakeFiles/Pages.dir/build
 
 Apka_TCP/src/Pages/CMakeFiles/Pages.dir/clean:
-	cd /d C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\Apka_TCP\src\Pages && $(CMAKE_COMMAND) -P CMakeFiles\Pages.dir\cmake_clean.cmake
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build\Apka_TCP\src\Pages && $(CMAKE_COMMAND) -P CMakeFiles\Pages.dir\cmake_clean.cmake
 .PHONY : Apka_TCP/src/Pages/CMakeFiles/Pages.dir/clean
 
 Apka_TCP/src/Pages/CMakeFiles/Pages.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\cpp_m\Desktop\Kiko\Apka_TCP C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\Apka_TCP\src\Pages C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\Apka_TCP\src\Pages C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\build\Apka_TCP\src\Pages\CMakeFiles\Pages.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Admin\Desktop\c++\Apka C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages C:\Users\Admin\Desktop\c++\Apka\build C:\Users\Admin\Desktop\c++\Apka\build\Apka_TCP\src\Pages C:\Users\Admin\Desktop\c++\Apka\build\Apka_TCP\src\Pages\CMakeFiles\Pages.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : Apka_TCP/src/Pages/CMakeFiles/Pages.dir/depend
 

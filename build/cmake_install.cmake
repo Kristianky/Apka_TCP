@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/cpp_m/Desktop/Kiko/Apka_TCP
+# Install script for directory: C:/Users/Admin/Desktop/c++/Apka
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/build/Apka_TCP/cmake_install.cmake")
+  include("C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -57,6 +57,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/Admin/Desktop/c++/Apka/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

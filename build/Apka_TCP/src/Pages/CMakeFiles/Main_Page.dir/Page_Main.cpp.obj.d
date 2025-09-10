@@ -1,7 +1,7 @@
 Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj: \
- C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\Apka_TCP\src\Pages\Page_Main.cpp \
- C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\Apka_TCP\src\Pages\Page_Main.h \
- C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\Apka_TCP\src\Pages\Pages.h \
+ C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\Page_Main.cpp \
+ C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\Page_Main.h \
+ C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\Pages.h \
  C:/mingw64/x86_64-w64-mingw32/include/windows.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
