@@ -40,27 +40,10 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         Button[0] = CreateWindowW(L"BUTTON",L"Vitajte pre pokracovanie klikni",WS_CHILD|WS_VISIBLE,600,250,400,200,hwnd,(HMENU)(ID_BUTTONS),NULL,NULL);
 
         break;
-    case WM_COMMAND:
-        switch (LOWORD(wparam)) // toto urcuje ktore tlacidlo bolo stlacene alebo ine stavy
-        {
-        case (ID_BUTTONS):
-              
-              switch(Page_Num){
-              case 0:
-              DestroyWindow(Button[0]);
-              Page_Num=1;
-              Page = new Main_Page();
-              Page->Create_WindowW(Button,hwnd,ID_BUTTONS);
-              break;
-              case 1:
-              MessageBoxW(hwnd,L"Ahoj",L"Info",MB_OK);
-              break;
-        } 
-        break;
-    }
-        break;
-         
-    case WM_DESTROY:
+    case WM_COMMAND:{
+           Render_Page(Page_Num,lparam,wparam);
+           break;}   
+        case WM_DESTROY:
         PostQuitMessage(0); // zavrie appku
         break;
     default:
@@ -90,11 +73,25 @@ LRESULT CALLBACK Moja_Apka::WindowProcRedirect(HWND hwnd, UINT msg, WPARAM wPara
     return self->WindowProc(hwnd, msg, wParam, lParam);
 }
 
-void Moja_Apka::Render_Page(int Page_Num){
-     switch (Page_Num){
-        case 1:
-              Page = new Main_Page{};
-              Page->Create_WindowW(Button,hwnd,ID_BUTTONS);
-              break;
-     }
+void Moja_Apka::Render_Page(int &Page_Num,LPARAM lparam,WPARAM wparam){
+     switch(Page_Num){
+             case 0:
+               Welcome_Page(wparam);
+               break;
+             case 1:
+               if(!Page){
+                Page = new Main_Page();
+               }
+               Page->Buttons_Function(lparam,wparam,Page_Num,Button);
+               break;
+            }
 }
+
+void Moja_Apka::Welcome_Page(WPARAM wparam){
+     switch(LOWORD(wparam)){
+                   case(ID_BUTTONS):
+              DestroyWindow(Button[0]);
+              Page = new Main_Page();
+              Page->Create_WindowW(Button,hwnd,ID_BUTTONS);
+              Page_Num=1;}}
+     

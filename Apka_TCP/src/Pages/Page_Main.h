@@ -8,7 +8,8 @@ class Main_Page:public Pages{
          Main_Page();
          virtual ~Main_Page();
          virtual void Create_WindowW (HWND *Buttons,HWND Main_Hwnd,int BUTTON) override;
-         virtual void Destroy_WindowW(HWND hwnd) override;
+         virtual void Destroy_WindowW(HWND *Buttons) override;
+         virtual void Buttons_Function(LPARAM lparam,WPARAM wparamonst,int &page_num,HWND *Buttons) override;
 };
 
 #endif

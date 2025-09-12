@@ -22,6 +22,19 @@ void Main_Page::Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON)
    
     
 }
-void Main_Page::Destroy_WindowW(HWND hwnd){
+void Main_Page::Destroy_WindowW(HWND *Buttons){
+     for (int i{}; i < *Number_Of_Windows; i++)
+    {
+         DestroyWindow(Buttons[i]);
+    }
+}
 
+void Main_Page::Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons){
+     enum Butoons_ID{Data_Structures = 10000};
+     switch(LOWORD(wparam)){
+        case (Data_Structures):
+             page_num = 2;
+             Destroy_WindowW(Buttons);
+             break;
+     }
 }
