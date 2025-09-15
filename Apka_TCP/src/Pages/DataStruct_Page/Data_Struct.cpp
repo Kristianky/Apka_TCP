@@ -11,7 +11,7 @@ Data_Struct_Page::Data_Struct_Page(){
 }
 
 Data_Struct_Page::~Data_Struct_Page(){
-    
+
 }
 
 void Data_Struct_Page::Cout(HWND Main_hwnd){
@@ -24,15 +24,4 @@ void Data_Struct_Page::Cout(HWND Main_hwnd){
 
 void Data_Struct_Page:: Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,HWND Main_hwnd){
     enum BUTTONS_ID{Paint = 10000};
-    switch(LOWORD(wparam)){
-        case Paint:
-            if(Buttons_Bools[0]){
-               Cout(Main_hwnd);
-               Buttons_Bools[0] = false;
-            }
-            else {
-              Buttons_Bools[0] = true;
-
-            }
-    }
 }

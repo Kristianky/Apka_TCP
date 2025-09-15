@@ -13,7 +13,7 @@ private:
     int Page_Num;
     HWND hwnd{};
     HWND *Button;
-   
+    bool *Buttons_State;
     // statické setup/redirect
     static LRESULT CALLBACK WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
     static LRESULT CALLBACK WindowProcRedirect(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
