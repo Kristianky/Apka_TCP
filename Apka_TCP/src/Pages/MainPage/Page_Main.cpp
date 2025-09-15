@@ -22,3 +22,7 @@ void Main_Page::Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND 
              break;
      }
 }
+
+void Main_Page::Cout(HWND hwnd){
+     
+}

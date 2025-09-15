@@ -40,7 +40,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
 
         break;
     case WM_COMMAND:{
-           Render_Page(Page_Num,lparam,wparam);
+           Render_Page(Page_Num,lparam,wparam,hwnd);
            break;}   
     case WM_DESTROY:
         PostQuitMessage(0); // zavrie appku
@@ -75,7 +75,7 @@ LRESULT CALLBACK Moja_Apka::WindowProcRedirect(HWND hwnd, UINT msg, WPARAM wPara
     return self->WindowProc(hwnd, msg, wParam, lParam);
 }
 
-void Moja_Apka::Render_Page(int &Page_Num,LPARAM lparam,WPARAM wparam){
+void Moja_Apka::Render_Page(int &Page_Num,LPARAM lparam,WPARAM wparam,HWND Main_hwnd){
      switch(Page_Num){
              case 0:
                Welcome_Page(wparam);
@@ -84,14 +84,14 @@ void Moja_Apka::Render_Page(int &Page_Num,LPARAM lparam,WPARAM wparam){
                if(!Page){
                 Page = new Main_Page();
                }
-               Page->Buttons_Function(lparam,wparam,Page_Num,Button);
+               Page->Buttons_Function(lparam,wparam,Page_Num,Button,Main_hwnd);
                break;
                  case 2:
                delete Page;
                if(!Page){
                 Page = new Data_Struct_Page();
                }
-               Page->Buttons_Function(lparam,wparam,Page_Num,Button);
+               Page->Buttons_Function(lparam,wparam,Page_Num,Button,Main_hwnd);
             }
         }
            

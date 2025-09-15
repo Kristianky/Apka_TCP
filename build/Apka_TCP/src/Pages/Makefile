@@ -115,82 +115,6 @@ depend:
 	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-Apka_TCP/src/Pages/CMakeFiles/Pages.dir/rule:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/CMakeFiles/Pages.dir/rule
-.PHONY : Apka_TCP/src/Pages/CMakeFiles/Pages.dir/rule
-
-# Convenience name for target.
-Pages: Apka_TCP/src/Pages/CMakeFiles/Pages.dir/rule
-.PHONY : Pages
-
-# fast build rule for target.
-Pages/fast:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Pages.dir/build
-.PHONY : Pages/fast
-
-# Convenience name for target.
-Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/rule:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/rule
-.PHONY : Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/rule
-
-# Convenience name for target.
-Main_Page: Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/rule
-.PHONY : Main_Page
-
-# fast build rule for target.
-Main_Page/fast:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/build
-.PHONY : Main_Page/fast
-
-Page_Main.obj: Page_Main.cpp.obj
-.PHONY : Page_Main.obj
-
-# target to build an object file
-Page_Main.cpp.obj:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj
-.PHONY : Page_Main.cpp.obj
-
-Page_Main.i: Page_Main.cpp.i
-.PHONY : Page_Main.i
-
-# target to preprocess a source file
-Page_Main.cpp.i:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/Page_Main.cpp.i
-.PHONY : Page_Main.cpp.i
-
-Page_Main.s: Page_Main.cpp.s
-.PHONY : Page_Main.s
-
-# target to generate assembly for a file
-Page_Main.cpp.s:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/Page_Main.cpp.s
-.PHONY : Page_Main.cpp.s
-
-Pages.obj: Pages.cpp.obj
-.PHONY : Pages.obj
-
-# target to build an object file
-Pages.cpp.obj:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.obj
-.PHONY : Pages.cpp.obj
-
-Pages.i: Pages.cpp.i
-.PHONY : Pages.i
-
-# target to preprocess a source file
-Pages.cpp.i:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.i
-.PHONY : Pages.cpp.i
-
-Pages.s: Pages.cpp.s
-.PHONY : Pages.s
-
-# target to generate assembly for a file
-Pages.cpp.s:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Pages.dir/Pages.cpp.s
-.PHONY : Pages.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -199,14 +123,6 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Main_Page
-	@echo ... Pages
-	@echo ... Page_Main.obj
-	@echo ... Page_Main.i
-	@echo ... Page_Main.s
-	@echo ... Pages.obj
-	@echo ... Pages.i
-	@echo ... Pages.s
 .PHONY : help
 
 

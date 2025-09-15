@@ -7,8 +7,7 @@ class Main_Page:public Pages{
       public:
          Main_Page();
          virtual ~Main_Page();
-         virtual void Create_WindowW (HWND *Buttons,HWND Main_Hwnd,int BUTTON);
-         virtual void Destroy_WindowW(HWND *Buttons);
+         
          virtual void Buttons_Function(LPARAM lparam,WPARAM wparamonst,int &page_num,HWND *Buttons,HWND Main_hwnd) override;
          virtual void Cout(HWND hwnd) override;
 };

@@ -138,7 +138,7 @@ Pages: cmake_check_build_system
 
 # fast build rule for target.
 Pages/fast:
-	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Pages.dir/build
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/build
 .PHONY : Pages/fast
 
 #=============================================================================
@@ -151,8 +151,21 @@ Main_Page: cmake_check_build_system
 
 # fast build rule for target.
 Main_Page/fast:
-	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/CMakeFiles/Main_Page.dir/build
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\MainPage\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/build
 .PHONY : Main_Page/fast
+
+#=============================================================================
+# Target rules for targets named Data_Struct
+
+# Build rule for target.
+Data_Struct: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Data_Struct
+.PHONY : Data_Struct
+
+# fast build rule for target.
+Data_Struct/fast:
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Data_Struct.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/build
+.PHONY : Data_Struct/fast
 
 #=============================================================================
 # Target rules for targets named MojaApkaLib
@@ -175,6 +188,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Data_Struct
 	@echo ... Main_Page
 	@echo ... MojaApkaEXE
 	@echo ... MojaApkaLib

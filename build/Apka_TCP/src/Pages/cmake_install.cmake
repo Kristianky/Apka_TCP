@@ -37,3 +37,18 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "C:/mingw64/bin/objdump.exe")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/src/Pages/Page_All/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/src/Pages/MainPage/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/src/Pages/DataStruct_Page/cmake_install.cmake")
+endif()
+

@@ -279,6 +279,6 @@ Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/Moja_Apka.cpp.obj: \
  C:/mingw64/x86_64-w64-mingw32/include/winsvc.h \
  C:/mingw64/x86_64-w64-mingw32/include/mcx.h \
  C:/mingw64/x86_64-w64-mingw32/include/imm.h \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/Pages.h \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/Page_Main.h \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/Pages.h
+ C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/Page_All/Pages.h \
+ C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/MainPage/Page_Main.h \
+ C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.h

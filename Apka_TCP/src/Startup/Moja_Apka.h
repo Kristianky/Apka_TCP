@@ -31,7 +31,7 @@ public:
     ~Moja_Apka();
     void Page_Render();
     HWND Get_HWND() { return hwnd; }
-    void Render_Page(int &Num_Page,LPARAM lparam,WPARAM wparam);
+    void Render_Page(int &Num_Page,LPARAM lparam,WPARAM wparam,HWND Main_hwnd);
     void Welcome_Page(WPARAM wparam);
     };
 

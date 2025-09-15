@@ -1,0 +1,2 @@
+C:\mingw64\bin\ar.exe qc libData_Struct.a CMakeFiles/Data_Struct.dir/Data_Struct.cpp.obj
+C:\mingw64\bin\ranlib.exe libData_Struct.a
