@@ -5,14 +5,13 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
     Page_Num = 0;
     Button = new HWND[10];
     const wchar_t CLASSNAME[] = L"MojeOknoTrieda"; // Tu si mozme nastavit hlavicku okna
-
     WNDCLASSW wc{};                                // vytvorenie classy appky
     wc.lpfnWndProc = Moja_Apka::WindowProcSetup;                   // ukaze na funkciu ktoru sme si hore zadefinovali
     wc.hInstance = Hinstance;                      // priraduje handle
     wc.lpszClassName = CLASSNAME;                  // priradi meno okna
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 5); // nastavi styl a farbu okna
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);      // nacita kurzor a nastavi styl
-
+    
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
     
         hwnd = CreateWindowExW( // vytvorenie hl okna
@@ -43,8 +42,11 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
     case WM_COMMAND:{
            Render_Page(Page_Num,lparam,wparam);
            break;}   
-        case WM_DESTROY:
+    case WM_DESTROY:
         PostQuitMessage(0); // zavrie appku
+        break;
+    case WM_PAINT:
+         
         break;
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);
@@ -84,8 +86,15 @@ void Moja_Apka::Render_Page(int &Page_Num,LPARAM lparam,WPARAM wparam){
                }
                Page->Buttons_Function(lparam,wparam,Page_Num,Button);
                break;
+                 case 2:
+               delete Page;
+               if(!Page){
+                Page = new Data_Struct_Page();
+               }
+               Page->Buttons_Function(lparam,wparam,Page_Num,Button);
             }
-}
+        }
+           
 
 void Moja_Apka::Welcome_Page(WPARAM wparam){
      switch(LOWORD(wparam)){

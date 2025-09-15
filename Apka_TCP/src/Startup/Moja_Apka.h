@@ -4,6 +4,7 @@
 #include <windows.h>
 #include "Pages.h"
 #include "Page_Main.h"  
+#include "Data_Struct.h"
 
 #define ID_BUTTONS 10000
 class Moja_Apka
@@ -12,6 +13,7 @@ private:
     int Page_Num;
     HWND hwnd{};
     HWND *Button;
+   
     // statické setup/redirect
     static LRESULT CALLBACK WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
     static LRESULT CALLBACK WindowProcRedirect(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);

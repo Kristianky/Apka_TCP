@@ -13,13 +13,15 @@ protected:
    int *Windows_PositionsX;
    int *Windows_PositionsY;
    wchar_t *Page_Name;
+   bool *Buttons_Bools;
 
 public:
    Pages();
    virtual ~Pages();
-   virtual void Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON) = 0;
-   virtual void Destroy_WindowW(HWND *Buttons) = 0;
-   virtual void Buttons_Function(LPARAM lparam,WPARAM wparamonst,int &page_num,HWND *Buttons) = 0;
+   virtual void Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON);
+   virtual void Destroy_WindowW(HWND *Buttons);
+   virtual void Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,HWND Main_hwnd) = 0;
+   virtual void Cout(HWND hwnd) = 0;
 };
 
 #endif
