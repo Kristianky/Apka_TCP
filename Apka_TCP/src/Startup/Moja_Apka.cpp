@@ -97,6 +97,7 @@ void Moja_Apka::Render_Page(int &Page_Num,LPARAM lparam,WPARAM wparam,HWND Main_
                 Page = new Data_Struct_Page();
                }
                Buttons_State[0] = true;
+               break;
             }
         }
            
