@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Startup/Moja_Apka.cpp" "Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/Moja_Apka.cpp.obj" "gcc" "Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/Moja_Apka.cpp.obj.d"
+  "C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/src/Startup/Moja_Apka.cpp" "Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/Moja_Apka.cpp.obj" "gcc" "Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/Moja_Apka.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

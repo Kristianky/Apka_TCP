@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.cpp" "Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/Data_Struct.cpp.obj" "gcc" "Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/Data_Struct.cpp.obj.d"
+  "C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.cpp" "Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/Data_Struct.cpp.obj" "gcc" "Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/Data_Struct.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

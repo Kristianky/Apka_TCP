@@ -4,7 +4,7 @@
 #include <windows.h>
 #include "Pages.h"
 #include "Page_Main.h"  
-#include "Data_Struct.h"
+
 
 #define ID_BUTTONS 10000
 class Moja_Apka

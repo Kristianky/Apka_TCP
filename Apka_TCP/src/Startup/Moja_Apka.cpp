@@ -12,6 +12,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance){
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 5); // nastavi styl a farbu okna
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);      // nacita kurzor a nastavi styl
     Buttons_State = new bool [5];
+    Buttons_State[0] = false;
 
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
     
@@ -47,12 +48,8 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         PostQuitMessage(0); // zavrie appku
         break;
     case WM_PAINT:
-         if(Buttons_State[0]){
-            if(Page){
-                Page->Cout(hwnd);
-            }
-         }
-        break;
+    break;
+        
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);
         
@@ -91,12 +88,10 @@ void Moja_Apka::Render_Page(int &Page_Num,LPARAM lparam,WPARAM wparam,HWND Main_
                }
                Page->Buttons_Function(lparam,wparam,Page_Num,Button,Main_hwnd);
                break;
-                 case 2:
+               case 2:
                Page = nullptr;
-               if(!Page){
-                Page = new Data_Struct_Page();
-               }
-               Buttons_State[0] = true;
+               Page = new Data_Struct_Page();
+               Page->Buttons_Function(lparam,wparam,Page_Num,Button,Main_hwnd);
                break;
             }
         }

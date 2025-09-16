@@ -5,4 +5,3 @@ add_library(MojaApkaLib
 target_include_directories(MojaApkaLib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(MojaApkaLib PUBLIC Pages)
 target_link_libraries(MojaApkaLib PUBLIC Main_Page)
-target_link_libraries(MojaApkaLib PUBLIC Data_Struct)
