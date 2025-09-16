@@ -20,8 +20,8 @@ public:
    virtual ~Pages();
    virtual void Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON) = 0;
    virtual void Destroy_WindowW(HWND *Buttons);
-   virtual void Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,HWND Main_hwnd) = 0;
-   virtual void Cout(HWND hwnd) = 0;
+   virtual void Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,HWND Main_hwnd,bool *Buttons_State) = 0;
+   virtual void Cout(HDC hdc) = 0;
 };
 
 #endif

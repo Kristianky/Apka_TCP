@@ -48,6 +48,10 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         PostQuitMessage(0); // zavrie appku
         break;
     case WM_PAINT:
+    PAINTSTRUCT Ps;
+    HDC hdc = BeginPaint(hwnd,&Ps);
+    Paint(hdc,Buttons_State);
+    EndPaint(hwnd,&Ps);
     break;
         
     default:
@@ -104,4 +108,10 @@ void Moja_Apka::Welcome_Page(WPARAM wparam){
               Page = new Main_Page();
               Page->Create_WindowW(Button,hwnd,ID_BUTTONS);
               Page_Num=1;}}
+
+void Moja_Apka::Paint(HDC hdc,bool *Buttons_State){
+     if (Buttons_State[0]){
+        Page->Cout(hdc);
+     }
+}
      

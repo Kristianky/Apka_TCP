@@ -25,19 +25,20 @@ void Data_Struct_Page::Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON)
     
 }
 
-void Data_Struct_Page::Cout(HWND Main_hwnd){
-     PAINTSTRUCT ps;
-     HDC hdc;
-     TextOutW(hdc,200,200,L"AHOJ",20);
-
+void Data_Struct_Page::Cout(HDC hdc){
 
 }
 
-void Data_Struct_Page:: Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,HWND Main_hwnd){
+void Data_Struct_Page:: Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,HWND Main_hwnd,bool *Buttons_State){
     enum BUTTONS_ID{Paint = 10000};
      switch(LOWORD(wparam)){
         case Paint:
-             MessageBoxW(Main_hwnd,L"Ahoj",MB_OK,MB_OK);
+             if(Buttons_State[0]){
+               Buttons_State[0] = false;
+             }
+             else if(!Buttons_State[0]){
+               Buttons_State[0] = true;
+             }
              break;
      }
 }
