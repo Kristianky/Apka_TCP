@@ -52,10 +52,11 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
     case WM_PAINT:
        { PAINTSTRUCT Ps;
         HDC hdc = BeginPaint(hwnd, &Ps);
-        Paint(hdc, Buttons_State);
+        Paint(hdc);
         EndPaint(hwnd, &Ps);
         break;
        }
+
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);
 
@@ -117,10 +118,13 @@ void Moja_Apka::Welcome_Page(WPARAM wparam)
     }
 }
 
-void Moja_Apka::Paint(HDC hdc, bool *Buttons_State)
+void Moja_Apka::Paint(HDC hdc)
 {
-    if (Buttons_State[0])
+     if(Buttons_State[0])
     {
+        if(!Page){
+            Page = new Data_Struct_Page();
+        }
         Page->Cout(hdc);
     }
 }

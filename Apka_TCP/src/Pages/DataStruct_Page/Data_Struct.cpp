@@ -3,7 +3,7 @@
 Data_Struct_Page::Data_Struct_Page(){
     Windows_Names = new wchar_t *[5]{{L"Paint"},{L"ShowStauts"}};
     Windows_CLASS = new wchar_t *[5]{{L"BUTTON"}};
-    Number_Of_Windows = new int{1};
+    Number_Of_Windows = new int{2};
     Windows_PositionsX = new int[2]{10,210};
     Windows_PositionsY = new int[2]{10,10};
     Windows = new HWND[10];
@@ -26,7 +26,9 @@ void Data_Struct_Page::Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON)
 }
 
 void Data_Struct_Page::Cout(HDC hdc){
-     TextOutW(hdc,100,200,L"Ahoj",100);
+     SetTextColor(hdc, RGB(255, 255, 255));  // biely text
+     SetBkMode(hdc, TRANSPARENT);
+     TextOutW(hdc,100,200,L"Ahoj",4);
 }
 
 void Data_Struct_Page:: Buttons_Function (LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,HWND Main_hwnd,bool *Buttons_State){

@@ -33,7 +33,7 @@ public:
     HWND Get_HWND() { return hwnd; }
     void Render_Page(int &Num_Page,LPARAM lparam,WPARAM wparam,HWND Main_hwnd);
     void Welcome_Page(WPARAM wparam);
-    void Paint(HDC hdc,bool *Buttons_State);
+    void Paint(HDC hdc);
     };
 
 #endif
