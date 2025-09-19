@@ -29,7 +29,7 @@ void Data_Struct_Page::Cout(HDC hdc){
      TextOutW(hdc,100,200,L"Ahoj",100);
 }
 
-void Data_Struct_Page:: Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,HWND Main_hwnd,bool &Buttons_State[]){
+void Data_Struct_Page:: Buttons_Function (LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,HWND Main_hwnd,bool *Buttons_State){
     enum BUTTONS_ID{Paint = 10000};
      switch(LOWORD(wparam)){
         case Paint:
