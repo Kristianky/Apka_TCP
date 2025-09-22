@@ -1,6 +1,7 @@
 #ifndef _MOJA_APKA_H_
 #define _MOJA_APKA_H_
 
+#include <vector>
 #include <windows.h>
 #include "Pages.h"
 #include "Page_Main.h"  
@@ -13,7 +14,7 @@ private:
     int Page_Num;
     HWND hwnd{};
     HWND *Button;
-    bool *Buttons_State;
+    std::vector<bool> Buttons_State[10];
     // statické setup/redirect
     static LRESULT CALLBACK WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
     static LRESULT CALLBACK WindowProcRedirect(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);

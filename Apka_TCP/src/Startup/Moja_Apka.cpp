@@ -12,8 +12,6 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
     wc.lpszClassName = CLASSNAME;                  // priradi meno okna
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 5); // nastavi styl a farbu okna
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);      // nacita kurzor a nastavi styl
-    Buttons_State = new bool[5];
-    Buttons_State[0] = false;
 
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
 
@@ -120,7 +118,7 @@ void Moja_Apka::Welcome_Page(WPARAM wparam)
 
 void Moja_Apka::Paint(HDC hdc)
 {
-     if(Buttons_State[0])
+    if(Buttons_State[0])
     {
         if(!Page){
             Page = new Data_Struct_Page();

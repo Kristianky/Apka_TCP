@@ -1,17 +1,71 @@
 Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj: \
- C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\Apka_TCP\src\Pages\MainPage\Page_Main.cpp \
- C:\Users\cpp_m\Desktop\Kiko\Apka_TCP\Apka_TCP\src\Pages\MainPage\Page_Main.h \
- C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/src/Pages/Page_All/Pages.h \
- C:/mingw64/x86_64-w64-mingw32/include/windows.h \
+ C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\MainPage\Page_Main.cpp \
+ C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\MainPage\Page_Main.h \
+ C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/Page_All/Pages.h \
+ C:/mingw64/include/c++/14.2.0/vector \
+ C:/mingw64/include/c++/14.2.0/bits/requires_hosted.h \
+ C:/mingw64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h \
+ C:/mingw64/include/c++/14.2.0/x86_64-w64-mingw32/bits/os_defines.h \
+ C:/mingw64/include/c++/14.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
+ C:/mingw64/include/c++/14.2.0/pstl/pstl_config.h \
+ C:/mingw64/include/c++/14.2.0/bits/stl_algobase.h \
+ C:/mingw64/include/c++/14.2.0/bits/functexcept.h \
+ C:/mingw64/include/c++/14.2.0/bits/exception_defines.h \
+ C:/mingw64/include/c++/14.2.0/bits/cpp_type_traits.h \
+ C:/mingw64/include/c++/14.2.0/ext/type_traits.h \
+ C:/mingw64/include/c++/14.2.0/ext/numeric_traits.h \
+ C:/mingw64/include/c++/14.2.0/bits/stl_pair.h \
+ C:/mingw64/include/c++/14.2.0/type_traits \
+ C:/mingw64/include/c++/14.2.0/bits/version.h \
+ C:/mingw64/include/c++/14.2.0/bits/move.h \
+ C:/mingw64/include/c++/14.2.0/bits/utility.h \
+ C:/mingw64/include/c++/14.2.0/bits/stl_iterator_base_types.h \
+ C:/mingw64/include/c++/14.2.0/bits/stl_iterator_base_funcs.h \
+ C:/mingw64/include/c++/14.2.0/bits/concept_check.h \
+ C:/mingw64/include/c++/14.2.0/debug/assertions.h \
+ C:/mingw64/include/c++/14.2.0/bits/stl_iterator.h \
+ C:/mingw64/include/c++/14.2.0/bits/ptr_traits.h \
+ C:/mingw64/include/c++/14.2.0/debug/debug.h \
+ C:/mingw64/include/c++/14.2.0/bits/predefined_ops.h \
+ C:/mingw64/include/c++/14.2.0/bit C:/mingw64/include/c++/14.2.0/concepts \
+ C:/mingw64/include/c++/14.2.0/bits/allocator.h \
+ C:/mingw64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
+ C:/mingw64/include/c++/14.2.0/bits/new_allocator.h \
+ C:/mingw64/include/c++/14.2.0/new \
+ C:/mingw64/include/c++/14.2.0/bits/exception.h \
+ C:/mingw64/include/c++/14.2.0/bits/memoryfwd.h \
+ C:/mingw64/include/c++/14.2.0/bits/stl_construct.h \
+ C:/mingw64/include/c++/14.2.0/bits/stl_uninitialized.h \
+ C:/mingw64/include/c++/14.2.0/ext/alloc_traits.h \
+ C:/mingw64/include/c++/14.2.0/bits/alloc_traits.h \
+ C:/mingw64/include/c++/14.2.0/bits/stl_vector.h \
+ C:/mingw64/include/c++/14.2.0/initializer_list \
+ C:/mingw64/include/c++/14.2.0/bits/stl_bvector.h \
+ C:/mingw64/include/c++/14.2.0/bits/functional_hash.h \
+ C:/mingw64/include/c++/14.2.0/bits/hash_bytes.h \
+ C:/mingw64/include/c++/14.2.0/bits/refwrap.h \
+ C:/mingw64/include/c++/14.2.0/bits/invoke.h \
+ C:/mingw64/include/c++/14.2.0/bits/stl_function.h \
+ C:/mingw64/include/c++/14.2.0/backward/binders.h \
+ C:/mingw64/include/c++/14.2.0/bits/range_access.h \
+ C:/mingw64/include/c++/14.2.0/bits/vector.tcc \
+ C:/mingw64/include/c++/14.2.0/bits/memory_resource.h \
+ C:/mingw64/include/c++/14.2.0/cstddef \
+ C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stddef.h \
+ C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
+ C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+ C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
  C:/mingw64/x86_64-w64-mingw32/include/vadefs.h \
  C:/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+ C:/mingw64/include/c++/14.2.0/bits/uses_allocator.h \
+ C:/mingw64/include/c++/14.2.0/bits/uses_allocator_args.h \
+ C:/mingw64/include/c++/14.2.0/tuple \
+ C:/mingw64/x86_64-w64-mingw32/include/windows.h \
  C:/mingw64/x86_64-w64-mingw32/include/sdkddkver.h \
  C:/mingw64/x86_64-w64-mingw32/include/excpt.h \
- C:/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
- C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdarg.h \
  C:/mingw64/x86_64-w64-mingw32/include/stdarg.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
@@ -34,8 +88,6 @@ Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj: \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/x86intrin.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/x86gprintrin.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/ia32intrin.h \
- C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stddef.h \
- C:/mingw64/x86_64-w64-mingw32/include/stddef.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/adxintrin.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/bmiintrin.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/bmi2intrin.h \
@@ -79,10 +131,6 @@ Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj: \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \
  C:/mingw64/include/c++/14.2.0/stdlib.h \
  C:/mingw64/include/c++/14.2.0/cstdlib \
- C:/mingw64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h \
- C:/mingw64/include/c++/14.2.0/x86_64-w64-mingw32/bits/os_defines.h \
- C:/mingw64/include/c++/14.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
- C:/mingw64/include/c++/14.2.0/pstl/pstl_config.h \
  C:/mingw64/x86_64-w64-mingw32/include/stdlib.h \
  C:/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h \
@@ -280,4 +328,4 @@ Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj: \
  C:/mingw64/x86_64-w64-mingw32/include/winsvc.h \
  C:/mingw64/x86_64-w64-mingw32/include/mcx.h \
  C:/mingw64/x86_64-w64-mingw32/include/imm.h \
- C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.h
+ C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.h

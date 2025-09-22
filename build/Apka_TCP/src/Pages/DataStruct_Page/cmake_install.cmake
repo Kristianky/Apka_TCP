@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page
+# Install script for directory: C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/DataStruct_Page
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

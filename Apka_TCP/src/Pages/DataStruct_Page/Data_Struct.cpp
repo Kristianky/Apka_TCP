@@ -7,7 +7,7 @@ Data_Struct_Page::Data_Struct_Page(){
     Windows_PositionsX = new int[2]{10,210};
     Windows_PositionsY = new int[2]{10,10};
     Windows = new HWND[10];
-    Buttons_Bools = new bool[5];
+  
 }
 
 Data_Struct_Page::~Data_Struct_Page(){
@@ -31,21 +31,21 @@ void Data_Struct_Page::Cout(HDC hdc){
      TextOutW(hdc,100,200,L"Ahoj",4);
 }
 
-void Data_Struct_Page:: Buttons_Function (LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,HWND Main_hwnd,bool *Buttons_State){
+void Data_Struct_Page:: Buttons_Function (LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,HWND Main_hwnd,std::vector<bool> &Buttons_state){
     enum BUTTONS_ID{Paint = 10000,ShowWindow};
      switch(LOWORD(wparam)){
         case Paint:
-             if(Buttons_State[0]){
-               Buttons_State[0] = false;
+             if(Buttons_state[0]){
+               Buttons_state[0] = false;
              }
-             else if(!Buttons_State[0]){
-               Buttons_State[0] = true;
+             else if(!Buttons_state[0]){
+               Buttons_state[0] = true;
              }
              break;
           case ShowWindow:
-                if(Buttons_State[0]){
+                if(Buttons_state[0]){
                MessageBoxW(Main_hwnd,L"True",MB_OK,MB_OK);}
-                else if(!Buttons_State[0]){
+                else if(!Buttons_state[0]){
                 MessageBoxW(Main_hwnd,L"False",MB_OK,MB_OK);}
      }
 }

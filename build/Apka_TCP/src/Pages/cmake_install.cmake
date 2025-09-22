@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/Apka_TCP/src/Pages
+# Install script for directory: C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,16 +39,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/build/Apka_TCP/src/Pages/Page_All/cmake_install.cmake")
+  include("C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/src/Pages/Page_All/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/build/Apka_TCP/src/Pages/MainPage/cmake_install.cmake")
+  include("C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/src/Pages/MainPage/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/cpp_m/Desktop/Kiko/Apka_TCP/build/Apka_TCP/src/Pages/DataStruct_Page/cmake_install.cmake")
+  include("C:/Users/Admin/Desktop/c++/Apka/build/Apka_TCP/src/Pages/DataStruct_Page/cmake_install.cmake")
 endif()
 
