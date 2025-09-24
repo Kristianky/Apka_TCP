@@ -12,7 +12,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
     wc.lpszClassName = CLASSNAME;                  // priradi meno okna
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 5); // nastavi styl a farbu okna
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);      // nacita kurzor a nastavi styl
-    Buttons_State = new bool [5];
+    Buttons_State = new bool[5];
     Buttons_State[0] = false;
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
 
@@ -49,13 +49,14 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         PostQuitMessage(0); // zavrie appku
         break;
     case WM_PAINT:
-       { PAINTSTRUCT Ps;
+    {
+        PAINTSTRUCT Ps;
         HDC hdc = BeginPaint(hwnd, &Ps);
-      
+
         Paint(hdc);
         EndPaint(hwnd, &Ps);
         break;
-       }
+    }
 
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);
@@ -67,9 +68,9 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
 LRESULT CALLBACK Moja_Apka::WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     if (msg == WM_NCCREATE)
-    {                                                       // NCCREATE ide este pre CREATE potrebujeme to kvoli this pointru este pred vytvorenim okna
-        auto cs = reinterpret_cast<CREATESTRUCT *>(lParam); // CREATESTRUCT je funkcia ktora vynika pri vytvarani okna
-                                                            // cize vtedy potrebujeme z nej dostat pointer aby sme mohli manipulovat s oknom
+    {                                                                                   // NCCREATE ide este pre CREATE potrebujeme to kvoli this pointru este pred vytvorenim okna
+        auto cs = reinterpret_cast<CREATESTRUCT *>(lParam);                             // CREATESTRUCT je funkcia ktora vynika pri vytvarani okna
+                                                                                        // cize vtedy potrebujeme z nej dostat pointer aby sme mohli manipulovat s oknom
         auto self = reinterpret_cast<Moja_Apka *>(cs->lpCreateParams);                  // toto ulozi pointer z create struct do nasej appky
         SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)self);                          // toto ulozi pointer do pamate ktoru ma windows urcenu pre uzivatelov pri vytvarani okien
         SetWindowLongPtr(hwnd, GWLP_WNDPROC, (LONG_PTR)&Moja_Apka::WindowProcRedirect); // tu ulozime pointer do urcenej pamate windowsom                                                                  //mozme ptr prepisovat a ukladat ale tato pamat je presne urcena wndproc funkciu
@@ -96,15 +97,12 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam, HWND Ma
         {
             Page = new Main_Page();
         }
-        Page->Buttons_Function(lparam, wparam,hwnd, Page_Num, Button, Main_hwnd, Buttons_State);
-        if(Buttons_State[0]){
-        InvalidateRect(Main_hwnd, NULL, FALSE);
-        UpdateWindow(Main_hwnd);}
+        Page->Buttons_Function(lparam, wparam, hwnd, Page_Num, Button, Main_hwnd, Buttons_State);
         break;
     case 2:
         Page = nullptr;
         Page = new Data_Struct_Page();
-        Page->Buttons_Function(lparam, wparam,hwnd, Page_Num, Button, Main_hwnd, Buttons_State);
+        Page->Buttons_Function(lparam, wparam, hwnd, Page_Num, Button, Main_hwnd, Buttons_State);
         break;
     }
 }
@@ -123,11 +121,16 @@ void Moja_Apka::Welcome_Page(WPARAM wparam)
 
 void Moja_Apka::Paint(HDC hdc)
 {
-    if(Buttons_State[0])
+    if (Buttons_State[0])
     {
-        if(!Page){
+        if (!Page)
+        {
             Page = new Data_Struct_Page();
         }
         Page->Cout(hdc);
+    }
+    else if(!Buttons_State[0]){
+         RECT rect = {200, 200, 200, 200};
+         FillRect(hdc, &rect, (HBRUSH)(COLOR_WINDOW+5));
     }
 }

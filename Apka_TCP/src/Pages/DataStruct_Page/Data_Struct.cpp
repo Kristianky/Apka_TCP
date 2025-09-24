@@ -40,15 +40,10 @@ void Data_Struct_Page::Buttons_Function(LPARAM lparam, WPARAM wparam, HWND hwnd,
      switch (LOWORD(wparam))
      {
      case Paint:
-          if (Buttons_state[0])
-          {
-               Buttons_state[0] = false;
-          }
-
-          else if (!Buttons_state[0])
-          {
-               Buttons_state[0] = true;
-          }
+          Buttons_state[0] = !Buttons_state[0];
+          InvalidateRect(Main_hwnd, NULL, FALSE);
+          UpdateWindow(Main_hwnd);
+          
           break;
      case ShowWindow:
           if (Buttons_state[0])
