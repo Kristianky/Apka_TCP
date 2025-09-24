@@ -12,7 +12,8 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
     wc.lpszClassName = CLASSNAME;                  // priradi meno okna
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 5); // nastavi styl a farbu okna
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);      // nacita kurzor a nastavi styl
-
+    Buttons_State = new bool [5];
+    Buttons_State[0] = false;
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
 
     hwnd = CreateWindowExW( // vytvorenie hl okna
@@ -50,6 +51,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
     case WM_PAINT:
        { PAINTSTRUCT Ps;
         HDC hdc = BeginPaint(hwnd, &Ps);
+      
         Paint(hdc);
         EndPaint(hwnd, &Ps);
         break;
@@ -94,12 +96,15 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam, HWND Ma
         {
             Page = new Main_Page();
         }
-        Page->Buttons_Function(lparam, wparam, Page_Num, Button, Main_hwnd, Buttons_State);
+        Page->Buttons_Function(lparam, wparam,hwnd, Page_Num, Button, Main_hwnd, Buttons_State);
+        if(Buttons_State[0]){
+        InvalidateRect(Main_hwnd, NULL, FALSE);
+        UpdateWindow(Main_hwnd);}
         break;
     case 2:
         Page = nullptr;
         Page = new Data_Struct_Page();
-        Page->Buttons_Function(lparam, wparam, Page_Num, Button, Main_hwnd, Buttons_State);
+        Page->Buttons_Function(lparam, wparam,hwnd, Page_Num, Button, Main_hwnd, Buttons_State);
         break;
     }
 }
