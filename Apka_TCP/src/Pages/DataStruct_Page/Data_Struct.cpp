@@ -41,7 +41,7 @@ void Data_Struct_Page::Buttons_Function(LPARAM lparam, WPARAM wparam, HWND hwnd,
      {
      case Paint:
           Buttons_state[0] = !Buttons_state[0];
-          InvalidateRect(Main_hwnd, NULL, FALSE);
+          InvalidateRect(Main_hwnd, NULL, true);
           UpdateWindow(Main_hwnd);
           
           break;
