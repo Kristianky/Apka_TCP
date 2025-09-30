@@ -22,7 +22,8 @@ public:
    virtual void Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON) = 0;
    virtual void Destroy_WindowW(HWND *Buttons);
    virtual void Buttons_Function(LPARAM lparam,WPARAM wparam,HWND hwnd,int &page_num,HWND *Buttons,HWND Main_hwnd,bool *Buttons_state) = 0;
-   virtual void Cout(HDC hdc) = 0;
+   virtual void Cout_Button_1(HDC hdc) = 0;
+   virtual void Cout_Create(HDC hdc) = 0;
 };
 
 #endif

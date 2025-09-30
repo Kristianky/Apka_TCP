@@ -8,6 +8,8 @@ Data_Struct_Page::Data_Struct_Page()
      Windows_PositionsX = new int[2]{10, 210};
      Windows_PositionsY = new int[2]{10, 10};
      Windows = new HWND[10];
+     InvalidateRect(Main_hwnd, NULL, true);
+     UpdateWindow(Main_hwnd);
 }
 
 Data_Struct_Page::~Data_Struct_Page()
@@ -23,11 +25,18 @@ void Data_Struct_Page::Create_WindowW(HWND *Buttons, HWND Main_Hwnd, int BUTTON)
      }
 }
 
-void Data_Struct_Page::Cout(HDC hdc)
+void Data_Struct_Page::Cout_Button_1(HDC hdc)
 {
      SetTextColor(hdc, RGB(255, 255, 255)); // biely text
      SetBkMode(hdc, TRANSPARENT);
      TextOutW(hdc, 200, 200, L"Ahoj", 4);
+}
+
+void Data_Struct_Page::Cout_Create(HDC hdc){
+     SetTextColor(hdc, RGB(255, 255, 255)); // biely text
+     SetBkMode(hdc, TRANSPARENT);
+     TextOutW(hdc,200,200,L"Lenght of X",11);
+     TextOutW(hdc,200,215,L"Lenght of Y",11);
 }
 
 void Data_Struct_Page::Buttons_Function(LPARAM lparam, WPARAM wparam, HWND hwnd, int &page_num, HWND *Buttons, HWND Main_hwnd, bool *Buttons_state)

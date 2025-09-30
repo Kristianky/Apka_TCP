@@ -127,10 +127,23 @@ void Moja_Apka::Paint(HDC hdc)
         {
             Page = new Data_Struct_Page();
         }
-        Page->Cout(hdc);
+        Page->Cout_Button_1(hdc);
     }
     else if(!Buttons_State[0]){
          RECT rect = {200, 200, 200, 200};
          FillRect(hdc, &rect, (HBRUSH)(COLOR_WINDOW+5));
+    }
+    if (Page_Num != 2){
+         if(!Page){
+            Page = new Data_Struct_Page();
+        }
+        RECT rect = {200, 200, 200, 200};
+         FillRect(hdc, &rect, (HBRUSH)(COLOR_WINDOW+5));
+    }
+    if (Page_Num == 2){
+        if(!Page){
+            Page = new Data_Struct_Page();
+        }
+        Page->Cout_Create(hdc);
     }
 }

@@ -36,6 +36,10 @@ void Main_Page::Buttons_Function(LPARAM lparam,WPARAM wparam,HWND hwnd,int &page
      }
 }
 
-void Main_Page::Cout(HDC hwnd){
+void Main_Page::Cout_Button_1(HDC hwnd){
+     
+}
+
+void Main_Page::Cout_Create(HDC hdc){
      
 }

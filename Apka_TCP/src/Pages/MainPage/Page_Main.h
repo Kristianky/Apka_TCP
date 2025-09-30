@@ -11,7 +11,8 @@ class Main_Page:public Pages{
          virtual ~Main_Page();
          virtual void Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON) override;
          virtual void Buttons_Function(LPARAM lparam,WPARAM wparamonst,HWND hwnd,int &page_num,HWND *Buttons,HWND Main_hwnd,bool *Buttons_state) override;
-         virtual void Cout(HDC hdc) override;
+         virtual void Cout_Button_1(HDC hdc) override;
+         virtual void Cout_Create(HDC hdc) override;
 };
 
 #endif
