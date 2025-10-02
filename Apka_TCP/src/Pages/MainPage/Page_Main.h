@@ -7,12 +7,12 @@ class Main_Page:public Pages{
       private:
           Data_Struct_Page *Data_Struct;
       public:
-         Main_Page();
+         Main_Page(HWND hwnd,HDC hdc);
          virtual ~Main_Page();
          virtual void Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON) override;
-         virtual void Buttons_Function(LPARAM lparam,WPARAM wparamonst,HWND hwnd,int &page_num,HWND *Buttons,HWND Main_hwnd,bool *Buttons_state) override;
-         virtual void Cout_Button_1(HDC hdc) override;
-         virtual void Cout_Create(HDC hdc) override;
+         virtual void Buttons_Function(LPARAM lparam,WPARAM wparamonst,int &page_num,HWND *Buttons,bool *Buttons_state) override;
+         virtual void Cout_Button_1() override;
+         virtual void Cout_Create() override;
 };
 
 #endif

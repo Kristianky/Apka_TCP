@@ -1,6 +1,6 @@
 #include "Page_Main.h"
 
-Main_Page::Main_Page()
+Main_Page::Main_Page(HWND hwnd,HDC hdc):Pages(hwnd,hdc)
 {
     Windows_Names = new wchar_t *[5]{{L"Data_Structures"}};
     Windows_CLASS = new wchar_t *[5]{{L"BUTTON"}};
@@ -8,7 +8,7 @@ Main_Page::Main_Page()
     Windows_PositionsX = new int[1]{10};
     Windows_PositionsY = new int[1]{10};
     Windows = new HWND[10];
-    Data_Struct = new Data_Struct_Page();
+    Data_Struct = new Data_Struct_Page(Main_hwnd,Main_hdc);
 }
 Main_Page::~Main_Page(){
     
@@ -25,7 +25,7 @@ void Main_Page::Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON)
     
 }
 
-void Main_Page::Buttons_Function(LPARAM lparam,WPARAM wparam,HWND hwnd,int &page_num,HWND *Buttons,HWND Main_hwnd,bool *Buttons_state){
+void Main_Page::Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,bool *Buttons_state){
      enum Butoons_ID{Data_Structures = 10000};
      switch(LOWORD(wparam)){
         case (Data_Structures):
@@ -36,10 +36,10 @@ void Main_Page::Buttons_Function(LPARAM lparam,WPARAM wparam,HWND hwnd,int &page
      }
 }
 
-void Main_Page::Cout_Button_1(HDC hwnd){
+void Main_Page::Cout_Button_1(){
      
 }
 
-void Main_Page::Cout_Create(HDC hdc){
+void Main_Page::Cout_Create(){
      
 }

@@ -1,6 +1,7 @@
 #include "Pages.h"
 
-Pages::Pages()
+Pages::Pages(HWND hwnd,HDC hdc):
+Main_hwnd{hwnd},Main_hdc{hdc}
 {
     Windows_CLASS = new wchar_t *[6] { {L"BUTTON"},
                                        {L"EDIT"},

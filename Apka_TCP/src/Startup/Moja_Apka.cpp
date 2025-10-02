@@ -31,6 +31,7 @@ Moja_Apka::~Moja_Apka()
 }
 LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 {
+  
     switch (umsg)
     {
         // vytvori okna tlacidlo 1,2 a edit okienko
@@ -42,7 +43,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         break;
     case WM_COMMAND:
     {
-        Render_Page(Page_Num, lparam, wparam, hwnd);
+        Render_Page(Page_Num, lparam, wparam);
         break;
     }
     case WM_DESTROY:
@@ -51,9 +52,9 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
     case WM_PAINT:
     {
         PAINTSTRUCT Ps;
-        HDC hdc = BeginPaint(hwnd, &Ps);
+        hdc = BeginPaint(hwnd, &Ps);
 
-        Paint(hdc);
+        Paint();
         EndPaint(hwnd, &Ps);
         break;
     }
@@ -85,7 +86,7 @@ LRESULT CALLBACK Moja_Apka::WindowProcRedirect(HWND hwnd, UINT msg, WPARAM wPara
     return self->WindowProc(hwnd, msg, wParam, lParam);
 }
 
-void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam, HWND Main_hwnd)
+void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
 {
     switch (Page_Num)
     {
@@ -95,14 +96,14 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam, HWND Ma
     case 1:
         if (!Page)
         {
-            Page = new Main_Page();
+            Page = new Main_Page(hwnd,hdc);
         }
-        Page->Buttons_Function(lparam, wparam, hwnd, Page_Num, Button, Main_hwnd, Buttons_State);
+        Page->Buttons_Function(lparam, wparam, Page_Num, Button, Buttons_State);
         break;
     case 2:
         Page = nullptr;
-        Page = new Data_Struct_Page();
-        Page->Buttons_Function(lparam, wparam, hwnd, Page_Num, Button, Main_hwnd, Buttons_State);
+        Page = new Data_Struct_Page(hwnd,hdc);
+        Page->Buttons_Function(lparam, wparam,  Page_Num, Button,  Buttons_State);
         break;
     }
 }
@@ -113,21 +114,21 @@ void Moja_Apka::Welcome_Page(WPARAM wparam)
     {
     case (ID_BUTTONS):
         DestroyWindow(Button[0]);
-        Page = new Main_Page();
+        Page = new Main_Page(hwnd,hdc);
         Page->Create_WindowW(Button, hwnd, ID_BUTTONS);
         Page_Num = 1;
     }
 }
 
-void Moja_Apka::Paint(HDC hdc)
+void Moja_Apka::Paint()
 {
     if (Buttons_State[0])
     {
         if (!Page)
         {
-            Page = new Data_Struct_Page();
+            Page = new Data_Struct_Page(hwnd,hdc);
         }
-        Page->Cout_Button_1(hdc);
+        Page->Cout_Button_1();
     }
     else if(!Buttons_State[0]){
          RECT rect = {200, 200, 200, 200};
@@ -135,15 +136,15 @@ void Moja_Apka::Paint(HDC hdc)
     }
     if (Page_Num != 2){
          if(!Page){
-            Page = new Data_Struct_Page();
+            Page = new Data_Struct_Page(hwnd,hdc);
         }
         RECT rect = {200, 200, 200, 200};
          FillRect(hdc, &rect, (HBRUSH)(COLOR_WINDOW+5));
     }
     if (Page_Num == 2){
         if(!Page){
-            Page = new Data_Struct_Page();
+            Page = new Data_Struct_Page(hwnd,hdc);
         }
-        Page->Cout_Create(hdc);
+        Page->Cout_Create();
     }
 }
