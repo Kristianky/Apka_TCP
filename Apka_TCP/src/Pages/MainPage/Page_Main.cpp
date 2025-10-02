@@ -9,6 +9,7 @@ Main_Page::Main_Page(HWND hwnd,HDC hdc):Pages(hwnd,hdc)
     Windows_PositionsY = new int[1]{10};
     Windows = new HWND[10];
     Data_Struct = new Data_Struct_Page(Main_hwnd,Main_hdc);
+
 }
 Main_Page::~Main_Page(){
     
@@ -32,14 +33,22 @@ void Main_Page::Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND 
              Destroy_WindowW(Buttons);
              Data_Struct->Create_WindowW(Buttons,Main_hwnd,Data_Structures);
              page_num = 2;
+             InvalidateRect(Main_hwnd, NULL, true);
+             UpdateWindow(Main_hwnd);
+            
              break;
-     }
 }
+}
+
 
 void Main_Page::Cout_Button_1(){
      
 }
 
 void Main_Page::Cout_Create(){
-     
+     SetTextColor(Main_hdc, RGB(255, 255, 255)); // biely text
+     SetBkMode(Main_hdc, TRANSPARENT);
+     TextOutW(Main_hdc,200,200,L"Lenght of X",11);
+     TextOutW(Main_hdc,200,215,L"Lenght of Y",11);
+     TextOutW(Main_hdc,200,230,L"Data",4);
 }

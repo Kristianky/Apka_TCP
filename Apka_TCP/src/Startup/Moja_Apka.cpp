@@ -134,13 +134,7 @@ void Moja_Apka::Paint()
          RECT rect = {200, 200, 200, 200};
          FillRect(hdc, &rect, (HBRUSH)(COLOR_WINDOW+5));
     }
-    if (Page_Num != 2){
-         if(!Page){
-            Page = new Data_Struct_Page(hwnd,hdc);
-        }
-        RECT rect = {200, 200, 200, 200};
-         FillRect(hdc, &rect, (HBRUSH)(COLOR_WINDOW+5));
-    }
+  
     if (Page_Num == 2){
         if(!Page){
             Page = new Data_Struct_Page(hwnd,hdc);

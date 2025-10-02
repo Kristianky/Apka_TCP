@@ -13,6 +13,8 @@ class Main_Page:public Pages{
          virtual void Buttons_Function(LPARAM lparam,WPARAM wparamonst,int &page_num,HWND *Buttons,bool *Buttons_state) override;
          virtual void Cout_Button_1() override;
          virtual void Cout_Create() override;
+         virtual HWND Get_hwnd() {return Main_hwnd;}
+         virtual HDC Get_hdc() {return Main_hdc;}
 };
 
 #endif

@@ -2,6 +2,7 @@
 #define _SPARSE_MATRIX_H_
 
 
+
 class Sparse_Matrix{
     private:
      int size,Lenght_X,Lenght_Y;
@@ -16,8 +17,5 @@ class Sparse_Matrix{
 };
 
 
-void Sparse_Matrix::add_data(){
-    wchar_t Buffer[size];
-    
- }
+
 #endif
