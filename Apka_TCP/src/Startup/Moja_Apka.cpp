@@ -15,7 +15,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
     Buttons_State = new bool[5];
     Buttons_State[0] = false;
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
-
+    Buffer = new wchar_t[50];
     hwnd = CreateWindowExW( // vytvorenie hl okna
         0,
         CLASSNAME,
@@ -51,14 +51,35 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         break;
     case WM_PAINT:
     {
+        HDC hdc;
         PAINTSTRUCT Ps;
         hdc = BeginPaint(hwnd, &Ps);
-
-        Paint();
+        
+        Paint(hdc);
         EndPaint(hwnd, &Ps);
         break;
     }
-
+    case WM_ACTIVATE:
+         {
+              if (LOWORD(wparam) != WA_INACTIVE)
+              InvalidateRect(hwnd, NULL, TRUE);
+              UpdateWindow(hwnd);
+    break;
+         }
+    case WM_EXITSIZEMOVE:
+    {
+         UINT Resize = wparam;
+         if (Resize == SIZE_RESTORED|| Resize == SIZE_MAXIMIZED|| Resize == SIZE_MINIMIZED){
+            InvalidateRect(hwnd, NULL, true);
+            UpdateWindow(hwnd);
+            
+         }
+     break;
+        }
+       case WM_KEYDOWN:
+            Render_Page_Keyboard(wparam);
+            break;
+               
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);
 
@@ -96,13 +117,13 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
     case 1:
         if (!Page)
         {
-            Page = new Main_Page(hwnd,hdc);
+            Page = new Main_Page(hwnd);
         }
         Page->Buttons_Function(lparam, wparam, Page_Num, Button, Buttons_State);
         break;
     case 2:
         Page = nullptr;
-        Page = new Data_Struct_Page(hwnd,hdc);
+        Page = new Data_Struct_Page(hwnd);
         Page->Buttons_Function(lparam, wparam,  Page_Num, Button,  Buttons_State);
         break;
     }
@@ -114,31 +135,40 @@ void Moja_Apka::Welcome_Page(WPARAM wparam)
     {
     case (ID_BUTTONS):
         DestroyWindow(Button[0]);
-        Page = new Main_Page(hwnd,hdc);
+        Page = new Main_Page(hwnd);
         Page->Create_WindowW(Button, hwnd, ID_BUTTONS);
         Page_Num = 1;
     }
 }
 
-void Moja_Apka::Paint()
+void Moja_Apka::Paint(HDC hdc)
 {
-    if (Buttons_State[0])
-    {
-        if (!Page)
+    switch(Page_Num){
+        case 2:
+           Page->Cout_Create(hdc);
+            SetTextColor(hdc, RGB(255, 255, 255)); // biely text
+            SetBkMode(hdc, TRANSPARENT);
+           TextOutW(hdc,500,500,Buffer,2);
+}}
+
+void Moja_Apka::Render_Page_Keyboard(WPARAM wparam){
+    switch(Page_Num){
+        case 0:
         {
-            Page = new Data_Struct_Page(hwnd,hdc);
+           break;
         }
-        Page->Cout_Button_1();
-    }
-    else if(!Buttons_State[0]){
-         RECT rect = {200, 200, 200, 200};
-         FillRect(hdc, &rect, (HBRUSH)(COLOR_WINDOW+5));
-    }
-  
-    if (Page_Num == 2){
-        if(!Page){
-            Page = new Data_Struct_Page(hwnd,hdc);
+        case 1:
+        {}
+        case 2: 
+        {
+          switch(wparam){
+            case VK_RETURN:
+                 {
+                    GetWindowTextW(Button[2],Buffer,ID_BUTTONS + 2);
+                     InvalidateRect(hwnd, NULL, true);
+                     UpdateWindow(hwnd);
+                 }
+          }
         }
-        Page->Cout_Create();
     }
 }

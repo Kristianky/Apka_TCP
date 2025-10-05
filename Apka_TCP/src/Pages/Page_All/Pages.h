@@ -15,20 +15,20 @@ protected:
    int *Windows_PositionsY;
    wchar_t *Page_Name;
    HWND Main_hwnd;
-   HDC Main_hdc;
+   
    
 
 public:
    Pages() = default;
-   Pages(HWND hwnd,HDC hdc);
+   Pages(HWND hwnd);
    virtual ~Pages();
    virtual void Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON) = 0;
    virtual void Destroy_WindowW(HWND *Buttons);
    virtual void Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,bool *Buttons_state) = 0;
-   virtual void Cout_Button_1() = 0;
-   virtual void Cout_Create() = 0;
+   virtual void Cout_Button_1(HDC hdc) = 0;
+   virtual void Cout_Create(HDC hdc) = 0;
    virtual HWND Get_hwnd() = 0;
-   virtual HDC Get_hdc() = 0;
+ 
 };
 
 #endif

@@ -1,6 +1,6 @@
 #include "Data_Struct.h"
 
-Data_Struct_Page::Data_Struct_Page(HWND hwnd,HDC hdc):Pages(hwnd,hdc)
+Data_Struct_Page::Data_Struct_Page(HWND hwnd):Pages(hwnd)
 
 {
      Windows_Names = new wchar_t *[5]{{L"Paint"}, {L"ShowStauts"},{L"0"},{L"0"},{L"0"}};
@@ -30,19 +30,19 @@ void Data_Struct_Page::Create_WindowW(HWND *Buttons, HWND Main_Hwnd, int BUTTON)
      }
 }
 
-void Data_Struct_Page::Cout_Button_1()
+void Data_Struct_Page::Cout_Button_1(HDC hdc)
 {
-     SetTextColor(Main_hdc, RGB(255, 255, 255)); // biely text
-     SetBkMode(Main_hdc, TRANSPARENT);
-     TextOutW(Main_hdc, 350, 200, L"Ahoj", 4);
+     SetTextColor(hdc, RGB(255, 255, 255)); // biely text
+     SetBkMode(hdc, TRANSPARENT);
+     TextOutW(hdc, 350, 200, L"Ahoj", 4);
 }
 
-void Data_Struct_Page::Cout_Create(){
-     SetTextColor(Main_hdc, RGB(255, 255, 255)); // biely text
-     SetBkMode(Main_hdc, TRANSPARENT);
-     TextOutW(Main_hdc,200,200,L"Lenght of X",11);
-     TextOutW(Main_hdc,200,215,L"Lenght of Y",11);
-     TextOutW(Main_hdc,200,230,L"Data",4);
+void Data_Struct_Page::Cout_Create(HDC hdc){
+     SetTextColor(hdc, RGB(255, 255, 255)); // biely text
+     SetBkMode(hdc, TRANSPARENT);
+     TextOutW(hdc,200,200,L"Lenght of X",11);
+     TextOutW(hdc,200,215,L"Lenght of Y",11);
+     TextOutW(hdc,200,230,L"Data",4);
 }
 
 void Data_Struct_Page::Buttons_Function(LPARAM lparam, WPARAM wparam, int &page_num, HWND *Buttons, bool *Buttons_state)

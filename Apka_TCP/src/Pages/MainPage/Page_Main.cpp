@@ -1,6 +1,6 @@
 #include "Page_Main.h"
 
-Main_Page::Main_Page(HWND hwnd,HDC hdc):Pages(hwnd,hdc)
+Main_Page::Main_Page(HWND hwnd):Pages(hwnd)
 {
     Windows_Names = new wchar_t *[5]{{L"Data_Structures"}};
     Windows_CLASS = new wchar_t *[5]{{L"BUTTON"}};
@@ -8,7 +8,7 @@ Main_Page::Main_Page(HWND hwnd,HDC hdc):Pages(hwnd,hdc)
     Windows_PositionsX = new int[1]{10};
     Windows_PositionsY = new int[1]{10};
     Windows = new HWND[10];
-    Data_Struct = new Data_Struct_Page(Main_hwnd,Main_hdc);
+    Data_Struct = new Data_Struct_Page(Main_hwnd);
 
 }
 Main_Page::~Main_Page(){
@@ -41,14 +41,14 @@ void Main_Page::Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND 
 }
 
 
-void Main_Page::Cout_Button_1(){
+void Main_Page::Cout_Button_1(HDC hdc){
      
 }
 
-void Main_Page::Cout_Create(){
-     SetTextColor(Main_hdc, RGB(255, 255, 255)); // biely text
-     SetBkMode(Main_hdc, TRANSPARENT);
-     TextOutW(Main_hdc,200,200,L"Lenght of X",11);
-     TextOutW(Main_hdc,200,215,L"Lenght of Y",11);
-     TextOutW(Main_hdc,200,230,L"Data",4);
+void Main_Page::Cout_Create(HDC hdc){
+     SetTextColor(hdc, RGB(255, 255, 255)); // biely text
+     SetBkMode(hdc, TRANSPARENT);
+     TextOutW(hdc,200,200,L"Lenght of X",11);
+     TextOutW(hdc,200,215,L"Lenght of Y",11);
+     TextOutW(hdc,200,230,L"Data",4);
 }

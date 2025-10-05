@@ -22,7 +22,7 @@ private:
     // tvoja "pravá" WndProc ako členská metóda
     LRESULT WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
     // hwnd->okno ktoremu je sprava urcena...
-    HDC hdc;
+    wchar_t *Buffer;
     // uint -> premmene napr z klavesnice mysi atd..
     // wparam-> stavovy parameter doplnujuce info
     // lparam -> dalsie parametre napr poloha kurzora atd
@@ -34,7 +34,8 @@ public:
     HWND Get_HWND() { return hwnd; }
     void Render_Page(int &Num_Page,LPARAM lparam,WPARAM wparam);
     void Welcome_Page(WPARAM wparam);
-    void Paint();
+    void Paint(HDC hdc);
+    void Render_Page_Keyboard(WPARAM wpram);
     };
 
 #endif

@@ -6,7 +6,7 @@ void Sparse_Matrix::add_data(){
         data[i]='0';
      }
      for(int i{};i < size;i++){
-        
+         
      }
 
     
