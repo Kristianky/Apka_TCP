@@ -16,6 +16,7 @@ C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/MainPa
 C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/MainPage/CMakeFiles/edit_cache.dir
 C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/MainPage/CMakeFiles/rebuild_cache.dir
 C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir
+C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir
 C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/edit_cache.dir
 C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/rebuild_cache.dir
 C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir

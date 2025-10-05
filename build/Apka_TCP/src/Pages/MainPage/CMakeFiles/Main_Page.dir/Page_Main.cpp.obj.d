@@ -2,6 +2,7 @@ Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj: \
  C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\Apka_TCP\src\Pages\MainPage\Page_Main.cpp \
  C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\Apka_TCP\src\Pages\MainPage\Page_Main.h \
  C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/Page_All/Pages.h \
+ C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page/Sparse_Matrix.h \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/windows.h \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw.h \
  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \

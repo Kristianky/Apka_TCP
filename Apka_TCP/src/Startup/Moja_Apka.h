@@ -36,7 +36,7 @@ public:
     void Render_Page(int &Num_Page,LPARAM lparam,WPARAM wparam);
     void Welcome_Page(WPARAM wparam,LPARAM lparam);
     void Paint(HDC hdc);
-    void Render_Page_Keyboard(WPARAM wpram);
+    void Render_Page_Keyboard(WPARAM wpram,LPARAM lparam);
     };
 
 #endif

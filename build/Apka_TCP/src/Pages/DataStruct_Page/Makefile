@@ -129,6 +129,20 @@ Data_Struct/fast:
 	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Data_Struct.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/build
 .PHONY : Data_Struct/fast
 
+# Convenience name for target.
+Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/rule:
+	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/rule
+.PHONY : Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/rule
+
+# Convenience name for target.
+Sparse_Matrix: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/rule
+.PHONY : Sparse_Matrix
+
+# fast build rule for target.
+Sparse_Matrix/fast:
+	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/build
+.PHONY : Sparse_Matrix/fast
+
 Data_Struct.obj: Data_Struct.cpp.obj
 .PHONY : Data_Struct.obj
 
@@ -153,6 +167,30 @@ Data_Struct.cpp.s:
 	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Data_Struct.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/Data_Struct.cpp.s
 .PHONY : Data_Struct.cpp.s
 
+Sparse_Matrix.obj: Sparse_Matrix.cpp.obj
+.PHONY : Sparse_Matrix.obj
+
+# target to build an object file
+Sparse_Matrix.cpp.obj:
+	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.obj
+.PHONY : Sparse_Matrix.cpp.obj
+
+Sparse_Matrix.i: Sparse_Matrix.cpp.i
+.PHONY : Sparse_Matrix.i
+
+# target to preprocess a source file
+Sparse_Matrix.cpp.i:
+	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.i
+.PHONY : Sparse_Matrix.cpp.i
+
+Sparse_Matrix.s: Sparse_Matrix.cpp.s
+.PHONY : Sparse_Matrix.s
+
+# target to generate assembly for a file
+Sparse_Matrix.cpp.s:
+	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.s
+.PHONY : Sparse_Matrix.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -162,9 +200,13 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Data_Struct
+	@echo ... Sparse_Matrix
 	@echo ... Data_Struct.obj
 	@echo ... Data_Struct.i
 	@echo ... Data_Struct.s
+	@echo ... Sparse_Matrix.obj
+	@echo ... Sparse_Matrix.i
+	@echo ... Sparse_Matrix.s
 .PHONY : help
 
 

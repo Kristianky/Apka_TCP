@@ -277,6 +277,7 @@ Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj: C:/Users
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/wtypes.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/wtypesbase.h \
   C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.h \
+  C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page/Sparse_Matrix.h \
   C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/Page_All/Pages.h \
   C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/MainPage/Page_Main.h
 
@@ -730,6 +731,8 @@ C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/minwinbase.h:
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/minwindef.h:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/mmiscapi2.h:
+
+C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page/Sparse_Matrix.h:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/mmsystem.h:
 

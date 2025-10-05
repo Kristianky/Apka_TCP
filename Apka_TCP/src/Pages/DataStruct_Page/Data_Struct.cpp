@@ -6,8 +6,8 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd):Pages(hwnd)
      Windows_Names = new wchar_t *[6]{{L"Paint"}, {L"ShowStauts"},{L"0"},{L"0"},{L"0"},{L"0"}};
      Windows_CLASS = new wchar_t *[5]{{L"BUTTON"},{L"EDIT"}};
      Number_Of_Windows = new int{6};
-     Windows_PositionsX = new int[5]{10, 210,10,10,10};
-     Windows_PositionsY = new int[5]{10, 10,200,215,230};
+     Windows_PositionsX = new int[6]{10, 210,10,10,10,10};
+     Windows_PositionsY = new int[6]{10, 10,200,215,230,245};
      Windows = new HWND[10];
      Buffer = new wchar_t *[2];
 }

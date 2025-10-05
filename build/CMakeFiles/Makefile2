@@ -150,6 +150,7 @@ Apka_TCP/src/Pages/clean: Apka_TCP/src/Pages/DataStruct_Page/clean
 
 # Recursive "all" directory target.
 Apka_TCP/src/Pages/DataStruct_Page/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/all
+Apka_TCP/src/Pages/DataStruct_Page/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/all
 .PHONY : Apka_TCP/src/Pages/DataStruct_Page/all
 
 # Recursive "preinstall" directory target.
@@ -158,6 +159,7 @@ Apka_TCP/src/Pages/DataStruct_Page/preinstall:
 
 # Recursive "clean" directory target.
 Apka_TCP/src/Pages/DataStruct_Page/clean: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/clean
+Apka_TCP/src/Pages/DataStruct_Page/clean: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/clean
 .PHONY : Apka_TCP/src/Pages/DataStruct_Page/clean
 
 #=============================================================================
@@ -209,10 +211,11 @@ Apka_TCP/src/Startup/clean: Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/clea
 # Target rules for target Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir
 
 # All Build rule for target.
+Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/all
+Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/all
+Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all: Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/all
 Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all: Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/all
 Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all: Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/all
-Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/all
-Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all: Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/all
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\MojaApkaEXE.dir\build.make Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/depend
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\Appka\CMakeFiles\MojaApkaEXE.dir\build.make Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles --progress-num=5,6 "Built target MojaApkaEXE"
@@ -220,7 +223,7 @@ Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all: Apka_TCP/src/Startup/CMakeFiles/M
 
 # Build rule for subdir invocation for target.
 Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 0
 .PHONY : Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/rule
@@ -238,7 +241,7 @@ Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/clean:
 # Target rules for target Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir
 
 # All Build rule for target.
-Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/all:
+Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/all
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/depend
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles --progress-num=9,10 "Built target Pages"
@@ -246,7 +249,7 @@ Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/all:
 
 # Build rule for subdir invocation for target.
 Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 0
 .PHONY : Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/rule
@@ -264,8 +267,9 @@ Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/clean:
 # Target rules for target Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir
 
 # All Build rule for target.
-Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/all: Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/all
 Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/all
+Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/all
+Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/all: Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/all
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\MainPage\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/depend
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\MainPage\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles --progress-num=3,4 "Built target Main_Page"
@@ -273,7 +277,7 @@ Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/all: Apka_TCP/src/Pages/Dat
 
 # Build rule for subdir invocation for target.
 Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 0
 .PHONY : Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/rule
@@ -291,6 +295,7 @@ Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/clean:
 # Target rules for target Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir
 
 # All Build rule for target.
+Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/all
 Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/all: Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/all
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Data_Struct.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/depend
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Data_Struct.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/build
@@ -299,7 +304,7 @@ Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/all: Apka_TCP/src/
 
 # Build rule for subdir invocation for target.
 Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 0
 .PHONY : Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/rule
@@ -314,12 +319,39 @@ Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/clean:
 .PHONY : Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/clean
 
 #=============================================================================
+# Target rules for target Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir
+
+# All Build rule for target.
+Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/all:
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/depend
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles --progress-num=11,12 "Built target Sparse_Matrix"
+.PHONY : Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/all
+
+# Build rule for subdir invocation for target.
+Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 0
+.PHONY : Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/rule
+
+# Convenience name for target.
+Sparse_Matrix: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/rule
+.PHONY : Sparse_Matrix
+
+# clean rule for target.
+Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/clean
+.PHONY : Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/clean
+
+#=============================================================================
 # Target rules for target Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir
 
 # All Build rule for target.
+Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/all
+Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/all
 Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/all: Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/all
 Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/all: Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/all
-Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/all: Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/all
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Startup\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/depend
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Startup\CMakeFiles\MojaApkaLib.dir\build.make Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles --progress-num=7,8 "Built target MojaApkaLib"
@@ -327,7 +359,7 @@ Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/all: Apka_TCP/src/Pages/DataStru
 
 # Build rule for subdir invocation for target.
 Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 0
 .PHONY : Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/rule

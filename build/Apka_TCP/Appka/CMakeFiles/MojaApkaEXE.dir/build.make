@@ -97,6 +97,7 @@ Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/src/Pages/MainPage/libMain_Page.a
 Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/src/Pages/Page_All/libPages.a
 Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/src/Pages/DataStruct_Page/libData_Struct.a
 Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/src/Pages/Page_All/libPages.a
+Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/src/Pages/DataStruct_Page/libSparse_Matrix.a
 Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/linkLibs.rsp
 Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/objects1.rsp
 Apka_TCP/Appka/MojaApkaEXE.exe: Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/link.txt

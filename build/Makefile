@@ -168,6 +168,19 @@ Data_Struct/fast:
 .PHONY : Data_Struct/fast
 
 #=============================================================================
+# Target rules for targets named Sparse_Matrix
+
+# Build rule for target.
+Sparse_Matrix: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sparse_Matrix
+.PHONY : Sparse_Matrix
+
+# fast build rule for target.
+Sparse_Matrix/fast:
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/build
+.PHONY : Sparse_Matrix/fast
+
+#=============================================================================
 # Target rules for targets named MojaApkaLib
 
 # Build rule for target.
@@ -193,6 +206,7 @@ help:
 	@echo ... MojaApkaEXE
 	@echo ... MojaApkaLib
 	@echo ... Pages
+	@echo ... Sparse_Matrix
 .PHONY : help
 
 

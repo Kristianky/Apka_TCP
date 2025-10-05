@@ -77,7 +77,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
      break;
         }
        case WM_KEYDOWN:
-            Render_Page_Keyboard(wparam);
+            Render_Page_Keyboard(wparam,lparam);
             break;
                
     default:
@@ -151,7 +151,7 @@ void Moja_Apka::Paint(HDC hdc)
            TextOutW(hdc,500,500,Buffer,2);
 }}
 
-void Moja_Apka::Render_Page_Keyboard(WPARAM wparam){
+void Moja_Apka::Render_Page_Keyboard(WPARAM wparam,LPARAM lparam){
     switch(Page_Num){
         case 0:
         {
@@ -161,14 +161,10 @@ void Moja_Apka::Render_Page_Keyboard(WPARAM wparam){
         {}
         case 2: 
         {
-          switch(wparam){
-            case VK_RETURN:
-                 {
-                    GetWindowTextW(Button[2],Buffer,ID_BUTTONS + 2);
-                     InvalidateRect(hwnd, NULL, true);
-                     UpdateWindow(hwnd);
-                 }
+          if(!Page){
+            Page = new Data_Struct_Page(hwnd);
           }
+          Page->Key_Board_Func(wparam,lparam,ID_BUTTONS,Button);
         }
     }
 }
