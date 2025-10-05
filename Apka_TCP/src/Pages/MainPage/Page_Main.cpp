@@ -26,7 +26,7 @@ void Main_Page::Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON)
     
 }
 
-void Main_Page::Buttons_Function(LPARAM lparam,WPARAM wparam,int &page_num,HWND *Buttons,bool *Buttons_state){
+void Main_Page::Buttons_Function(int &page_num,HWND *Buttons,bool *Buttons_state,WPARAM wparam,LPARAM lparam){
      enum Butoons_ID{Data_Structures = 10000};
      switch(LOWORD(wparam)){
         case (Data_Structures):
@@ -52,3 +52,5 @@ void Main_Page::Cout_Create(HDC hdc){
      TextOutW(hdc,200,215,L"Lenght of Y",11);
      TextOutW(hdc,200,230,L"Data",4);
 }
+
+void Main_Page::Key_Board_Func(WPARAM wparam,LPARAM lparam,int ID_Button,HWND *Window){}

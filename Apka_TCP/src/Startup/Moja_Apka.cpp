@@ -112,24 +112,24 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
     switch (Page_Num)
     {
     case 0:
-        Welcome_Page(wparam);
+        Welcome_Page(wparam,lparam);
         break;
     case 1:
         if (!Page)
         {
             Page = new Main_Page(hwnd);
         }
-        Page->Buttons_Function(lparam, wparam, Page_Num, Button, Buttons_State);
+        Page->Buttons_Function(Page_Num, Button, Buttons_State,wparam,lparam);
         break;
     case 2:
         Page = nullptr;
         Page = new Data_Struct_Page(hwnd);
-        Page->Buttons_Function(lparam, wparam,  Page_Num, Button,  Buttons_State);
+        Page->Buttons_Function(Page_Num, Button,  Buttons_State,wparam,lparam);
         break;
     }
 }
 
-void Moja_Apka::Welcome_Page(WPARAM wparam)
+void Moja_Apka::Welcome_Page(WPARAM wparam,LPARAM lparam)
 {
     switch (LOWORD(wparam))
     {

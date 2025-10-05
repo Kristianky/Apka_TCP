@@ -15,6 +15,7 @@ private:
     HWND hwnd{};
     HWND *Button;
     bool *Buttons_State;
+   
     // statické setup/redirect
     static LRESULT CALLBACK WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
     static LRESULT CALLBACK WindowProcRedirect(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -33,7 +34,7 @@ public:
     void Page_Render();
     HWND Get_HWND() { return hwnd; }
     void Render_Page(int &Num_Page,LPARAM lparam,WPARAM wparam);
-    void Welcome_Page(WPARAM wparam);
+    void Welcome_Page(WPARAM wparam,LPARAM lparam);
     void Paint(HDC hdc);
     void Render_Page_Keyboard(WPARAM wpram);
     };
