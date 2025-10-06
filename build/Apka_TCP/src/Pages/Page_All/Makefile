@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\mingw64\bin\cmake.exe"
+CMAKE_COMMAND = C:\mingw64\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\mingw64\bin\cmake.exe" -E rm -f
+RM = C:\mingw64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP
+CMAKE_SOURCE_DIR = C:\Users\Admin\Desktop\c++\Apka
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build
+CMAKE_BINARY_DIR = C:\Users\Admin\Desktop\c++\Apka\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\mingw64\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	C:\mingw64\bin\cmake.exe -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\mingw64\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\mingw64\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\Apka_TCP\src\Pages\Page_All\\CMakeFiles\progress.marks
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 0
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles C:\Users\Admin\Desktop\c++\Apka\build\Apka_TCP\src\Pages\Page_All\\CMakeFiles\progress.marks
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/clean
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,22 +102,36 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/preinstall
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/preinstall
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
+Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/rule:
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/rule
+.PHONY : Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/rule
+
+# Convenience name for target.
+Sparse_Matrix: Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/rule
+.PHONY : Sparse_Matrix
+
+# fast build rule for target.
+Sparse_Matrix/fast:
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/build
+.PHONY : Sparse_Matrix/fast
+
+# Convenience name for target.
 Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/rule:
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/rule
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/rule
 .PHONY : Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/rule
 
 # Convenience name for target.
@@ -126,7 +140,7 @@ Pages: Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/rule
 
 # fast build rule for target.
 Pages/fast:
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/build
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/build
 .PHONY : Pages/fast
 
 Pages.obj: Pages.cpp.obj
@@ -134,7 +148,7 @@ Pages.obj: Pages.cpp.obj
 
 # target to build an object file
 Pages.cpp.obj:
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/Pages.cpp.obj
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/Pages.cpp.obj
 .PHONY : Pages.cpp.obj
 
 Pages.i: Pages.cpp.i
@@ -142,7 +156,7 @@ Pages.i: Pages.cpp.i
 
 # target to preprocess a source file
 Pages.cpp.i:
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/Pages.cpp.i
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/Pages.cpp.i
 .PHONY : Pages.cpp.i
 
 Pages.s: Pages.cpp.s
@@ -150,8 +164,35 @@ Pages.s: Pages.cpp.s
 
 # target to generate assembly for a file
 Pages.cpp.s:
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/Pages.cpp.s
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/Pages.cpp.s
 .PHONY : Pages.cpp.s
+
+Sparse_Matrix.obj: Sparse_Matrix.cpp.obj
+.PHONY : Sparse_Matrix.obj
+
+# target to build an object file
+Sparse_Matrix.cpp.obj:
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.obj
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/Sparse_Matrix.cpp.obj
+.PHONY : Sparse_Matrix.cpp.obj
+
+Sparse_Matrix.i: Sparse_Matrix.cpp.i
+.PHONY : Sparse_Matrix.i
+
+# target to preprocess a source file
+Sparse_Matrix.cpp.i:
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.i
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/Sparse_Matrix.cpp.i
+.PHONY : Sparse_Matrix.cpp.i
+
+Sparse_Matrix.s: Sparse_Matrix.cpp.s
+.PHONY : Sparse_Matrix.s
+
+# target to generate assembly for a file
+Sparse_Matrix.cpp.s:
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.s
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Pages.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/Sparse_Matrix.cpp.s
+.PHONY : Sparse_Matrix.cpp.s
 
 # Help Target
 help:
@@ -162,9 +203,13 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Pages
+	@echo ... Sparse_Matrix
 	@echo ... Pages.obj
 	@echo ... Pages.i
 	@echo ... Pages.s
+	@echo ... Sparse_Matrix.obj
+	@echo ... Sparse_Matrix.i
+	@echo ... Sparse_Matrix.s
 .PHONY : help
 
 
@@ -176,6 +221,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

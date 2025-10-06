@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Pages.dir/Pages.cpp.obj"
   "CMakeFiles/Pages.dir/Pages.cpp.obj.d"
+  "CMakeFiles/Pages.dir/Sparse_Matrix.cpp.obj"
+  "CMakeFiles/Pages.dir/Sparse_Matrix.cpp.obj.d"
   "libPages.a"
   "libPages.pdb"
 )

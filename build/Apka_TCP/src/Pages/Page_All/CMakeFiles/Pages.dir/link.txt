@@ -1,2 +1,2 @@
-C:\PROGRA~1\mingw64\bin\ar.exe qc libPages.a CMakeFiles/Pages.dir/Pages.cpp.obj
-C:\PROGRA~1\mingw64\bin\ranlib.exe libPages.a
+C:\mingw64\bin\ar.exe qc libPages.a CMakeFiles/Pages.dir/Pages.cpp.obj CMakeFiles/Pages.dir/Sparse_Matrix.cpp.obj
+C:\mingw64\bin\ranlib.exe libPages.a

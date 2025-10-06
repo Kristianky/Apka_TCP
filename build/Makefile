@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\mingw64\bin\cmake.exe"
+CMAKE_COMMAND = C:\mingw64\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\mingw64\bin\cmake.exe" -E rm -f
+RM = C:\mingw64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP
+CMAKE_SOURCE_DIR = C:\Users\Admin\Desktop\c++\Apka
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build
+CMAKE_BINARY_DIR = C:\Users\Admin\Desktop\c++\Apka\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\mingw64\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	C:\mingw64\bin\cmake.exe -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\mingw64\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\mingw64\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles C:\Users\Admin\Desktop\c++\Apka\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Administrator\Desktop\Kiko\c++\Apka_TCP\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,6 +129,19 @@ MojaApkaEXE/fast:
 .PHONY : MojaApkaEXE/fast
 
 #=============================================================================
+# Target rules for targets named Sparse_Matrix
+
+# Build rule for target.
+Sparse_Matrix: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sparse_Matrix
+.PHONY : Sparse_Matrix
+
+# fast build rule for target.
+Sparse_Matrix/fast:
+	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\Page_All\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/build
+.PHONY : Sparse_Matrix/fast
+
+#=============================================================================
 # Target rules for targets named Pages
 
 # Build rule for target.
@@ -166,19 +179,6 @@ Data_Struct: cmake_check_build_system
 Data_Struct/fast:
 	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Data_Struct.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/build
 .PHONY : Data_Struct/fast
-
-#=============================================================================
-# Target rules for targets named Sparse_Matrix
-
-# Build rule for target.
-Sparse_Matrix: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Sparse_Matrix
-.PHONY : Sparse_Matrix
-
-# fast build rule for target.
-Sparse_Matrix/fast:
-	$(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\DataStruct_Page\CMakeFiles\Sparse_Matrix.dir\build.make Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Sparse_Matrix.dir/build
-.PHONY : Sparse_Matrix/fast
 
 #=============================================================================
 # Target rules for targets named MojaApkaLib
