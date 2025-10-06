@@ -120,10 +120,14 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
             Page = new Main_Page(hwnd);
         }
         Page->Buttons_Function(Page_Num, Button, Buttons_State,wparam,lparam);
-        break;
-    case 2:
         Page = nullptr;
         Page = new Data_Struct_Page(hwnd);
+        InvalidateRect(hwnd, NULL, true);
+        UpdateWindow(hwnd);
+        break;
+    case 2:
+    if(!Page){
+        Page = new Data_Struct_Page(hwnd);}
         Page->Buttons_Function(Page_Num, Button,  Buttons_State,wparam,lparam);
         break;
     }

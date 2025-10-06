@@ -33,9 +33,6 @@ void Main_Page::Buttons_Function(int &page_num,HWND *Buttons,bool *Buttons_state
              Destroy_WindowW(Buttons);
              Data_Struct->Create_WindowW(Buttons,Main_hwnd,Data_Structures);
              page_num = 2;
-             InvalidateRect(Main_hwnd, NULL, true);
-             UpdateWindow(Main_hwnd);
-            
              break;
 }
 }
