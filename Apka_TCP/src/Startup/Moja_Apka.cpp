@@ -15,7 +15,8 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
     Buttons_State = new bool[5];
     Buttons_State[0] = false;
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
-    Buffer = new wchar_t[50];
+
+
     hwnd = CreateWindowExW( // vytvorenie hl okna
         0,
         CLASSNAME,
@@ -140,7 +141,7 @@ void Moja_Apka::Welcome_Page(WPARAM wparam,LPARAM lparam)
     case (ID_BUTTONS):
         DestroyWindow(Button[0]);
         Page = new Main_Page(hwnd);
-        Page->Create_WindowW(Button, hwnd, ID_BUTTONS);
+        Page->Create_WindowW(Button,  ID_BUTTONS);
         Page_Num = 1;
     }
 }
@@ -150,7 +151,7 @@ void Moja_Apka::Paint(HDC hdc)
     switch(Page_Num){
         case 2:
            Page->Cout_Create(hdc);
-           if(Buttons_State[0] == true){
+           if(Buttons_State[0]){
             Page->Cout_Button_1(hdc);
            }
 }}

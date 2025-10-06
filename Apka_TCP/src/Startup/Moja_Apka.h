@@ -23,7 +23,7 @@ private:
     // tvoja "pravá" WndProc ako členská metóda
     LRESULT WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
     // hwnd->okno ktoremu je sprava urcena...
-    wchar_t *Buffer;
+   
     // uint -> premmene napr z klavesnice mysi atd..
     // wparam-> stavovy parameter doplnujuce info
     // lparam -> dalsie parametre napr poloha kurzora atd

@@ -9,7 +9,7 @@ class Main_Page:public Pages{
       public:
          Main_Page(HWND hwnd);
          virtual ~Main_Page();
-         virtual void Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON) override;
+         virtual void Create_WindowW(HWND *Buttons,int BUTTON) override;
          virtual void Buttons_Function(int &page_num,HWND *Buttons,bool *Buttons_state,WPARAM wparam,LPARAM lparam) override;
          virtual void Cout_Button_1(HDC hdc) override;
          virtual void Cout_Create(HDC hdc) override;

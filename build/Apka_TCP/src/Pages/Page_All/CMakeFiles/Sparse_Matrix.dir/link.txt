@@ -1,2 +1,2 @@
-C:\mingw64\bin\ar.exe qc libSparse_Matrix.a CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.obj
-C:\mingw64\bin\ranlib.exe libSparse_Matrix.a
+C:\PROGRA~1\mingw64\bin\ar.exe qc libSparse_Matrix.a CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.obj
+C:\PROGRA~1\mingw64\bin\ranlib.exe libSparse_Matrix.a

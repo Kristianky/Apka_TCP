@@ -4,6 +4,7 @@
 
 #include "Sparse_Matrix.h"
 #include <windows.h>
+#include <string>
 class Pages 
 {
 protected:
@@ -18,12 +19,13 @@ protected:
    wchar_t **Buffer;
    Sparse_Matrix Sparse_Matrix;
    int *Size_Of_Buffers;
+   int *Indexes;
 
 public:
    Pages() = default;
    Pages(HWND hwnd);
    virtual ~Pages();
-   virtual void Create_WindowW(HWND *Buttons,HWND Main_Hwnd,int BUTTON) = 0;
+   virtual void Create_WindowW(HWND *Buttons,int BUTTON) = 0;
    virtual void Destroy_WindowW(HWND *Buttons);
    virtual void Buttons_Function(int &page_num,HWND *Buttons,bool *Buttons_state,WPARAM wparam,LPARAM lparam) = 0;
    virtual void Cout_Button_1(HDC hdc) = 0;
