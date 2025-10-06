@@ -9,6 +9,7 @@ Main_hwnd{hwnd}
                                        {L"LISTBOX"},
                                        {L"COMBOBOX"},
                                        {L"SCROLLBAR"}};
+    Size_Of_Buffers = new int[5];
 }
 
 Pages::~Pages()

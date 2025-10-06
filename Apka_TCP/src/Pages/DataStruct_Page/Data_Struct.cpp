@@ -9,7 +9,8 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd):Pages(hwnd)
      Windows_PositionsX = new int[6]{10, 210,10,10,10,10};
      Windows_PositionsY = new int[6]{10, 10,200,215,230,245};
      Windows = new HWND[10];
-     Buffer = new wchar_t *[2];
+     Buffer = new wchar_t *[100];
+     
 }
 
 Data_Struct_Page::~Data_Struct_Page()
@@ -34,7 +35,7 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
 {
      SetTextColor(hdc, RGB(255, 255, 255)); // biely text
      SetBkMode(hdc, TRANSPARENT);
-     TextOutW(hdc, 350, 200, Buffer[3], 1);
+     TextOutW(hdc, 350, 200, Buffer[3], Size_Of_Buffers[0]);
 }
 
 void Data_Struct_Page::Cout_Create (HDC hdc){
@@ -83,7 +84,7 @@ void Data_Struct_Page::Key_Board_Func(WPARAM wparam,LPARAM lparam,int ID_Button,
                     GetWindowTextW(Window[2],Buffer[2],ID_Button + 4);
                     GetWindowTextW(Window[2],Buffer[3],ID_Button + 5);
                     Sparse_Matrix.set_Lenght_X_Y(Buffer[0][0],Buffer[1][0]);
-                    Sparse_Matrix.add_data(Buffer[3],Buffer[2][0]);
+                    Size_Of_Buffers[0] = Sparse_Matrix.add_data(Buffer[3],Buffer[2][0]);
                  }
           }
 }

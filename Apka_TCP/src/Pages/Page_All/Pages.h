@@ -17,7 +17,7 @@ protected:
    HWND Main_hwnd;
    wchar_t **Buffer;
    Sparse_Matrix Sparse_Matrix;
-   
+   int *Size_Of_Buffers;
 
 public:
    Pages() = default;
