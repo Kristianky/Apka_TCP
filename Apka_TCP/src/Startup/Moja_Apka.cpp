@@ -146,9 +146,9 @@ void Moja_Apka::Paint(HDC hdc)
     switch(Page_Num){
         case 2:
            Page->Cout_Create(hdc);
-            SetTextColor(hdc, RGB(255, 255, 255)); // biely text
-            SetBkMode(hdc, TRANSPARENT);
-           TextOutW(hdc,500,500,Buffer,2);
+           if(Buttons_State[0] == true){
+            Page->Cout_Button_1(hdc);
+           }
 }}
 
 void Moja_Apka::Render_Page_Keyboard(WPARAM wparam,LPARAM lparam){
