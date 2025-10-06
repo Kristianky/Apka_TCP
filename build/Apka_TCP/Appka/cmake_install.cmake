@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Appka
+# Install script for directory: C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/Appka
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

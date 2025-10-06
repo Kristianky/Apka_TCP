@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/Page_All
+# Install script for directory: C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Pages/Page_All
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

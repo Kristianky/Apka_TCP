@@ -56,10 +56,10 @@ RM = C:\mingw64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Admin\Desktop\c++\Apka
+CMAKE_SOURCE_DIR = C:\Users\Admin\Desktop\c++\Apka\Apka_TCP
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Admin\Desktop\c++\Apka\build
+CMAKE_BINARY_DIR = C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles C:\Users\Admin\Desktop\c++\Apka\build\Apka_TCP\src\Pages\MainPage\\CMakeFiles\progress.marks
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/MainPage/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\build\CMakeFiles 0
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build\CMakeFiles C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build\Apka_TCP\src\Pages\MainPage\\CMakeFiles\progress.marks
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/MainPage/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/MainPage/clean
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/MainPage/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,22 +102,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/MainPage/preinstall
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/MainPage/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/MainPage/preinstall
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/MainPage/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/rule:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/rule
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/rule
 .PHONY : Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/rule
 
 # Convenience name for target.
@@ -126,7 +126,7 @@ Main_Page: Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/rule
 
 # fast build rule for target.
 Main_Page/fast:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\MainPage\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/build
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\MainPage\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/build
 .PHONY : Main_Page/fast
 
 Page_Main.obj: Page_Main.cpp.obj
@@ -134,7 +134,7 @@ Page_Main.obj: Page_Main.cpp.obj
 
 # target to build an object file
 Page_Main.cpp.obj:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\MainPage\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\MainPage\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj
 .PHONY : Page_Main.cpp.obj
 
 Page_Main.i: Page_Main.cpp.i
@@ -142,7 +142,7 @@ Page_Main.i: Page_Main.cpp.i
 
 # target to preprocess a source file
 Page_Main.cpp.i:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\MainPage\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.i
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\MainPage\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.i
 .PHONY : Page_Main.cpp.i
 
 Page_Main.s: Page_Main.cpp.s
@@ -150,7 +150,7 @@ Page_Main.s: Page_Main.cpp.s
 
 # target to generate assembly for a file
 Page_Main.cpp.s:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\MainPage\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.s
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(MAKE) $(MAKESILENT) -f Apka_TCP\src\Pages\MainPage\CMakeFiles\Main_Page.dir\build.make Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.s
 .PHONY : Page_Main.cpp.s
 
 # Help Target
@@ -176,6 +176,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d C:\Users\Admin\Desktop\c++\Apka\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

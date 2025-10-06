@@ -1,8 +1,8 @@
 Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/Data_Struct.cpp.obj: \
- C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\DataStruct_Page\Data_Struct.cpp \
- C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\DataStruct_Page\Data_Struct.h \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/Page_All/Pages.h \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.h \
+ C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\Apka_TCP\src\Pages\DataStruct_Page\Data_Struct.cpp \
+ C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\Apka_TCP\src\Pages\DataStruct_Page\Data_Struct.h \
+ C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Pages/Page_All/Pages.h \
+ C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.h \
  C:/mingw64/x86_64-w64-mingw32/include/windows.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \

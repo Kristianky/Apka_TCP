@@ -1,8 +1,8 @@
 Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj: \
- C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\MainPage\Page_Main.cpp \
- C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\src\Pages\MainPage\Page_Main.h \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/Page_All/Pages.h \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.h \
+ C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\Apka_TCP\src\Pages\MainPage\Page_Main.cpp \
+ C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\Apka_TCP\src\Pages\MainPage\Page_Main.h \
+ C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Pages/Page_All/Pages.h \
+ C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.h \
  C:/mingw64/x86_64-w64-mingw32/include/windows.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
@@ -281,4 +281,4 @@ Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj: \
  C:/mingw64/x86_64-w64-mingw32/include/winsvc.h \
  C:/mingw64/x86_64-w64-mingw32/include/mcx.h \
  C:/mingw64/x86_64-w64-mingw32/include/imm.h \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.h
+ C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.h
