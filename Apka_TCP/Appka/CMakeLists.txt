@@ -1,8 +1,19 @@
 
-add_executable(MojaApkaEXE WIN32 main.cpp)
+# definícia targetu
+add_executable(MojaApkaEXE WIN32
+    main.cpp
+    # ďalšie .cpp súbory sem
+)
+
+# include priečinok s hlavičkami
+target_include_directories(MojaApkaEXE PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
 
 # Definície pre Unicode
 target_compile_definitions(MojaApkaEXE PRIVATE UNICODE _UNICODE)
+
+# Linkovanie knižníc / podprojektov
 target_link_libraries(MojaApkaEXE PRIVATE MojaApkaLib Main_Page Pages)
 
 # Linker flag pre MinGW, aby hľadal wWinMain

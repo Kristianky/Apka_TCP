@@ -1,6 +1,6 @@
 Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.obj: \
- C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\Apka_TCP\src\Pages\Page_All\Sparse_Matrix.cpp \
- C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\Apka_TCP\src\Pages\Page_All\Sparse_Matrix.h \
+ C:\Users\Admin\Desktop\c++\Apka_TCP\Apka_TCP\src\Pages\Page_All\Sparse_Matrix.cpp \
+ C:\Users\Admin\Desktop\c++\Apka_TCP\Apka_TCP\src\Pages\Page_All\Sparse_Matrix.h \
  C:/mingw64/include/c++/14.2.0/string \
  C:/mingw64/include/c++/14.2.0/bits/requires_hosted.h \
  C:/mingw64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h \

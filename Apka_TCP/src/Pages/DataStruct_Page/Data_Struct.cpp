@@ -10,8 +10,9 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
      Windows_PositionsY = new int[9]{10, 10, 200, 215, 230, 245, 260, 275, 10};
      Windows = new HWND[10];
      Size_Of_Buffers = new int[6];
-     Buffer = new wchar_t *[6]{{L"0"}, {L"0"}, {L"0"}, {L"0"}, {L"0"}, {L"0"}};
+     Buffer_1 = new wchar_t *[6]{{L"0"}, {L"0"}, {L"0"}, {L"0"}, {L"0"}, {L"0"}};
      Indexes = new int[5]{0};
+     Buffer_2 = new std::wstring {{L"0"}};
 }
 
 Data_Struct_Page::~Data_Struct_Page()
@@ -38,27 +39,27 @@ void Data_Struct_Page::Create_WindowW(HWND *Buttons, int BUTTON)
 
 void Data_Struct_Page::Cout_Button_1(HDC hdc)
 {
-     if (wcscmp(Buffer[0], L"0") == 0)
+     if (wcscmp(Buffer_1[0], L"0") == 0)
      {
           SetTextColor(hdc, RGB(255, 255, 255)); // biely text
           SetBkMode(hdc, TRANSPARENT);
           TextOutW(hdc, 350, 200, L"Nastav dlzku pola X", 20);
      }
-     if (wcscmp(Buffer[1],L"0") == 0){
+     if (wcscmp(Buffer_1[1],L"0") == 0){
           SetTextColor(hdc, RGB(255, 255, 255)); // biely text
           SetBkMode(hdc, TRANSPARENT);
           TextOutW(hdc, 350, 215, L"Nastav dlzku pola Y", 20);
      }
-     if (wcscmp(Buffer[2],L"0") == 0){
+     if (wcscmp(Buffer_1[2],L"0") == 0){
           SetTextColor(hdc, RGB(255, 255, 255)); // biely text
           SetBkMode(hdc, TRANSPARENT);
           TextOutW(hdc, 350, 230, L"Nastav velkost dat", 20);
      }
-if(wcscmp(Buffer[0], L"0") != 0 && wcscmp(Buffer[1], L"0") != 0 && wcscmp(Buffer[2], L"0") != 0 && wcscmp(Buffer[3], L"0") != 0)
+if(wcscmp(Buffer_1[0], L"0") != 0 && wcscmp(Buffer_1[1], L"0") != 0 && wcscmp(Buffer_1[2], L"0") != 0 && wcscmp(Buffer_1[3], L"0") != 0)
 {
      SetTextColor(hdc, RGB(255, 255, 255)); // biely text
      SetBkMode(hdc, TRANSPARENT);
-     TextOutW(hdc, 350, 230, Buffer[0], Size_Of_Buffers[0]);
+     TextOutW(hdc, 350, 230, Buffer_1[0], Size_Of_Buffers[0]);
 }
 }
 void Data_Struct_Page::Cout_Create(HDC hdc)
@@ -102,14 +103,14 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
      case Add_Data:
           Size_Of_Buffers[4] = GetWindowTextLengthW(Buttons[6]);
           Size_Of_Buffers[4]++;
-          GetWindowTextW(Buttons[6], Buffer[4], Size_Of_Buffers[4]);
+          GetWindowTextW(Buttons[6], Buffer_1[4], Size_Of_Buffers[4]);
           Size_Of_Buffers[5] = GetWindowTextLengthW(Buttons[7]);
           Size_Of_Buffers[5]++;
-          GetWindowTextW(Buttons[7], Buffer[5], Size_Of_Buffers[5]);
+          GetWindowTextW(Buttons[7], Buffer_1[5], Size_Of_Buffers[5]);
           Size_Of_Buffers[3] = GetWindowTextLengthW(Buttons[5]);
           Size_Of_Buffers[3]++;
-          GetWindowTextW(Buttons[5], Buffer[3], Size_Of_Buffers[3]);
-          Sparse_Matrix.add_data(Buffer[3], Buffer[2], Indexes[0], Buffer[5], Buffer[6]);
+          GetWindowTextW(Buttons[5], Buffer_1[3], Size_Of_Buffers[3]);
+          Sparse_Matrix.add_data(Buffer_1[3], Buffer_1[2], Indexes[0], Buffer_1[5], Buffer_1[6]);
           break;
      }
 }
@@ -122,17 +123,17 @@ void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Butto
      {
           Size_Of_Buffers[0] = GetWindowTextLengthW(Window[2]);
           Size_Of_Buffers[0]++;
-          Buffer[0] = new wchar_t[Size_Of_Buffers[0]];
-          GetWindowTextW(Window[2], Buffer[0], Size_Of_Buffers[0]);
+          Buffer_1[0] = new wchar_t[Size_Of_Buffers[0]];
+          GetWindowTextW(Window[2], Buffer_1[0], Size_Of_Buffers[0]);
           Size_Of_Buffers[1] = GetWindowTextLengthW(Window[3]);
           Size_Of_Buffers[1]++;
-          Buffer[1] = new wchar_t[Size_Of_Buffers[1]];
-          GetWindowTextW(Window[3], Buffer[1], Size_Of_Buffers[1]);
+          Buffer_1[1] = new wchar_t[Size_Of_Buffers[1]];
+          GetWindowTextW(Window[3], Buffer_1[1], Size_Of_Buffers[1]);
           Size_Of_Buffers[2] = GetWindowTextLengthW(Window[4]);
           Size_Of_Buffers[2]++;
-          Buffer[2] = new wchar_t[Size_Of_Buffers[2]];
-          GetWindowTextW(Window[4], Buffer[2], Size_Of_Buffers[2]);
-          Sparse_Matrix.set_Lenght_X_Y(Buffer[0], Buffer[1]);
+          Buffer_1[2] = new wchar_t[Size_Of_Buffers[2]];
+          GetWindowTextW(Window[4], Buffer_1[2], Size_Of_Buffers[2]);
+          Sparse_Matrix.set_Lenght_X_Y(Buffer_1[0], Buffer_1[1]);
           MessageBoxW(Main_hwnd, L"Stlacil si enter", MB_OK, NULL);
      }
      }

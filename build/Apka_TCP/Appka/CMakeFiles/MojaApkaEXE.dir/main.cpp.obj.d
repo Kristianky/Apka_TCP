@@ -1,6 +1,6 @@
 Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/main.cpp.obj: \
- C:\Users\Admin\Desktop\c++\Apka\Apka_TCP\Apka_TCP\Appka\main.cpp \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Startup/Moja_Apka.h \
+ C:\Users\Admin\Desktop\c++\Apka_TCP\Apka_TCP\Appka\main.cpp \
+ C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/src/Startup/Moja_Apka.h \
  C:/mingw64/x86_64-w64-mingw32/include/windows.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw.h \
  C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
@@ -279,8 +279,8 @@ Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/main.cpp.obj: \
  C:/mingw64/x86_64-w64-mingw32/include/winsvc.h \
  C:/mingw64/x86_64-w64-mingw32/include/mcx.h \
  C:/mingw64/x86_64-w64-mingw32/include/imm.h \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Pages/Page_All/Pages.h \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.h \
+ C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/src/Pages/Page_All/Pages.h \
+ C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.h \
  C:/mingw64/include/c++/14.2.0/string \
  C:/mingw64/include/c++/14.2.0/bits/requires_hosted.h \
  C:/mingw64/include/c++/14.2.0/bits/stringfwd.h \
@@ -353,5 +353,5 @@ Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/main.cpp.obj: \
  C:/mingw64/include/c++/14.2.0/bits/uses_allocator.h \
  C:/mingw64/include/c++/14.2.0/bits/uses_allocator_args.h \
  C:/mingw64/include/c++/14.2.0/tuple \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Pages/MainPage/Page_Main.h \
- C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.h
+ C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/src/Pages/MainPage/Page_Main.h \
+ C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.h
