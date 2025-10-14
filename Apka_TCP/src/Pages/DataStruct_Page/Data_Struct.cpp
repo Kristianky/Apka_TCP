@@ -57,9 +57,10 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
      }
 if(wcscmp(Buffer_1[0], L"0") != 0 && wcscmp(Buffer_1[1], L"0") != 0 && wcscmp(Buffer_1[2], L"0") != 0 && wcscmp(Buffer_1[3], L"0") != 0)
 {
+     Sparse_Matrix.Print(Buffer_1[0],Buffer_1[1],Buffer_2);
      SetTextColor(hdc, RGB(255, 255, 255)); // biely text
      SetBkMode(hdc, TRANSPARENT);
-     TextOutW(hdc, 350, 230, Buffer_1[0], Size_Of_Buffers[0]);
+     TextOutW(hdc, 350, 230, Buffer_2->c_str(), Size_Of_Buffers[0]);
 }
 }
 void Data_Struct_Page::Cout_Create(HDC hdc)

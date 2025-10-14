@@ -16,6 +16,7 @@ class Sparse_Matrix{
      :Size{size},Lenght_X{Lenght_X},Lenght_Y{Lenght_Y} { data = new wchar_t[size];x = new wchar_t[Lenght_X];y = new wchar_t [Lenght_Y];};
      ~Sparse_Matrix() = default;
      void set_Lenght_X_Y(wchar_t* x,wchar_t* y);
+     void Print(wchar_t *Lenght_X,wchar_t *Lenght_Y,std::wstring *Buffer_Table);
 };
 
 
