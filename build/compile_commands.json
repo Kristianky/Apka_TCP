@@ -1,44 +1,44 @@
 [
 {
-  "directory": "C:/Users/Admin/Desktop/c++/Apka_TCP/build/Apka_TCP/Appka",
-  "command": "C:\\mingw64\\bin\\c++.exe -DUNICODE -D_UNICODE @CMakeFiles/MojaApkaEXE.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\MojaApkaEXE.dir\\main.cpp.obj -c C:\\Users\\Admin\\Desktop\\c++\\Apka_TCP\\Apka_TCP\\Appka\\main.cpp",
-  "file": "C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/Appka/main.cpp",
+  "directory": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/Appka",
+  "command": "C:\\PROGRA~1\\mingw64\\bin\\C__~1.EXE -DUNICODE -D_UNICODE @CMakeFiles/MojaApkaEXE.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\MojaApkaEXE.dir\\main.cpp.obj -c C:\\Users\\Administrator\\Desktop\\Kiko\\c++\\Apka_TCP\\Apka_TCP\\Appka\\main.cpp",
+  "file": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/Appka/main.cpp",
   "output": "Apka_TCP/Appka/CMakeFiles/MojaApkaEXE.dir/main.cpp.obj"
 },
 {
-  "directory": "C:/Users/Admin/Desktop/c++/Apka_TCP/build/Apka_TCP/src/Pages/Page_All",
-  "command": "C:\\mingw64\\bin\\c++.exe   -std=c++17 -o CMakeFiles\\Sparse_Matrix.dir\\Sparse_Matrix.cpp.obj -c C:\\Users\\Admin\\Desktop\\c++\\Apka_TCP\\Apka_TCP\\src\\Pages\\Page_All\\Sparse_Matrix.cpp",
-  "file": "C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.cpp",
+  "directory": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/Page_All",
+  "command": "C:\\PROGRA~1\\mingw64\\bin\\C__~1.EXE   -std=c++17 -o CMakeFiles\\Sparse_Matrix.dir\\Sparse_Matrix.cpp.obj -c C:\\Users\\Administrator\\Desktop\\Kiko\\c++\\Apka_TCP\\Apka_TCP\\src\\Pages\\Page_All\\Sparse_Matrix.cpp",
+  "file": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.cpp",
   "output": "Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.obj"
 },
 {
-  "directory": "C:/Users/Admin/Desktop/c++/Apka_TCP/build/Apka_TCP/src/Pages/Page_All",
-  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/Pages.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\Pages.dir\\Pages.cpp.obj -c C:\\Users\\Admin\\Desktop\\c++\\Apka_TCP\\Apka_TCP\\src\\Pages\\Page_All\\Pages.cpp",
-  "file": "C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/src/Pages/Page_All/Pages.cpp",
+  "directory": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/Page_All",
+  "command": "C:\\PROGRA~1\\mingw64\\bin\\C__~1.EXE  @CMakeFiles/Pages.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\Pages.dir\\Pages.cpp.obj -c C:\\Users\\Administrator\\Desktop\\Kiko\\c++\\Apka_TCP\\Apka_TCP\\src\\Pages\\Page_All\\Pages.cpp",
+  "file": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/Page_All/Pages.cpp",
   "output": "Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/Pages.cpp.obj"
 },
 {
-  "directory": "C:/Users/Admin/Desktop/c++/Apka_TCP/build/Apka_TCP/src/Pages/Page_All",
-  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/Pages.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\Pages.dir\\Sparse_Matrix.cpp.obj -c C:\\Users\\Admin\\Desktop\\c++\\Apka_TCP\\Apka_TCP\\src\\Pages\\Page_All\\Sparse_Matrix.cpp",
-  "file": "C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.cpp",
+  "directory": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/Page_All",
+  "command": "C:\\PROGRA~1\\mingw64\\bin\\C__~1.EXE  @CMakeFiles/Pages.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\Pages.dir\\Sparse_Matrix.cpp.obj -c C:\\Users\\Administrator\\Desktop\\Kiko\\c++\\Apka_TCP\\Apka_TCP\\src\\Pages\\Page_All\\Sparse_Matrix.cpp",
+  "file": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.cpp",
   "output": "Apka_TCP/src/Pages/Page_All/CMakeFiles/Pages.dir/Sparse_Matrix.cpp.obj"
 },
 {
-  "directory": "C:/Users/Admin/Desktop/c++/Apka_TCP/build/Apka_TCP/src/Pages/MainPage",
-  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/Main_Page.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\Main_Page.dir\\Page_Main.cpp.obj -c C:\\Users\\Admin\\Desktop\\c++\\Apka_TCP\\Apka_TCP\\src\\Pages\\MainPage\\Page_Main.cpp",
-  "file": "C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/src/Pages/MainPage/Page_Main.cpp",
+  "directory": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/MainPage",
+  "command": "C:\\PROGRA~1\\mingw64\\bin\\C__~1.EXE  @CMakeFiles/Main_Page.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\Main_Page.dir\\Page_Main.cpp.obj -c C:\\Users\\Administrator\\Desktop\\Kiko\\c++\\Apka_TCP\\Apka_TCP\\src\\Pages\\MainPage\\Page_Main.cpp",
+  "file": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/MainPage/Page_Main.cpp",
   "output": "Apka_TCP/src/Pages/MainPage/CMakeFiles/Main_Page.dir/Page_Main.cpp.obj"
 },
 {
-  "directory": "C:/Users/Admin/Desktop/c++/Apka_TCP/build/Apka_TCP/src/Pages/DataStruct_Page",
-  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/Data_Struct.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\Data_Struct.dir\\Data_Struct.cpp.obj -c C:\\Users\\Admin\\Desktop\\c++\\Apka_TCP\\Apka_TCP\\src\\Pages\\DataStruct_Page\\Data_Struct.cpp",
-  "file": "C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.cpp",
+  "directory": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Pages/DataStruct_Page",
+  "command": "C:\\PROGRA~1\\mingw64\\bin\\C__~1.EXE  @CMakeFiles/Data_Struct.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\Data_Struct.dir\\Data_Struct.cpp.obj -c C:\\Users\\Administrator\\Desktop\\Kiko\\c++\\Apka_TCP\\Apka_TCP\\src\\Pages\\DataStruct_Page\\Data_Struct.cpp",
+  "file": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/DataStruct_Page/Data_Struct.cpp",
   "output": "Apka_TCP/src/Pages/DataStruct_Page/CMakeFiles/Data_Struct.dir/Data_Struct.cpp.obj"
 },
 {
-  "directory": "C:/Users/Admin/Desktop/c++/Apka_TCP/build/Apka_TCP/src/Startup",
-  "command": "C:\\mingw64\\bin\\c++.exe  @CMakeFiles/MojaApkaLib.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\MojaApkaLib.dir\\Moja_Apka.cpp.obj -c C:\\Users\\Admin\\Desktop\\c++\\Apka_TCP\\Apka_TCP\\src\\Startup\\Moja_Apka.cpp",
-  "file": "C:/Users/Admin/Desktop/c++/Apka_TCP/Apka_TCP/src/Startup/Moja_Apka.cpp",
+  "directory": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/build/Apka_TCP/src/Startup",
+  "command": "C:\\PROGRA~1\\mingw64\\bin\\C__~1.EXE  @CMakeFiles/MojaApkaLib.dir/includes_CXX.rsp -std=c++17 -o CMakeFiles\\MojaApkaLib.dir\\Moja_Apka.cpp.obj -c C:\\Users\\Administrator\\Desktop\\Kiko\\c++\\Apka_TCP\\Apka_TCP\\src\\Startup\\Moja_Apka.cpp",
+  "file": "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Startup/Moja_Apka.cpp",
   "output": "Apka_TCP/src/Startup/CMakeFiles/MojaApkaLib.dir/Moja_Apka.cpp.obj"
 }
 ]

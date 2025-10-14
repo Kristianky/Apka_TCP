@@ -9,10 +9,9 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
      Windows_PositionsX = new int[9]{10, 210, 10, 10, 10, 10, 10, 10, 410};
      Windows_PositionsY = new int[9]{10, 10, 200, 215, 230, 245, 260, 275, 10};
      Windows = new HWND[10];
-     Size_Of_Buffers = new int[6];
+     Size_Of_Buffers = new int[8];
      Buffer_1 = new wchar_t *[6]{{L"0"}, {L"0"}, {L"0"}, {L"0"}, {L"0"}, {L"0"}};
      Indexes = new int[5]{0};
-     Buffer_2 = new std::wstring {{L"0"}};
 }
 
 Data_Struct_Page::~Data_Struct_Page()
@@ -55,12 +54,22 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
           SetBkMode(hdc, TRANSPARENT);
           TextOutW(hdc, 350, 230, L"Nastav velkost dat", 20);
      }
-if(wcscmp(Buffer_1[0], L"0") != 0 && wcscmp(Buffer_1[1], L"0") != 0 && wcscmp(Buffer_1[2], L"0") != 0 && wcscmp(Buffer_1[3], L"0") != 0)
+else
 {
-     Sparse_Matrix.Print(Buffer_1[0],Buffer_1[1],Buffer_2);
+     Sparse_Matrix.set_Lenght_X_Y(Buffer_1[0],Buffer_1[1]);
+     std::wstring Size_Temp = Buffer_1[0];
+     Size_Of_Buffers[6] = std::stoi(Size_Temp);
+     Size_Temp = Buffer_1[1];
+     Size_Of_Buffers[7] = std::stoi(Size_Temp);
+     Sparse_Matrix.Print (Buffer_2,Indexes[0]);
      SetTextColor(hdc, RGB(255, 255, 255)); // biely text
      SetBkMode(hdc, TRANSPARENT);
-     TextOutW(hdc, 350, 230, Buffer_2->c_str(), Size_Of_Buffers[0]);
+     RECT rect;
+     rect.left = 350;
+     rect.top = 230;
+     rect.bottom = 30;
+     rect.right = 30;
+     DrawTextW(hdc,Buffer_2.c_str(),-1,&rect,DT_LEFT||DT_TOP);
 }
 }
 void Data_Struct_Page::Cout_Create(HDC hdc)

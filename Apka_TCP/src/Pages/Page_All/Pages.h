@@ -17,7 +17,7 @@ protected:
    wchar_t *Page_Name;
    HWND Main_hwnd;
    wchar_t **Buffer_1;
-   std::wstring *Buffer_2;
+   std::wstring Buffer_2;
    Sparse_Matrix Sparse_Matrix;
    int *Size_Of_Buffers;
    int *Indexes;
