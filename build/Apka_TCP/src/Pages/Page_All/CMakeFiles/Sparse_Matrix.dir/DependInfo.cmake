@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/Administrator/Desktop/Kiko/c++/Apka_TCP/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.cpp" "Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.obj" "gcc" "Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.obj.d"
+  "C:/Users/Admin/Desktop/c++/Apka/Apka_TCP/Apka_TCP/src/Pages/Page_All/Sparse_Matrix.cpp" "Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.obj" "gcc" "Apka_TCP/src/Pages/Page_All/CMakeFiles/Sparse_Matrix.dir/Sparse_Matrix.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
