@@ -30,6 +30,7 @@ public:
    virtual void Destroy_WindowW(HWND *Buttons);
    virtual void Buttons_Function(int &page_num,HWND *Buttons,bool *Buttons_state,WPARAM wparam,LPARAM lparam) = 0;
    virtual void Cout_Button_1(HDC hdc) = 0;
+   virtual void Cout_Button_2(HDC hdc) = 0;
    virtual void Cout_Create(HDC hdc) = 0;
    virtual HWND Get_hwnd() = 0;
    virtual void Key_Board_Func(WPARAM wparam,LPARAM lparam,int ID_Button,HWND *Window) = 0;

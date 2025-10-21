@@ -58,7 +58,7 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
      }
      else
      {
-          Sparse_Matrix.set_Lenght_X_Y(Buffer_1[0], Buffer_1[1]);
+          Sparse_Matrix.set_Lenght_X_Y_Size(Buffer_1[0], Buffer_1[1], Buffer_1[2]);
           std::wstring Size_Temp = Buffer_1[0];
           Size_Of_Buffers[6] = std::stoi(Size_Temp);
           Size_Temp = Buffer_1[1];
@@ -74,10 +74,13 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
           for (int j{}; j < Size_Of_Buffers[6]; j++)
           {
                Sparse_Matrix.Print(Buffer_2);
-               TextOutW(hdc,500,Position_Y,Buffer_2.c_str(),20);
+               TextOutW(hdc, 500, Position_Y, Buffer_2.c_str(), 20);
                Position_Y += 15;
           }
      }
+}
+void Data_Struct_Page::Cout_Button_2(HDC hdc)
+{
 }
 void Data_Struct_Page::Cout_Create(HDC hdc)
 {
@@ -127,7 +130,12 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
           Size_Of_Buffers[3] = GetWindowTextLengthW(Buttons[5]);
           Size_Of_Buffers[3]++;
           GetWindowTextW(Buttons[5], Buffer_1[3], Size_Of_Buffers[3]);
-          Sparse_Matrix.add_data(Buffer_1[3], Buffer_1[2], Indexes[0], Buffer_1[5], Buffer_1[6]);
+          std::wstring Temp_Size = Buffer_1[2];
+          InvalidateRect(Main_hwnd, NULL, true);
+          UpdateWindow(Main_hwnd);
+          SetWindowTextW(Windows[4], L"");
+          
+
           break;
      }
 }
@@ -150,7 +158,6 @@ void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Butto
           Size_Of_Buffers[2]++;
           Buffer_1[2] = new wchar_t[Size_Of_Buffers[2]];
           GetWindowTextW(Window[4], Buffer_1[2], Size_Of_Buffers[2]);
-          Sparse_Matrix.set_Lenght_X_Y(Buffer_1[0], Buffer_1[1]);
           MessageBoxW(Main_hwnd, L"Stlacil si enter", MB_OK, NULL);
      }
      }

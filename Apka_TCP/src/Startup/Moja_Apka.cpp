@@ -14,6 +14,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);      // nacita kurzor a nastavi styl
     Buttons_State = new bool[5];
     Buttons_State[0] = false;
+    Buttons_State[1] = false;
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
 
 
@@ -154,6 +155,8 @@ void Moja_Apka::Paint(HDC hdc)
            if(Buttons_State[0]){
             Page->Cout_Button_1(hdc);
            }
+         
+           
 }}
 
 void Moja_Apka::Render_Page_Keyboard(WPARAM wparam,LPARAM lparam){

@@ -15,7 +15,7 @@ class Main_Page:public Pages{
          virtual void Cout_Create(HDC hdc) override;
          virtual HWND Get_hwnd() {return Main_hwnd;}
          virtual void Key_Board_Func (WPARAM wparam,LPARAM lparam,int ID_Button,HWND *Window);
-     
+         virtual void Cout_Button_2(HDC hdc) override;
 };
 
 #endif

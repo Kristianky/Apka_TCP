@@ -47,3 +47,5 @@ void Main_Page::Cout_Create(HDC hdc){
 }
 
 void Main_Page::Key_Board_Func(WPARAM wparam,LPARAM lparam,int ID_Button,HWND *Window){}
+
+void Main_Page::Cout_Button_2(HDC hdc){}
