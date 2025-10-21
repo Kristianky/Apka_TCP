@@ -22,13 +22,11 @@ int Sparse_Matrix::add_data(wchar_t *Buffer,wchar_t *size,int Index_OF_Buffer,wc
      Lenght_Y = std::stoi(Y_temp);
  }
 
- void Sparse_Matrix::Print(std::wstring &Buffer_Table,int index){
-    
-    for(index;index < Lenght_X;index++){
-    for(int index_2{index * Lenght_Y};index_2 < (index + 1 * Lenght_Y);index_2++){
-        Buffer_Table += L"0\n0";
+ void Sparse_Matrix::Print(std::wstring &Buffer_Table){
+    Buffer_Table = L"";
+    for (int i{};i < Lenght_Y;i++){
+        Buffer_Table += L"0 ";
     }
-    
   
 
- }}
+ }

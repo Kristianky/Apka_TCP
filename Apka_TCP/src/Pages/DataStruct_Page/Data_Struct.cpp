@@ -44,33 +44,40 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
           SetBkMode(hdc, TRANSPARENT);
           TextOutW(hdc, 350, 200, L"Nastav dlzku pola X", 20);
      }
-     if (wcscmp(Buffer_1[1],L"0") == 0){
+     if (wcscmp(Buffer_1[1], L"0") == 0)
+     {
           SetTextColor(hdc, RGB(255, 255, 255)); // biely text
           SetBkMode(hdc, TRANSPARENT);
           TextOutW(hdc, 350, 215, L"Nastav dlzku pola Y", 20);
      }
-     if (wcscmp(Buffer_1[2],L"0") == 0){
+     if (wcscmp(Buffer_1[2], L"0") == 0)
+     {
           SetTextColor(hdc, RGB(255, 255, 255)); // biely text
           SetBkMode(hdc, TRANSPARENT);
           TextOutW(hdc, 350, 230, L"Nastav velkost dat", 20);
      }
-else
-{
-     Sparse_Matrix.set_Lenght_X_Y(Buffer_1[0],Buffer_1[1]);
-     std::wstring Size_Temp = Buffer_1[0];
-     Size_Of_Buffers[6] = std::stoi(Size_Temp);
-     Size_Temp = Buffer_1[1];
-     Size_Of_Buffers[7] = std::stoi(Size_Temp);
-     Sparse_Matrix.Print (Buffer_2,Indexes[0]);
-     SetTextColor(hdc, RGB(255, 255, 255)); // biely text
-     SetBkMode(hdc, TRANSPARENT);
-     RECT rect;
-     rect.left = 350;
-     rect.top = 230;
-     rect.bottom = 30;
-     rect.right = 30;
-     DrawTextW(hdc,Buffer_2.c_str(),-1,&rect,DT_LEFT||DT_TOP);
-}
+     else
+     {
+          Sparse_Matrix.set_Lenght_X_Y(Buffer_1[0], Buffer_1[1]);
+          std::wstring Size_Temp = Buffer_1[0];
+          Size_Of_Buffers[6] = std::stoi(Size_Temp);
+          Size_Temp = Buffer_1[1];
+          Size_Of_Buffers[7] = std::stoi(Size_Temp);
+          SetTextColor(hdc, RGB(255, 255, 255)); // biely text
+          SetBkMode(hdc, TRANSPARENT);
+          RECT rect;
+          rect.left = 350;
+          rect.top = 230;
+          rect.right = 600;
+          rect.bottom = 300;
+          int Position_Y{500};
+          for (int j{}; j < Size_Of_Buffers[6]; j++)
+          {
+               Sparse_Matrix.Print(Buffer_2);
+               TextOutW(hdc,500,Position_Y,Buffer_2.c_str(),20);
+               Position_Y += 15;
+          }
+     }
 }
 void Data_Struct_Page::Cout_Create(HDC hdc)
 {
