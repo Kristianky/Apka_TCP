@@ -8,7 +8,7 @@ void Sparse_Matrix::add_data(wchar_t *Buffer, wchar_t *X, wchar_t *Y)
     y[Index_Of_Data] = std::stoi(Y_temp);
     if(Index_Of_Data == Size){
     data[Index_Of_Data] = Buffer;
-    wcscat(data[Index_Of_Data],L"");
+    wcscat(data[Index_Of_Data],L" ");
     Index_Of_Data++;
     }
   
@@ -37,8 +37,8 @@ void Sparse_Matrix::Print(std::wstring &Buffer_Table,int x)
     Buffer_Table = L"";
     for (int y{}; y < Lenght_Y; y++)
     {
-        if(x == Sparse_Matrix::x[Index_Of_Data_Paint] && y == Sparse_Matrix::y[Index_Of_Data_Paint]){
-           Buffer_Table += data[Index_Of_Data_Paint];
+        if(x == Sparse_Matrix::x[0] && y == Sparse_Matrix::y[0]){
+           Buffer_Table += data[0];
            Index_Of_Data_Paint++;
         }
         else
