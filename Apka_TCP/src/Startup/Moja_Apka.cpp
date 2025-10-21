@@ -155,6 +155,7 @@ void Moja_Apka::Paint(HDC hdc)
            if(Buttons_State[0]){
             Page->Cout_Button_1(hdc);
            }
+           Page->Cout_Button_2(hdc);
          
            
 }}

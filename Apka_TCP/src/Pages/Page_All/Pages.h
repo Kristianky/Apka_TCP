@@ -16,8 +16,9 @@ protected:
    int *Windows_PositionsY;
    wchar_t *Page_Name;
    HWND Main_hwnd;
-   wchar_t **Buffer_1;
-   std::wstring Buffer_2;
+   wchar_t **Buffer_Edit;
+   std::wstring Buffer_Data;
+   std::wstring *Buffer_Message_Box;
    Sparse_Matrix Sparse_Matrix;
    int *Size_Of_Buffers;
    int *Indexes;
