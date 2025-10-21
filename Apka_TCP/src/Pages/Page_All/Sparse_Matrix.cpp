@@ -2,7 +2,6 @@
 
 void Sparse_Matrix::add_data(wchar_t *Buffer, wchar_t *X, wchar_t *Y)
 {
-    
     std::wstring X_Temp = X, Y_temp = Y;
     x[Index_Of_Data] = std::stoi(X_Temp);
     y[Index_Of_Data] = std::stoi(Y_temp);
@@ -38,7 +37,7 @@ void Sparse_Matrix::Print(std::wstring &Buffer_Table,int x)
     for (int y{}; y < Lenght_Y; y++)
     {
         if(x == Sparse_Matrix::x[0] && y == Sparse_Matrix::y[0]){
-           Buffer_Table += data[0];
+           Buffer_Table += L"2 ";
            Index_Of_Data_Paint++;
         }
         else
