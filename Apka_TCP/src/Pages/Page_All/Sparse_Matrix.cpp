@@ -2,7 +2,7 @@
 
 void Sparse_Matrix::add_data(wchar_t *Buffer, wchar_t *X, wchar_t *Y)
 {
-    data = new wchar_t*[Size];
+    
     std::wstring X_Temp = X, Y_temp = Y;
     x[Index_Of_Data] = std::stoi(X_Temp);
     y[Index_Of_Data] = std::stoi(Y_temp);
@@ -20,6 +20,9 @@ void Sparse_Matrix::set_Lenght_X_Y_Size(wchar_t *x, wchar_t *y, wchar_t *Size_Of
     Lenght_X = std::stoi(X_Temp);
     Lenght_Y = std::stoi(Y_temp);
     Size = std::stoi(Size_Temp);
+    if(data == nullptr){
+        data = new wchar_t*[Size];
+    }
 }
 
 void Sparse_Matrix::Print(std::wstring &Buffer_Table)

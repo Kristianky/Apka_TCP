@@ -107,7 +107,7 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
           Paint = 10000,
           ShowWindow,
           SetMatrix,
-          Add_Data = 10008
+          Add_Data = 10009
      };
      switch (LOWORD(wparam))
      {
