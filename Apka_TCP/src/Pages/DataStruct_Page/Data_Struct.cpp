@@ -71,9 +71,9 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
           rect.right = 600;
           rect.bottom = 300;
           int Position_Y{500};
-          for (int j{}; j < Size_Of_Buffers[6]; j++)
+          for (int x{}; x < Size_Of_Buffers[6]; x++)
           {
-               Sparse_Matrix.Print(Buffer_Data);
+               Sparse_Matrix.Print(Buffer_Data,x);
                TextOutW(hdc, 500, Position_Y, Buffer_Data.c_str(), Buffer_Data.length());
                Position_Y += 15;
           }

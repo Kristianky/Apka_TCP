@@ -23,13 +23,23 @@ void Sparse_Matrix::set_Lenght_X_Y_Size(wchar_t *x, wchar_t *y, wchar_t *Size_Of
     if(data == nullptr){
         data = new wchar_t*[Size];
     }
+    if(Sparse_Matrix::x == nullptr){
+        Sparse_Matrix::x = new int[Size];
+    }
+    if(Sparse_Matrix::y == nullptr){
+        Sparse_Matrix::y = new int[Size];
+    }
 }
 
-void Sparse_Matrix::Print(std::wstring &Buffer_Table)
+void Sparse_Matrix::Print(std::wstring &Buffer_Table,int x)
 {
     Buffer_Table = L"";
-    for (int i{}; i < Lenght_Y; i++)
+    for (int y{}; y < Lenght_Y; y++)
     {
+        if(x == Sparse_Matrix::x[Index_Of_Data] && y == Sparse_Matrix::y[Index_Of_Data]){
+           Buffer_Table += data[Index_Of_Data];
+        }
+        else
         Buffer_Table += L"0 ";
     }
 }
