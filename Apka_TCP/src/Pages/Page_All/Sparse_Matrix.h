@@ -10,6 +10,7 @@ class Sparse_Matrix{
      int *x;
      int *y;
      int Index_Of_Data;
+     int Index_Of_Data_Paint;
     public:
      void add_data(wchar_t *Buffer,wchar_t *X,wchar_t *Y);
      Sparse_Matrix() = default;

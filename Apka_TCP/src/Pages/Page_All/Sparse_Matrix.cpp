@@ -29,6 +29,7 @@ void Sparse_Matrix::set_Lenght_X_Y_Size(wchar_t *x, wchar_t *y, wchar_t *Size_Of
     if(Sparse_Matrix::y == nullptr){
         Sparse_Matrix::y = new int[Size];
     }
+    Index_Of_Data_Paint = 0;
 }
 
 void Sparse_Matrix::Print(std::wstring &Buffer_Table,int x)
@@ -36,8 +37,9 @@ void Sparse_Matrix::Print(std::wstring &Buffer_Table,int x)
     Buffer_Table = L"";
     for (int y{}; y < Lenght_Y; y++)
     {
-        if(x == Sparse_Matrix::x[Index_Of_Data] && y == Sparse_Matrix::y[Index_Of_Data]){
-           Buffer_Table += data[Index_Of_Data];
+        if(x == Sparse_Matrix::x[Index_Of_Data_Paint] && y == Sparse_Matrix::y[Index_Of_Data_Paint]){
+           Buffer_Table += data[Index_Of_Data_Paint];
+           Index_Of_Data_Paint++;
         }
         else
         Buffer_Table += L"0 ";

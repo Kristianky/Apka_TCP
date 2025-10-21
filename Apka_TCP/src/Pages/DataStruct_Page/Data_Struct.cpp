@@ -154,7 +154,7 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
           if (wcscmp(Buffer_Edit[3], L"") != 0)
           {
                std::wstring Temp_Size = Buffer_Edit[2];
-               SetWindowTextW(Buttons[5], L"");
+               SetWindowTextW(Buttons[6], L"");
                Sparse_Matrix.add_data(Buffer_Edit[3],Buffer_Edit[4],Buffer_Edit[5]);
           }
           MessageBoxW(Main_hwnd,L"Data added",MB_OK,NULL);
