@@ -80,13 +80,26 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
           rect.right = 600;
           rect.bottom = 300;
           int Position_Y{300};
-          for (int x{}; x < Size_Of_Buffers[6]; x++)
+          std::wstring Right_Temp = Buffer_Edit[1];
+          std::wstring Bottom_Temp = Buffer_Edit[0];
+          int size_right = (std::stoi(Right_Temp)+1) * 30 + 720;
+          int size_Bttom = (std::stoi(Bottom_Temp)+1) * 30 + 320;
+          HPEN hpen = CreatePen(PS_SOLID,3,RGB(0,17,255));
+          HPEN holdpen = (HPEN)SelectObject(hdc,hpen);
+          HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, GetStockObject(NULL_BRUSH));
+          Rectangle(hdc,690,290,size_right,size_Bttom);
+          for (int x{}; x < Size_Of_Buffers[6] + 1; x++)
           {
                Sparse_Matrix.Print(Buffer_Data, x);
                TextOutW(hdc, 700, Position_Y, Buffer_Data.c_str(), Buffer_Data.length());
+                if(wcscmp(Buffer_Data.c_str(),L"Data is not full")==0)
+                   break;
                Position_Y += 30;
           }
+     
           SelectObject(hdc, hOldFont);
+          SelectObject(hdc, hOldBrush);
+          SelectObject(hdc, holdpen);
           DeleteObject(hFont);
      }
 }
@@ -96,7 +109,12 @@ void Data_Struct_Page::Cout_Button_2(HDC hdc)
      {
           SetTextColor(hdc, RGB(255, 255, 255)); // biely text
           SetBkMode(hdc, TRANSPARENT);
-          TextOutW(hdc, 240, 245, L"Vloz Data", 10);
+          if(wcscmp(Buffer_Edit[3],L"")!=0){
+          TextOutW(hdc, 240, 245, L"Vloz Data", 10);}
+          if(wcscmp(Buffer_Edit[4],L"")!=0){
+          TextOutW(hdc, 240, 260, L"Vloz X", 7);}
+          if(wcscmp(Buffer_Edit[5],L"")!=0){
+          TextOutW(hdc, 240, 275, L"Vloz Y", 7);}
      }
 }
 void Data_Struct_Page::Cout_Create(HDC hdc)
@@ -174,18 +192,26 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
                delete[] Buffer_Edit[3];
                Buffer_Edit[3] = nullptr;
           }
+         
           Buffer_Edit[3] = new wchar_t[Size_Of_Buffers[3]];
           GetWindowTextW(Buttons[6], Buffer_Edit[3], Size_Of_Buffers[3]);
           Sparse_Matrix.add_data(Buffer_Edit[3], Buffer_Edit[4], Buffer_Edit[5]);
-          InvalidateRect(Main_hwnd, NULL, true);
-          UpdateWindow(Main_hwnd);
-
+          
           if (wcscmp(Buffer_Edit[3], L"") != 0)
           {
                SetWindowTextW(Buttons[6], L"");
                MessageBoxW(Main_hwnd, L"Data added", MB_OK, NULL);
           }
-
+          if (wcscmp(Buffer_Edit[4], L"") != 0)
+          {
+               SetWindowTextW(Buttons[7], L"");
+            
+          }if (wcscmp(Buffer_Edit[5], L"") != 0)
+          {
+               SetWindowTextW(Buttons[8], L"");
+               
+          }
+         
           break;
      }
 }
