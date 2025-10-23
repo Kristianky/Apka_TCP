@@ -1,1 +1,0 @@
- ../src/Startup/libMojaApkaLib.a ../src/Pages/MainPage/libMain_Page.a ../src/Pages/Page_All/libPages.a ../src/Pages/DataStruct_Page/libData_Struct.a ../src/Pages/Page_All/libPages.a ../src/Pages/Page_All/libSparse_Matrix.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

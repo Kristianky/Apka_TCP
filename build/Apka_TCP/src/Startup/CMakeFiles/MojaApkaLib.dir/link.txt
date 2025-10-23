@@ -1,2 +1,0 @@
-C:\PROGRA~1\mingw64\bin\ar.exe qc libMojaApkaLib.a CMakeFiles/MojaApkaLib.dir/Moja_Apka.cpp.obj
-C:\PROGRA~1\mingw64\bin\ranlib.exe libMojaApkaLib.a
