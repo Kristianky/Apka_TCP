@@ -12,7 +12,7 @@ class Sparse_Matrix{
      int Index_Of_Data;
      int Index_Of_Data_Paint;
     public:
-     void add_data(wchar_t *Buffer,wchar_t *X,wchar_t *Y);
+     int add_data(wchar_t *Buffer,wchar_t *X,wchar_t *Y);
      Sparse_Matrix() = default;
      ~Sparse_Matrix() = default;
      void set_Lenght_X_Y_Size(wchar_t* x,wchar_t* y,wchar_t *Size_Of_Buffer);
