@@ -162,6 +162,7 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
      switch (LOWORD(wparam))
      {
      case Paint:
+     
           Buttons_state[0] = !Buttons_state[0];
           InvalidateRect(Main_hwnd, NULL, true);
           UpdateWindow(Main_hwnd);
@@ -288,8 +289,12 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
 
                     if (wcscmp(Buffer_Edit[3], L"") != 0)
                     {
+                         if(Indexes[0]!=-1){
                          SetWindowTextW(Buttons[6], L"");
-                         MessageBoxW(Main_hwnd, L"Data added", MB_OK, NULL);
+                         MessageBoxW(Main_hwnd, L"Data added", MB_OK, NULL);}
+                         else {
+                               MessageBoxW(Main_hwnd, L"X or Y is used!!", MB_OK, NULL);
+                         }
                     }
                     if (wcscmp(Buffer_Edit[4], L"") != 0)
                     {
