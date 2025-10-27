@@ -33,7 +33,8 @@ protected:
    Sparse_Matrix Sparse_Matrix;
    int *Size_Of_Buffers;
    int *Indexes;
-
+   bool *Bools;
+   
 public:
    Pages() = default;
    Pages(HWND hwnd);

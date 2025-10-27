@@ -6,7 +6,7 @@ int Sparse_Matrix::add_data(wchar_t *Buffer, wchar_t *X, wchar_t *Y)
     if (Index_Of_Data != Size)
     {
         for(int i{};i < Index_Of_Data;i++){
-            if (std::stoi(X_Temp)==x[i]||std::stoi(Y_temp)==y[i]){
+            if (std::stoi(X_Temp)==x[i]&&std::stoi(Y_temp)==y[i]){
                 return -1;
             }
         }
@@ -104,4 +104,15 @@ void Sparse_Matrix::Print(std::wstring &Buffer_Table, int x)
         else
             Buffer_Table = L"Data is not full";
     }
+}
+void Sparse_Matrix::Reset_Data(){
+    if(data != nullptr){
+    delete[] data;
+    data = nullptr;}
+    if(x!=nullptr){
+    delete[] x;
+    x = nullptr;}
+    if(y!=nullptr){
+    delete[] y;
+    y = nullptr;}
 }

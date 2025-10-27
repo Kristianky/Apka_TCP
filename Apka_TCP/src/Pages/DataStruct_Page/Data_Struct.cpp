@@ -3,7 +3,7 @@
 Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
 
 {
-     Windows_Names = new wchar_t *[10]{{L"Paint"}, {L"ShowStauts"}, {L"Set Lenght"}, {L""}, {L""}, {L""}, {L""}, {L""}, {L""}, {L"Add Data"}};
+     Windows_Names = new wchar_t *[10]{{L"Paint"}, {L"Reset Table"}, {L"Set Lenght"}, {L""}, {L""}, {L""}, {L""}, {L""}, {L""}, {L"Add Data"}};
      Windows_CLASS = new wchar_t *[5]{{L"BUTTON"}, {L"EDIT"}};
      Number_Of_Windows = new int{11};
      Windows_PositionsX = new int[10]{10, 210, 610, 10, 10, 10, 10, 10, 10, 410};
@@ -18,6 +18,11 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
      }
      Indexes = new int[5]{0};
      Buffer_Message_Box = new std::wstring[1];
+     Bools = new bool[5];
+     for (int i{}; i < 6; i++)
+     {
+          Bools[i] = false;
+     }
 }
 
 Data_Struct_Page::~Data_Struct_Page()
@@ -86,6 +91,13 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
 }
 void Data_Struct_Page::Cout_Button_2(HDC hdc)
 {
+     std::wstring Data_Text, Size_Temp = Buffer_Edit[2];
+     int Size_Int_Temp = std::stoi(Size_Temp);
+     Data_Text = L"Number of data to set: ";
+     if (Indexes[0] < 0)
+     {
+          Data_Text += std::to_wstring(Size_Int_Temp - Indexes[0]);
+     }
      SetTextColor(hdc, RGB(255, 255, 255)); // biely text
      SetBkMode(hdc, TRANSPARENT);
      if (wcscmp(Buffer_Edit[0], L"0") <= 0)
@@ -114,7 +126,7 @@ void Data_Struct_Page::Cout_Button_2(HDC hdc)
      }
      if (wcscmp(Buffer_Edit[3], L"0") <= 0)
      {
-          TextOutW(hdc, 350, 245, L"Vloz Data", 10);
+          TextOutW(hdc, 350, 245, Data_Text.c_str(), Data_Text.length());
      }
      else
      {
@@ -155,28 +167,40 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
      enum BUTTONS_ID
      {
           Paint = 10000,
-          ShowWindow,
+          Reset_Table,
           SetMatrix,
           Add_Data = 10009
      };
      switch (LOWORD(wparam))
      {
      case Paint:
-     
-          Buttons_state[0] = !Buttons_state[0];
-          InvalidateRect(Main_hwnd, NULL, true);
-          UpdateWindow(Main_hwnd);
-
+     {
+          if (Bools[0] == true && Bools[1] == true)
+          {
+               Buttons_state[0] = !Buttons_state[0];
+               InvalidateRect(Main_hwnd, NULL, true);
+               UpdateWindow(Main_hwnd);
+          }
+          if (Bools[0] == false)
+          {
+               MessageBoxW(Main_hwnd, L"Nastav X_Lenght Y_Lenght a Lenght Of Data", MB_OK, NULL);
+          }
+          if (Bools[1] == false)
+          {
+               MessageBoxW(Main_hwnd, L"Pridaj data", MB_OK, NULL);
+          }
           break;
-     case ShowWindow:
-          if (Buttons_state[0])
-          {
-               MessageBoxW(Main_hwnd, L"True", MB_OK, MB_OK);
+     }
+
+     case Reset_Table:
+          Indexes[0]=0;
+          Sparse_Matrix.Reset_Data();
+          Sparse_Matrix.set_Lenght_X_Y_Size(L"0",L"0",L"0");
+          for(int i{};i < 6;i++){
+               Buffer_Edit[i] = L"0";
+               SetWindowTextW(Buttons[i + 3],L"");
           }
-          else if (!Buttons_state[0])
-          {
-               MessageBoxW(Main_hwnd, L"False", MB_OK, MB_OK);
-          }
+          MessageBoxW(Main_hwnd,L"Table Reseted",MB_OK,NULL);
           break;
      case SetMatrix:
           if (wcscmp(Buffer_Edit[0], L"0") == 0 && wcscmp(Buffer_Edit[1], L"0") == 0 && wcscmp(Buffer_Edit[2], L"0") == 0)
@@ -231,6 +255,7 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
                          InvalidateRect(Main_hwnd, NULL, true);
                          UpdateWindow(Main_hwnd);
                          MessageBoxW(Main_hwnd, Buffer_Message_Box->c_str(), MB_OK, NULL);
+                         Bools[0] = true;
                          break;
                     }
                }
@@ -289,11 +314,14 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
 
                     if (wcscmp(Buffer_Edit[3], L"") != 0)
                     {
-                         if(Indexes[0]!=-1){
-                         SetWindowTextW(Buttons[6], L"");
-                         MessageBoxW(Main_hwnd, L"Data added", MB_OK, NULL);}
-                         else {
-                               MessageBoxW(Main_hwnd, L"X or Y is used!!", MB_OK, NULL);
+                         if (Indexes[0] != -1)
+                         {
+                              SetWindowTextW(Buttons[6], L"");
+                              MessageBoxW(Main_hwnd, L"Data added", MB_OK, NULL);
+                         }
+                         else
+                         {
+                              MessageBoxW(Main_hwnd, L"X or Y is used!!", MB_OK, NULL);
                          }
                     }
                     if (wcscmp(Buffer_Edit[4], L"") != 0)
@@ -304,22 +332,24 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
                     {
                          SetWindowTextW(Buttons[8], L"");
                     }
-               }}
-
-               else
-               {
-                    MessageBoxW(Main_hwnd, L"Buffer full", MB_OK, NULL);
-               }
-
-               break;
-          
-     }}
-          void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Button, HWND *Window)
-          {
-               switch (wparam)
-               {
-               case VK_RETURN:
-               {
-               }
                }
           }
+
+          else
+          {
+               MessageBoxW(Main_hwnd, L"Buffer full", MB_OK, NULL);
+               Bools[1] = true;
+          }
+
+          break;
+     }
+}
+void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Button, HWND *Window)
+{
+     switch (wparam)
+     {
+     case VK_RETURN:
+     {
+     }
+     }
+}
