@@ -1,6 +1,10 @@
 #ifndef _MOJA_APKA_H_
 #define _MOJA_APKA_H_
 
+#ifndef GET_X_LPARAM
+  #define GET_X_LPARAM(lp) ( (int)(short)LOWORD(lp) )
+  #define GET_Y_LPARAM(lp) ( (int)(short)HIWORD(lp) )
+#endif
 
 #include <windows.h>
 #include "Pages.h"
@@ -37,6 +41,8 @@ public:
     void Welcome_Page(WPARAM wparam,LPARAM lparam);
     void Paint(HDC hdc);
     void Render_Page_Keyboard(WPARAM wpram,LPARAM lparam);
+     void Border(HDC hdc,RECT Main_Rect);
     };
+  
 
 #endif
