@@ -41,7 +41,9 @@ public:
     void Welcome_Page(WPARAM wparam,LPARAM lparam);
     void Paint(HDC hdc);
     void Render_Page_Keyboard(WPARAM wpram,LPARAM lparam);
-     void Border(HDC hdc,RECT Main_Rect);
+    void Border(HDC hdc,RECT Main_Rect);
+    bool Border_Buttons_Draw(HWND hwnd,LPARAM lparam);
+    void Border_Buttons_Funct(HWND hwnd,LPARAM lparam);
     };
   
 

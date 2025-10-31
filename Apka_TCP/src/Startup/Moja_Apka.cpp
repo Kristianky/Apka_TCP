@@ -13,8 +13,10 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 5); // nastavi styl a farbu okna
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);      // nacita kurzor a nastavi styl
     Buttons_State = new bool[5];
-    Buttons_State[0] = false;
-    Buttons_State[1] = false;
+    for (int i{}; i < 4; i++)
+    {
+        Buttons_State[i] = false;
+    }
     RegisterClassW(&wc); // regitruje classu do windows az po tomto kroku mozme vytvorit okno
 
     hwnd = CreateWindowExW( // vytvorenie hl okna
@@ -81,6 +83,18 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         hdc = BeginPaint(hwnd, &Ps);
         Border(hdc, Main_Rect);
         Paint(hdc);
+        if (Buttons_State[2] == true)
+        {
+            SetTextColor(hdc, RGB(255, 255, 255)); // biely text
+            SetBkMode(hdc, TRANSPARENT);
+            TextOutW(hdc, 500, 500, L"Oblast mysi = 1", 16);
+        }
+        else
+        {
+            SetTextColor(hdc, RGB(255, 255, 255)); // biely text
+            SetBkMode(hdc, TRANSPARENT);
+            TextOutW(hdc, 500, 500, L"Oblast mysi = 0", 16);
+        }
         EndPaint(hwnd, &Ps);
         break;
     }
@@ -174,33 +188,12 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         // Tvorba vlastneho stylu tlacidla
     case WM_DRAWITEM:
     {
-        LPDRAWITEMSTRUCT Button_X = LPDRAWITEMSTRUCT(lparam);
-        HBRUSH hbrush = CreateSolidBrush(RGB(30, 30, 30));
-        FillRect(Button_X->hDC, &Button_X->rcItem, hbrush);
-        DeleteObject(hbrush);
-
-        SetTextColor(Button_X->hDC, RGB(224, 224, 224));
-        SetBkMode(Button_X->hDC, TRANSPARENT);
-        DrawTextW(Button_X->hDC, L"X", -1, &Button_X->rcItem, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-        return true;
+        Border_Buttons_Draw(hwnd, lparam);
         break;
     }
     case WM_MOUSEMOVE:
     {
-        int X = GET_X_LPARAM(lparam);
-        int Y = GET_Y_LPARAM(lparam);
-        RECT RC;
-        GetClientRect(hwnd, &RC);
-        if (RC.right - 50 < X)
-        {
-            if (30 > Y)
-            {
-                LPDRAWITEMSTRUCT Button_X = LPDRAWITEMSTRUCT(lparam);
-                HBRUSH hbrush = CreateSolidBrush(RGB(30, 30, 30));
-                FillRect(Button_X->hDC, &Button_X->rcItem, hbrush);
-                DeleteObject(hbrush);
-            }
-        }
+        Border_Buttons_Funct(hwnd, lparam);
     }
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);
@@ -326,4 +319,87 @@ void Moja_Apka::Border(HDC hdc, RECT Main_Rect)
     // DeleteObject(Close_Btn_Color);
     // SetTextColor(hdc, RGB(255, 255, 255));
     // TextOutW(hdc, Main_Rect.right - 50, 0, L"X", 1);
+}
+
+bool Moja_Apka::Border_Buttons_Draw(HWND hwnd, LPARAM lparam)
+{
+    LPDRAWITEMSTRUCT Button_X = (LPDRAWITEMSTRUCT)lparam;
+    if (Button_X->CtlID == ID_BUTTONS + 14)
+    {
+        HBRUSH BTN_1_Color;
+
+        if (Buttons_State[2] == true)
+        {
+            BTN_1_Color = CreateSolidBrush(RGB(204, 0, 0));
+        }
+        else
+        {
+            BTN_1_Color = CreateSolidBrush(RGB(30, 30, 30));
+        }
+        FillRect(Button_X->hDC, &Button_X->rcItem, BTN_1_Color);
+        DeleteObject(BTN_1_Color);
+
+        SetTextColor(Button_X->hDC, RGB(244, 244, 244));
+        SetBkMode(Button_X->hDC, TRANSPARENT);
+        DrawTextW(Button_X->hDC, L"X", -1, &Button_X->rcItem, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+
+        return true;
+    }
+    if (Button_X->CtlID == ID_BUTTONS + 15)
+    {
+        HBRUSH BTN_1_Color;
+
+        if (Buttons_State[3] == true)
+        {
+            BTN_1_Color = CreateSolidBrush(RGB(204, 0, 0));
+        }
+        else
+        {
+            BTN_1_Color = CreateSolidBrush(RGB(30, 30, 30));
+        }
+        FillRect(Button_X->hDC, &Button_X->rcItem, BTN_1_Color);
+        DeleteObject(BTN_1_Color);
+
+        SetTextColor(Button_X->hDC, RGB(244, 244, 244));
+        SetBkMode(Button_X->hDC, TRANSPARENT);
+        DrawTextW(Button_X->hDC, L"X", -1, &Button_X->rcItem, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+
+        return true;
+    }
+    if (Button_X->CtlID == ID_BUTTONS + 16)
+    {
+        HBRUSH BTN_1_Color;
+
+        if (Buttons_State[4] == true)
+        {
+            BTN_1_Color = CreateSolidBrush(RGB(204, 0, 0));
+        }
+        else
+        {
+            BTN_1_Color = CreateSolidBrush(RGB(30, 30, 30));
+        }
+        FillRect(Button_X->hDC, &Button_X->rcItem, BTN_1_Color);
+        DeleteObject(BTN_1_Color);
+
+        SetTextColor(Button_X->hDC, RGB(244, 244, 244));
+        SetBkMode(Button_X->hDC, TRANSPARENT);
+        DrawTextW(Button_X->hDC, L"X", -1, &Button_X->rcItem, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+
+        return true;
+    }
+}
+
+void Moja_Apka::Border_Buttons_Funct(HWND hwnd, LPARAM lparam)
+{
+    POINT BTN_X = {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
+    RECT Main_Window;
+    GetClientRect(hwnd, &Main_Window);
+
+    bool inside = (BTN_X.x > Main_Window.right - 52 && BTN_X.y < Main_Window.top + 31);
+    if (inside != Buttons_State[2])
+    {
+        Buttons_State[2] = inside;
+        InvalidateRect(hwnd, NULL, TRUE);
+        UpdateWindow(hwnd);
+    }
 }
