@@ -12,8 +12,8 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
     wc.lpszClassName = CLASSNAME;                  // priradi meno okna
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 5); // nastavi styl a farbu okna
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);      // nacita kurzor a nastavi styl
-    Buttons_State = new bool[5];
-    for (int i{}; i < 4; i++)
+    Buttons_State = new bool[6];
+    for (int i{}; i < 5; i++)
     {
         Buttons_State[i] = false;
     }
@@ -43,32 +43,11 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         GetClientRect(hwnd, &Main_rect);
         // vytvori tlacidlo button->co to ma byt....zobraz text->text na tlacidle...WS ->styly a vyzor... poloha a velkost...
         Button[0] = CreateWindowW(L"BUTTON", L"Vitajte pre pokracovanie klikni", WS_CHILD | WS_VISIBLE, 600, 250, 400, 200, hwnd, (HMENU)(ID_BUTTONS), NULL, NULL);
-        Button[14] = CreateWindowW(L"BUTTON", L"", WS_CHILD | WS_VISIBLE | BS_OWNERDRAW, Main_rect.right - 50, 0, 50, 30, hwnd, (HMENU)(ID_BUTTONS + 14), NULL, NULL);
-        Button[15] = CreateWindowW(L"BUTTON", L"[]", WS_CHILD | WS_VISIBLE, Main_rect.right - 100, 0, 50, 30, hwnd, (HMENU)(ID_BUTTONS + 15), NULL, NULL);
-        Button[16] = CreateWindowW(L"BUTTON", L"-", WS_CHILD | WS_VISIBLE, Main_rect.right - 150, 0, 50, 30, hwnd, (HMENU)(ID_BUTTONS + 16), NULL, NULL);
         break;
     case WM_COMMAND:
     {
         Render_Page(Page_Num, lparam, wparam);
-        if (LOWORD(wparam) == ID_BUTTONS + 14)
-        {
-            PostQuitMessage(0);
-        }
-        if (LOWORD(wparam) == ID_BUTTONS + 15)
-        {
-            if (IsZoomed(hwnd))
-            {
-                ShowWindow(hwnd, SW_RESTORE);
-            }
-            else
-            {
-                ShowWindow(hwnd, SW_MAXIMIZE);
-            }
-        }
-        if (LOWORD(wparam) == ID_BUTTONS + 16)
-        {
-            ShowWindow(hwnd, SW_MINIMIZE);
-        }
+        
         break;
     }
     case WM_DESTROY:
@@ -83,18 +62,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         hdc = BeginPaint(hwnd, &Ps);
         Border(hdc, Main_Rect);
         Paint(hdc);
-        if (Buttons_State[2] == true)
-        {
-            SetTextColor(hdc, RGB(255, 255, 255)); // biely text
-            SetBkMode(hdc, TRANSPARENT);
-            TextOutW(hdc, 500, 500, L"Oblast mysi = 1", 16);
-        }
-        else
-        {
-            SetTextColor(hdc, RGB(255, 255, 255)); // biely text
-            SetBkMode(hdc, TRANSPARENT);
-            TextOutW(hdc, 500, 500, L"Oblast mysi = 0", 16);
-        }
+        Draw_Buttons_Border(hwnd, lparam, hdc);
         EndPaint(hwnd, &Ps);
         break;
     }
@@ -145,7 +113,11 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
 
             // Vlastná title bar oblasť (napr. 30px)
             if (cursor.y < 30)
-                return HTCAPTION;
+            {
+                RECT rcButtons = {rect.right - 150, 0, rect.right, 30}; // pravý horný pás s tlačidlami
+                if (!PtInRect(&rcButtons, cursor))
+                    return HTCAPTION; // zvyšok horného pásu na ťahanie
+            }
         }
 
         return hit;
@@ -158,24 +130,21 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         {
         case SIZE_MAXIMIZED:
         {
-            MoveWindow(Button[15], Resize_Rect.right - 100, 0, 50, 30, true);
-            MoveWindow(Button[14], Resize_Rect.right - 50, 0, 50, 30, true);
-            MoveWindow(Button[16], Resize_Rect.right - 150, 0, 50, 30, true);
+            InvalidateRect(hwnd, &Resize_Rect, TRUE);
+            UpdateWindow(hwnd);
             break;
         }
         case SIZE_RESTORED:
         {
-            MoveWindow(Button[15], Resize_Rect.right - 100, 0, 50, 30, true);
-            MoveWindow(Button[14], Resize_Rect.right - 50, 0, 50, 30, true);
-            MoveWindow(Button[16], Resize_Rect.right - 150, 0, 50, 30, true);
+            InvalidateRect(hwnd, &Resize_Rect, TRUE);
+            UpdateWindow(hwnd);
             break;
         }
         case SIZE_MINIMIZED:
         {
             {
-                MoveWindow(Button[15], Resize_Rect.right - 100, 0, 50, 30, true);
-                MoveWindow(Button[14], Resize_Rect.right - 50, 0, 50, 30, true);
-                MoveWindow(Button[16], Resize_Rect.right - 150, 0, 50, 30, true);
+                InvalidateRect(hwnd, &Resize_Rect, TRUE);
+                UpdateWindow(hwnd);
                 break;
             }
         }
@@ -186,15 +155,19 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         Render_Page_Keyboard(wparam, lparam);
         break;
         // Tvorba vlastneho stylu tlacidla
-    case WM_DRAWITEM:
-    {
-        Border_Buttons_Draw(hwnd, lparam);
-        break;
-    }
+    // case WM_DRAWITEM:
+    // {
+    //     Border_Buttons_Draw(hwnd, lparam);
+    //     break;
+    // }
     case WM_MOUSEMOVE:
     {
-        Border_Buttons_Funct(hwnd, lparam);
+        Mouse_Cursor_Move(hwnd, lparam);
     }
+    break;
+    case WM_LBUTTONDOWN:
+        L_BTN_Click(hwnd);
+        break;
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);
 
@@ -303,7 +276,7 @@ void Moja_Apka::Render_Page_Keyboard(WPARAM wparam, LPARAM lparam)
 
 void Moja_Apka::Border(HDC hdc, RECT Main_Rect)
 {
-    RECT Title_bar = {0, 0, Main_Rect.right, 30};
+    RECT Title_bar = {0, 0, Main_Rect.right - 150, 30};
     HBRUSH TB_Color = CreateSolidBrush(RGB(30, 30, 30));
     FillRect(hdc, &Title_bar, TB_Color);
     DeleteObject(TB_Color);
@@ -321,85 +294,132 @@ void Moja_Apka::Border(HDC hdc, RECT Main_Rect)
     // TextOutW(hdc, Main_Rect.right - 50, 0, L"X", 1);
 }
 
-bool Moja_Apka::Border_Buttons_Draw(HWND hwnd, LPARAM lparam)
+void Moja_Apka::Draw_Buttons_Border(HWND hwnd, LPARAM lparam, HDC hdc)
 {
-    LPDRAWITEMSTRUCT Button_X = (LPDRAWITEMSTRUCT)lparam;
-    if (Button_X->CtlID == ID_BUTTONS + 14)
+    RECT Main_window;
+    GetClientRect(hwnd, &Main_window);
+
+    HBRUSH BTN_X_Color;
+    HBRUSH BTN_MAX_MIN_Color;
+    HBRUSH BTN_MINIMIZE_Color;
+    if (Buttons_State[2] == true)
     {
-        HBRUSH BTN_1_Color;
-
-        if (Buttons_State[2] == true)
-        {
-            BTN_1_Color = CreateSolidBrush(RGB(204, 0, 0));
-        }
-        else
-        {
-            BTN_1_Color = CreateSolidBrush(RGB(30, 30, 30));
-        }
-        FillRect(Button_X->hDC, &Button_X->rcItem, BTN_1_Color);
-        DeleteObject(BTN_1_Color);
-
-        SetTextColor(Button_X->hDC, RGB(244, 244, 244));
-        SetBkMode(Button_X->hDC, TRANSPARENT);
-        DrawTextW(Button_X->hDC, L"X", -1, &Button_X->rcItem, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-
-        return true;
+        BTN_X_Color = CreateSolidBrush(RGB(204, 0, 0));
     }
-    if (Button_X->CtlID == ID_BUTTONS + 15)
+    else
     {
-        HBRUSH BTN_1_Color;
-
-        if (Buttons_State[3] == true)
-        {
-            BTN_1_Color = CreateSolidBrush(RGB(204, 0, 0));
-        }
-        else
-        {
-            BTN_1_Color = CreateSolidBrush(RGB(30, 30, 30));
-        }
-        FillRect(Button_X->hDC, &Button_X->rcItem, BTN_1_Color);
-        DeleteObject(BTN_1_Color);
-
-        SetTextColor(Button_X->hDC, RGB(244, 244, 244));
-        SetBkMode(Button_X->hDC, TRANSPARENT);
-        DrawTextW(Button_X->hDC, L"X", -1, &Button_X->rcItem, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-
-        return true;
+        BTN_X_Color = CreateSolidBrush(RGB(30, 30, 30));
     }
-    if (Button_X->CtlID == ID_BUTTONS + 16)
+    if (Buttons_State[3])
     {
-        HBRUSH BTN_1_Color;
-
-        if (Buttons_State[4] == true)
-        {
-            BTN_1_Color = CreateSolidBrush(RGB(204, 0, 0));
-        }
-        else
-        {
-            BTN_1_Color = CreateSolidBrush(RGB(30, 30, 30));
-        }
-        FillRect(Button_X->hDC, &Button_X->rcItem, BTN_1_Color);
-        DeleteObject(BTN_1_Color);
-
-        SetTextColor(Button_X->hDC, RGB(244, 244, 244));
-        SetBkMode(Button_X->hDC, TRANSPARENT);
-        DrawTextW(Button_X->hDC, L"X", -1, &Button_X->rcItem, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-
-        return true;
+        BTN_MAX_MIN_Color = CreateSolidBrush(RGB(30, 40, 40));
     }
+    else
+    {
+        BTN_MAX_MIN_Color = CreateSolidBrush(RGB(30, 30, 30));
+    }
+    if (Buttons_State[4])
+    {
+        BTN_MINIMIZE_Color = CreateSolidBrush(RGB(30, 40, 40));
+    }
+    else
+    {
+        BTN_MINIMIZE_Color = CreateSolidBrush(RGB(30, 30, 30));
+    }
+    RECT BTN_X_Rect = {Main_window.right - 50, 0, Main_window.right, 30};
+    RECT BTN_MAX_MIN_Rect = {Main_window.right - 100, 0, Main_window.right - 50, 30};
+    RECT BTN_MINIMIZE_Rect = {Main_window.right - 150, 0, Main_window.right - 100, 30};
+    FillRect(hdc, &BTN_X_Rect, BTN_X_Color);
+    FillRect(hdc, &BTN_MAX_MIN_Rect, BTN_MAX_MIN_Color);
+    FillRect(hdc, &BTN_MINIMIZE_Rect, BTN_MINIMIZE_Color);
+
+    HFONT BTN_FONT = CreateFontW(25, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, L"Segoe UI");
+    HFONT BTN_HOLD_FONT = (HFONT)SelectObject(hdc, BTN_FONT);
+
+    HPEN X_PEN = CreatePen(PS_SOLID, 3, RGB(205, 205, 205));
+    HPEN X_HOLD_PEN = (HPEN)SelectObject(hdc, X_PEN);
+
+    DrawTextW(hdc, L"X", -1, &BTN_X_Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+    DrawTextW(hdc, L"[]", -1, &BTN_MAX_MIN_Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+    DrawTextW(hdc, L"_", -1, &BTN_MINIMIZE_Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+    SelectObject(hdc, BTN_HOLD_FONT);
+    SelectObject(hdc, X_HOLD_PEN);
+    SelectObject(hdc, BTN_FONT);
+    DeleteObject(BTN_X_Color);
 }
 
-void Moja_Apka::Border_Buttons_Funct(HWND hwnd, LPARAM lparam)
+void Moja_Apka::Mouse_Cursor_Move(HWND hwnd, LPARAM lparam)
 {
-    POINT BTN_X = {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
+    POINT Mouse_Move = {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
     RECT Main_Window;
     GetClientRect(hwnd, &Main_Window);
 
-    bool inside = (BTN_X.x > Main_Window.right - 52 && BTN_X.y < Main_Window.top + 31);
-    if (inside != Buttons_State[2])
+    bool IN_X = (Mouse_Move.x > Main_Window.right - 50 && Mouse_Move.y < 30);
+    bool IN_RESTORE = (Mouse_Move.x > Main_Window.right - 100 && Mouse_Move.x < Main_Window.right - 50 && Mouse_Move.y < 30);
+    bool IN_MINIMIZE = (Mouse_Move.x > Main_Window.right - 150 && Mouse_Move.x < Main_Window.right - 100 && Mouse_Move.y < 30);
+    
+    
+        if (IN_X != Buttons_State[2])
+        {
+            Buttons_State[2] = IN_X;
+            InvalidateRect(hwnd, NULL, TRUE);
+            UpdateWindow(hwnd);
+        }
+        else
+        {
+            Buttons_State[2] = false;
+            InvalidateRect(hwnd, NULL, TRUE);
+            UpdateWindow(hwnd);
+        }
+        if (IN_RESTORE != Buttons_State[3])
+        {
+            Buttons_State[3] = IN_RESTORE;
+            InvalidateRect(hwnd, NULL, TRUE);
+            UpdateWindow(hwnd);
+        }
+        else
+        {
+            Buttons_State[3] = false;
+            InvalidateRect(hwnd, NULL, TRUE);
+            UpdateWindow(hwnd);
+        }
+        if (IN_MINIMIZE != Buttons_State[4])
+        {
+            Buttons_State[4] = IN_MINIMIZE;
+            InvalidateRect(hwnd, NULL, TRUE);
+            UpdateWindow(hwnd);
+        }
+        else
+        {
+            Buttons_State[4] = false;
+            InvalidateRect(hwnd, NULL, TRUE);
+            UpdateWindow(hwnd);
+        }
+
+}
+
+void Moja_Apka::L_BTN_Click(HWND hwnd)
+{
+    if (Buttons_State[2])
     {
-        Buttons_State[2] = inside;
-        InvalidateRect(hwnd, NULL, TRUE);
-        UpdateWindow(hwnd);
+        PostQuitMessage(0);
+    }
+    if (Buttons_State[3])
+    {
+        if (IsZoomed(hwnd))
+        {
+           ShowWindow(hwnd, SW_RESTORE);
+           Buttons_State[3] = false;
+        }
+        else
+        {
+            ShowWindow(hwnd,SW_MAXIMIZE);
+            Buttons_State[3] = false;
+        }
+    }
+    if(Buttons_State[4])
+    {
+        ShowWindow(hwnd,SW_MINIMIZE);
+        Buttons_State[4] = false;
     }
 }
