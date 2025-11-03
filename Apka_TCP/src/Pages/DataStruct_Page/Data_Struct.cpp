@@ -3,12 +3,12 @@
 Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
 
 {
-     Windows_Names = new wchar_t *[10]{{L"Paint"}, {L"Reset Table"}, {L"Set Lenght"}, {L""}, {L""}, {L""}, {L""}, {L""}, {L""}, {L"Add Data"}};
+     Windows_Names = new wchar_t *[11]{{L"Paint"}, {L"Reset Table"}, {L"Set Lenght"}, {L""}, {L""}, {L""}, {L""}, {L""}, {L""}, {L"Add Data"},{L"Add Sparse Matrix"}};
      Windows_CLASS = new wchar_t *[5]{{L"BUTTON"}, {L"EDIT"}};
      Number_Of_Windows = new int{11};
-     Windows_PositionsX = new int[10]{10, 210, 610, 10, 10, 10, 10, 10, 10, 410};
-     Windows_PositionsY = new int[10]{10, 10, 10, 200, 215, 230, 245, 260, 275, 10};
-     Windows = new HWND[10];
+     Windows_PositionsX = new int[11]{10, 210, 610, 10, 10, 10, 10, 10, 10, 410,810};
+     Windows_PositionsY = new int[11]{10, 10, 10, 200, 215, 230, 245, 260, 275, 10,10};
+     Windows = new HWND[11];
      Size_Of_Buffers = new int[8];
      Buffer_Edit = new wchar_t *[6];
      for (int i{}; i < 6; i++)
@@ -77,7 +77,7 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
      Rectangle(hdc, 690, 290, size_right, size_Bttom);
      for (int x{}; x < Size_Of_Buffers[6] + 1; x++)
      {
-          Sparse_Matrix.Print(Buffer_Data, x);
+          Sparse_matrix.Print(Buffer_Data, x);
           TextOutW(hdc, 700, Position_Y, Buffer_Data.c_str(), Buffer_Data.length());
           if (wcscmp(Buffer_Data.c_str(), L"Data is not full") == 0)
                break;
@@ -169,7 +169,8 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
           Paint = 10000,
           Reset_Table,
           SetMatrix,
-          Add_Data = 10009
+          Add_Data = 10009,
+          Add_Sparse_Matrix
      };
      switch (LOWORD(wparam))
      {
@@ -193,16 +194,19 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
      }
 
      case Reset_Table:
+     {
           Indexes[0]=0;
-          Sparse_Matrix.Reset_Data();
-          Sparse_Matrix.set_Lenght_X_Y_Size(L"0",L"0",L"0");
+          Sparse_matrix.Reset_Data();
+          Sparse_matrix.set_Lenght_X_Y_Size(L"0",L"0",L"0");
           for(int i{};i < 6;i++){
                Buffer_Edit[i] = L"0";
                SetWindowTextW(Buttons[i + 3],L"");
           }
           MessageBoxW(Main_hwnd,L"Table Reseted",MB_OK,NULL);
           break;
+     }
      case SetMatrix:
+     {
           if (wcscmp(Buffer_Edit[0], L"0") == 0 && wcscmp(Buffer_Edit[1], L"0") == 0 && wcscmp(Buffer_Edit[2], L"0") == 0)
           {
                if (GetWindowTextLengthW(Buttons[3]) != 0 && GetWindowTextLengthW(Buttons[4]) != 0 && GetWindowTextLengthW(Buttons[5]) != 0)
@@ -251,7 +255,7 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
                          Buffer_Message_Box[0] += L"\nMatrix set Y: ";
                          Buffer_Message_Box[0] += Buffer_Edit[1];
                          Buffer_Message_Box[0] += L"\nX a Y Nastavene.";
-                         Sparse_Matrix.set_Lenght_X_Y_Size(Buffer_Edit[0], Buffer_Edit[1], Buffer_Edit[2]);
+                         Sparse_matrix.set_Lenght_X_Y_Size(Buffer_Edit[0], Buffer_Edit[1], Buffer_Edit[2]);
                          InvalidateRect(Main_hwnd, NULL, true);
                          UpdateWindow(Main_hwnd);
                          MessageBoxW(Main_hwnd, Buffer_Message_Box->c_str(), MB_OK, NULL);
@@ -260,6 +264,7 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
                     }
                }
           }
+     
           else
           {
                Buffer_Message_Box[0] = L"";
@@ -274,7 +279,9 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
                SetWindowTextW(Buttons[5], Buffer_Edit[2]);
           }
           break;
+     }
      case Add_Data:
+     {
           std::wstring Data_Index = Buffer_Edit[2];
           if (Indexes[0] != std::stoi(Data_Index))
           {
@@ -310,7 +317,7 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
 
                     Buffer_Edit[3] = new wchar_t[Size_Of_Buffers[3]];
                     GetWindowTextW(Buttons[6], Buffer_Edit[3], Size_Of_Buffers[3]);
-                    Indexes[0] = Sparse_Matrix.add_data(Buffer_Edit[3], Buffer_Edit[4], Buffer_Edit[5]);
+                    Indexes[0] = Sparse_matrix.add_data(Buffer_Edit[3], Buffer_Edit[4], Buffer_Edit[5]);
 
                     if (wcscmp(Buffer_Edit[3], L"") != 0)
                     {
@@ -343,6 +350,28 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
 
           break;
      }
+     case Add_Sparse_Matrix:
+     {
+          Sparse_Matrix One;
+          Sparse_Matrix Two;
+          Two.set_Lenght_X_Y_Size(L"5",L"5",L"4");
+          One.set_Lenght_X_Y_Size(L"5",L"5",L"4");
+          for(int i{};i < 4;i++)
+          {
+               std::wstring Temp_Y = std::to_wstring(i);
+               wchar_t *Temp_y = new wchar_t[2];
+               wcscpy(Temp_y,Temp_Y.c_str());
+               Two.add_data(L"2",Temp_y,L"1");
+               std::wstring Temp_X = std::to_wstring(i);
+               wchar_t *Temp_x = new wchar_t[2];
+               wcscpy(Temp_x,Temp_X.c_str());
+               One.add_data(L"1",L"1",Temp_x);
+          }
+
+          Data_Struct_Page::Add_Sparse_Matrix(One,Two);
+          break;
+     }
+     }
 }
 void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Button, HWND *Window)
 {
@@ -352,4 +381,10 @@ void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Butto
      {
      }
      }
+}
+
+void Data_Struct_Page::Add_Sparse_Matrix(Sparse_Matrix First,Sparse_Matrix Second)
+{
+     Sparse_matrix = First + Second;
+     
 }

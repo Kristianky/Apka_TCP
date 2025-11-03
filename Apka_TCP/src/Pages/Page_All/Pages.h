@@ -30,7 +30,7 @@ protected:
    wchar_t **Buffer_Edit;
    std::wstring Buffer_Data;
    std::wstring *Buffer_Message_Box;
-   Sparse_Matrix Sparse_Matrix;
+   Sparse_Matrix Sparse_matrix;
    int *Size_Of_Buffers;
    int *Indexes;
    bool *Bools;
@@ -47,6 +47,7 @@ public:
    virtual void Cout_Create(HDC hdc) = 0;
    virtual HWND Get_hwnd() = 0;
    virtual void Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Button, HWND *Window) = 0;
+   virtual void Add_Sparse_Matrix(Sparse_Matrix First,Sparse_Matrix Second) = 0;
 };
 
 #endif
