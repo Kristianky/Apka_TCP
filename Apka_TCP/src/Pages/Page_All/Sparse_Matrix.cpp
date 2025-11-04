@@ -4,6 +4,7 @@ Sparse_Matrix::Sparse_Matrix(const Sparse_Matrix &Other)
     Size = Other.Size;
     Lenght_X = Other.Lenght_X;
     Lenght_Y = Other.Lenght_Y;
+    Index_Of_Data = Other.Get_Index_Of_Data();
 
     x = new int[Size];
     y = new int[Size];
@@ -20,9 +21,9 @@ Sparse_Matrix::Sparse_Matrix(const Sparse_Matrix &Other)
     }
 }
 
-int Sparse_Matrix::add_data(wchar_t *Buffer, wchar_t *X, wchar_t *Y)
+int Sparse_Matrix::add_data(const wchar_t *Buffer,const wchar_t *X,const wchar_t *Y)
 {
-    std::wstring X_Temp = X, Y_temp = Y;
+    std::wstring X_Temp = X, Y_temp = Y,Buffer_Temp;
     if (Index_Of_Data != Size)
     {
         for (int i{}; i < Index_Of_Data; i++)
@@ -36,7 +37,9 @@ int Sparse_Matrix::add_data(wchar_t *Buffer, wchar_t *X, wchar_t *Y)
         x[Index_Of_Data] = std::stoi(X_Temp);
         y[Index_Of_Data] = std::stoi(Y_temp);
 
-        data[Index_Of_Data] = Buffer;
+        Buffer_Temp = Buffer;
+        data[Index_Of_Data] = new wchar_t[Buffer_Temp.size() + 1];
+        wcscpy(data[Index_Of_Data],Buffer_Temp.c_str());
 
         Index_Of_Data++;
         return Index_Of_Data;

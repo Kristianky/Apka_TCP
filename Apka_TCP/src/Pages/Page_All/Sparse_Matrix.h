@@ -12,13 +12,12 @@ class Sparse_Matrix{
      int Index_Of_Data;
      int Index_Of_Data_Paint;
     public:
-     int add_data(wchar_t *Buffer,wchar_t *X,wchar_t *Y);
+     int add_data(const wchar_t *Buffer,const wchar_t *X,const wchar_t *Y);
      void Add_Data_at(int index,int X_temp,int Y_temp, wchar_t* Data_temp);
      Sparse_Matrix() = default;
-     Sparse_Matrix(wchar_t** data,int *x,int *y):data {data},x{x},y{y}{}
      ~Sparse_Matrix() = default;
      Sparse_Matrix(const Sparse_Matrix &Other);
-     void set_Lenght_X_Y_Size(wchar_t* x,wchar_t* y,wchar_t *Size_Of_Buffer);
+     void set_Lenght_X_Y_Size( wchar_t* x,wchar_t* y,wchar_t *Size_Of_Buffer);
      void Print(std::wstring &Buffer_Table,int x);
      void Reset_Data();
      Sparse_Matrix operator+(const Sparse_Matrix &Rhs) const;
@@ -35,6 +34,7 @@ class Sparse_Matrix{
      void Set_X_at (int index,int temp) {x[index] = temp;}
      void Set_Y_at (int index,int temp) {y[index] = temp;}
      void Add_Data_at (int index, wchar_t *Temp) {data[index] = Temp;}
+     int Get_Index_Of_Data () const {return Index_Of_Data;}
 };
 
 

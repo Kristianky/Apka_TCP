@@ -15,8 +15,8 @@ class Data_Struct_Page:public Pages{
          virtual HWND Get_hwnd() {return Main_hwnd;}
          virtual void Key_Board_Func(WPARAM wparam,LPARAM lparam,int ID_Button,HWND *Window);
          virtual void Cout_Button_2(HDC hdc) override;
-         virtual void Add_Sparse_Matrix(Sparse_Matrix First,Sparse_Matrix Second) override;
-        
+         virtual void Add_Sparse_Matrix(Sparse_Matrix &First,Sparse_Matrix &Second) override;
+         virtual void To_Wstring() override;
 };
 
 #endif
