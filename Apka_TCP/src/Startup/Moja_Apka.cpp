@@ -365,7 +365,7 @@ void Moja_Apka::Mouse_Cursor_Move(HWND hwnd, LPARAM lparam)
             InvalidateRect(hwnd, NULL, TRUE);
             UpdateWindow(hwnd);
         }
-        else if(Buttons_State[2])
+        else if(Buttons_State[2] && !IN_X)
         {
             Buttons_State[2] = false;
             InvalidateRect(hwnd, NULL, TRUE);
@@ -377,7 +377,7 @@ void Moja_Apka::Mouse_Cursor_Move(HWND hwnd, LPARAM lparam)
             InvalidateRect(hwnd, NULL, TRUE);
             UpdateWindow(hwnd);
         }
-        else if(Buttons_State[3])
+        else if(Buttons_State[3]&&!IN_RESTORE)
         {
             Buttons_State[3] = false;
             InvalidateRect(hwnd, NULL, TRUE);
@@ -389,7 +389,7 @@ void Moja_Apka::Mouse_Cursor_Move(HWND hwnd, LPARAM lparam)
             InvalidateRect(hwnd, NULL, TRUE);
             UpdateWindow(hwnd);
         }
-        else if (Buttons_State[4])
+        else if (Buttons_State[4]&&!IN_MINIMIZE)
         {
             Buttons_State[4] = false;
             InvalidateRect(hwnd, NULL, TRUE);

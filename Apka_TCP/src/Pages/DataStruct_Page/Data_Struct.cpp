@@ -383,7 +383,7 @@ void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Butto
 void Data_Struct_Page::Add_Sparse_Matrix(Sparse_Matrix &First, Sparse_Matrix &Second)
 {
      Sparse_matrix = First + Second;
-     // To_Wstring();
+//      To_Wstring();
 }
 
 void Data_Struct_Page::To_Wstring()
