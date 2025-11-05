@@ -11,15 +11,15 @@ class Pages
 protected:
    HWND *Windows;
    int *Number_Of_Windows;
-   wchar_t **Windows_CLASS;
-   wchar_t **Windows_Names;
+   // wchar_t **Windows_CLASS;
+   // wchar_t **Windows_Names;
    int *Windows_PositionsX;
    int *Windows_PositionsY;
    wchar_t *Page_Name;
    HWND Main_hwnd;
-   /** @brief 
+   /** @brief
     -Buffer_Edit[0] = Lenght_X
-    -Buffer_Edit[1] = Lenght_Y 
+    -Buffer_Edit[1] = Lenght_Y
 
     -Buffer_Edit[2] = Data_Lenght
     -Buffer_Edit[3] = Data
@@ -36,7 +36,7 @@ protected:
    int *Size_Of_Buffers;
    int *Indexes;
    bool *Bools;
-   
+
 public:
    Pages() = default;
    Pages(HWND hwnd);
@@ -49,7 +49,7 @@ public:
    virtual void Cout_Create(HDC hdc) = 0;
    virtual HWND Get_hwnd() = 0;
    virtual void Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Button, HWND *Window) = 0;
-   virtual void Add_Sparse_Matrix(Sparse_Matrix &First,Sparse_Matrix &Second) = 0;
+   virtual void Add_Sparse_Matrix(Sparse_Matrix &First, Sparse_Matrix &Second, HWND *Buttons) = 0;
    virtual void To_Wstring() = 0;
 };
 

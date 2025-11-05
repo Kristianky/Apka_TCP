@@ -1,10 +1,26 @@
 #include "Data_Struct.h"
+const wchar_t *Data_Struct_Page::Windows_Names[11] = {
+    L"Paint",
+    L"Reset Table",
+    L"Set Length",
+    L"",
+    L"",
+    L"",
+    L"",
+    L"",
+    L"",
+    L"Add Data",
+    L"Add Sparse Matrix"};
 
+const wchar_t *Data_Struct_Page::Windows_CLASS[2] = {
+    L"BUTTON",
+    L"EDIT"};
 Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
 
 {
-     Windows_Names = new wchar_t *[11]{{L"Paint"}, {L"Reset Table"}, {L"Set Lenght"}, {L""}, {L""}, {L""}, {L""}, {L""}, {L""}, {L"Add Data"}, {L"Add Sparse Matrix"}};
-     Windows_CLASS = new wchar_t *[5]{{L"BUTTON"}, {L"EDIT"}};
+
+     // Windows_Names = new wchar_t *[11]{{L"Paint"}, {L"Reset Table"}, {L"Set Lenght"}, {L""}, {L""}, {L""}, {L""}, {L""}, {L""}, {L"Add Data"}, {L"Add Sparse Matrix"}};
+     // Windows_CLASS = new wchar_t *[5]{{L"BUTTON"}, {L"EDIT"}};
      Number_Of_Windows = new int{11};
      Windows_PositionsX = new int[11]{10, 210, 610, 10, 10, 10, 10, 10, 10, 410, 810};
      Windows_PositionsY = new int[11]{10, 10, 10, 200, 215, 230, 245, 260, 275, 10, 10};
@@ -13,13 +29,13 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
      Buffer_Edit = new wchar_t *[6];
      for (int i{}; i < 6; i++)
      {
-          Buffer_Edit[i] = new wchar_t[2];
-          wcscpy(Buffer_Edit[i], L"0");
+          Buffer_Edit[i] = new wchar_t[1];
+          Buffer_Edit[i] = nullptr;
      }
      Indexes = new int[5]{0};
      Buffer_Message_Box = new std::wstring[1];
      Bools = new bool[5];
-     for (int i{}; i < 6; i++)
+     for (int i{}; i < 5; i++)
      {
           Bools[i] = false;
      }
@@ -91,8 +107,14 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
 }
 void Data_Struct_Page::Cout_Button_2(HDC hdc)
 {
-     std::wstring Data_Text, Size_Temp = Buffer_Edit[2];
-     int Size_Int_Temp = std::stoi(Size_Temp);
+
+     std::wstring Data_Text, Size_Temp;
+     int Size_Int_Temp;
+     if (Buffer_Edit[2] != nullptr)
+     {
+          Size_Temp = Buffer_Edit[2];
+          Size_Int_Temp = std::stoi(Size_Temp);
+     }
      Data_Text = L"Number of data to set: ";
      if (Indexes[0] < 0)
      {
@@ -100,49 +122,67 @@ void Data_Struct_Page::Cout_Button_2(HDC hdc)
      }
      SetTextColor(hdc, RGB(255, 255, 255)); // biely text
      SetBkMode(hdc, TRANSPARENT);
-     if (wcscmp(Buffer_Edit[0], L"0") <= 0)
+     if (Buffer_Edit[0] != nullptr)
      {
-          TextOutW(hdc, 350, 200, L"Nastav dlzku pola X", 20);
+          if (wcscmp(Buffer_Edit[0], L"0") <= 0)
+          {
+               TextOutW(hdc, 350, 200, L"Nastav dlzku pola X", 20);
+          }
      }
      else
      {
           TextOutW(hdc, 350, 200, L"Pole X nastavene", 17);
      }
-     if (wcscmp(Buffer_Edit[1], L"0") <= 0)
+     if (Buffer_Edit[1] != nullptr)
      {
-          TextOutW(hdc, 350, 215, L"Nastav dlzku pola Y", 20);
+          if (wcscmp(Buffer_Edit[1], L"0") <= 0)
+          {
+               TextOutW(hdc, 350, 215, L"Nastav dlzku pola Y", 20);
+          }
      }
      else
      {
           TextOutW(hdc, 350, 215, L"Pole Y nastavene", 17);
      }
-     if (wcscmp(Buffer_Edit[2], L"0") <= 0)
+     if (Buffer_Edit[2] != nullptr)
      {
-          TextOutW(hdc, 350, 230, L"Nastav velkost dat", 20);
+          if (wcscmp(Buffer_Edit[2], L"0") <= 0)
+          {
+               TextOutW(hdc, 350, 230, L"Nastav velkost dat", 20);
+          }
      }
      else
      {
           TextOutW(hdc, 350, 230, L"Velkost dat OK", 15);
      }
-     if (wcscmp(Buffer_Edit[3], L"0") <= 0)
+     if (Buffer_Edit[3] != nullptr)
      {
-          TextOutW(hdc, 350, 245, Data_Text.c_str(), Data_Text.length());
+          if (wcscmp(Buffer_Edit[3], L"0") <= 0)
+          {
+               TextOutW(hdc, 350, 245, Data_Text.c_str(), Data_Text.length());
+          }
      }
      else
      {
           TextOutW(hdc, 350, 245, L"Pole X nastavene", 17);
      }
-     if (wcscmp(Buffer_Edit[4], L"0") <= 0)
+     if (Buffer_Edit[4] != nullptr)
      {
-          TextOutW(hdc, 350, 260, L"Vloz X", 7);
+          if (wcscmp(Buffer_Edit[4], L"0") <= 0)
+          {
+               TextOutW(hdc, 350, 260, L"Vloz X", 7);
+          }
      }
      else
      {
           TextOutW(hdc, 350, 260, L"Data X nastavene", 17);
      }
-     if (wcscmp(Buffer_Edit[5], L"0") <= 0)
+     if (Buffer_Edit[5] != nullptr)
      {
-          TextOutW(hdc, 350, 275, L"Vloz Y", 7);
+          if (wcscmp(Buffer_Edit[5], L"0") <= 0)
+          {
+               TextOutW(hdc, 350, 275, L"Vloz Y", 7);
+          }
      }
      else
      {
@@ -196,89 +236,99 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
      case Reset_Table:
      {
           Indexes[0] = 0;
-          Sparse_matrix.Reset_Data();
-          Sparse_matrix.set_Lenght_X_Y_Size(L"0", L"0", L"0");
-          for (int i{}; i < 6; i++)
+          // Sparse_matrix.Reset_Data();
+
+          for (int i{}; i < 5; i++)
           {
-               Buffer_Edit[i] = L"0";
+               if (Buffer_Edit[i] != nullptr)
+               {
+                    delete[] Buffer_Edit[i];
+                    Buffer_Edit[i] = nullptr;
+               }
                SetWindowTextW(Buttons[i + 3], L"");
           }
+
           MessageBoxW(Main_hwnd, L"Table Reseted", MB_OK, NULL);
           break;
      }
      case SetMatrix:
      {
-          if (wcscmp(Buffer_Edit[0], L"0") == 0 && wcscmp(Buffer_Edit[1], L"0") == 0 && wcscmp(Buffer_Edit[2], L"0") == 0)
+          if (Buffer_Edit[0] && Buffer_Edit[1] && Buffer_Edit[2])
           {
-               if (GetWindowTextLengthW(Buttons[3]) != 0 && GetWindowTextLengthW(Buttons[4]) != 0 && GetWindowTextLengthW(Buttons[5]) != 0)
+               if (wcscmp(Buffer_Edit[0], L"0") == 0 && wcscmp(Buffer_Edit[1], L"0") == 0 && wcscmp(Buffer_Edit[2], L"0") == 0)
                {
-                    if (GetWindowTextLengthW(Buttons[3]) != 0)
-                    {
-                         Size_Of_Buffers[0] = GetWindowTextLengthW(Buttons[3]);
-                         Size_Of_Buffers[0]++;
-                         if (Buffer_Edit[0] != nullptr)
-                         {
-                              delete[] Buffer_Edit[0];
-                              Buffer_Edit[0] = nullptr;
-                         }
-                         Buffer_Edit[0] = new wchar_t[Size_Of_Buffers[0]];
-                         GetWindowTextW(Buttons[3], Buffer_Edit[0], Size_Of_Buffers[0]);
-                    }
-                    if (GetWindowTextLengthW(Buttons[4]) != 0)
-                    {
-                         Size_Of_Buffers[1] = GetWindowTextLengthW(Buttons[4]);
-                         Size_Of_Buffers[1]++;
-                         if (Buffer_Edit[1] != nullptr)
-                         {
-                              delete[] Buffer_Edit[1];
-                              Buffer_Edit[1] = nullptr;
-                         }
-                         Buffer_Edit[1] = new wchar_t[Size_Of_Buffers[1]];
-                         GetWindowTextW(Buttons[4], Buffer_Edit[1], Size_Of_Buffers[1]);
-                    }
-                    if (GetWindowTextLengthW(Buttons[5]) != 0)
-                    {
-                         Size_Of_Buffers[2] = GetWindowTextLengthW(Buttons[5]);
-                         Size_Of_Buffers[2]++;
-                         if (Buffer_Edit[2] != nullptr)
-                         {
-                              delete[] Buffer_Edit[2];
-                              Buffer_Edit[2] = nullptr;
-                         }
-                         Buffer_Edit[2] = new wchar_t[Size_Of_Buffers[2]];
-                         GetWindowTextW(Buttons[5], Buffer_Edit[2], Size_Of_Buffers[2]);
-                    }
                     if (GetWindowTextLengthW(Buttons[3]) != 0 && GetWindowTextLengthW(Buttons[4]) != 0 && GetWindowTextLengthW(Buttons[5]) != 0)
                     {
-                         Buffer_Message_Box[0] = L"";
-                         Buffer_Message_Box[0] = L"Matrix set X: ";
-                         Buffer_Message_Box[0] += Buffer_Edit[0];
-                         Buffer_Message_Box[0] += L"\nMatrix set Y: ";
-                         Buffer_Message_Box[0] += Buffer_Edit[1];
-                         Buffer_Message_Box[0] += L"\nX a Y Nastavene.";
-                         Sparse_matrix.set_Lenght_X_Y_Size(Buffer_Edit[0], Buffer_Edit[1], Buffer_Edit[2]);
-                         InvalidateRect(Main_hwnd, NULL, true);
-                         UpdateWindow(Main_hwnd);
-                         MessageBoxW(Main_hwnd, Buffer_Message_Box->c_str(), MB_OK, NULL);
-                         Bools[0] = true;
-                         break;
+                         if (GetWindowTextLengthW(Buttons[3]) != 0)
+                         {
+                              Size_Of_Buffers[0] = GetWindowTextLengthW(Buttons[3]);
+                              Size_Of_Buffers[0]++;
+                              if (Buffer_Edit[0] != nullptr)
+                              {
+                                   delete[] Buffer_Edit[0];
+                                   Buffer_Edit[0] = nullptr;
+                              }
+                              Buffer_Edit[0] = new wchar_t[Size_Of_Buffers[0]];
+                              GetWindowTextW(Buttons[3], Buffer_Edit[0], Size_Of_Buffers[0]);
+                         }
+                         if (GetWindowTextLengthW(Buttons[4]) != 0)
+                         {
+                              Size_Of_Buffers[1] = GetWindowTextLengthW(Buttons[4]);
+                              Size_Of_Buffers[1]++;
+                              if (Buffer_Edit[1] != nullptr)
+                              {
+                                   delete[] Buffer_Edit[1];
+                                   Buffer_Edit[1] = nullptr;
+                              }
+                              Buffer_Edit[1] = new wchar_t[Size_Of_Buffers[1]];
+                              GetWindowTextW(Buttons[4], Buffer_Edit[1], Size_Of_Buffers[1]);
+                         }
+                         if (GetWindowTextLengthW(Buttons[5]) != 0)
+                         {
+                              Size_Of_Buffers[2] = GetWindowTextLengthW(Buttons[5]);
+                              Size_Of_Buffers[2]++;
+                              if (Buffer_Edit[2] != nullptr)
+                              {
+                                   delete[] Buffer_Edit[2];
+                                   Buffer_Edit[2] = nullptr;
+                              }
+                              Buffer_Edit[2] = new wchar_t[Size_Of_Buffers[2]];
+                              GetWindowTextW(Buttons[5], Buffer_Edit[2], Size_Of_Buffers[2]);
+                         }
+                         if (GetWindowTextLengthW(Buttons[3]) != 0 && GetWindowTextLengthW(Buttons[4]) != 0 && GetWindowTextLengthW(Buttons[5]) != 0)
+                         {
+                              Buffer_Message_Box[0] = L"";
+                              Buffer_Message_Box[0] = L"Matrix set X: ";
+                              Buffer_Message_Box[0] += Buffer_Edit[0];
+                              Buffer_Message_Box[0] += L"\nMatrix set Y: ";
+                              Buffer_Message_Box[0] += Buffer_Edit[1];
+                              Buffer_Message_Box[0] += L"\nX a Y Nastavene.";
+                              Sparse_matrix.set_Lenght_X_Y_Size(Buffer_Edit[0], Buffer_Edit[1], Buffer_Edit[2]);
+                              InvalidateRect(Main_hwnd, NULL, true);
+                              UpdateWindow(Main_hwnd);
+                              MessageBoxW(Main_hwnd, Buffer_Message_Box->c_str(), MB_OK, NULL);
+                              Bools[0] = true;
+                              break;
+                         }
                     }
                }
-          }
 
-          else
-          {
-               Buffer_Message_Box[0] = L"";
-               Buffer_Message_Box[0] = L"Matrix set X: ";
-               Buffer_Message_Box[0] += Buffer_Edit[0];
-               Buffer_Message_Box[0] += L"\nMatrix set Y: ";
-               Buffer_Message_Box[0] += Buffer_Edit[1];
-               Buffer_Message_Box[0] += L"\nPre nove nastavenie stlac reset tlacidlo.";
-               MessageBoxW(Main_hwnd, Buffer_Message_Box->c_str(), MB_OK, NULL);
-               SetWindowTextW(Buttons[3], Buffer_Edit[0]);
-               SetWindowTextW(Buttons[4], Buffer_Edit[1]);
-               SetWindowTextW(Buttons[5], Buffer_Edit[2]);
+               else
+               {
+                    Buffer_Message_Box[0] = L"";
+                    Buffer_Message_Box[0] = L"Matrix set X: ";
+                    Buffer_Message_Box[0] += Buffer_Edit[0];
+                    Buffer_Message_Box[0] += L"\nMatrix set Y: ";
+                    Buffer_Message_Box[0] += Buffer_Edit[1];
+                    Buffer_Message_Box[0] += L"\nPre nove nastavenie stlac reset tlacidlo.";
+                    MessageBoxW(Main_hwnd, Buffer_Message_Box->c_str(), MB_OK, NULL);
+                    SetWindowTextW(Buttons[3], Buffer_Edit[0]);
+                    SetWindowTextW(Buttons[4], Buffer_Edit[1]);
+                    SetWindowTextW(Buttons[5], Buffer_Edit[2]);
+               }
           }
+          else
+               MessageBoxW(Main_hwnd, L"Buffers = nullptr", MB_OK, NULL);
           break;
      }
      case Add_Data:
@@ -353,19 +403,7 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, bool *Butt
      }
      case Add_Sparse_Matrix:
      {
-          std::wstring Temp_Y,Temp_X;
-          Two.set_Lenght_X_Y_Size(L"5", L"5", L"4");
-          One.set_Lenght_X_Y_Size(L"5", L"5", L"4");
-          for (int i = 0; i < 3; i++)
-          {
-               Temp_Y = std::to_wstring(i);
-               Two.add_data(L"2", Temp_Y.c_str(), L"1");
-
-               Temp_X = std::to_wstring(i);
-               One.add_data(L"1", L"1", Temp_X.c_str());
-          }
-
-          Data_Struct_Page::Add_Sparse_Matrix(One, Two);
+          Data_Struct_Page::Add_Sparse_Matrix(One, Two, Buttons);
           break;
      }
      }
@@ -380,45 +418,99 @@ void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Butto
      }
 }
 
-void Data_Struct_Page::Add_Sparse_Matrix(Sparse_Matrix &First, Sparse_Matrix &Second)
+void Data_Struct_Page::Add_Sparse_Matrix(Sparse_Matrix &First, Sparse_Matrix &Second, HWND *Buttons)
 {
-     Sparse_matrix = First + Second;
-//      To_Wstring();
+     std::wstring Temp_Y, Temp_X;
+     Two.set_Lenght_X_Y_Size(L"5", L"5", L"4");
+     One.set_Lenght_X_Y_Size(L"5", L"5", L"4");
+     for (int i = 0; i < 4; i++)
+     {
+          Temp_Y = std::to_wstring(i);
+          Two.add_data(L"2", Temp_Y.c_str(), L"1");
+
+          Temp_X = std::to_wstring(i);
+          Indexes[0] = One.add_data(L"1", L"1", Temp_X.c_str());
+     }
+     Sparse_matrix = One + Two;
+     {
+          std::wstring Temp_X_Lenght, Temp_Y_Lenght, *Temp_X, *Temp_Y, Temp_Size;
+          wchar_t **Temp_Buffer;
+          Temp_Size = std::to_wstring(Sparse_matrix.Get_Size());
+          Temp_X = new std::wstring[Sparse_matrix.Get_Size()];
+          Temp_Y = new std::wstring[Sparse_matrix.Get_Size()];
+          Temp_X_Lenght = std::to_wstring(Sparse_matrix.Get_Lenght_X());
+          Temp_Y_Lenght = std::to_wstring(Sparse_matrix.Get_Lenght_Y());
+          for (int i{}; i < Sparse_matrix.Get_Size(); i++)
+          {
+               Temp_X[i] = std::to_wstring(Sparse_matrix.Get_X(i));
+               Temp_Y[i] = std::to_wstring(Sparse_matrix.Get_Y(i));
+          }
+          for (int i{}; i < 6; i++)
+          {
+               if (Buffer_Edit[i] != nullptr)
+               {
+                    delete[] Buffer_Edit[i];
+                    Buffer_Edit[i] = nullptr;
+               }
+          }
+          int Size_Of_String = Temp_X_Lenght.length();
+          Buffer_Edit[0] = new wchar_t[Size_Of_String];
+          wcscpy(Buffer_Edit[0], Temp_X_Lenght.c_str());
+          Size_Of_String = Temp_Y_Lenght.length();
+          Buffer_Edit[1] = new wchar_t[Size_Of_String];
+          wcscpy(Buffer_Edit[1], Temp_Y_Lenght.c_str());
+          Size_Of_String = Temp_Size.length();
+          Buffer_Edit[2] = new wchar_t[Size_Of_String];
+          wcscpy(Buffer_Edit[2], Temp_Size.c_str());
+
+          for (int i{}; i < 3; i++)
+          {
+               SetWindowTextW(Buttons[i + 3], Buffer_Edit[i]);
+          }
+          Temp_Buffer = new wchar_t*[10];
+          Temp_Buffer = Sparse_matrix.Get_Data();
+          MessageBoxW(Main_hwnd,Temp_Buffer[2],MB_OK,NULL);
+     }
+   
+     Bools[0] = true;
+     Bools[1] = true;
 }
 
 void Data_Struct_Page::To_Wstring()
 {
-     std::wstring Temp_X_Lenght, Temp_Y_Lenght, *Temp_X , *Temp_Y, Temp_Size;
-     Temp_Size = std::to_wstring(Sparse_matrix.Get_Size());
-     Temp_X = new std::wstring[Sparse_matrix.Get_Size()];
-     Temp_Y = new std::wstring[Sparse_matrix.Get_Size()];
-     Temp_X_Lenght = std::to_wstring(Sparse_matrix.Get_Lenght_X());
-     Temp_Y_Lenght = std::to_wstring(Sparse_matrix.Get_Lenght_Y()); 
-     for (int i{}; i < Sparse_matrix.Get_Size(); i++)
-     {
-          Temp_X[i] = std::to_wstring(Sparse_matrix.Get_X(i));
-          Temp_Y[i] = std::to_wstring(Sparse_matrix.Get_Y(i));
-     }
-     for (int i{}; i < 6; i++)
-     {
-          if (Buffer_Edit[i] != nullptr)
-          {
-               delete[] Buffer_Edit[i];
-               Buffer_Edit[i] = nullptr;
-          }
-     }
-     int Size_Of_String = Temp_X_Lenght.length();
-     Buffer_Edit[0] = new wchar_t[Size_Of_String];
-     wcscpy(Buffer_Edit[0], Temp_X_Lenght.c_str());
-     Size_Of_String = Temp_Y_Lenght.length();
-     Buffer_Edit[1] = new wchar_t[Size_Of_String];
-     wcscpy(Buffer_Edit[1], Temp_Y_Lenght.c_str());
-     Size_Of_String = Temp_Size.length();
-     Buffer_Edit[2] = new wchar_t[Size_Of_String];
-     wcscpy(Buffer_Edit[2], Temp_Size.c_str());
-
-     for (int i{}; i < 3; i++)
-     {
-          SetWindowTextW(Windows[i + 3], Buffer_Edit[i]);
-     }
 }
+//      std::wstring Temp_X_Lenght, Temp_Y_Lenght, *Temp_X, *Temp_Y, Temp_Size;
+//      Temp_Size = std::to_wstring(Sparse_matrix.Get_Size());
+//      Temp_X = new std::wstring[Sparse_matrix.Get_Size()];
+//      Temp_Y = new std::wstring[Sparse_matrix.Get_Size()];
+//      Temp_X_Lenght = std::to_wstring(Sparse_matrix.Get_Lenght_X());
+//      Temp_Y_Lenght = std::to_wstring(Sparse_matrix.Get_Lenght_Y());
+//      for (int i{}; i < Sparse_matrix.Get_Size(); i++)
+//      {
+//           Temp_X[i] = std::to_wstring(Sparse_matrix.Get_X(i));
+//           Temp_Y[i] = std::to_wstring(Sparse_matrix.Get_Y(i));
+//      }
+//      for (int i{}; i < 6; i++)
+//      {
+//           if (Buffer_Edit[i] != nullptr)
+//           {
+//                delete[] Buffer_Edit[i];
+//           }
+//      }
+//      Buffer_Edit = nullptr;
+//      Buffer_Edit = new wchar_t *[6];
+//      int Size_Of_String = Temp_X_Lenght.length();
+//      Buffer_Edit[0] = new wchar_t[Size_Of_String];
+//      wcscpy(Buffer_Edit[0], Temp_X_Lenght.c_str());
+//      Size_Of_String = Temp_Y_Lenght.length();
+//      Buffer_Edit[1] = new wchar_t[Size_Of_String];
+//      wcscpy(Buffer_Edit[1], Temp_Y_Lenght.c_str());
+//      Size_Of_String = Temp_Size.length();
+//      Buffer_Edit[2] = new wchar_t[Size_Of_String];
+//      wcscpy(Buffer_Edit[2], Temp_Size.c_str());
+
+//      for (int i{}; i < 3; i++)
+//      {
+//           SetWindowTextW(Buttons[i + 3], Buffer_Edit[i]);
+//      }
+// }

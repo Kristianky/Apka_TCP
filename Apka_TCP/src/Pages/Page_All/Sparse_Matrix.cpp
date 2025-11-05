@@ -153,19 +153,22 @@ void Sparse_Matrix::Reset_Data()
 {
     if (data != nullptr)
     {
-        delete[] data;
+        for(int i = 0; i < Index_Of_Data; i++)
+        {
+            delete[] data[i];   // ✅ zmaže obsah
+        }
+        delete[] data;          // ✅ potom zmaže pole ukazovateľov
         data = nullptr;
     }
-    if (x != nullptr)
-    {
-        delete[] x;
-        x = nullptr;
-    }
-    if (y != nullptr)
-    {
-        delete[] y;
-        y = nullptr;
-    }
+
+    delete[] x;
+    delete[] y;
+
+    x = nullptr;
+    y = nullptr;
+
+    Index_Of_Data = 0;
+    Size = 0;
 }
 
 Sparse_Matrix &Sparse_Matrix::operator=(const Sparse_Matrix &Rhs)
@@ -223,6 +226,7 @@ Sparse_Matrix &Sparse_Matrix::operator=(Sparse_Matrix &&Rhs)
     data = Rhs.data;
     x = Rhs.x;
     y = Rhs.y;
+    Size = Rhs.Size;
     return *this;
 }
 
