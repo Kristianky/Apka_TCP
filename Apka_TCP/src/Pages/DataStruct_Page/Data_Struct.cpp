@@ -91,6 +91,7 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
      HPEN holdpen = (HPEN)SelectObject(hdc, hpen);
      HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, GetStockObject(NULL_BRUSH));
      Rectangle(hdc, 690, 290, size_right, size_Bttom);
+     TextOutW(hdc,1100,50,Sparse_matrix.Get_Data_at(6),2);
      for (int x{}; x < Size_Of_Buffers[6] + 1; x++)
      {
           Sparse_matrix.Print(Buffer_Data, x);
@@ -429,7 +430,7 @@ void Data_Struct_Page::Add_Sparse_Matrix(Sparse_Matrix &First, Sparse_Matrix &Se
           Two.add_data(L"2", Temp_Y.c_str(), L"1");
 
           Temp_X = std::to_wstring(i);
-          Indexes[0] = One.add_data(L"1", L"1", Temp_X.c_str());
+          One.add_data(L"1", L"1", Temp_X.c_str());
      }
      Sparse_matrix = One + Two;
      {
@@ -453,6 +454,7 @@ void Data_Struct_Page::Add_Sparse_Matrix(Sparse_Matrix &First, Sparse_Matrix &Se
                     Buffer_Edit[i] = nullptr;
                }
           }
+          
           int Size_Of_String = Temp_X_Lenght.length();
           Buffer_Edit[0] = new wchar_t[Size_Of_String];
           wcscpy(Buffer_Edit[0], Temp_X_Lenght.c_str());
@@ -474,6 +476,8 @@ void Data_Struct_Page::Add_Sparse_Matrix(Sparse_Matrix &First, Sparse_Matrix &Se
    
      Bools[0] = true;
      Bools[1] = true;
+     Indexes[0] = 6;
+
 }
 
 void Data_Struct_Page::To_Wstring()

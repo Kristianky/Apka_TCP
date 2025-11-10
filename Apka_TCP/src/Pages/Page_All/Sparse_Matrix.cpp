@@ -85,7 +85,7 @@ void Sparse_Matrix::set_Lenght_X_Y_Size(wchar_t *x, wchar_t *y, wchar_t *Size_Of
         {
             Sparse_Matrix::y = new int[Size + 1];
         }
-        Index_Of_Data_Paint = 1;
+        Index_Of_Data_Paint = 0;
         Index_Of_Data = 0;
     }
 }

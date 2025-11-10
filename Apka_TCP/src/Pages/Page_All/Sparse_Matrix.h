@@ -39,6 +39,7 @@ public:
     void Set_Y_at(int index, int temp) { y[index] = temp; }
     void Add_Data_at(int index, wchar_t *Temp) { data[index] = Temp; }
     int Get_Index_Of_Data() const { return Index_Of_Data; }
+    void Set_Data_At(int index,wchar_t *Data) {data[index] = Data;}
 };
 
 #endif
