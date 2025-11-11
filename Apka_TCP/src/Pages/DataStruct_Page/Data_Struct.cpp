@@ -91,8 +91,10 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
      HPEN holdpen = (HPEN)SelectObject(hdc, hpen);
      HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, GetStockObject(NULL_BRUSH));
      Rectangle(hdc, 690, 290, size_right, size_Bttom);
-     TextOutW(hdc,1100,50,Sparse_matrix.Get_Data_at(6),2);
-     for (int x{}; x < Size_Of_Buffers[6] + 1; x++)
+     std::wstring X_Data = std::to_wstring(Sparse_matrix.Get_X(6)),Y_Data = std::to_wstring(Sparse_matrix.Get_Y(1));
+     TextOutW(hdc,1100,50,X_Data.c_str(),2);
+     TextOutW(hdc,1150,50,Y_Data.c_str(),2);
+     for (int x{-1}; x < Size_Of_Buffers[6]; x++)
      {
           Sparse_matrix.Print(Buffer_Data, x);
           TextOutW(hdc, 700, Position_Y, Buffer_Data.c_str(), Buffer_Data.length());
@@ -422,17 +424,17 @@ void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Butto
 void Data_Struct_Page::Add_Sparse_Matrix(Sparse_Matrix &First, Sparse_Matrix &Second, HWND *Buttons)
 {
      std::wstring Temp_Y, Temp_X;
-     Two.set_Lenght_X_Y_Size(L"5", L"5", L"4");
-     One.set_Lenght_X_Y_Size(L"5", L"5", L"4");
-     for (int i = 0; i < 4; i++)
+     Two.set_Lenght_X_Y_Size(L"5", L"5", L"5");
+     One.set_Lenght_X_Y_Size(L"5", L"5", L"5");
+     for (int i = 1; i < 6; i++)
      {
-          Temp_Y = std::to_wstring(i);
-          Two.add_data(L"2", Temp_Y.c_str(), L"1");
-
           Temp_X = std::to_wstring(i);
-          One.add_data(L"1", L"1", Temp_X.c_str());
+          Two.add_data(L"2", Temp_X.c_str(), L"1");
+
+          Temp_Y = std::to_wstring(i);
+          One.add_data(L"1", L"1", Temp_Y.c_str());
      }
-     Sparse_matrix = One + Two;
+     Sparse_matrix =One + Two;
      {
           std::wstring Temp_X_Lenght, Temp_Y_Lenght, *Temp_X, *Temp_Y, Temp_Size;
           wchar_t **Temp_Buffer;

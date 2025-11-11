@@ -32,11 +32,21 @@ Sparse_Matrix::Sparse_Matrix(const Sparse_Matrix &Other)
 }
 
 Sparse_Matrix::Sparse_Matrix(Sparse_Matrix &&Rhs)
-    : data{Rhs.Get_Data()}, x{Rhs.Get_X_Ptr()}, y{Get_Y_Ptr()}, Index_Of_Data{Rhs.Index_Of_Data}, Lenght_X{Rhs.Get_Lenght_X()}, Lenght_Y{Rhs.Get_Lenght_Y()}
 {
-    Rhs.data = nullptr;
+    Size = Rhs.Size;
+    Lenght_X = Rhs.Lenght_X;
+    Lenght_Y = Rhs.Lenght_Y;
+    Index_Of_Data = Rhs.Index_Of_Data;
+
+    x = Rhs.x;
+    y = Rhs.y;
+    data = Rhs.data;
+
+    Rhs.Size = 0;
+    Rhs.Index_Of_Data = 0;
     Rhs.x = nullptr;
     Rhs.y = nullptr;
+    Rhs.data = nullptr;
 }
 
 int Sparse_Matrix::add_data(const wchar_t *Buffer, const wchar_t *X, const wchar_t *Y)
@@ -52,8 +62,8 @@ int Sparse_Matrix::add_data(const wchar_t *Buffer, const wchar_t *X, const wchar
             }
         }
 
-        x[Index_Of_Data] = std::stoi(X_Temp);
-        y[Index_Of_Data] = std::stoi(Y_temp);
+        x[Index_Of_Data] = std::stoi(X_Temp) - 1;
+        y[Index_Of_Data] = std::stoi(Y_temp) - 1;
 
         Buffer_Temp = Buffer;
         data[Index_Of_Data] = new wchar_t[Buffer_Temp.size() + 1];
@@ -92,7 +102,8 @@ void Sparse_Matrix::set_Lenght_X_Y_Size(wchar_t *x, wchar_t *y, wchar_t *Size_Of
 
 void Sparse_Matrix::Print(std::wstring &Buffer_Table, int x)
 {
-    if (x == 0)
+
+    if (x == -1)
     {
         Buffer_Table = L"   ";
         for (int i{}; i < Lenght_Y; i++)
@@ -107,8 +118,12 @@ void Sparse_Matrix::Print(std::wstring &Buffer_Table, int x)
         if (Index_Of_Data == Size)
         {
             Buffer_Table = L"";
-            std::wstring X_Position = std::to_wstring(x);
+            std::wstring X_Position = std::to_wstring(x+1);
             int Size_Of_X{std::abs(Lenght_X)}, Size_Of_Actual_X{std::abs(x)}, count_X{}, count_Actual_X{};
+            while (count_X != count_Actual_X)
+            {
+                count_Actual_X++;
+            }
             while (Size_Of_Actual_X > 0)
             {
                 Size_Of_Actual_X /= 10;
@@ -118,11 +133,6 @@ void Sparse_Matrix::Print(std::wstring &Buffer_Table, int x)
             {
                 Size_Of_X /= 10;
                 count_X++;
-            }
-            while (count_X != count_Actual_X)
-            {
-                Buffer_Table += L"0";
-                count_Actual_X++;
             }
             Buffer_Table += X_Position;
             Buffer_Table += L". ";
@@ -153,11 +163,11 @@ void Sparse_Matrix::Reset_Data()
 {
     if (data != nullptr)
     {
-        for(int i = 0; i < Index_Of_Data; i++)
+        for (int i = 0; i < Index_Of_Data; i++)
         {
-            delete[] data[i];   // ✅ zmaže obsah
+            delete[] data[i]; // ✅ zmaže obsah
         }
-        delete[] data;          // ✅ potom zmaže pole ukazovateľov
+        delete[] data; // ✅ potom zmaže pole ukazovateľov
         data = nullptr;
     }
 
@@ -243,7 +253,8 @@ Sparse_Matrix Sparse_Matrix::operator+(const Sparse_Matrix &Rhs) const
     Temp.Size = Size + Rhs.Size;
     Temp.x = new int[Temp.Size];
     Temp.y = new int[Temp.Size];
-    Temp.data = new wchar_t*[Temp.Size];
+    Temp.data = new wchar_t *[Temp.Size];
+    Temp.Index_Of_Data = 0;
 
     int i = 0, j = 0, k = 0;
 
@@ -267,7 +278,7 @@ Sparse_Matrix Sparse_Matrix::operator+(const Sparse_Matrix &Rhs) const
             int s = a + b;
 
             std::wstring ws = std::to_wstring(s);
-            wchar_t *buf = new wchar_t[ws.size()+1];
+            wchar_t *buf = new wchar_t[ws.size() + 1];
             wcscpy(buf, ws.c_str());
 
             Temp.Add_Data_at(k++, x[i], y[i], buf);
@@ -279,11 +290,16 @@ Sparse_Matrix Sparse_Matrix::operator+(const Sparse_Matrix &Rhs) const
 
     // 2️⃣ Dopíš zvyšok súčasnej matice
     while (i < Size)
-        Temp.Add_Data_at(k++, x[i], y[i], data[i++]);
-
+    {
+        Temp.Add_Data_at(k++, x[i], y[i], data[i]);
+        i++;
+    }
     // 3️⃣ Dopíš zvyšok Rhs
     while (j < Rhs.Size)
-        Temp.Add_Data_at(k++, Rhs.x[j], Rhs.y[j], Rhs.data[j++]);
+    {
+        Temp.Add_Data_at(k++, Rhs.x[j], Rhs.y[j], Rhs.data[j]);
+        j++;
+    }
 
     Temp.Size = k;
     Temp.Index_Of_Data = k;
@@ -296,5 +312,5 @@ void Sparse_Matrix::Add_Data_at(int index, int X_Temp, int Y_Temp, wchar_t *Data
     x[index] = X_Temp;
     y[index] = Y_Temp;
     data[index] = new wchar_t[wcslen(Data_Temp) + 1];
-    wcscpy(data[index],Data_Temp);
+    wcscpy(data[index], Data_Temp);
 }
