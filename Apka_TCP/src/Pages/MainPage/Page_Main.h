@@ -11,8 +11,9 @@ class Main_Page:public Pages{
          static const wchar_t * Windows_CLASS[5];
          Main_Page(HWND hwnd);
          virtual ~Main_Page();
-         virtual void Create_WindowW(HWND *Buttons,int BUTTON) override;
-         virtual void Buttons_Function(int &page_num,HWND *Buttons,bool *Buttons_state,WPARAM wparam,LPARAM lparam) override;
+         virtual void Create_EditW(HWND *Edit_Boxes) override;
+         virtual void Create_ButtonsW(HWND *Buttons) override;
+         virtual void Buttons_Function(int &page_num,HWND *Buttons,HWND *Edit_Boxes,bool *Buttons_state,WPARAM wparam,LPARAM lparam) override;
          virtual void Cout_Button_1(HDC hdc) override;
          virtual void Cout_Create(HDC hdc) override;
          virtual HWND Get_hwnd() {return Main_hwnd;}

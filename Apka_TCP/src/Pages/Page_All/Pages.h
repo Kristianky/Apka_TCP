@@ -3,18 +3,22 @@
 #ifndef _PAGES_H_
 #define _PAGES_H_
 
+#define ID_BUTTONS 10000
+#define ID_EDIT 20000
+
 #include "Sparse_Matrix.h"
+#include "Polynomial.h"
 #include <windows.h>
 #include <string>
 class Pages
 {
 protected:
-   HWND *Windows;
-   int *Number_Of_Windows;
-   // wchar_t **Windows_CLASS;
-   // wchar_t **Windows_Names;
-   int *Windows_PositionsX;
-   int *Windows_PositionsY;
+   int Number_Of_Buttons;
+   int Number_Of_Edit;
+   int *Buttons_PositionsX;
+   int *Buttons_PositionsY;
+   int *Edit_Postion_X;
+   int *Edit_Postion_Y;
    wchar_t *Page_Name;
    HWND Main_hwnd;
    /** @brief
@@ -36,14 +40,16 @@ protected:
    int *Size_Of_Buffers;
    int *Indexes;
    bool *Bools;
-
+   Pollynom Polly;
+   RECT Main_Rect;
 public:
    Pages() = default;
    Pages(HWND hwnd);
    virtual ~Pages();
-   virtual void Create_WindowW(HWND *Buttons, int BUTTON) = 0;
-   virtual void Destroy_WindowW(HWND *Buttons);
-   virtual void Buttons_Function(int &page_num, HWND *Buttons, bool *Buttons_state, WPARAM wparam, LPARAM lparam) = 0;
+   virtual void Create_ButtonsW(HWND *Buttons) = 0;
+   virtual void Create_EditW(HWND *Edit_Boxes) = 0;
+   virtual void Destroy_WindowW(HWND *Window,int Size);
+   virtual void Buttons_Function(int &page_num, HWND *Buttons,HWND *Edit_Boxes, bool *Buttons_state, WPARAM wparam, LPARAM lparam) = 0;
    virtual void Cout_Button_1(HDC hdc) = 0;
    virtual void Cout_Button_2(HDC hdc) = 0;
    virtual void Cout_Create(HDC hdc) = 0;

@@ -5,6 +5,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
 
     Page_Num = 0;
     Button = new HWND[17];
+    Edit_Boxes = new HWND[10];
     const wchar_t CLASSNAME[] = L"MojeOknoTrieda"; // Tu si mozme nastavit hlavicku okna
     WNDCLASSW wc{};                                // vytvorenie classy appky
     wc.lpfnWndProc = Moja_Apka::WindowProcSetup;   // ukaze na funkciu ktoru sme si hore zadefinovali
@@ -207,7 +208,7 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
         {
             Page = new Main_Page(hwnd);
         }
-        Page->Buttons_Function(Page_Num, Button, Buttons_State, wparam, lparam);
+        Page->Buttons_Function(Page_Num, Button,Edit_Boxes, Buttons_State, wparam, lparam);
         Page = nullptr;
         Page = new Data_Struct_Page(hwnd);
         InvalidateRect(hwnd, NULL, true);
@@ -218,7 +219,7 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
         {
             Page = new Data_Struct_Page(hwnd);
         }
-        Page->Buttons_Function(Page_Num, Button, Buttons_State, wparam, lparam);
+        Page->Buttons_Function(Page_Num, Button,Edit_Boxes, Buttons_State, wparam, lparam);
         break;
     }
 }
@@ -230,7 +231,7 @@ void Moja_Apka::Welcome_Page(WPARAM wparam, LPARAM lparam)
     case (ID_BUTTONS):
         DestroyWindow(Button[0]);
         Page = new Main_Page(hwnd);
-        Page->Create_WindowW(Button, ID_BUTTONS);
+        Page->Create_ButtonsW(Button);
         Page_Num = 1;
     }
 }
@@ -284,14 +285,6 @@ void Moja_Apka::Border(HDC hdc, RECT Main_Rect)
     SetTextColor(hdc, RGB(255, 255, 255));
     SetBkMode(hdc, TRANSPARENT);
     TextOutW(hdc, 10, 8, L"Moja Aplikacia", 15);
-
-    // RECT close_btn = {Main_Rect.right - 50, 0, Main_Rect.right, 30};
-    // HBRUSH Close_Btn_Color;
-    // Close_Btn_Color = CreateSolidBrush(RGB(204, 0, 0));
-    // FillRect(hdc, &close_btn, Close_Btn_Color);
-    // DeleteObject(Close_Btn_Color);
-    // SetTextColor(hdc, RGB(255, 255, 255));
-    // TextOutW(hdc, Main_Rect.right - 50, 0, L"X", 1);
 }
 
 void Moja_Apka::Draw_Buttons_Border(HWND hwnd, LPARAM lparam, HDC hdc)

@@ -12,11 +12,13 @@
 
 
 #define ID_BUTTONS 10000
+#define ID_EDIT 20000
 class Moja_Apka
 {
 private:
     int Page_Num;
     HWND hwnd{};
+    HWND *Edit_Boxes;
     HWND *Button;
     bool *Buttons_State;
    
