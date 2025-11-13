@@ -20,16 +20,6 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
                                      Main_Rect.top,
                                      Main_Rect.top,
                                      Main_Rect.top};
-     Edit_Postion_X = new int[9]{Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.right,
-                                 Main_Rect.right,
-                                 Main_Rect.right};
-     Edit_Postion_Y = new int[9]{200, 215, 230, 245, 260, 275, 200, 215, 230};
      Size_Of_Buffers = new int[8];
      Buffer_Edit = new wchar_t *[6];
      for (int i{}; i < 6; i++)
@@ -62,12 +52,27 @@ void Data_Struct_Page::Create_ButtonsW(HWND *Buttons)
 
 void Data_Struct_Page::Create_EditW(HWND *Edit_Boxes)
 {
-
+     Edit_Postion_X = new int[9]{Main_Rect.left,
+                                 Main_Rect.left,
+                                 Main_Rect.left,
+                                 Main_Rect.left,
+                                 Main_Rect.left,
+                                 Main_Rect.left,
+                                 Main_Rect.right - 200,
+                                 Main_Rect.right - 200,
+                                 Main_Rect.right - 200};
+     Edit_Postion_Y = new int[9]{200, 215, 230, 245, 260, 275, 200, 240, 280};
+     EditSize.Size_X = {200, 200, 200, 200, 200, 200, 200, 200, 200};
+     EditSize.Size_Y = {15, 15, 15, 15, 15, 15, 20, 20, 20};
      for (int i{}; i < Number_Of_Edit; i++)
      {
 
-         Edit_Boxes[i] = CreateWindowW(Windows_CLASS[1], L"", WS_CHILD | WS_VISIBLE |WS_BORDER, Edit_Postion_X[i], Edit_Postion_Y[i], 200, 15, Main_hwnd, (HMENU)(ID_EDIT + i), NULL, NULL);
+          Edit_Boxes[i] = CreateWindowW(Windows_CLASS[1], L"", WS_CHILD | WS_VISIBLE | WS_BORDER, Edit_Postion_X[i], Edit_Postion_Y[i], EditSize.Size_X.at(i), EditSize.Size_Y.at(i), Main_hwnd, (HMENU)(ID_EDIT + i), NULL, NULL);
      }
+     delete[] Edit_Postion_X;
+     delete[] Edit_Postion_Y;
+     Edit_Postion_X = nullptr;
+     Edit_Postion_Y = nullptr;
 }
 
 void Data_Struct_Page::Cout_Button_1(HDC hdc)
@@ -210,7 +215,7 @@ void Data_Struct_Page::Cout_Create(HDC hdc)
      TextOutW(hdc, 200, 275, L"Data Y", 7);
 }
 
-void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons,HWND *Edit_Boxes, bool *Buttons_state, WPARAM wparam, LPARAM lparam)
+void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit_Boxes, bool *Buttons_state, WPARAM wparam, LPARAM lparam)
 {
      enum BUTTONS_ID
      {
@@ -336,12 +341,12 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons,HWND *Edit_
                }
           }
           else
-               {
-                    MessageBoxW(Main_hwnd, L"Buffers = nullptr", MB_OK, NULL);
-                    Buffer_Edit[0] = new wchar_t [2]{L"0"};
-                    Buffer_Edit[1] = new wchar_t [2]{L"0"};
-                    Buffer_Edit[2] = new wchar_t [2]{L"0"};
-               }
+          {
+               MessageBoxW(Main_hwnd, L"Buffers = nullptr", MB_OK, NULL);
+               Buffer_Edit[0] = new wchar_t[2]{L"0"};
+               Buffer_Edit[1] = new wchar_t[2]{L"0"};
+               Buffer_Edit[2] = new wchar_t[2]{L"0"};
+          }
           break;
      }
      case Add_Data:
@@ -494,38 +499,8 @@ void Data_Struct_Page::Add_Sparse_Matrix(Sparse_Matrix &First, Sparse_Matrix &Se
 void Data_Struct_Page::To_Wstring()
 {
 }
-//      std::wstring Temp_X_Lenght, Temp_Y_Lenght, *Temp_X, *Temp_Y, Temp_Size;
-//      Temp_Size = std::to_wstring(Sparse_matrix.Get_Size());
-//      Temp_X = new std::wstring[Sparse_matrix.Get_Size()];
-//      Temp_Y = new std::wstring[Sparse_matrix.Get_Size()];
-//      Temp_X_Lenght = std::to_wstring(Sparse_matrix.Get_Lenght_X());
-//      Temp_Y_Lenght = std::to_wstring(Sparse_matrix.Get_Lenght_Y());
-//      for (int i{}; i < Sparse_matrix.Get_Size(); i++)
-//      {
-//           Temp_X[i] = std::to_wstring(Sparse_matrix.Get_X(i));
-//           Temp_Y[i] = std::to_wstring(Sparse_matrix.Get_Y(i));
-//      }
-//      for (int i{}; i < 6; i++)
-//      {
-//           if (Buffer_Edit[i] != nullptr)
-//           {
-//                delete[] Buffer_Edit[i];
-//           }
-//      }
-//      Buffer_Edit = nullptr;
-//      Buffer_Edit = new wchar_t *[6];
-//      int Size_Of_String = Temp_X_Lenght.length();
-//      Buffer_Edit[0] = new wchar_t[Size_Of_String];
-//      wcscpy(Buffer_Edit[0], Temp_X_Lenght.c_str());
-//      Size_Of_String = Temp_Y_Lenght.length();
-//      Buffer_Edit[1] = new wchar_t[Size_Of_String];
-//      wcscpy(Buffer_Edit[1], Temp_Y_Lenght.c_str());
-//      Size_Of_String = Temp_Size.length();
-//      Buffer_Edit[2] = new wchar_t[Size_Of_String];
-//      wcscpy(Buffer_Edit[2], Temp_Size.c_str());
 
-//      for (int i{}; i < 3; i++)
-//      {
-//           SetWindowTextW(Buttons[i + 3], Buffer_Edit[i]);
-//      }
-// }
+void Data_Struct_Page::Edit_Box_Paint(HDC hdc)
+{
+     RECT Box{};
+}

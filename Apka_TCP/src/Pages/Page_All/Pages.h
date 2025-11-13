@@ -10,6 +10,13 @@
 #include "Polynomial.h"
 #include <windows.h>
 #include <string>
+#include <vector>
+
+struct Edit_Size
+{
+   std::vector<int> Size_X;
+   std::vector<int> Size_Y;
+};
 class Pages
 {
 protected:
@@ -42,6 +49,7 @@ protected:
    bool *Bools;
    Pollynom Polly;
    RECT Main_Rect;
+   Edit_Size EditSize;
 public:
    Pages() = default;
    Pages(HWND hwnd);
@@ -57,6 +65,7 @@ public:
    virtual void Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Button, HWND *Window) = 0;
    virtual void Add_Sparse_Matrix(Sparse_Matrix &First, Sparse_Matrix &Second, HWND *Buttons) = 0;
    virtual void To_Wstring() = 0;
+   virtual void Edit_Box_Paint(HDC hdc) = 0;
 };
 
 #endif

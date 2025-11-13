@@ -21,6 +21,7 @@ class Main_Page:public Pages{
          virtual void Cout_Button_2(HDC hdc) override;
          virtual void Add_Sparse_Matrix(Sparse_Matrix &First,Sparse_Matrix &Second,HWND *Buttons) override {}
          virtual void To_Wstring() override {}
+         virtual void Edit_Box_Paint(HDC hdc) override;
 };
 
 #endif

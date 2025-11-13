@@ -55,3 +55,8 @@ void Main_Page::Create_EditW(HWND *Edit_Boxes)
 {
 
 }
+
+void Main_Page::Edit_Box_Paint(HDC hdc)
+{
+    
+}
