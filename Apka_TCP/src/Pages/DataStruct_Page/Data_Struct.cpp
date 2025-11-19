@@ -20,6 +20,18 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
                                      Main_Rect.top,
                                      Main_Rect.top,
                                      Main_Rect.top};
+     Edit_Postion_X = new int[9]{Main_Rect.left,
+                                 Main_Rect.left,
+                                 Main_Rect.left,
+                                 Main_Rect.left,
+                                 Main_Rect.left,
+                                 Main_Rect.left,
+                                 Main_Rect.right - 203,
+                                 Main_Rect.right - 203,
+                                 Main_Rect.right - 203};
+     Edit_Postion_Y = new int[9]{200, 215, 230, 245, 260, 275, 200, 245, 290};
+     EditSize.Size_X = {200, 200, 200, 200, 200, 200, 200, 200, 200};
+     EditSize.Size_Y = {15, 15, 15, 15, 15, 15, 20, 20, 20};
      Size_Of_Buffers = new int[8];
      Buffer_Edit = new wchar_t *[6];
      for (int i{}; i < 6; i++)
@@ -52,27 +64,12 @@ void Data_Struct_Page::Create_ButtonsW(HWND *Buttons)
 
 void Data_Struct_Page::Create_EditW(HWND *Edit_Boxes)
 {
-     Edit_Postion_X = new int[9]{Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.right - 200,
-                                 Main_Rect.right - 200,
-                                 Main_Rect.right - 200};
-     Edit_Postion_Y = new int[9]{200, 215, 230, 245, 260, 275, 200, 240, 280};
-     EditSize.Size_X = {200, 200, 200, 200, 200, 200, 200, 200, 200};
-     EditSize.Size_Y = {15, 15, 15, 15, 15, 15, 20, 20, 20};
+
      for (int i{}; i < Number_Of_Edit; i++)
      {
 
           Edit_Boxes[i] = CreateWindowW(Windows_CLASS[1], L"", WS_CHILD | WS_VISIBLE | WS_BORDER, Edit_Postion_X[i], Edit_Postion_Y[i], EditSize.Size_X.at(i), EditSize.Size_Y.at(i), Main_hwnd, (HMENU)(ID_EDIT + i), NULL, NULL);
      }
-     delete[] Edit_Postion_X;
-     delete[] Edit_Postion_Y;
-     Edit_Postion_X = nullptr;
-     Edit_Postion_Y = nullptr;
 }
 
 void Data_Struct_Page::Cout_Button_1(HDC hdc)
@@ -213,6 +210,7 @@ void Data_Struct_Page::Cout_Create(HDC hdc)
      TextOutW(hdc, 200, 245, L"Data", 5);
      TextOutW(hdc, 200, 260, L"Data X", 7);
      TextOutW(hdc, 200, 275, L"Data Y", 7);
+     Edit_Box_Paint(hdc);
 }
 
 void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit_Boxes, bool *Buttons_state, WPARAM wparam, LPARAM lparam)
@@ -502,5 +500,35 @@ void Data_Struct_Page::To_Wstring()
 
 void Data_Struct_Page::Edit_Box_Paint(HDC hdc)
 {
-     RECT Box{};
+     std::vector<std::wstring> Text{L"Degree",L"Coeficient",L"Exponecial"};
+     HPEN hpen = CreatePen(PS_SOLID, 3, RGB(200, 0, 0));
+     HPEN holdpen = (HPEN)SelectObject(hdc, hpen);
+     HBRUSH hOldBrush;
+     HBRUSH Second = CreateSolidBrush(RGB(0, 0, 200));
+     HFONT hOldFont;
+     HFONT HFont = CreateFontW(15, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, L"Segoe UI");
+     for (int i{6}; i < 9; i++)
+     {
+          hOldFont = (HFONT) SelectObject(hdc,HFont);
+          hOldBrush = (HBRUSH)SelectObject(hdc, GetStockObject(NULL_BRUSH));
+          Rectangle(hdc, Edit_Postion_X[i] - 3, Edit_Postion_Y[i] - 23, Main_Rect.right, Edit_Postion_Y[i] + 23);
+          SelectObject(hdc, hOldBrush);
+          hOldBrush = (HBRUSH)SelectObject(hdc, Second);
+          Rectangle(hdc, Edit_Postion_X[i], Edit_Postion_Y[i] - 20, Main_Rect.right, Edit_Postion_Y[i] - 3);
+          TextOutW(hdc,Edit_Postion_X[i] + 83,Edit_Postion_Y[i]-19,Text[i - 6].c_str(),Text[i-6].length());
+          SelectObject(hdc, hOldBrush);
+          SelectObject(hdc,hOldFont);
+     }
+     HFONT hFont = CreateFontW(30, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE,
+                               DEFAULT_CHARSET, OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS,
+                               CLEARTYPE_QUALITY, VARIABLE_PITCH, L"Segoe UI");
+     hOldFont = (HFONT) SelectObject(hdc,hFont);
+     TextOutW(hdc, Edit_Postion_X[6] + 40, Edit_Postion_Y[6] - 60, L"Polynomials", 12);
+     SelectObject(hdc, hOldBrush);
+     SelectObject(hdc, holdpen);
+     SelectObject(hdc, hpen);
+     SelectObject(hdc,hOldFont);
+     DeleteObject(Second);
+     DeleteObject(hFont);
+     DeleteObject(HFont);
 }
