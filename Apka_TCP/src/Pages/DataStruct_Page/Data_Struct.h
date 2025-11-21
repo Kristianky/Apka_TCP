@@ -6,7 +6,7 @@
 class Data_Struct_Page : public Pages
 {
 public:
-    static const wchar_t *Windows_Names[5];
+    static const wchar_t *Windows_Names[6];
     static const wchar_t *Windows_CLASS[2];
     Data_Struct_Page(HWND hwnd);
     void Create_ButtonsW(HWND *Buttons) override;

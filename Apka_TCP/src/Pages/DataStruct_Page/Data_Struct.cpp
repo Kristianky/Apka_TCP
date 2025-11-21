@@ -1,10 +1,11 @@
 #include "Data_Struct.h"
-const wchar_t *Data_Struct_Page::Windows_Names[5] = {
+const wchar_t *Data_Struct_Page::Windows_Names[6] = {
     L"Paint",
     L"Reset Table",
     L"Set Length",
     L"Add Data",
-    L"Add Sparse Matrix"};
+    L"Add Sparse Matrix",
+    L"Set and display Polly"};
 
 const wchar_t *Data_Struct_Page::Windows_CLASS[2] = {
     L"BUTTON",
@@ -12,14 +13,15 @@ const wchar_t *Data_Struct_Page::Windows_CLASS[2] = {
 Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
 
 {
-     Number_Of_Buttons = 5;
+     Number_Of_Buttons = 6;
      Number_Of_Edit = 9;
-     Buttons_PositionsX = new int[5]{0, 200, 600, 400, 800};
-     Buttons_PositionsY = new int[5]{Main_Rect.top,
+     Buttons_PositionsX = new int[6]{0, 200, 600, 400, 800, Main_Rect.right - 200};
+     Buttons_PositionsY = new int[6]{Main_Rect.top,
                                      Main_Rect.top,
                                      Main_Rect.top,
                                      Main_Rect.top,
-                                     Main_Rect.top};
+                                     Main_Rect.top,
+                                     80};
      Edit_Postion_X = new int[9]{Main_Rect.left,
                                  Main_Rect.left,
                                  Main_Rect.left,
@@ -221,7 +223,8 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
           Reset_Table,
           SetMatrix,
           Add_Data,
-          Add_Sparse_Matrix
+          Add_Sparse_Matrix,
+          Pollynomail
      };
      switch (LOWORD(wparam))
      {
@@ -422,6 +425,56 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
           Data_Struct_Page::Add_Sparse_Matrix(One, Two, Edit_Boxes);
           break;
      }
+     case Pollynomail:
+     {
+          std::wstring Buffer_Message = L"";
+          wchar_t *Degree = new wchar_t[5];
+          wchar_t *Coeficient = new wchar_t[5];
+          wchar_t *Exponecial = new wchar_t[5];
+          if (Polly.Get_Number_Of_Polly() == 0)
+          {
+
+               if (GetWindowTextLengthW(Edit_Boxes[6]) != 0 && GetWindowTextLengthW(Edit_Boxes[6])!='\0')
+               {
+                    GetWindowTextW(Edit_Boxes[6], Degree, 5);
+                    Polly.Set_Number_Of_Poly(Degree);
+               }
+
+               else
+               {
+                    Buffer_Message += L"Degree musi byt viac ako 0\n";
+               }
+          }
+          if (Polly.Get_Number_Of_Polly() > 0)
+          {
+               int ChecingInt{};
+               if (Polly.Get_Index() < Polly.Get_Number_Of_Polly())
+               {
+                    if (GetWindowTextLengthW(Edit_Boxes[7]) != 0 && GetWindowTextLengthW(Edit_Boxes[8]) != 0 && GetWindowTextLengthW(Edit_Boxes[7])!='\0' && GetWindowTextLengthW(Edit_Boxes[8])!='\0')
+                    {
+                         GetWindowTextW(Edit_Boxes[7], Coeficient, 5);
+                         GetWindowTextW(Edit_Boxes[8], Exponecial, 5);
+                         ChecingInt = Polly.Set_Polynomial(Coeficient,Exponecial); 
+                         SetWindowTextW(Edit_Boxes[7],L"");
+                         SetWindowTextW(Edit_Boxes[8],L"");
+                         Buffer_Message += L"You need ";
+                         Buffer_Message += std::to_wstring(Polly.Get_Number_Of_Polly() - Polly.Get_Index());
+                         Buffer_Message += L" more data";
+                    }
+                    else
+                    {
+                         Buffer_Message += L"Coefecient musi byt vacsi ako 0\n";
+                         Buffer_Message += L"Exponencial musi byt vacsi ako 0\n";
+                    }
+               }
+               if(ChecingInt == -1 || Polly.Get_Number_Of_Polly() == Polly.Get_Index())
+               {
+                    Buffer_Message = L"Pollynom is full";
+                    
+               }
+          }
+          MessageBoxW(Main_hwnd,Buffer_Message.c_str(),MB_OK,NULL);
+     }
      }
 }
 void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Button, HWND *Window)
@@ -500,7 +553,7 @@ void Data_Struct_Page::To_Wstring()
 
 void Data_Struct_Page::Edit_Box_Paint(HDC hdc)
 {
-     std::vector<std::wstring> Text{L"Degree",L"Coeficient",L"Exponecial"};
+     std::vector<std::wstring> Text{L"Degree", L"Coeficient", L"Exponecial"};
      HPEN hpen = CreatePen(PS_SOLID, 3, RGB(200, 0, 0));
      HPEN holdpen = (HPEN)SelectObject(hdc, hpen);
      HBRUSH hOldBrush;
@@ -509,25 +562,25 @@ void Data_Struct_Page::Edit_Box_Paint(HDC hdc)
      HFONT HFont = CreateFontW(15, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, L"Segoe UI");
      for (int i{6}; i < 9; i++)
      {
-          hOldFont = (HFONT) SelectObject(hdc,HFont);
+          hOldFont = (HFONT)SelectObject(hdc, HFont);
           hOldBrush = (HBRUSH)SelectObject(hdc, GetStockObject(NULL_BRUSH));
           Rectangle(hdc, Edit_Postion_X[i] - 3, Edit_Postion_Y[i] - 23, Main_Rect.right, Edit_Postion_Y[i] + 23);
           SelectObject(hdc, hOldBrush);
           hOldBrush = (HBRUSH)SelectObject(hdc, Second);
           Rectangle(hdc, Edit_Postion_X[i], Edit_Postion_Y[i] - 20, Main_Rect.right, Edit_Postion_Y[i] - 3);
-          TextOutW(hdc,Edit_Postion_X[i] + 83,Edit_Postion_Y[i]-19,Text[i - 6].c_str(),Text[i-6].length());
+          TextOutW(hdc, Edit_Postion_X[i] + 83, Edit_Postion_Y[i] - 19, Text[i - 6].c_str(), Text[i - 6].length());
           SelectObject(hdc, hOldBrush);
-          SelectObject(hdc,hOldFont);
+          SelectObject(hdc, hOldFont);
      }
      HFONT hFont = CreateFontW(30, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE,
                                DEFAULT_CHARSET, OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS,
                                CLEARTYPE_QUALITY, VARIABLE_PITCH, L"Segoe UI");
-     hOldFont = (HFONT) SelectObject(hdc,hFont);
+     hOldFont = (HFONT)SelectObject(hdc, hFont);
      TextOutW(hdc, Edit_Postion_X[6] + 40, Edit_Postion_Y[6] - 60, L"Polynomials", 12);
      SelectObject(hdc, hOldBrush);
      SelectObject(hdc, holdpen);
      SelectObject(hdc, hpen);
-     SelectObject(hdc,hOldFont);
+     SelectObject(hdc, hOldFont);
      DeleteObject(Second);
      DeleteObject(hFont);
      DeleteObject(HFont);
