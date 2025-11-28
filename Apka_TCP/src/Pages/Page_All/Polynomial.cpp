@@ -32,3 +32,42 @@ int Pollynom::Set_Polynomial(wchar_t *Edit_Box_Coef, wchar_t *Edit_Box_Expo)
     else
         return -1;
 }
+
+const wchar_t *Pollynom::Result(wchar_t *Number)
+{
+    std::vector<int> Result;
+    std::wstring Result_Wstring = L"";
+    int Number_Int = To_Int_From_Wchar(Number);
+    for (int i{}; i < Number_Of_Poly; i++)
+    {
+        Result.push_back(Coef_Ecpo.Coeficient.at(i) * Pow(Number_Int, Coef_Ecpo.Exponecial.at(i)));
+        Result_Wstring += To_Wchar_Form_Int(Result.at(i));
+        if (i != Number_Of_Poly - 1)
+        {
+            Result_Wstring += L" + ";
+        }
+    }
+
+    return Result_Wstring.c_str();
+}
+
+int Pollynom::Pow(int Number, int Coeficient)
+{
+    int result{Number};
+    for (int i{}; i < Coeficient; i++)
+    {
+        result *= Number;
+    }
+    return result;
+}
+
+const wchar_t *Pollynom::Print_Coef()
+{
+    std::wstring Coef_String;
+    for (int i{}; i < Number_Of_Poly; i++)
+    {
+        Coef_String += std::to_wstring(Coef_Ecpo.Coeficient.at(i));
+        Coef_String += L",";
+    }
+    return Coef_String.c_str();
+}

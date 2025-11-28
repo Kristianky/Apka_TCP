@@ -5,6 +5,10 @@
 
 class Data_Struct_Page : public Pages
 {
+    wchar_t *Degree;
+    wchar_t *Coeficient;
+    wchar_t *Exponecial;
+
 public:
     static const wchar_t *Windows_Names[6];
     static const wchar_t *Windows_CLASS[2];
@@ -12,7 +16,7 @@ public:
     void Create_ButtonsW(HWND *Buttons) override;
     virtual void Create_EditW(HWND *Edit_Boxes) override;
     virtual ~Data_Struct_Page();
-    virtual void Buttons_Function(int &page_num, HWND *Buttons,HWND *Edit_Boxes, bool *Buttons_state, WPARAM wparam, LPARAM lparam) override;
+    virtual void Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit_Boxes, bool *Buttons_state, WPARAM wparam, LPARAM lparam) override;
     virtual void Cout_Button_1(HDC hdc) override;
     virtual void Cout_Create(HDC hdc) override;
     virtual HWND Get_hwnd() { return Main_hwnd; }
@@ -21,6 +25,7 @@ public:
     virtual void Add_Sparse_Matrix(Sparse_Matrix &First, Sparse_Matrix &Second, HWND *Buttons) override;
     virtual void To_Wstring() override;
     virtual void Edit_Box_Paint(HDC hdc) override;
+    virtual void Cout_Button_3(HDC hdc) override;
 };
 
 #endif

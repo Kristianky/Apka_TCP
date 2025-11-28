@@ -13,6 +13,9 @@ const wchar_t *Data_Struct_Page::Windows_CLASS[2] = {
 Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
 
 {
+     Degree = new wchar_t[5];
+     Coeficient = new wchar_t[5];
+     Exponecial = new wchar_t[5];
      Number_Of_Buttons = 6;
      Number_Of_Edit = 9;
      Buttons_PositionsX = new int[6]{0, 200, 600, 400, 800, Main_Rect.right - 200};
@@ -428,13 +431,10 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
      case Pollynomail:
      {
           std::wstring Buffer_Message = L"";
-          wchar_t *Degree = new wchar_t[5];
-          wchar_t *Coeficient = new wchar_t[5];
-          wchar_t *Exponecial = new wchar_t[5];
           if (Polly.Get_Number_Of_Polly() == 0)
           {
 
-               if (GetWindowTextLengthW(Edit_Boxes[6]) != 0 && GetWindowTextLengthW(Edit_Boxes[6])!='\0')
+               if (GetWindowTextLengthW(Edit_Boxes[6]) != 0 && GetWindowTextLengthW(Edit_Boxes[6]) != '\0')
                {
                     GetWindowTextW(Edit_Boxes[6], Degree, 5);
                     Polly.Set_Number_Of_Poly(Degree);
@@ -450,13 +450,13 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
                int ChecingInt{};
                if (Polly.Get_Index() < Polly.Get_Number_Of_Polly())
                {
-                    if (GetWindowTextLengthW(Edit_Boxes[7]) != 0 && GetWindowTextLengthW(Edit_Boxes[8]) != 0 && GetWindowTextLengthW(Edit_Boxes[7])!='\0' && GetWindowTextLengthW(Edit_Boxes[8])!='\0')
+                    if (GetWindowTextLengthW(Edit_Boxes[7]) != 0 && GetWindowTextLengthW(Edit_Boxes[8]) != 0 && GetWindowTextLengthW(Edit_Boxes[7]) != '\0' && GetWindowTextLengthW(Edit_Boxes[8]) != '\0')
                     {
                          GetWindowTextW(Edit_Boxes[7], Coeficient, 5);
                          GetWindowTextW(Edit_Boxes[8], Exponecial, 5);
-                         ChecingInt = Polly.Set_Polynomial(Coeficient,Exponecial); 
-                         SetWindowTextW(Edit_Boxes[7],L"");
-                         SetWindowTextW(Edit_Boxes[8],L"");
+                         ChecingInt = Polly.Set_Polynomial(Coeficient, Exponecial);
+                         SetWindowTextW(Edit_Boxes[7], L"");
+                         SetWindowTextW(Edit_Boxes[8], L"");
                          Buffer_Message += L"You need ";
                          Buffer_Message += std::to_wstring(Polly.Get_Number_Of_Polly() - Polly.Get_Index());
                          Buffer_Message += L" more data";
@@ -467,14 +467,21 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
                          Buffer_Message += L"Exponencial musi byt vacsi ako 0\n";
                     }
                }
-               if(ChecingInt == -1 || Polly.Get_Number_Of_Polly() == Polly.Get_Index())
+               if (ChecingInt == -1 || Polly.Get_Number_Of_Polly() == Polly.Get_Index())
                {
                     Buffer_Message = L"Pollynom is full";
-                    
                }
           }
-          MessageBoxW(Main_hwnd,Buffer_Message.c_str(),MB_OK,NULL);
+          MessageBoxW(Main_hwnd, Buffer_Message.c_str(), MB_OK, NULL);
+          if (Polly.Get_Number_Of_Polly() != 0, Polly.Get_Coeficient_Size() == Polly.Get_Number_Of_Polly() && Polly.Get_Esponecial_Size() == Polly.Get_Number_Of_Polly())
+          {
+               Buttons_state[4] = !Buttons_state[4];
+               InvalidateRect(Main_hwnd, NULL, true);
+               UpdateWindow(Main_hwnd);
+          }
+           break;
      }
+    
      }
 }
 void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Button, HWND *Window)
@@ -584,4 +591,22 @@ void Data_Struct_Page::Edit_Box_Paint(HDC hdc)
      DeleteObject(Second);
      DeleteObject(hFont);
      DeleteObject(HFont);
+}
+
+void Data_Struct_Page::Cout_Button_3(HDC hdc)
+{
+     std::wstring Buffer = L"";
+     HFONT hfont = CreateFontW(30, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, L"Segoe UI");
+     HFONT holdFont = (HFONT)SelectObject(hdc, hfont);
+     if (Polly.Get_Number_Of_Polly() != 0, Polly.Get_Coeficient_Size() == Polly.Get_Number_Of_Polly() && Polly.Get_Esponecial_Size() == Polly.Get_Number_Of_Polly())
+     {
+          Buffer = Polly.Result(L"5");
+          TextOutW(hdc, Main_Rect.right - 400, Main_Rect.top + 250, Buffer.c_str(), Buffer.length());
+     }
+     else
+     {
+          Buffer = L"Nastav vsetky parametre";
+     }
+     SelectObject(hdc, hfont);
+     DeleteObject(holdFont);
 }
