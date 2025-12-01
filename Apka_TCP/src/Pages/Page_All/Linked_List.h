@@ -1,19 +1,25 @@
 #ifndef _LINKED_LIST_H_
 #define _LINKED_LIST_H_
-
-struct List
+#include <string>
+struct Node
 {
     int data;
-    List *Next;
-};
+    Node *Next;
+}*First;
 
 
 
 class LinkedList
 {
    private:
-       List First;
+       Node *Last;
    public:
+       LinkedList ();
+       ~LinkedList() = default;
+       void SetData(wchar_t *Data);
+       void Add(wchar_t *data);
+       std::wstring Print();
+
       
 };
 
