@@ -6,6 +6,7 @@ LinkedList::LinkedList()
     First->data = 0;
     First->Next = nullptr;
     Last = First;
+    count = 1;
 }
 
 void LinkedList::Add(wchar_t *data)
@@ -17,6 +18,7 @@ void LinkedList::Add(wchar_t *data)
     Temp->data = std::stoi(Change);
     Last->Next = Temp;
     Last = Temp;
+    count++;
 }
 
 std::wstring LinkedList::Print()

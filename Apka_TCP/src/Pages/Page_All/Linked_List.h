@@ -13,6 +13,7 @@ class LinkedList
 {
    private:
        Node *Last;
+       int count;
    public:
        LinkedList ();
        ~LinkedList() = default;
