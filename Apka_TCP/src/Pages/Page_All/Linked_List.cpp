@@ -9,7 +9,7 @@ LinkedList::LinkedList()
     count = 1;
 }
 
-void LinkedList::Add(wchar_t *data)
+void LinkedList::Add(const wchar_t *data)
 {
     Node *Temp;
     std::wstring Change = data;
@@ -21,20 +21,66 @@ void LinkedList::Add(wchar_t *data)
     count++;
 }
 
-std::wstring LinkedList::Print()
+const wchar_t *LinkedList::Print()
 {
     Node *Temp = First;
-    std::wstring Cout;
+    Return_Value = L"";
     while (Temp->Next != nullptr)
     {
-        Cout += std::to_wstring(Temp->data);
-        Cout += ',';
+        Return_Value += std::to_wstring(Temp->data);
+        Return_Value += ',';
         Temp = Temp->Next;
     }
-    return Cout;
+    return Return_Value.c_str();
 }
-void LinkedList::SetData(wchar_t *data)
+void LinkedList::SetData(const wchar_t *data)
 {
     std::wstring Change = data;
     Last->data = std::stoi(Change);
+}
+
+int LinkedList::sum()
+{
+    Node *Temp = First;
+    int sum{};
+    while (Temp != nullptr)
+    {
+        sum += Temp->data;
+        Temp = Temp->Next;
+    }
+    return sum;
+}
+
+const wchar_t *LinkedList::Max()
+{
+    Node *Temp = First;
+    int Max = 0;
+    Return_Value = L"";
+    while (Temp)
+    {
+        if (Max < Temp->data)
+        {
+            Max = Temp->data;
+        }
+        Temp = Temp->Next;
+    }
+    Return_Value = std::to_wstring(Max);
+    return Return_Value.c_str();
+}
+
+const wchar_t *LinkedList::Min()
+{
+    Node *Temp = First;
+    int Min = INT_MAX;
+    Return_Value = L"";
+    while (Temp)
+    {
+        if (Min > Temp->data)
+        {
+            Min = Temp->data;
+        }
+        Temp = Temp->Next;
+    }
+    Return_Value = std::to_wstring(Min);
+    return Return_Value.c_str();
 }

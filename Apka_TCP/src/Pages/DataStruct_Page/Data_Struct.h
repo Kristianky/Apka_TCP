@@ -8,6 +8,7 @@ class Data_Struct_Page : public Pages
     wchar_t *Degree;
     wchar_t *Coeficient;
     wchar_t *Exponecial;
+    LinkedList Numbers;
 
 public:
     static const wchar_t *Windows_Names[6];

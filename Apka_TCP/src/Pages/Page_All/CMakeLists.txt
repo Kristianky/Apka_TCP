@@ -1,11 +1,13 @@
 set(PAGES_LIBS
     "Pages.cpp"
     "Sparse_Matrix.cpp"
-    "Polynomial.cpp")
+    "Polynomial.cpp"
+    "Linked_List.cpp")
 set(PAGES_HEADERS
     "Pages.h"
     "Sparse_Matrix.h"
-    "Polynomial.h")
+    "Polynomial.h"
+    Linked_List.h)
 
 add_library(Sparse_Matrix
             Sparse_Matrix.cpp

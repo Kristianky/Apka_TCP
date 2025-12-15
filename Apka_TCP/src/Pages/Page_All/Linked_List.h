@@ -5,21 +5,26 @@ struct Node
 {
     int data;
     Node *Next;
-}*First;
+};
 
 
 
 class LinkedList
 {
    private:
+       Node *First;
        Node *Last;
        int count;
+       std::wstring Return_Value;
    public:
        LinkedList ();
        ~LinkedList() = default;
-       void SetData(wchar_t *Data);
-       void Add(wchar_t *data);
-       std::wstring Print();
+       void SetData(const wchar_t *Data);
+       void Add(const wchar_t *data);
+       const wchar_t* Print();
+       int sum();
+       const wchar_t* Max();
+       const wchar_t* Min();
 
       
 };

@@ -8,6 +8,7 @@
 
 #include "Sparse_Matrix.h"
 #include "Polynomial.h"
+#include "Linked_List.h"
 #include <windows.h>
 #include <string>
 #include <vector>

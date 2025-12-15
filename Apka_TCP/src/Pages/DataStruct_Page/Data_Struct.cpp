@@ -51,6 +51,11 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
      {
           Bools[i] = false;
      }
+     for (int i{1}; i < 6; i++)
+     {
+          std::wstring temp = std::to_wstring(i);
+          Numbers.Add(temp.c_str());
+     }
 }
 
 Data_Struct_Page::~Data_Struct_Page()
@@ -215,6 +220,9 @@ void Data_Struct_Page::Cout_Create(HDC hdc)
      TextOutW(hdc, 200, 245, L"Data", 5);
      TextOutW(hdc, 200, 260, L"Data X", 7);
      TextOutW(hdc, 200, 275, L"Data Y", 7);
+     TextOutW(hdc, 1000, 500, Numbers.Print(), 10);
+     TextOutW(hdc, 1000, 515, Numbers.Max(), 1);
+     TextOutW(hdc, 1020, 515, Numbers.Min(), 1);
      Edit_Box_Paint(hdc);
 }
 
@@ -479,9 +487,8 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
                InvalidateRect(Main_hwnd, NULL, true);
                UpdateWindow(Main_hwnd);
           }
-           break;
+          break;
      }
-    
      }
 }
 void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Button, HWND *Window)
