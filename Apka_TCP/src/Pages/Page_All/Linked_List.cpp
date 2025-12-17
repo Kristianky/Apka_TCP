@@ -111,6 +111,13 @@ Node* LinkedList::Search(wchar_t *key)
          temp_2->Next = temp->Next;
          temp_Next = First;
          first = temp;
+         return temp;
       }
+      else
+      {
+         temp_2 = temp;
+         temp = temp->Next;
+    }
    }
+    return NULL;
 }*/
