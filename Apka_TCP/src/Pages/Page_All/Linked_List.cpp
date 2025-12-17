@@ -84,3 +84,33 @@ const wchar_t *LinkedList::Min()
     Return_Value = std::to_wstring(Min);
     return Return_Value.c_str();
 }
+
+Node* LinkedList::Search(wchar_t *key)
+{
+    Node *Temp = First;
+    Return_Value = key;
+    while (Temp)
+    {
+        if(std::stoi(Return_Value)==Temp->data)
+        {
+            return Temp;
+        }
+    }
+    return NULL;
+}
+
+/*Move to head traspostion - Prehadzuje najdeny element na prvu poziciu
+Node* LinkedList::Search(wchar_t *key)
+{
+   Node *temp = first;
+   Node *temp_2 = NULL;
+   while (Temp)
+   { 
+      if (std::stoi(Return_Value)==Temp->data)
+      {
+         temp_2->Next = temp->Next;
+         temp_Next = First;
+         first = temp;
+      }
+   }
+}*/

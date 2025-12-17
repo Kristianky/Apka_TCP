@@ -25,6 +25,7 @@ class LinkedList
        int sum();
        const wchar_t* Max();
        const wchar_t* Min();
+       Node* Search(wchar_t *Key);
 
       
 };
