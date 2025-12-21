@@ -9,9 +9,10 @@ class Data_Struct_Page : public Pages
     wchar_t *Coeficient;
     wchar_t *Exponecial;
     LinkedList Numbers;
+    wchar_t *Numbers_Buffer;
 
 public:
-    static const wchar_t *Windows_Names[6];
+    static const wchar_t *Windows_Names[8];
     static const wchar_t *Windows_CLASS[2];
     Data_Struct_Page(HWND hwnd);
     void Create_ButtonsW(HWND *Buttons) override;
@@ -27,6 +28,7 @@ public:
     virtual void To_Wstring() override;
     virtual void Edit_Box_Paint(HDC hdc) override;
     virtual void Cout_Button_3(HDC hdc) override;
+    virtual void Cout_Button_4(HDC hdc) override;
 };
 
 #endif

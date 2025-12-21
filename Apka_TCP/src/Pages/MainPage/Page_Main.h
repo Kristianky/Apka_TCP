@@ -25,6 +25,7 @@ public:
     virtual void To_Wstring() override {}
     virtual void Edit_Box_Paint(HDC hdc) override;
     virtual void Cout_Button_3(HDC hdc) override {}
+    virtual void Cout_Button_4(HDC hdc) override {}
 };
 
 #endif

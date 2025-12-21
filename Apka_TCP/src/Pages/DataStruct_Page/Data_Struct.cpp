@@ -1,11 +1,13 @@
 #include "Data_Struct.h"
-const wchar_t *Data_Struct_Page::Windows_Names[6] = {
+const wchar_t *Data_Struct_Page::Windows_Names[8] = {
     L"Paint",
     L"Reset Table",
     L"Set Length",
     L"Add Data",
     L"Add Sparse Matrix",
-    L"Set and display Polly"};
+    L"Set and display Polly",
+    L"Add Linked List Data",
+    L"Print Linked List Data"};
 
 const wchar_t *Data_Struct_Page::Windows_CLASS[2] = {
     L"BUTTON",
@@ -16,27 +18,30 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
      Degree = new wchar_t[5];
      Coeficient = new wchar_t[5];
      Exponecial = new wchar_t[5];
-     Number_Of_Buttons = 6;
-     Number_Of_Edit = 9;
-     Buttons_PositionsX = new int[6]{0, 200, 600, 400, 800, Main_Rect.right - 200};
-     Buttons_PositionsY = new int[6]{Main_Rect.top,
+     Number_Of_Buttons = 8;
+     Number_Of_Edit = 10;
+     Buttons_PositionsX = new int[8]{0, 200, 600, 400, 800, Main_Rect.right - 200, Main_Rect.right - 200, Main_Rect.right - 200};
+     Buttons_PositionsY = new int[8]{Main_Rect.top,
                                      Main_Rect.top,
                                      Main_Rect.top,
                                      Main_Rect.top,
                                      Main_Rect.top,
-                                     80};
-     Edit_Postion_X = new int[9]{Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.left,
-                                 Main_Rect.right - 203,
-                                 Main_Rect.right - 203,
-                                 Main_Rect.right - 203};
-     Edit_Postion_Y = new int[9]{200, 215, 230, 245, 260, 275, 200, 245, 290};
-     EditSize.Size_X = {200, 200, 200, 200, 200, 200, 200, 200, 200};
-     EditSize.Size_Y = {15, 15, 15, 15, 15, 15, 20, 20, 20};
+                                     80,
+                                     Main_Rect.top + 340,
+                                     Main_Rect.top + 440};
+     Edit_Postion_X = new int[10]{Main_Rect.left,
+                                  Main_Rect.left,
+                                  Main_Rect.left,
+                                  Main_Rect.left,
+                                  Main_Rect.left,
+                                  Main_Rect.left,
+                                  Main_Rect.right - 203,
+                                  Main_Rect.right - 203,
+                                  Main_Rect.right - 203,
+                                  Main_Rect.right - 203};
+     Edit_Postion_Y = new int[10]{200, 215, 230, 245, 260, 275, 200, 245, 290, 320};
+     EditSize.Size_X = {200, 200, 200, 200, 200, 200, 200, 200, 200, 200};
+     EditSize.Size_Y = {15, 15, 15, 15, 15, 15, 20, 20, 20, 20};
      Size_Of_Buffers = new int[8];
      Buffer_Edit = new wchar_t *[6];
      for (int i{}; i < 6; i++)
@@ -220,9 +225,6 @@ void Data_Struct_Page::Cout_Create(HDC hdc)
      TextOutW(hdc, 200, 245, L"Data", 5);
      TextOutW(hdc, 200, 260, L"Data X", 7);
      TextOutW(hdc, 200, 275, L"Data Y", 7);
-     TextOutW(hdc, 1000, 500, Numbers.Print(), 10);
-     TextOutW(hdc, 1000, 515, Numbers.Max(), 1);
-     TextOutW(hdc, 1020, 515, Numbers.Min(), 1);
      Edit_Box_Paint(hdc);
 }
 
@@ -235,7 +237,9 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
           SetMatrix,
           Add_Data,
           Add_Sparse_Matrix,
-          Pollynomail
+          Pollynomail,
+          Add_Linked_List,
+          Print_Linked_List
      };
      switch (LOWORD(wparam))
      {
@@ -489,6 +493,28 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
           }
           break;
      }
+     case Add_Linked_List:
+     {
+          Numbers_Buffer = new wchar_t[GetWindowTextLengthW(Edit_Boxes[9])];
+          GetWindowTextW(Edit_Boxes[9], Numbers_Buffer, 5);
+          if(GetWindowTextLengthW(Edit_Boxes[9])!=0)
+          {
+          Numbers.Add(Numbers_Buffer);
+          SetWindowTextW(Edit_Boxes[9],L"");
+          delete[] Numbers_Buffer;
+          }
+          break;
+     }
+     case Print_Linked_List:
+     {
+          if (Numbers.Count() != 0)
+          {
+               Buttons_state[5] = !Buttons_state[5];
+               InvalidateRect(Main_hwnd, NULL, true);
+               UpdateWindow(Main_hwnd);
+          }
+          break;
+     }
      }
 }
 void Data_Struct_Page::Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Button, HWND *Window)
@@ -616,4 +642,11 @@ void Data_Struct_Page::Cout_Button_3(HDC hdc)
      }
      SelectObject(hdc, hfont);
      DeleteObject(holdFont);
+}
+
+void Data_Struct_Page::Cout_Button_4(HDC hdc)
+{
+     TextOutW(hdc, 1000, 500, Numbers.Print(), Numbers.Count()*2);
+     TextOutW(hdc, 1000, 515, Numbers.Max(), 1);
+     TextOutW(hdc, 1020, 515, Numbers.Min(), 1);
 }

@@ -25,7 +25,8 @@ const wchar_t *LinkedList::Print()
 {
     Node *Temp = First;
     Return_Value = L"";
-    while (Temp->Next != nullptr)
+    int i = 1;
+    while (Temp->Next)
     {
         Return_Value += std::to_wstring(Temp->data);
         Return_Value += ',';

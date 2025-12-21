@@ -62,6 +62,7 @@ public:
    virtual void Cout_Button_1(HDC hdc) = 0;
    virtual void Cout_Button_2(HDC hdc) = 0;
    virtual void Cout_Button_3(HDC hdc) = 0;
+   virtual void Cout_Button_4(HDC hdc) = 0;
    virtual void Cout_Create(HDC hdc) = 0;
    virtual HWND Get_hwnd() = 0;
    virtual void Key_Board_Func(WPARAM wparam, LPARAM lparam, int ID_Button, HWND *Window) = 0;

@@ -251,6 +251,10 @@ void Moja_Apka::Paint(HDC hdc)
         {
             Page->Cout_Button_3(hdc);
         }
+        if (Buttons_State[5])
+        {
+            Page->Cout_Button_4(hdc);
+        }
 
         break;
     }
