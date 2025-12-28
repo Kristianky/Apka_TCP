@@ -17,6 +17,7 @@ private:
     int Number_Of_Poly;
     Polynomial Coef_Ecpo;
     int Index_Of_Coef_Expo;
+    std::wstring Wstring_result;
    
 public:
     Pollynom() = default;

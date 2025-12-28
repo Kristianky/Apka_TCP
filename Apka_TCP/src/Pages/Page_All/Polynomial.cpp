@@ -36,19 +36,19 @@ int Pollynom::Set_Polynomial(wchar_t *Edit_Box_Coef, wchar_t *Edit_Box_Expo)
 const wchar_t *Pollynom::Result(wchar_t *Number)
 {
     std::vector<int> Result;
-    std::wstring Result_Wstring = L"";
+    Wstring_result = L"";
     int Number_Int = To_Int_From_Wchar(Number);
     for (int i{}; i < Number_Of_Poly; i++)
     {
         Result.push_back(Coef_Ecpo.Coeficient.at(i) * Pow(Number_Int, Coef_Ecpo.Exponecial.at(i)));
-        Result_Wstring += To_Wchar_Form_Int(Result.at(i));
+        Wstring_result += To_Wchar_Form_Int(Result.at(i));
         if (i != Number_Of_Poly - 1)
         {
-            Result_Wstring += L" + ";
+          Wstring_result += L" + ";
         }
     }
 
-    return Result_Wstring.c_str();
+    return Wstring_result.c_str();
 }
 
 int Pollynom::Pow(int Number, int Coeficient)

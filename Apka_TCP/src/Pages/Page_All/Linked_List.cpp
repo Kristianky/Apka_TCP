@@ -97,6 +97,7 @@ Node* LinkedList::Search(wchar_t *key)
         {
             return Temp;
         }
+        Temp = Temp->Next;
     }
     return NULL;
 }

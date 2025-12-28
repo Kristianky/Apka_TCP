@@ -56,8 +56,8 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
      }
      Indexes = new int[5]{0};
      Buffer_Message_Box = new std::wstring[1];
-     Bools = new bool[5];
-     for (int i{}; i < 5; i++)
+     Bools = new bool[6];
+     for (int i{}; i < 6; i++)
      {
           Bools[i] = false;
      }
@@ -465,52 +465,56 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
      }
      case Pollynomail:
      {
-          std::wstring Buffer_Message = L"";
-          if (Polly.Get_Number_Of_Polly() == 0)
+          if (!Bools[5])
           {
+               std::wstring Buffer_Message = L"";
+               if (Polly.Get_Number_Of_Polly() == 0)
+               {
 
-               if (GetWindowTextLengthW(Edit_Boxes[6]) != 0 && GetWindowTextLengthW(Edit_Boxes[6]) != '\0')
-               {
-                    GetWindowTextW(Edit_Boxes[6], Degree, 5);
-                    Polly.Set_Number_Of_Poly(Degree);
-               }
-
-               else
-               {
-                    Buffer_Message += L"Degree musi byt viac ako 0\n";
-               }
-          }
-          if (Polly.Get_Number_Of_Polly() > 0)
-          {
-               int ChecingInt{};
-               if (Polly.Get_Index() < Polly.Get_Number_Of_Polly())
-               {
-                    if (GetWindowTextLengthW(Edit_Boxes[7]) != 0 && GetWindowTextLengthW(Edit_Boxes[8]) != 0 && GetWindowTextLengthW(Edit_Boxes[7]) != '\0' && GetWindowTextLengthW(Edit_Boxes[8]) != '\0')
+                    if (GetWindowTextLengthW(Edit_Boxes[6]) != 0 && GetWindowTextLengthW(Edit_Boxes[6]) != '\0')
                     {
-                         GetWindowTextW(Edit_Boxes[7], Coeficient, 5);
-                         GetWindowTextW(Edit_Boxes[8], Exponecial, 5);
-                         ChecingInt = Polly.Set_Polynomial(Coeficient, Exponecial);
-                         SetWindowTextW(Edit_Boxes[7], L"");
-                         SetWindowTextW(Edit_Boxes[8], L"");
-                         Buffer_Message += L"You need ";
-                         Buffer_Message += std::to_wstring(Polly.Get_Number_Of_Polly() - Polly.Get_Index());
-                         Buffer_Message += L" more data";
+                         GetWindowTextW(Edit_Boxes[6], Degree, 5);
+                         Polly.Set_Number_Of_Poly(Degree);
                     }
+
                     else
                     {
-                         Buffer_Message += L"Coefecient musi byt vacsi ako 0\n";
-                         Buffer_Message += L"Exponencial musi byt vacsi ako 0\n";
+                         Buffer_Message += L"Degree musi byt viac ako 0\n";
                     }
                }
-               if (ChecingInt == -1 || Polly.Get_Number_Of_Polly() == Polly.Get_Index())
+               if (Polly.Get_Number_Of_Polly() > 0)
                {
-                    Buffer_Message = L"Pollynom is full";
+                    int ChecingInt{};
+                    if (Polly.Get_Index() < Polly.Get_Number_Of_Polly())
+                    {
+                         if (GetWindowTextLengthW(Edit_Boxes[7]) != 0 && GetWindowTextLengthW(Edit_Boxes[8]) != 0 && GetWindowTextLengthW(Edit_Boxes[7]) != '\0' && GetWindowTextLengthW(Edit_Boxes[8]) != '\0')
+                         {
+                              GetWindowTextW(Edit_Boxes[7], Coeficient, 5);
+                              GetWindowTextW(Edit_Boxes[8], Exponecial, 5);
+                              ChecingInt = Polly.Set_Polynomial(Coeficient, Exponecial);
+                              SetWindowTextW(Edit_Boxes[7], L"");
+                              SetWindowTextW(Edit_Boxes[8], L"");
+                              Buffer_Message += L"You need ";
+                              Buffer_Message += std::to_wstring(Polly.Get_Number_Of_Polly() - Polly.Get_Index());
+                              Buffer_Message += L" more data";
+                         }
+                         else
+                         {
+                              Buffer_Message += L"Coefecient musi byt vacsi ako 0\n";
+                              Buffer_Message += L"Exponencial musi byt vacsi ako 0\n";
+                         }
+                    }
+                    if (ChecingInt == -1 || Polly.Get_Number_Of_Polly() == Polly.Get_Index())
+                    {
+                         Buffer_Message = L"Pollynom is full";
+                         Bools[5] = true;
+                    }
                }
+               MessageBoxW(Main_hwnd, Buffer_Message.c_str(), MB_OK, NULL);
           }
-          MessageBoxW(Main_hwnd, Buffer_Message.c_str(), MB_OK, NULL);
-          if (Polly.Get_Number_Of_Polly() != 0, Polly.Get_Coeficient_Size() == Polly.Get_Number_Of_Polly() && Polly.Get_Esponecial_Size() == Polly.Get_Number_Of_Polly())
+          if (Bools[5])
           {
-               Buttons_state[4] = !Buttons_state[4];
+               Buttons_state[6] = !Buttons_state[6];
                InvalidateRect(Main_hwnd, NULL, true);
                UpdateWindow(Main_hwnd);
           }
@@ -543,19 +547,20 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
           if (GetWindowTextLengthW(Edit_Boxes[10]) != 0)
           {
                Buttons_state[6] = !Buttons_state[6];
-               Numbers_Buffer = new wchar_t[GetWindowTextLengthW(Edit_Boxes[10])];
-               GetWindowTextW(Edit_Boxes[10], Numbers_Buffer, 10);
+               wchar_t *Buffer_Temp = new wchar_t[GetWindowTextLengthW(Edit_Boxes[10])];
+               GetWindowTextW(Edit_Boxes[10], Buffer_Temp, 10);
                if (Buttons_state[6])
                {
-                    if (Numbers.Search(Numbers_Buffer))
+                    if (Numbers.Search(Buffer_Temp) != NULL)
                     {
                          InvalidateRect(Main_hwnd, NULL, true);
                          UpdateWindow(Main_hwnd);
                          Bools[3] = true;
                     }
+                    else
+                         Bools[3] = false;
                }
-               delete[] Numbers_Buffer;
-               Numbers_Buffer = nullptr;
+               delete[] Buffer_Temp;
           }
      }
      }
@@ -674,28 +679,39 @@ void Data_Struct_Page::Cout_Button_3(HDC hdc)
      std::wstring Buffer = L"";
      HFONT hfont = CreateFontW(30, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, L"Segoe UI");
      HFONT holdFont = (HFONT)SelectObject(hdc, hfont);
-     if (Polly.Get_Number_Of_Polly() != 0, Polly.Get_Coeficient_Size() == Polly.Get_Number_Of_Polly() && Polly.Get_Esponecial_Size() == Polly.Get_Number_Of_Polly())
+     if (Polly.Get_Number_Of_Polly() != 0 && Polly.Get_Coeficient_Size() == Polly.Get_Number_Of_Polly() && Polly.Get_Esponecial_Size() == Polly.Get_Number_Of_Polly())
      {
           Buffer = Polly.Result(L"5");
-          TextOutW(hdc, Main_Rect.right - 400, Main_Rect.top + 250, Buffer.c_str(), Buffer.length());
-     }
+          }
      else
      {
           Buffer = L"Nastav vsetky parametre";
      }
-     SelectObject(hdc, hfont);
+     TextOutW(hdc, Main_Rect.right - 400, Main_Rect.top + 250, Buffer.c_str(), Buffer.length());
+     SelectObject(hdc, holdFont);
      DeleteObject(holdFont);
 }
 
 void Data_Struct_Page::Cout_Button_4(HDC hdc)
 {
-     TextOutW(hdc, 1000, 500, Numbers.Print(), Numbers.Count() * 2);
-     TextOutW(hdc, 1000, 515, Numbers.Max(), 1);
-     TextOutW(hdc, 1020, 515, Numbers.Min(), 1);
+     int saveHDC = SaveDC(hdc);
+     HFONT hfont = CreateFontW(30, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, L"Segoe UI");
+     HFONT holdFont = (HFONT)SelectObject(hdc, hfont);
+     SetBkMode(hdc, TRANSPARENT);
+     TextOutW(hdc, Main_Rect.right - 500, Main_Rect.top + 400, Numbers.Print(), Numbers.Count() * 2);
+     TextOutW(hdc, Main_Rect.right - 500, Main_Rect.top + 430, Numbers.Max(), 1);
+     TextOutW(hdc, Main_Rect.right - 480, Main_Rect.top + 430, Numbers.Min(), 1);
      if (Bools[3])
      {
+          SetTextColor(hdc, RGB(0, 200, 0));
           TextOutW(hdc, Main_Rect.right - 200, Main_Rect.bottom - 40, L"Data OK", 8);
      }
      else
+     {
+          SetTextColor(hdc, RGB(200, 0, 0));
           TextOutW(hdc, Main_Rect.right - 200, Main_Rect.bottom - 40, L"Data NG", 8);
+     }
+     SelectObject(hdc, hfont);
+     DeleteObject(holdFont);
+     RestoreDC(hdc, saveHDC);
 }
