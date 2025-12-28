@@ -5,6 +5,9 @@ add_executable(MojaApkaEXE WIN32
     # ďalšie .cpp súbory sem
 )
 
+set_target_properties(MojaApkaEXE PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}
+)
 # include priečinok s hlavičkami
 target_include_directories(MojaApkaEXE PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
