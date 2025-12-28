@@ -6,7 +6,7 @@ Main_Page::Main_Page(HWND hwnd) : Pages(hwnd)
 
     Number_Of_Buttons = 1;
     Buttons_PositionsX = new int[1]{10};
-    Buttons_PositionsY = new int[1]{10};
+    Buttons_PositionsY = new int[1]{Main_Rect.top};
     Data_Struct = new Data_Struct_Page(Main_hwnd);
 }
 Main_Page::~Main_Page()

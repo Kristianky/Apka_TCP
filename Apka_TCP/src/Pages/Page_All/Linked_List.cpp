@@ -32,6 +32,7 @@ const wchar_t *LinkedList::Print()
         Return_Value += ',';
         Temp = Temp->Next;
     }
+    Return_Value += std::to_wstring(Temp->data);
     return Return_Value.c_str();
 }
 void LinkedList::SetData(const wchar_t *data)

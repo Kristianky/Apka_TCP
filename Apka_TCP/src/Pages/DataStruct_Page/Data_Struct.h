@@ -12,7 +12,7 @@ class Data_Struct_Page : public Pages
     wchar_t *Numbers_Buffer;
 
 public:
-    static const wchar_t *Windows_Names[8];
+    static const wchar_t *Windows_Names[9];
     static const wchar_t *Windows_CLASS[2];
     Data_Struct_Page(HWND hwnd);
     void Create_ButtonsW(HWND *Buttons) override;

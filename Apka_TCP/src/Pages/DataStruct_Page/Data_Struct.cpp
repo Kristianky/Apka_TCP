@@ -1,5 +1,5 @@
 #include "Data_Struct.h"
-const wchar_t *Data_Struct_Page::Windows_Names[8] = {
+const wchar_t *Data_Struct_Page::Windows_Names[9] = {
     L"Paint",
     L"Reset Table",
     L"Set Length",
@@ -7,7 +7,8 @@ const wchar_t *Data_Struct_Page::Windows_Names[8] = {
     L"Add Sparse Matrix",
     L"Set and display Polly",
     L"Add Linked List Data",
-    L"Print Linked List Data"};
+    L"Print Linked List Data",
+    L"Search"};
 
 const wchar_t *Data_Struct_Page::Windows_CLASS[2] = {
     L"BUTTON",
@@ -18,30 +19,34 @@ Data_Struct_Page::Data_Struct_Page(HWND hwnd) : Pages(hwnd)
      Degree = new wchar_t[5];
      Coeficient = new wchar_t[5];
      Exponecial = new wchar_t[5];
-     Number_Of_Buttons = 8;
-     Number_Of_Edit = 10;
-     Buttons_PositionsX = new int[8]{0, 200, 600, 400, 800, Main_Rect.right - 200, Main_Rect.right - 200, Main_Rect.right - 200};
-     Buttons_PositionsY = new int[8]{Main_Rect.top,
-                                     Main_Rect.top,
-                                     Main_Rect.top,
-                                     Main_Rect.top,
-                                     Main_Rect.top,
+     Number_Of_Buttons = 9;
+     Number_Of_Edit = 11;
+     Buttons_PositionsX = new int[9]{6, 206, 606, 406, 806, Main_Rect.right - 206, Main_Rect.right - 206, Main_Rect.right - 206, Main_Rect.right - 206};
+     Buttons_PositionsY = new int[9]{Main_Rect.top + 6,
+                                     Main_Rect.top + 6,
+                                     Main_Rect.top + 6,
+                                     Main_Rect.top + 6,
+                                     Main_Rect.top + 6,
                                      80,
-                                     Main_Rect.top + 340,
-                                     Main_Rect.top + 440};
-     Edit_Postion_X = new int[10]{Main_Rect.left,
-                                  Main_Rect.left,
-                                  Main_Rect.left,
-                                  Main_Rect.left,
-                                  Main_Rect.left,
-                                  Main_Rect.left,
-                                  Main_Rect.right - 203,
-                                  Main_Rect.right - 203,
-                                  Main_Rect.right - 203,
-                                  Main_Rect.right - 203};
-     Edit_Postion_Y = new int[10]{200, 215, 230, 245, 260, 275, 200, 245, 290, 320};
-     EditSize.Size_X = {200, 200, 200, 200, 200, 200, 200, 200, 200, 200};
-     EditSize.Size_Y = {15, 15, 15, 15, 15, 15, 20, 20, 20, 20};
+                                     Main_Rect.top + 450,
+                                     Main_Rect.top + 550,
+                                     Main_Rect.top + 710};
+     Edit_Postion_X = new int[11]{
+         Main_Rect.left + 6,
+         Main_Rect.left + 6,
+         Main_Rect.left + 6,
+         Main_Rect.left + 6,
+         Main_Rect.left + 6,
+         Main_Rect.left + 6,
+         Main_Rect.right - 210,
+         Main_Rect.right - 210,
+         Main_Rect.right - 210,
+         Main_Rect.right - 210,
+         Main_Rect.right - 210,
+     };
+     Edit_Postion_Y = new int[11]{200, 215, 230, 245, 260, 275, 200, 245, 290, 450, 710};
+     EditSize.Size_X = {200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200};
+     EditSize.Size_Y = {15, 15, 15, 15, 15, 15, 20, 20, 20, 20, 20};
      Size_Of_Buffers = new int[8];
      Buffer_Edit = new wchar_t *[6];
      for (int i{}; i < 6; i++)
@@ -106,20 +111,20 @@ void Data_Struct_Page::Cout_Button_1(HDC hdc)
      rect.top = 230;
      rect.right = 600;
      rect.bottom = 300;
-     int Position_Y{300};
+     int Position_Y{150};
      std::wstring Right_Temp = Buffer_Edit[1];
      std::wstring Bottom_Temp = Buffer_Edit[0];
-     int size_right = (std::stoi(Right_Temp) + 1) * 30 + 720;
-     int size_Bttom = (std::stoi(Bottom_Temp) + 1) * 30 + 320;
+     int size_right = (std::stoi(Right_Temp) + 1) * 30 + 590;
+     int size_Bttom = (std::stoi(Bottom_Temp) + 1) * 30 + 190;
      HPEN hpen = CreatePen(PS_SOLID, 3, RGB(0, 17, 255));
      HPEN holdpen = (HPEN)SelectObject(hdc, hpen);
      HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, GetStockObject(NULL_BRUSH));
-     Rectangle(hdc, 690, 290, size_right, size_Bttom);
+     Rectangle(hdc, 590, 140, size_right, size_Bttom);
 
      for (int x{-1}; x < Size_Of_Buffers[6]; x++)
      {
           Sparse_matrix.Print(Buffer_Data, x);
-          TextOutW(hdc, 700, Position_Y, Buffer_Data.c_str(), Buffer_Data.length());
+          TextOutW(hdc, 600, Position_Y, Buffer_Data.c_str(), Buffer_Data.length());
           if (wcscmp(Buffer_Data.c_str(), L"Data is not full") == 0)
                break;
           Position_Y += 30;
@@ -219,13 +224,30 @@ void Data_Struct_Page::Cout_Create(HDC hdc)
 {
      SetTextColor(hdc, RGB(255, 255, 255)); // biely text
      SetBkMode(hdc, TRANSPARENT);
-     TextOutW(hdc, 200, 200, L"Lenght of X", 12);
-     TextOutW(hdc, 200, 215, L"Lenght of Y", 12);
-     TextOutW(hdc, 200, 230, L"Lenght of data", 15);
-     TextOutW(hdc, 200, 245, L"Data", 5);
-     TextOutW(hdc, 200, 260, L"Data X", 7);
-     TextOutW(hdc, 200, 275, L"Data Y", 7);
+     TextOutW(hdc, 206, 200, L"Lenght of X", 12);
+     TextOutW(hdc, 206, 215, L"Lenght of Y", 12);
+     TextOutW(hdc, 206, 230, L"Lenght of data", 15);
+     TextOutW(hdc, 206, 245, L"Data", 5);
+     TextOutW(hdc, 206, 260, L"Data X", 7);
+     TextOutW(hdc, 206, 275, L"Data Y", 7);
+     HPEN hpen = CreatePen(PS_SOLID, 3, RGB(100, 100, 100));
+     HPEN holdpen = (HPEN)SelectObject(hdc, hpen);
+     HBRUSH hOldBrush = (HBRUSH)SelectObject(hdc, GetStockObject(NULL_BRUSH));
+     Rectangle(hdc, Main_Rect.right - 600, Main_Rect.top + 3, Main_Rect.right - 3, Main_Rect.top + 300);
+     Rectangle(hdc, Main_Rect.left + 3, Main_Rect.top + 3, Main_Rect.right - 603, Main_Rect.top + 700);
+     Rectangle(hdc, Main_Rect.right - 600, Main_Rect.top + 303, Main_Rect.right - 3, Main_Rect.bottom - 3);
+     HFONT hFont = CreateFontW(30, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE,
+                               DEFAULT_CHARSET, OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS,
+                               CLEARTYPE_QUALITY, VARIABLE_PITCH, L"Segoe UI");
+
+     HFONT hOldFont = (HFONT)SelectObject(hdc, hFont);
+     TextOutW(hdc, Main_Rect.right - 300, Main_Rect.top + 10, L"Pollynomials", 13);
+     TextOutW(hdc, Main_Rect.right - 300, Main_Rect.top + 310, L"Linked List", 12);
      Edit_Box_Paint(hdc);
+     SelectObject(hdc, hOldFont);
+     SelectObject(hdc, hOldBrush);
+     SelectObject(hdc, holdpen);
+     DeleteObject(hFont);
 }
 
 void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit_Boxes, bool *Buttons_state, WPARAM wparam, LPARAM lparam)
@@ -239,7 +261,8 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
           Add_Sparse_Matrix,
           Pollynomail,
           Add_Linked_List,
-          Print_Linked_List
+          Print_Linked_List,
+          Search_Linked
      };
      switch (LOWORD(wparam))
      {
@@ -497,11 +520,11 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
      {
           Numbers_Buffer = new wchar_t[GetWindowTextLengthW(Edit_Boxes[9])];
           GetWindowTextW(Edit_Boxes[9], Numbers_Buffer, 5);
-          if(GetWindowTextLengthW(Edit_Boxes[9])!=0)
+          if (GetWindowTextLengthW(Edit_Boxes[9]) != 0)
           {
-          Numbers.Add(Numbers_Buffer);
-          SetWindowTextW(Edit_Boxes[9],L"");
-          delete[] Numbers_Buffer;
+               Numbers.Add(Numbers_Buffer);
+               SetWindowTextW(Edit_Boxes[9], L"");
+               delete[] Numbers_Buffer;
           }
           break;
      }
@@ -514,6 +537,26 @@ void Data_Struct_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit
                UpdateWindow(Main_hwnd);
           }
           break;
+     }
+     case Search_Linked:
+     {
+          if (GetWindowTextLengthW(Edit_Boxes[10]) != 0)
+          {
+               Buttons_state[6] = !Buttons_state[6];
+               Numbers_Buffer = new wchar_t[GetWindowTextLengthW(Edit_Boxes[10])];
+               GetWindowTextW(Edit_Boxes[10], Numbers_Buffer, 10);
+               if (Buttons_state[6])
+               {
+                    if (Numbers.Search(Numbers_Buffer))
+                    {
+                         InvalidateRect(Main_hwnd, NULL, true);
+                         UpdateWindow(Main_hwnd);
+                         Bools[3] = true;
+                    }
+               }
+               delete[] Numbers_Buffer;
+               Numbers_Buffer = nullptr;
+          }
      }
      }
 }
@@ -593,21 +636,21 @@ void Data_Struct_Page::To_Wstring()
 
 void Data_Struct_Page::Edit_Box_Paint(HDC hdc)
 {
-     std::vector<std::wstring> Text{L"Degree", L"Coeficient", L"Exponecial"};
-     HPEN hpen = CreatePen(PS_SOLID, 3, RGB(200, 0, 0));
+     std::vector<std::wstring> Text{L"Degree", L"Coeficient", L"Exponecial", L"Linked List", L"Search Key"};
+     HPEN hpen = CreatePen(PS_SOLID, 3, RGB(0, 0, 150));
      HPEN holdpen = (HPEN)SelectObject(hdc, hpen);
      HBRUSH hOldBrush;
-     HBRUSH Second = CreateSolidBrush(RGB(0, 0, 200));
+     HBRUSH Second = CreateSolidBrush(RGB(100, 100, 100));
      HFONT hOldFont;
      HFONT HFont = CreateFontW(15, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, L"Segoe UI");
-     for (int i{6}; i < 9; i++)
+     for (int i{6}; i < 11; i++)
      {
           hOldFont = (HFONT)SelectObject(hdc, HFont);
           hOldBrush = (HBRUSH)SelectObject(hdc, GetStockObject(NULL_BRUSH));
-          Rectangle(hdc, Edit_Postion_X[i] - 3, Edit_Postion_Y[i] - 23, Main_Rect.right, Edit_Postion_Y[i] + 23);
+          Rectangle(hdc, Edit_Postion_X[i] - 3, Edit_Postion_Y[i] - 23, Edit_Postion_X[i] + EditSize.Size_X[i] + 3, Edit_Postion_Y[i] + 23);
           SelectObject(hdc, hOldBrush);
           hOldBrush = (HBRUSH)SelectObject(hdc, Second);
-          Rectangle(hdc, Edit_Postion_X[i], Edit_Postion_Y[i] - 20, Main_Rect.right, Edit_Postion_Y[i] - 3);
+          Rectangle(hdc, Edit_Postion_X[i], Edit_Postion_Y[i] - 20, Edit_Postion_X[i] + EditSize.Size_X[i] + 3, Edit_Postion_Y[i] - 3);
           TextOutW(hdc, Edit_Postion_X[i] + 83, Edit_Postion_Y[i] - 19, Text[i - 6].c_str(), Text[i - 6].length());
           SelectObject(hdc, hOldBrush);
           SelectObject(hdc, hOldFont);
@@ -646,7 +689,13 @@ void Data_Struct_Page::Cout_Button_3(HDC hdc)
 
 void Data_Struct_Page::Cout_Button_4(HDC hdc)
 {
-     TextOutW(hdc, 1000, 500, Numbers.Print(), Numbers.Count()*2);
+     TextOutW(hdc, 1000, 500, Numbers.Print(), Numbers.Count() * 2);
      TextOutW(hdc, 1000, 515, Numbers.Max(), 1);
      TextOutW(hdc, 1020, 515, Numbers.Min(), 1);
+     if (Bools[3])
+     {
+          TextOutW(hdc, Main_Rect.right - 200, Main_Rect.bottom - 40, L"Data OK", 8);
+     }
+     else
+          TextOutW(hdc, Main_Rect.right - 200, Main_Rect.bottom - 40, L"Data NG", 8);
 }

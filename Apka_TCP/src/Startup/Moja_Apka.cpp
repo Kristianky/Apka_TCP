@@ -13,7 +13,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
     wc.lpszClassName = CLASSNAME;                  // priradi meno okna
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 5); // nastavi styl a farbu okna
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);      // nacita kurzor a nastavi styl
-    Buttons_State = new bool[6];
+    Buttons_State = new bool[10];
     for (int i{}; i < 5; i++)
     {
         Buttons_State[i] = false;
