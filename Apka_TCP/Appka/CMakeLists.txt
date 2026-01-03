@@ -5,6 +5,8 @@ add_executable(MojaApkaEXE WIN32
     # ďalšie .cpp súbory sem
 )
 
+
+
 set_target_properties(MojaApkaEXE PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}
 )

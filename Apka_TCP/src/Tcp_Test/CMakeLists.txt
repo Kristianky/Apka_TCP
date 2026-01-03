@@ -8,4 +8,7 @@ add_library(TCPClient
            ${TCP_LIBS})
 target_include_directories(TCPClient PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-target_link_libraries(TCPClient PUBLIC Pages)
+target_link_libraries(TCPClient
+    PUBLIC
+        ws2_32
+)

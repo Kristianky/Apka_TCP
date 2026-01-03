@@ -12,7 +12,7 @@
 #include <windows.h>
 #include <string>
 #include <vector>
-
+#include "TCP_Client.h"
 struct Edit_Size
 {
    std::vector<int> Size_X;
