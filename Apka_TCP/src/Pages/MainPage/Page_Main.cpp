@@ -41,15 +41,15 @@ void Main_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit_Boxes,
     }
     case ConnectClient:
     {
-        if (Buttons_state[0] == true)
+        if (Buttons_state[9] == true)
         {
-            Client_1.Connect();
+             Client_1.Connect();
         }
         else
         {
             Client_1.Disconect();
         }
-        Buttons_state[0] = !Buttons_state[0];
+        Buttons_state[9] = !Buttons_state[9];
     }
     }
 }
