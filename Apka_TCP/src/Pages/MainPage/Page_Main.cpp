@@ -1,12 +1,12 @@
 #include "Page_Main.h"
-const wchar_t *Main_Page::Windows_Names[5] = {L"Data_Structures", L"Connect"};
+const wchar_t *Main_Page::Windows_Names[5] = {L"Data_Structures", L"Connect",L"Send"};
 const wchar_t *Main_Page::Windows_CLASS[5] = {L"BUTTON"};
 Main_Page::Main_Page(HWND hwnd) : Pages(hwnd)
 {
 
-    Number_Of_Buttons = 2;
-    Buttons_PositionsX = new int[2]{10, 10};
-    Buttons_PositionsY = new int[2]{Main_Rect.top, Main_Rect.top + 100};
+    Number_Of_Buttons = 3;
+    Buttons_PositionsX = new int[3]{10, 10,10};
+    Buttons_PositionsY = new int[3]{Main_Rect.top, Main_Rect.top + 100,Main_Rect.top + 200};
     Data_Struct = new Data_Struct_Page(Main_hwnd);
 }
 Main_Page::~Main_Page()
@@ -27,7 +27,8 @@ void Main_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit_Boxes,
     enum Butoons_ID
     {
         Data_Structures = ID_BUTTONS,
-        ConnectClient
+        ConnectClient,
+        Send
     };
     switch (LOWORD(wparam))
     {
@@ -50,7 +51,13 @@ void Main_Page::Buttons_Function(int &page_num, HWND *Buttons, HWND *Edit_Boxes,
             Client_1.Disconect();
         }
         Buttons_state[9] = !Buttons_state[9];
+        break;
     }
+    case Send:
+    {
+        Client_1.Send(L"Ahoj");
+    }
+        
     }
 }
 

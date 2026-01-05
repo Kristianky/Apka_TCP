@@ -14,7 +14,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
     wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 5); // nastavi styl a farbu okna
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);      // nacita kurzor a nastavi styl
     Buttons_State = new bool[10];
-    for (int i{}; i < 9; i++)
+    for (int i{}; i < 10; i++)
     {
         Buttons_State[i] = false;
     }
