@@ -209,8 +209,11 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
             Page = new Main_Page(hwnd);
         }
         Page->Buttons_Function(Page_Num, Button,Edit_Boxes, Buttons_State, wparam, lparam);
+        if(LOWORD(wparam) == ID_BUTTONS)
+        {
         Page = nullptr;
         Page = new Data_Struct_Page(hwnd);
+        }
         InvalidateRect(hwnd, NULL, true);
         UpdateWindow(hwnd);
         break;
