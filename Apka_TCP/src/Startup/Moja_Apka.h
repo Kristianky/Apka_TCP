@@ -9,7 +9,8 @@
 #include <windows.h>
 #include "Pages.h"
 #include "Page_Main.h"  
-
+#include "PagesVirtual.h"
+#include "TCP_Page.h"
 
 #define ID_BUTTONS 10000
 #define ID_EDIT 20000
@@ -26,6 +27,7 @@ private:
     static LRESULT CALLBACK WindowProcSetup(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
     static LRESULT CALLBACK WindowProcRedirect(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
      Pages *Page = nullptr;
+    VirtualPage *New_Page = nullptr;
     // tvoja "pravá" WndProc ako členská metóda
     LRESULT WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
     // hwnd->okno ktoremu je sprava urcena...

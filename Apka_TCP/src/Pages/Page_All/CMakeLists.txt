@@ -20,4 +20,3 @@ add_library(Pages
 target_include_directories(Pages PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(Pages PUBLIC Sparse_Matrix)
-target_link_libraries(Pages PUBLIC TCPClient)

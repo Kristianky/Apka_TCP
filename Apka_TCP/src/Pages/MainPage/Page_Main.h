@@ -7,7 +7,6 @@ class Main_Page : public Pages
 {
 private:
     Data_Struct_Page *Data_Struct;
-    TCPClient Client_1;
 public:
     static const wchar_t *Windows_Names[5];
     static const wchar_t *Windows_CLASS[5];

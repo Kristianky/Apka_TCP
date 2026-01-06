@@ -214,6 +214,13 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
         Page = nullptr;
         Page = new Data_Struct_Page(hwnd);
         }
+        if(LOWORD(wparam) == ID_BUTTONS + 1)
+        {
+        Page->Destroy_WindowW(Button,2);
+        Page = nullptr;
+        New_Page = new TCPPage(hwnd);
+        Page_Num = 3;
+        }
         InvalidateRect(hwnd, NULL, true);
         UpdateWindow(hwnd);
         break;
@@ -224,6 +231,10 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
         }
         Page->Buttons_Function(Page_Num, Button,Edit_Boxes, Buttons_State, wparam, lparam);
         break;
+    case 3:
+        {
+            break;
+        }
     }
 }
 
@@ -260,6 +271,10 @@ void Moja_Apka::Paint(HDC hdc)
         }
 
         break;
+    case 3:
+    {
+        New_Page->Button(hdc);
+    }
     }
 }
 
