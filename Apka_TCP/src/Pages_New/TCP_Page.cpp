@@ -9,3 +9,4 @@ void TCPPage::Button_Create(HDC hdc)
     Butt_1.Text_Set("CENTER","CENTER",L"Coneect");
     FillRect(hdc,&Butt_1.Rect,Butt_1.Color);
 }
+
