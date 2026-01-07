@@ -1,9 +1,10 @@
 #include "TCP_Page.h"
 TCPPage::TCPPage(HWND hwnd):VirtualPage(hwnd)
 {}
-void TCPPage::Button(HDC hdc)
+void TCPPage::Button_Create(HDC hdc)
 {
-    HBRUSH Butt_Conect_Coll = CreateSolidBrush(RGB(0,0,60));
-    RECT Butt_Connect = {Main_Rect.left,Main_Rect.top,Main_Rect.left + 500,Main_Rect.top + 500}; 
-    FillRect(hdc,&Butt_Connect,Butt_Conect_Coll);
+   
+    Button Butt_1(Main_Rect,Main_Rect.left,Main_Rect.top + 100,200,100);
+    Butt_1.Color_Set(0,0,150);
+    FillRect(hdc,&Butt_1.Rect,Butt_1.Color);
 }

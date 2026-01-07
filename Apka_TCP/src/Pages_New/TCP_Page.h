@@ -4,12 +4,13 @@
 
 #include "PagesVirtual.h"
 
+
 class TCPPage : public VirtualPage
 {
     private:
 
     public:
-      virtual void Button(HDC hdc) override;
+      virtual void Button_Create(HDC hdc) override;
       virtual ~TCPPage () {};
       TCPPage(HWND hwnd);
 };

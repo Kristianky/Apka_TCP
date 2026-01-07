@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "TCP_Client.h"
+#include "Button.h"
 
 class VirtualPage 
 {
@@ -16,7 +17,7 @@ class VirtualPage
     VirtualPage () = default;
     virtual ~VirtualPage() {};
     VirtualPage (HWND hwnd):Main_Hwnd{hwnd}{GetClientRect(hwnd,&Main_Rect);Main_Rect.top = Main_Rect .top + 30;}
-    virtual void Button(HDC hdc) = 0;
+    virtual void Button_Create(HDC hdc) = 0;
 
 };
 

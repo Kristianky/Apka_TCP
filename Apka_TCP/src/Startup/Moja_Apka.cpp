@@ -273,7 +273,7 @@ void Moja_Apka::Paint(HDC hdc)
         break;
     case 3:
     {
-        New_Page->Button(hdc);
+        New_Page->Button_Create(hdc);
     }
     }
 }
