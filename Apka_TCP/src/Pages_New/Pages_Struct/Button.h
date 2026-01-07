@@ -3,6 +3,12 @@
 
 #include <windows.h>
 #include <string>
+
+struct Button_Text_Pos
+{
+    int Horizontal;
+    int Vertical;
+};
 class Button
 {
 protected:
