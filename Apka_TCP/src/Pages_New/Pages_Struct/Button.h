@@ -4,22 +4,32 @@
 #include <windows.h>
 #include <string>
 
-struct Button_Text_Pos
+#ifndef GET_X_LPARAM
+  #define GET_X_LPARAM(lp) ( (int)(short)LOWORD(lp) )
+  #define GET_Y_LPARAM(lp) ( (int)(short)HIWORD(lp) )
+#endif
+
+struct Button_Text
 {
-    int Horizontal;
-    int Vertical;
+    std::wstring Data;
+    int Pos_Vertical,Pos_Horizontal;
+    COLORREF Text_Collor;
+    HFONT Text_Style;
 };
 class Button
 {
 protected:
-
+    int Sur_X;
+    int Sur_Y;
+    int Btn_Width,Btn_Lenght;
 public:
     RECT Rect;
     HBRUSH Color;
-    std::wstring Text;
+    Button_Text Text;
     Button(RECT &Main_Rect, int X, int Y, int Width, int Lenght);
     void Color_Set(int Red,int Green,int Blue);
-    void Text_Set(std::string Position_1,std::string Position_2,std::wstring Text_In);
+    void Text_Set(int Position_1,int Position_2,std::wstring Text_In,const COLORREF &Color_Temp);
+    void Btn_Func(HWND Main_hwnd,LPARAM lparam);
 };
 
 #endif
