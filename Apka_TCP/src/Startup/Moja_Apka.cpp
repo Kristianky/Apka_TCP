@@ -382,6 +382,10 @@ void Moja_Apka::Mouse_Cursor_Move(HWND hwnd, LPARAM lparam)
     RECT Main_Window;
     GetClientRect(hwnd, &Main_Window);
 
+    RECT BTN_X_Rect = {Main_Window.right - 50, 0, Main_Window.right, 30};
+    RECT BTN_MAX_MIN_Rect = {Main_Window.right - 100, 0, Main_Window.right - 50, 30};
+    RECT BTN_MINIMIZE_Rect = {Main_Window.right - 150, 0, Main_Window.right - 100, 30};
+
     bool IN_X = (Mouse_Move.x > Main_Window.right - 50 && Mouse_Move.y < 30);
     bool IN_RESTORE = (Mouse_Move.x > Main_Window.right - 100 && Mouse_Move.x < Main_Window.right - 50 && Mouse_Move.y < 30);
     bool IN_MINIMIZE = (Mouse_Move.x > Main_Window.right - 150 && Mouse_Move.x < Main_Window.right - 100 && Mouse_Move.y < 30);
@@ -389,37 +393,37 @@ void Moja_Apka::Mouse_Cursor_Move(HWND hwnd, LPARAM lparam)
     if (IN_X != Buttons_State[2])
     {
         Buttons_State[2] = IN_X;
-        InvalidateRect(hwnd, NULL, TRUE);
+        InvalidateRect(hwnd, &BTN_X_Rect, TRUE);
         UpdateWindow(hwnd);
     }
     else if (Buttons_State[2] && !IN_X)
     {
         Buttons_State[2] = false;
-        InvalidateRect(hwnd, NULL, TRUE);
+        InvalidateRect(hwnd,&BTN_X_Rect, TRUE);
         UpdateWindow(hwnd);
     }
     if (IN_RESTORE != Buttons_State[3])
     {
         Buttons_State[3] = IN_RESTORE;
-        InvalidateRect(hwnd, NULL, TRUE);
+        InvalidateRect(hwnd,&BTN_MAX_MIN_Rect, TRUE);
         UpdateWindow(hwnd);
     }
     else if (Buttons_State[3] && !IN_RESTORE)
     {
         Buttons_State[3] = false;
-        InvalidateRect(hwnd, NULL, TRUE);
+        InvalidateRect(hwnd, &BTN_MAX_MIN_Rect, TRUE);
         UpdateWindow(hwnd);
     }
     if (IN_MINIMIZE != Buttons_State[4])
     {
         Buttons_State[4] = IN_MINIMIZE;
-        InvalidateRect(hwnd, NULL, TRUE);
+        InvalidateRect(hwnd, &BTN_MINIMIZE_Rect, TRUE);
         UpdateWindow(hwnd);
     }
     else if (Buttons_State[4] && !IN_MINIMIZE)
     {
         Buttons_State[4] = false;
-        InvalidateRect(hwnd, NULL, TRUE);
+        InvalidateRect(hwnd, &BTN_MINIMIZE_Rect, TRUE);
         UpdateWindow(hwnd);
     }
 }
