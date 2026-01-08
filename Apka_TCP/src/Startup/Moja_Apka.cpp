@@ -298,6 +298,12 @@ void Moja_Apka::Render_Page_Keyboard(WPARAM wparam, LPARAM lparam)
         Page->Key_Board_Func(wparam, lparam, ID_BUTTONS, Button);
         break;
     }
+    case 3:
+        if(!New_Page)
+        {
+            New_Page = new TCPPage(hwnd);
+        }
+        New_Page->Pages_Func(hwnd,hdc,lparam,wparam);
     }
 }
 

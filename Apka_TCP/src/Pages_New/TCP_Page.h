@@ -6,6 +6,7 @@
 class TCPPage : public VirtualPage
 {
 private:
+  std::vector<Button> Buttons;
 public:
   virtual void Button_Create(HDC hdc) override;
   virtual ~TCPPage() {};

@@ -29,7 +29,7 @@ public:
     Button(RECT &Main_Rect, int X, int Y, int Width, int Lenght);
     void Color_Set(int Red,int Green,int Blue);
     void Text_Set(int Position_1,int Position_2,std::wstring Text_In,const COLORREF &Color_Temp);
-    void Btn_Func(HWND Main_hwnd,LPARAM lparam);
+    bool Btn_Func(HWND Main_hwnd,LPARAM lparam);
 };
 
 #endif
