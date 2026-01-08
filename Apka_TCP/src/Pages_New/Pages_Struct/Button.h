@@ -3,6 +3,7 @@
 
 #include <windows.h>
 #include <string>
+#include <vector>
 
 #ifndef GET_X_LPARAM
   #define GET_X_LPARAM(lp) ( (int)(short)LOWORD(lp) )
@@ -23,6 +24,7 @@ protected:
     int Sur_Y;
     int Btn_Width,Btn_Lenght;
 public:
+    std::vector<bool> Inside_Bool;
     RECT Rect;
     HBRUSH Color;
     Button_Text Text;

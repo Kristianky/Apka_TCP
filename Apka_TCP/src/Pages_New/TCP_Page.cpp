@@ -10,6 +10,7 @@ void TCPPage::Button_Animation(HDC hdc)
     Buttons.push_back(Button(Main_Rect, Main_Rect.left, Main_Rect.top + 100, 200, 100));
     COLORREF Text_Color = RGB(50, 0, 0);
     Buttons[0].Text_Set(DT_CENTER, DT_VCENTER, L"Connect", Text_Color);
+    Buttons[0].Inside_Bool.push_back(false);
     FillRect(hdc, &Buttons[0].Rect, Buttons[0].Color);
     HoldFont = (HFONT)SelectObject(hdc, Buttons[0].Text.Text_Style);
     COLORREF oldColor = GetTextColor(hdc);
@@ -17,20 +18,29 @@ void TCPPage::Button_Animation(HDC hdc)
     DrawTextW(hdc, Buttons[0].Text.Data.c_str(), -1, &Buttons[0].Rect, Buttons[0].Text.Pos_Horizontal | Buttons[0].Text.Pos_Vertical | DT_SINGLELINE);
     SetTextColor(hdc, oldColor);
     SelectObject(hdc, HoldFont);
-}
-
-void TCPPage::Pages_Func(HWND hwnd, LPARAM lparam)
-{
-    bool InButt_1 = Buttons[0].Btn_Func(hwnd,lparam);
-    if (InButt_1)
+    if (Buttons[0].Inside_Bool[0])
+    {
+        Buttons[0].Color_Set(150, 0, 0);
+    }
+    else
     {
         Buttons[0].Color_Set(0, 0, 150);
+    }
+}
+
+void TCPPage::Buttons_Func(HWND hwnd, LPARAM lparam)
+{
+    bool InButt_1 = Buttons[0].Btn_Func(hwnd, lparam);
+    if (InButt_1 != Buttons[0].Inside_Bool[0])
+    {
+        Buttons[0].Inside_Bool[0] = InButt_1;
         InvalidateRect(hwnd, NULL, TRUE);
         UpdateWindow(hwnd);
     }
-    else if (!InButt_1)
+    else if (!InButt_1 && Buttons[0].Inside_Bool[0])
     {
-        Buttons[0].Color_Set(150, 0, 0);
+        Buttons[0].Inside_Bool[0] = false;
+       
         InvalidateRect(hwnd, NULL, TRUE);
         UpdateWindow(hwnd);
     }

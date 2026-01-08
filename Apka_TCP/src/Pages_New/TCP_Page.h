@@ -11,7 +11,7 @@ public:
   virtual void Button_Animation(HDC hdc) override;
   virtual ~TCPPage() {};
   TCPPage(HWND hwnd);
-  virtual void Pages_Func(HWND hwnd, LPARAM lparam) override;
+  virtual void Buttons_Func(HWND hwnd, LPARAM lparam) override;
 };
 
 #endif

@@ -164,6 +164,10 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
     case WM_MOUSEMOVE:
     {
         Mouse_Cursor_Move(hwnd, lparam);
+        if (New_Page)
+        {
+            New_Page->Buttons_Func(hwnd, lparam);
+        }
     }
     break;
     case WM_LBUTTONDOWN:
@@ -237,7 +241,6 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
         {
             New_Page = new TCPPage(hwnd);
         }
-       
 
         break;
     }
@@ -418,10 +421,6 @@ void Moja_Apka::Mouse_Cursor_Move(HWND hwnd, LPARAM lparam)
         Buttons_State[4] = false;
         InvalidateRect(hwnd, NULL, TRUE);
         UpdateWindow(hwnd);
-    }
-    if(New_Page)
-    {
-    New_Page->Pages_Func(hwnd, lparam);
     }
 }
 
