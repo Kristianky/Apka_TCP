@@ -19,7 +19,7 @@ void TCPPage::Button_Create(HDC hdc)
     SelectObject(hdc, HoldFont);
 }
 
-void TCPPage::Pages_Func(HWND hwnd, HDC hdc, LPARAM lparam, WPARAM wparam)
+void TCPPage::Pages_Func(HWND hwnd, LPARAM lparam, WPARAM wparam)
 {
     if (Buttons[1].Btn_Func(hwnd, lparam))
     {

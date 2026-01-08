@@ -303,7 +303,7 @@ void Moja_Apka::Render_Page_Keyboard(WPARAM wparam, LPARAM lparam)
         {
             New_Page = new TCPPage(hwnd);
         }
-        New_Page->Pages_Func(hwnd,hdc,lparam,wparam);
+        New_Page->Pages_Func(hwnd,lparam,wparam);
     }
 }
 

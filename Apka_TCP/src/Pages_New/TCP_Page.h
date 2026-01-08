@@ -11,7 +11,7 @@ public:
   virtual void Button_Create(HDC hdc) override;
   virtual ~TCPPage() {};
   TCPPage(HWND hwnd);
-  virtual void Pages_Func(HWND hwnd, HDC hdc, LPARAM lparam, WPARAM wparam) override;
+  virtual void Pages_Func(HWND hwnd, LPARAM lparam, WPARAM wparam) override;
 };
 
 #endif
