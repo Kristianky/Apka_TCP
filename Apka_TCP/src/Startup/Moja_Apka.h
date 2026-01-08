@@ -44,10 +44,9 @@ public:
     void Render_Page(int &Num_Page,LPARAM lparam,WPARAM wparam);
     void Welcome_Page(WPARAM wparam,LPARAM lparam);
     void Paint(HDC hdc);
-    void Render_Page_Keyboard(WPARAM wpram,LPARAM lparam,HDC hdc);
+    void Render_Page_Keyboard(WPARAM wpram,LPARAM lparam);
     void Border(HDC hdc,RECT Main_Rect);
-    bool Border_Buttons_Draw(HWND hwnd,LPARAM lparam);
-    void Draw_Buttons_Border(HWND hwnd,LPARAM lparam);
+    void Draw_Buttons_Border(HWND hwnd,LPARAM lparam,HDC hdc);
     void Mouse_Cursor_Move(HWND hwnd,LPARAM lparam);
     void L_BTN_Click(HWND hwnd);
     };

@@ -48,7 +48,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
     case WM_COMMAND:
     {
         Render_Page(Page_Num, lparam, wparam);
-        
+
         break;
     }
     case WM_DESTROY:
@@ -208,18 +208,18 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
         {
             Page = new Main_Page(hwnd);
         }
-        Page->Buttons_Function(Page_Num, Button,Edit_Boxes, Buttons_State, wparam, lparam);
-        if(LOWORD(wparam) == ID_BUTTONS)
+        Page->Buttons_Function(Page_Num, Button, Edit_Boxes, Buttons_State, wparam, lparam);
+        if (LOWORD(wparam) == ID_BUTTONS)
         {
-        Page = nullptr;
-        Page = new Data_Struct_Page(hwnd);
+            Page = nullptr;
+            Page = new Data_Struct_Page(hwnd);
         }
-        if(LOWORD(wparam) == ID_BUTTONS + 1)
+        if (LOWORD(wparam) == ID_BUTTONS + 1)
         {
-        Page->Destroy_WindowW(Button,2);
-        Page = nullptr;
-        New_Page = new TCPPage(hwnd);
-        Page_Num = 3;
+            Page->Destroy_WindowW(Button, 2);
+            Page = nullptr;
+            New_Page = new TCPPage(hwnd);
+            Page_Num = 3;
         }
         InvalidateRect(hwnd, NULL, true);
         UpdateWindow(hwnd);
@@ -229,12 +229,18 @@ void Moja_Apka::Render_Page(int &Page_Num, LPARAM lparam, WPARAM wparam)
         {
             Page = new Data_Struct_Page(hwnd);
         }
-        Page->Buttons_Function(Page_Num, Button,Edit_Boxes, Buttons_State, wparam, lparam);
+        Page->Buttons_Function(Page_Num, Button, Edit_Boxes, Buttons_State, wparam, lparam);
         break;
     case 3:
+    {
+        if (!New_Page)
         {
-            break;
+            New_Page = new TCPPage(hwnd);
         }
+       
+
+        break;
+    }
     }
 }
 
@@ -273,7 +279,7 @@ void Moja_Apka::Paint(HDC hdc)
         break;
     case 3:
     {
-        New_Page->Button_Create(hdc);
+        New_Page->Button_Animation(hdc);
     }
     }
 }
@@ -298,12 +304,6 @@ void Moja_Apka::Render_Page_Keyboard(WPARAM wparam, LPARAM lparam)
         Page->Key_Board_Func(wparam, lparam, ID_BUTTONS, Button);
         break;
     }
-    case 3:
-        if(!New_Page)
-        {
-            New_Page = new TCPPage(hwnd);
-        }
-        New_Page->Pages_Func(hwnd,lparam,wparam);
     }
 }
 
@@ -382,45 +382,47 @@ void Moja_Apka::Mouse_Cursor_Move(HWND hwnd, LPARAM lparam)
     bool IN_X = (Mouse_Move.x > Main_Window.right - 50 && Mouse_Move.y < 30);
     bool IN_RESTORE = (Mouse_Move.x > Main_Window.right - 100 && Mouse_Move.x < Main_Window.right - 50 && Mouse_Move.y < 30);
     bool IN_MINIMIZE = (Mouse_Move.x > Main_Window.right - 150 && Mouse_Move.x < Main_Window.right - 100 && Mouse_Move.y < 30);
-    
-    
-        if (IN_X != Buttons_State[2])
-        {
-            Buttons_State[2] = IN_X;
-            InvalidateRect(hwnd, NULL, TRUE);
-            UpdateWindow(hwnd);
-        }
-        else if(Buttons_State[2] && !IN_X)
-        {
-            Buttons_State[2] = false;
-            InvalidateRect(hwnd, NULL, TRUE);
-            UpdateWindow(hwnd);
-        }
-        if (IN_RESTORE != Buttons_State[3])
-        {
-            Buttons_State[3] = IN_RESTORE;
-            InvalidateRect(hwnd, NULL, TRUE);
-            UpdateWindow(hwnd);
-        }
-        else if(Buttons_State[3]&&!IN_RESTORE)
-        {
-            Buttons_State[3] = false;
-            InvalidateRect(hwnd, NULL, TRUE);
-            UpdateWindow(hwnd);
-        }
-        if (IN_MINIMIZE != Buttons_State[4])
-        {
-            Buttons_State[4] = IN_MINIMIZE;
-            InvalidateRect(hwnd, NULL, TRUE);
-            UpdateWindow(hwnd);
-        }
-        else if (Buttons_State[4]&&!IN_MINIMIZE)
-        {
-            Buttons_State[4] = false;
-            InvalidateRect(hwnd, NULL, TRUE);
-            UpdateWindow(hwnd);
-        }
 
+    if (IN_X != Buttons_State[2])
+    {
+        Buttons_State[2] = IN_X;
+        InvalidateRect(hwnd, NULL, TRUE);
+        UpdateWindow(hwnd);
+    }
+    else if (Buttons_State[2] && !IN_X)
+    {
+        Buttons_State[2] = false;
+        InvalidateRect(hwnd, NULL, TRUE);
+        UpdateWindow(hwnd);
+    }
+    if (IN_RESTORE != Buttons_State[3])
+    {
+        Buttons_State[3] = IN_RESTORE;
+        InvalidateRect(hwnd, NULL, TRUE);
+        UpdateWindow(hwnd);
+    }
+    else if (Buttons_State[3] && !IN_RESTORE)
+    {
+        Buttons_State[3] = false;
+        InvalidateRect(hwnd, NULL, TRUE);
+        UpdateWindow(hwnd);
+    }
+    if (IN_MINIMIZE != Buttons_State[4])
+    {
+        Buttons_State[4] = IN_MINIMIZE;
+        InvalidateRect(hwnd, NULL, TRUE);
+        UpdateWindow(hwnd);
+    }
+    else if (Buttons_State[4] && !IN_MINIMIZE)
+    {
+        Buttons_State[4] = false;
+        InvalidateRect(hwnd, NULL, TRUE);
+        UpdateWindow(hwnd);
+    }
+    if(New_Page)
+    {
+    New_Page->Pages_Func(hwnd, lparam);
+    }
 }
 
 void Moja_Apka::L_BTN_Click(HWND hwnd)
@@ -433,18 +435,18 @@ void Moja_Apka::L_BTN_Click(HWND hwnd)
     {
         if (IsZoomed(hwnd))
         {
-           ShowWindow(hwnd, SW_RESTORE);
-           Buttons_State[3] = false;
+            ShowWindow(hwnd, SW_RESTORE);
+            Buttons_State[3] = false;
         }
         else
         {
-            ShowWindow(hwnd,SW_MAXIMIZE);
+            ShowWindow(hwnd, SW_MAXIMIZE);
             Buttons_State[3] = false;
         }
     }
-    if(Buttons_State[4])
+    if (Buttons_State[4])
     {
-        ShowWindow(hwnd,SW_MINIMIZE);
+        ShowWindow(hwnd, SW_MINIMIZE);
         Buttons_State[4] = false;
     }
 }

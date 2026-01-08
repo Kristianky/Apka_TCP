@@ -8,10 +8,10 @@ class TCPPage : public VirtualPage
 private:
   std::vector<Button> Buttons;
 public:
-  virtual void Button_Create(HDC hdc) override;
+  virtual void Button_Animation(HDC hdc) override;
   virtual ~TCPPage() {};
   TCPPage(HWND hwnd);
-  virtual void Pages_Func(HWND hwnd, LPARAM lparam, WPARAM wparam) override;
+  virtual void Pages_Func(HWND hwnd, LPARAM lparam) override;
 };
 
 #endif

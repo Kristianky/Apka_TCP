@@ -30,6 +30,6 @@ public:
     void Color_Set(int Red,int Green,int Blue);
     void Text_Set(int Position_1,int Position_2,std::wstring Text_In,const COLORREF &Color_Temp);
     bool Btn_Func(HWND Main_hwnd,LPARAM lparam);
-};
+ };
 
 #endif

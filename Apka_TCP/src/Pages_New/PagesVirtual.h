@@ -17,8 +17,9 @@ class VirtualPage
     VirtualPage () = default;
     virtual ~VirtualPage() {};
     VirtualPage (HWND hwnd):Main_Hwnd{hwnd}{GetClientRect(hwnd,&Main_Rect);Main_Rect.top = Main_Rect .top + 30;}
-    virtual void Button_Create(HDC hdc) = 0;
-    virtual void Pages_Func(HWND hwnd,LPARAM lparam,WPARAM wparam) = 0;
+    virtual void Button_Animation(HDC hdc) = 0;
+    virtual void Pages_Func(HWND hwnd,LPARAM lparam) = 0;
+   
 
 };
 

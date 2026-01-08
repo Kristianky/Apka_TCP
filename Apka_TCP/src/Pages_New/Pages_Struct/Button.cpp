@@ -28,7 +28,7 @@ bool Button::Btn_Func(HWND hwnd, LPARAM lparam)
     RECT Main_Window;
     GetWindowRect(hwnd, &Main_Window);
 
-    bool InButt_1 = (Mouse.x > Sur_X && Mouse.x > Sur_Y && Mouse.x < Sur_X + Btn_Lenght && Mouse.y < Sur_Y + Btn_Width);
+    bool InButt_1 = (Mouse.x > Sur_X && Mouse.y > Sur_Y && Mouse.x < Sur_X + Btn_Lenght && Mouse.y < Sur_Y + Btn_Width);
 
     if (InButt_1)
     {
