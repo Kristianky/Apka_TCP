@@ -22,7 +22,7 @@ void Button::Text_Set(int Position_1, int Position_2, std::wstring Text_In, cons
     Text.Text_Collor = Color_Temp;
 }
 
-bool Button::Btn_Func(HWND hwnd, LPARAM lparam)
+bool Button::Btn_In(HWND hwnd, LPARAM lparam)
 {
     POINT Mouse = {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
     RECT Main_Window;
@@ -38,3 +38,17 @@ bool Button::Btn_Func(HWND hwnd, LPARAM lparam)
         return false;
     }
 }
+
+void Button::Btn_Clicked(HWND hwnd,UINT umsg)
+{
+    if (umsg == WM_LBUTTONDOWN)
+    {
+        L_Btn_Clicked = true;
+    }
+    if(umsg == WM_LBUTTONUP)
+    {
+        L_Btn_Clicked = false;
+    }
+
+}
+

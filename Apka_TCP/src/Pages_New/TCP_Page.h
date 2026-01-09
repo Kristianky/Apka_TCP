@@ -12,6 +12,7 @@ public:
   virtual ~TCPPage() {};
   TCPPage(HWND hwnd);
   virtual void Buttons_Func(HWND hwnd, LPARAM lparam) override;
+  virtual void Buttons_Mouse_Clicked_Call(HWND Main_hwnd,UINT umsg) override;
 };
 
 #endif

@@ -172,7 +172,17 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
     break;
     case WM_LBUTTONDOWN:
         L_BTN_Click(hwnd);
+        if (New_Page)
+        {
+            New_Page->Buttons_Mouse_Clicked_Call(hwnd, umsg);
+        }
         break;
+    case WM_LBUTTONUP:
+        if (New_Page)
+        {
+            New_Page->Buttons_Mouse_Clicked_Call(hwnd, umsg);
+        }
+
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);
 
@@ -399,13 +409,13 @@ void Moja_Apka::Mouse_Cursor_Move(HWND hwnd, LPARAM lparam)
     else if (Buttons_State[2] && !IN_X)
     {
         Buttons_State[2] = false;
-        InvalidateRect(hwnd,&BTN_X_Rect, TRUE);
+        InvalidateRect(hwnd, &BTN_X_Rect, TRUE);
         UpdateWindow(hwnd);
     }
     if (IN_RESTORE != Buttons_State[3])
     {
         Buttons_State[3] = IN_RESTORE;
-        InvalidateRect(hwnd,&BTN_MAX_MIN_Rect, TRUE);
+        InvalidateRect(hwnd, &BTN_MAX_MIN_Rect, TRUE);
         UpdateWindow(hwnd);
     }
     else if (Buttons_State[3] && !IN_RESTORE)
