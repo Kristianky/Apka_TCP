@@ -1,20 +1,21 @@
 #include "TCP_Page.h"
 TCPPage::TCPPage(HWND hwnd) : VirtualPage(hwnd)
 {
-    Buttons.push_back(Button(Main_Rect, Main_Rect.left, Main_Rect.top + 100, 200, 100));    //Vytvorenie Tlacidla ----------------connect button
-    Buttons[0].Inside_Bool.push_back(false);   //Premenne vnutri tlacidla pre booly
+    Buttons.push_back(Button(Main_Rect, Main_Rect.left, Main_Rect.top + 100, 100, 100)); // Vytvorenie Tlacidla ----------------connect button
+    Buttons[0].Inside_Bool.push_back(false);                                             // Premenne vnutri tlacidla pre booly
     Buttons[0].Inside_Bool.push_back(false);
+    Draw_Text = {Main_Rect.left + 10, Main_Rect.top + 20, Main_Rect.left + 100, Main_Rect.top + 40};
 }
 void TCPPage::Button_Animation(HDC hdc)
 {
     HFONT HoldFont;
     HPEN HoldPen;
     COLORREF Text_Color = RGB(50, 0, 0);
-    //Nastavenie farby stvorca a nasledne vytlacenie pre -------Connect Button
+    // Nastavenie farby stvorca a nasledne vytlacenie pre -------Connect Button
     Buttons[0].Text_Set(DT_CENTER, DT_VCENTER, L"Connect", Text_Color);
     FillRect(hdc, &Buttons[0].Rect, Buttons[0].Color);
     //
-    //Nastavenie farby a stylu textu pre ---------Connect Button
+    // Nastavenie farby a stylu textu pre ---------Connect Button
     HoldFont = (HFONT)SelectObject(hdc, Buttons[0].Text.Text_Style);
     COLORREF oldColor = GetTextColor(hdc);
     SetTextColor(hdc, Buttons[0].Text.Text_Collor);
@@ -22,7 +23,7 @@ void TCPPage::Button_Animation(HDC hdc)
     SetTextColor(hdc, oldColor);
     SelectObject(hdc, HoldFont);
     //
-    //Menenie farby podla stavu mysi ---------------COnnect BUtton
+    // Menenie farby podla stavu mysi ---------------COnnect BUtton
     if (Buttons[0].Inside_Bool[0])
     {
         Buttons[0].Color_Set(150, 0, 0);
@@ -31,41 +32,48 @@ void TCPPage::Button_Animation(HDC hdc)
     {
         Buttons[0].Color_Set(0, 0, 150);
     }
-    if(Buttons[0].Inside_Bool[1])
+    if (Buttons[0].Inside_Bool[1])
     {
-        TextOutW(hdc,100,100,L";Connected",10);
+        COLORREF Draw_Text_Color = RGB(0, 0, 150);
+        HoldFont = (HFONT)SelectObject(hdc, &Draw_Text_Color);
+        SetTextColor(hdc, Draw_Text_Color);
+        DrawTextW(hdc, L"Connected", -1, &Draw_Text, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
     }
     //--------------------------------------------------------------------------
-    
 }
 
 void TCPPage::Buttons_Func(HWND hwnd, LPARAM lparam)
 {
-    //Volanie pre Connect button ci je vnutry buttona ci nie
-    bool InButt_1 = Buttons[0].Btn_In(hwnd, lparam);
-    if (InButt_1 != Buttons[0].Inside_Bool[0])
-    {
-        Buttons[0].Inside_Bool[0] = InButt_1;
-        InvalidateRect(hwnd, &Buttons[0].Rect, TRUE);
-        UpdateWindow(hwnd);
-    }
-    else if (!InButt_1 && Buttons[0].Inside_Bool[0])
-    {
-        Buttons[0].Inside_Bool[0] = false;
+    // Volanie pre Connect button ci je vnutry buttona ci nie
+        // Funkcia Connect buttona
+        if (Buttons[0].Btn_Clicked)
+        {
+            InvalidateRect(hwnd, &Draw_Text, TRUE);
+            UpdateWindow(hwnd);
+            Page_Calls();
+        }
+        else
+        {
+            InvalidateRect(hwnd, &Draw_Text, TRUE);
+            UpdateWindow(hwnd);
+        }
+        // Funkcia Connect buttona
+        //------------------------------------------------------------
 
-        InvalidateRect(hwnd, &Buttons[0].Rect, TRUE);
-        UpdateWindow(hwnd);
-    }
-
-    //Funkcia Connect buttona 
-    if (InButt_1 && Buttons[0].L_Btn_Clicked)
-    {
-        Buttons[0].Inside_Bool[1] = !Buttons[0].Inside_Bool[1];
-    }
-    //------------------------------------------------------------
 }
 
-void TCPPage::Buttons_Mouse_Clicked_Call(HWND Main_hwnd,UINT umsg)
+void TCPPage::Buttons_Mouse_Clicked_Call(HWND Main_hwnd, UINT umsg)
 {
-    Buttons[0].Btn_Clicked(Main_Hwnd,umsg);
+    if(umsg == WM_LBUTTONDOWN)
+    Buttons[0].L_Btn_Down(Main_Hwnd, umsg);
+    if(umsg == WM_LBUTTONUP)
+    Buttons[0].L_Btn_Up(Main_Hwnd,umsg);
 }
+
+void TCPPage::Page_Calls()
+{
+
+    Client1.Connect();
+    Client1.Send(L"Hallo");
+    Client1.Disconect();
+};

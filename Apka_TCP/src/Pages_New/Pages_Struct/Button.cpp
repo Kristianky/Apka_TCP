@@ -20,35 +20,42 @@ void Button::Text_Set(int Position_1, int Position_2, std::wstring Text_In, cons
     Text.Pos_Vertical = Position_2;
     Text.Data = Text_In;
     Text.Text_Collor = Color_Temp;
+    Btn_Clicked = false;
 }
 
-bool Button::Btn_In(HWND hwnd, LPARAM lparam)
+void Button::Btn_In(HWND hwnd, LPARAM lparam)
 {
     POINT Mouse = {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
     RECT Main_Window;
     GetWindowRect(hwnd, &Main_Window);
-    
-    bool InButt_1 = (Mouse.x > Sur_X && Mouse.y > Sur_Y && Mouse.x < Sur_X + Btn_Lenght && Mouse.y < Sur_Y + Btn_Width);
-    if (InButt_1)
+    bool In_Butt_Temp = (Mouse.x > Sur_X && Mouse.y > Sur_Y && Mouse.x < Sur_X + Btn_Lenght && Mouse.y < Sur_Y + Btn_Width);
+    if (InButt_1 != In_Butt_Temp)
     {
-        return true;
+        InButt_1 = In_Butt_Temp;
+        InvalidateRect(hwnd, &Rect, TRUE);
+        UpdateWindow(hwnd);
     }
-    else
+    else if (InButt_1 && !In_Butt_Temp)
     {
-        return false;
+        InButt_1 = false;
+        InvalidateRect(hwnd, &Rect, TRUE);
+        UpdateWindow(hwnd);
     }
 }
 
-void Button::Btn_Clicked(HWND hwnd,UINT umsg)
+void Button::L_Btn_Down(HWND hwnd, UINT umsg)
 {
-    if (umsg == WM_LBUTTONDOWN)
+    if (umsg == WM_LBUTTONDOWN && InButt_1)
     {
-        L_Btn_Clicked = true;
+        Btn_Clicked = true;
     }
-    if(umsg == WM_LBUTTONUP)
-    {
-        L_Btn_Clicked = false;
-    }
-
 }
 
+void Button::L_Btn_Up(HWND hwnd,UINT umsg)
+{
+    if (umsg == WM_LBUTTONUP && Btn_Clicked && InButt_1)
+    {
+        Inside_Bool[1] = !Inside_Bool[1];
+        Btn_Clicked = false;
+    }
+}
