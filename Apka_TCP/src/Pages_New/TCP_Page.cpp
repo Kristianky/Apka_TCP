@@ -30,7 +30,7 @@ void TCPPage::Button_Animation(HDC hdc)
         HoldFont = (HFONT)SelectObject(hdc, &Draw_Text_Color);
         SetTextColor(hdc, Draw_Text_Color);
         DrawTextW(hdc, L"Connected", -1, &Draw_Text, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-        SetTextColor(hdc,oldColor);
+        SetTextColor(hdc, oldColor);
     }
     //--------------------------------------------------------------------------
 }
@@ -46,15 +46,22 @@ void TCPPage::Buttons_Func(HWND hwnd, LPARAM lparam)
     {
         Buttons[0].Color_Set(0, 0, 150);
     }
-    
 }
 
-void TCPPage::Buttons_Mouse_Clicked_Call(HWND Main_hwnd, UINT umsg,LPARAM lparam)
+void TCPPage::Buttons_Mouse_Clicked_Call(HWND Main_hwnd, UINT umsg, LPARAM lparam)
 {
     if (umsg == WM_LBUTTONDOWN)
-        Buttons[0].L_Btn_Down(Main_Hwnd, umsg,lparam);
+        Buttons[0].L_Btn_Down(Main_hwnd, umsg, lparam);
     if (umsg == WM_LBUTTONUP)
-        Buttons[0].L_Btn_Up(Main_Hwnd, umsg,lparam);
+    {
+        if (Buttons[0].L_Btn_Up(Main_hwnd, umsg, lparam))
+        {
+            std::thread([this, Main_hwnd]()
+                        {
+                 Page_Calls();
+                 PostMessageW(Main_hwnd,WM_USER + 1,0,0); });
+        }
+    }
 }
 
 void TCPPage::Page_Calls()

@@ -2,6 +2,7 @@
 #define _PAGESVIRTUAL_H_
 
 #include <windows.h>
+#include <thread>
 #include <string>
 #include <vector>
 #include "TCP_Client.h"

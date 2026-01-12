@@ -40,7 +40,7 @@ void Button::Btn_In(HWND hwnd, LPARAM lparam)
     }
 }
 
-void Button::L_Btn_Down(HWND hwnd, UINT umsg, LPARAM lparam)
+bool Button::L_Btn_Down(HWND hwnd, UINT umsg, LPARAM lparam)
 {
     if (umsg == WM_LBUTTONDOWN)
     {
@@ -52,11 +52,14 @@ void Button::L_Btn_Down(HWND hwnd, UINT umsg, LPARAM lparam)
                        Mouse.y < Sur_Y + Btn_Width);
 
         if (inside)
+        {
             Btn_Clicked = true;
+            return true;
+        }
     }
 }
 
-void Button::L_Btn_Up(HWND hwnd, UINT umsg, LPARAM lparam)
+bool Button::L_Btn_Up(HWND hwnd, UINT umsg, LPARAM lparam)
 {
     if (umsg == WM_LBUTTONUP && Btn_Clicked)
     {
@@ -71,6 +74,12 @@ void Button::L_Btn_Up(HWND hwnd, UINT umsg, LPARAM lparam)
         {
             Inside_Bool[1] = !Inside_Bool[1];
             InvalidateRect(hwnd, NULL, TRUE);
+            if(Inside_Bool[1])
+            {
+                return true;
+            }
+            else 
+                return false;
         }
 
         Btn_Clicked = false;

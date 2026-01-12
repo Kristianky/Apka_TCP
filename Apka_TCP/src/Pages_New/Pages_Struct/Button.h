@@ -36,8 +36,8 @@ public:
     void Color_Set(int Red, int Green, int Blue);  //nastavenie farby tlacidla
     void Text_Set(int Position_1, int Position_2, std::wstring Text_In, const COLORREF &Color_Temp);  //Nastavenie textu tlacidla
     void Btn_In(HWND Main_hwnd, LPARAM lparam); //Sledovanie mysi na hlokne
-    void L_Btn_Down(HWND Main_hwnd, UINT umsg,LPARAM lparam); //Sledovanie tlacidiel mysi
-    void L_Btn_Up(HWND Main_hwnd, UINT umsg,LPARAM lparam);
+    bool L_Btn_Down(HWND Main_hwnd, UINT umsg,LPARAM lparam); //Sledovanie tlacidiel mysi
+    bool L_Btn_Up(HWND Main_hwnd, UINT umsg,LPARAM lparam);
 };
 
 #endif
