@@ -26,36 +26,53 @@ void Button::Text_Set(int Position_1, int Position_2, std::wstring Text_In, cons
 void Button::Btn_In(HWND hwnd, LPARAM lparam)
 {
     POINT Mouse = {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
-    RECT Main_Window;
-    GetWindowRect(hwnd, &Main_Window);
-    bool In_Butt_Temp = (Mouse.x > Sur_X && Mouse.y > Sur_Y && Mouse.x < Sur_X + Btn_Lenght && Mouse.y < Sur_Y + Btn_Width);
-    if (InButt_1 != In_Butt_Temp)
+
+    bool inside =
+        (Mouse.x > Sur_X &&
+         Mouse.y > Sur_Y &&
+         Mouse.x < Sur_X + Btn_Lenght &&
+         Mouse.y < Sur_Y + Btn_Width);
+
+    if (InButt_1 != inside)
     {
-        InButt_1 = In_Butt_Temp;
-        InvalidateRect(hwnd, &Rect, TRUE);
-        UpdateWindow(hwnd);
-    }
-    else if (InButt_1 && !In_Butt_Temp)
-    {
-        InButt_1 = false;
-        InvalidateRect(hwnd, &Rect, TRUE);
-        UpdateWindow(hwnd);
+        InButt_1 = inside;
+        InvalidateRect(hwnd, &Rect, FALSE); // žiadne UpdateWindow
     }
 }
 
-void Button::L_Btn_Down(HWND hwnd, UINT umsg)
+void Button::L_Btn_Down(HWND hwnd, UINT umsg, LPARAM lparam)
 {
-    if (umsg == WM_LBUTTONDOWN && InButt_1)
+    if (umsg == WM_LBUTTONDOWN)
     {
-        Btn_Clicked = true;
+        POINT Mouse = {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
+
+        bool inside = (Mouse.x > Sur_X &&
+                       Mouse.y > Sur_Y &&
+                       Mouse.x < Sur_X + Btn_Lenght &&
+                       Mouse.y < Sur_Y + Btn_Width);
+
+        if (inside)
+            Btn_Clicked = true;
     }
 }
 
-void Button::L_Btn_Up(HWND hwnd,UINT umsg)
+void Button::L_Btn_Up(HWND hwnd, UINT umsg, LPARAM lparam)
 {
-    if (umsg == WM_LBUTTONUP && Btn_Clicked && InButt_1)
+    if (umsg == WM_LBUTTONUP && Btn_Clicked)
     {
-        Inside_Bool[1] = !Inside_Bool[1];
+        POINT Mouse = {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
+
+        bool inside = (Mouse.x > Sur_X &&
+                       Mouse.y > Sur_Y &&
+                       Mouse.x < Sur_X + Btn_Lenght &&
+                       Mouse.y < Sur_Y + Btn_Width);
+
+        if (inside)
+        {
+            Inside_Bool[1] = !Inside_Bool[1];
+            InvalidateRect(hwnd, NULL, TRUE);
+        }
+
         Btn_Clicked = false;
     }
 }

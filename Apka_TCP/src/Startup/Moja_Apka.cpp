@@ -56,15 +56,37 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         break;
     case WM_PAINT:
     {
-        HDC hdc;
-        PAINTSTRUCT Ps;
-        RECT Main_Rect;
-        GetClientRect(hwnd, &Main_Rect);
-        hdc = BeginPaint(hwnd, &Ps);
-        Border(hdc, Main_Rect);
-        Paint(hdc);
-        Draw_Buttons_Border(hwnd, lparam, hdc);
-        EndPaint(hwnd, &Ps);
+        PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(hwnd, &ps);
+
+        RECT rc;
+        GetClientRect(hwnd, &rc);
+
+        // 1) Vytvoríme backbuffer
+        HDC memDC = CreateCompatibleDC(hdc);
+        HBITMAP memBM = CreateCompatibleBitmap(hdc, rc.right, rc.bottom);
+        HBITMAP oldBM = (HBITMAP)SelectObject(memDC, memBM);
+
+        // 2) Vyplníme pozadie (inak tam ostanú artefakty)
+        HBRUSH bg = CreateSolidBrush(RGB(18, 18, 18)); // alebo farba okna
+        FillRect(memDC, &rc, bg);
+        DeleteObject(bg);
+
+        // 3) KRESLENIE DO BACKBUFFERU (sem idú tvoje funkcie)
+        Border(memDC, rc);                        // kreslí border
+        Paint(memDC);                             // kreslí stránku
+        Draw_Buttons_Border(hwnd, lparam, memDC); // kreslí okraje tlačidiel
+
+        // 4) Prenesieme hotový obraz na obrazovku
+        BitBlt(hdc, 0, 0, rc.right, rc.bottom, memDC, 0, 0, SRCCOPY);
+
+        // 5) Upratovanie
+        SelectObject(memDC, oldBM);
+        DeleteObject(memBM);
+        DeleteDC(memDC);
+
+        EndPaint(hwnd, &ps);
+
         break;
     }
     case WM_ACTIVATE:
@@ -174,14 +196,19 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         L_BTN_Click(hwnd);
         if (New_Page)
         {
-            New_Page->Buttons_Mouse_Clicked_Call(hwnd, umsg);
+            New_Page->Buttons_Mouse_Clicked_Call(hwnd, umsg, lparam);
         }
         break;
     case WM_LBUTTONUP:
         if (New_Page)
         {
-            New_Page->Buttons_Mouse_Clicked_Call(hwnd, umsg);
+            New_Page->Buttons_Mouse_Clicked_Call(hwnd, umsg, lparam);
         }
+        break;
+    case WM_USER + 1:
+    InvalidateRect(hwnd, NULL, FALSE);
+    break;
+
 
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);

@@ -24,7 +24,21 @@ void TCPPage::Button_Animation(HDC hdc)
     SelectObject(hdc, HoldFont);
     //
     // Menenie farby podla stavu mysi ---------------COnnect BUtton
-    if (Buttons[0].Inside_Bool[0])
+    if (Buttons[0].Inside_Bool[1])
+    {
+        COLORREF Draw_Text_Color = RGB(0, 0, 150);
+        HoldFont = (HFONT)SelectObject(hdc, &Draw_Text_Color);
+        SetTextColor(hdc, Draw_Text_Color);
+        DrawTextW(hdc, L"Connected", -1, &Draw_Text, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+        SetTextColor(hdc,oldColor);
+    }
+    //--------------------------------------------------------------------------
+}
+
+void TCPPage::Buttons_Func(HWND hwnd, LPARAM lparam)
+{
+    Buttons[0].Btn_In(Main_Hwnd, lparam);
+    if (Buttons[0].InButt_1)
     {
         Buttons[0].Color_Set(150, 0, 0);
     }
@@ -32,42 +46,15 @@ void TCPPage::Button_Animation(HDC hdc)
     {
         Buttons[0].Color_Set(0, 0, 150);
     }
-    if (Buttons[0].Inside_Bool[1])
-    {
-        COLORREF Draw_Text_Color = RGB(0, 0, 150);
-        HoldFont = (HFONT)SelectObject(hdc, &Draw_Text_Color);
-        SetTextColor(hdc, Draw_Text_Color);
-        DrawTextW(hdc, L"Connected", -1, &Draw_Text, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-    }
-    //--------------------------------------------------------------------------
+    
 }
 
-void TCPPage::Buttons_Func(HWND hwnd, LPARAM lparam)
+void TCPPage::Buttons_Mouse_Clicked_Call(HWND Main_hwnd, UINT umsg,LPARAM lparam)
 {
-    // Volanie pre Connect button ci je vnutry buttona ci nie
-        // Funkcia Connect buttona
-        if (Buttons[0].Btn_Clicked)
-        {
-            InvalidateRect(hwnd, &Draw_Text, TRUE);
-            UpdateWindow(hwnd);
-            Page_Calls();
-        }
-        else
-        {
-            InvalidateRect(hwnd, &Draw_Text, TRUE);
-            UpdateWindow(hwnd);
-        }
-        // Funkcia Connect buttona
-        //------------------------------------------------------------
-
-}
-
-void TCPPage::Buttons_Mouse_Clicked_Call(HWND Main_hwnd, UINT umsg)
-{
-    if(umsg == WM_LBUTTONDOWN)
-    Buttons[0].L_Btn_Down(Main_Hwnd, umsg);
-    if(umsg == WM_LBUTTONUP)
-    Buttons[0].L_Btn_Up(Main_Hwnd,umsg);
+    if (umsg == WM_LBUTTONDOWN)
+        Buttons[0].L_Btn_Down(Main_Hwnd, umsg,lparam);
+    if (umsg == WM_LBUTTONUP)
+        Buttons[0].L_Btn_Up(Main_Hwnd, umsg,lparam);
 }
 
 void TCPPage::Page_Calls()
