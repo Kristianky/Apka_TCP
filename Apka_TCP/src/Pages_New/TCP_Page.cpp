@@ -55,11 +55,9 @@ void TCPPage::Buttons_Mouse_Clicked_Call(HWND Main_hwnd, UINT umsg, LPARAM lpara
     if (umsg == WM_LBUTTONUP)
     {
         if (Buttons[0].L_Btn_Up(Main_hwnd, umsg, lparam))
+
         {
-            std::thread([this, Main_hwnd]()
-                        {
-                 Page_Calls();
-                 PostMessageW(Main_hwnd,WM_USER + 1,0,0); });
+            Page_Calls();
         }
     }
 }

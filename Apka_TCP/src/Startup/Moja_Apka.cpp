@@ -205,9 +205,6 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
             New_Page->Buttons_Mouse_Clicked_Call(hwnd, umsg, lparam);
         }
         break;
-    case WM_USER + 1:
-    InvalidateRect(hwnd, NULL, FALSE);
-    break;
 
 
     default:

@@ -44,14 +44,8 @@ bool Button::L_Btn_Down(HWND hwnd, UINT umsg, LPARAM lparam)
 {
     if (umsg == WM_LBUTTONDOWN)
     {
-        POINT Mouse = {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
 
-        bool inside = (Mouse.x > Sur_X &&
-                       Mouse.y > Sur_Y &&
-                       Mouse.x < Sur_X + Btn_Lenght &&
-                       Mouse.y < Sur_Y + Btn_Width);
-
-        if (inside)
+        if (InButt_1)
         {
             Btn_Clicked = true;
             return true;
@@ -63,22 +57,15 @@ bool Button::L_Btn_Up(HWND hwnd, UINT umsg, LPARAM lparam)
 {
     if (umsg == WM_LBUTTONUP && Btn_Clicked)
     {
-        POINT Mouse = {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
-
-        bool inside = (Mouse.x > Sur_X &&
-                       Mouse.y > Sur_Y &&
-                       Mouse.x < Sur_X + Btn_Lenght &&
-                       Mouse.y < Sur_Y + Btn_Width);
-
-        if (inside)
+        if (InButt_1)
         {
             Inside_Bool[1] = !Inside_Bool[1];
             InvalidateRect(hwnd, NULL, TRUE);
-            if(Inside_Bool[1])
+            if (Inside_Bool[1])
             {
                 return true;
             }
-            else 
+            else
                 return false;
         }
 
