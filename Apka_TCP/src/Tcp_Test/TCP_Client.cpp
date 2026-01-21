@@ -58,3 +58,4 @@ bool TCPClient::Send(const std::wstring Send_Data)
     }
     return true;
 }
+
