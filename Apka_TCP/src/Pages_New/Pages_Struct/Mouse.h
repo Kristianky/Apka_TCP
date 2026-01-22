@@ -13,5 +13,6 @@ class Mouse
        inline static short Y;
     public:
        static void UpdatePosition(LPARAM lp);
+       static bool Inside(RECT &rect);
 };
 #endif
