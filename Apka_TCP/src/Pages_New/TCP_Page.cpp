@@ -40,25 +40,35 @@ void TCPPage::Buttons_Func(HWND hwnd, LPARAM lparam)
     Buttons[0].Btn_In(Main_Hwnd, lparam);
     if (Buttons[0].InButt_1)
     {
-        Buttons[0].Color_Set(150, 0, 0);
+        if (!Mouse::Lh_Butt_Down_Status)
+        {
+            Buttons[0].Color_Set(150, 0, 0);
+        }
+        else
+        {
+            Buttons[0].Color_Set(0, 150, 0);
+        }
     }
     else
     {
         Buttons[0].Color_Set(0, 0, 150);
     }
+
 }
 
 void TCPPage::Buttons_Mouse_Clicked_Call(HWND Main_hwnd, UINT umsg, LPARAM lparam)
 {
-    if (umsg == WM_LBUTTONDOWN)
-        Buttons[0].L_Btn_Down(Main_hwnd, umsg, lparam);
     if (umsg == WM_LBUTTONUP)
     {
-        if (Buttons[0].L_Btn_Up(Main_hwnd, umsg, lparam))
+        if (Buttons[0].InButt_1 && Mouse::LH_BUTTON_Clicked())
 
         {
             Page_Calls();
         }
+    }
+    if(Mouse::Lh_Butt_Down_Status)
+    {
+       Buttons[0].Color_Set(0, 150, 0);
     }
 }
 

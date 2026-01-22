@@ -190,6 +190,7 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         {
             New_Page->Buttons_Func(hwnd, lparam);
         }
+        Mouse::UpdatePosition(lparam);
     }
     break;
     case WM_LBUTTONDOWN:
@@ -198,14 +199,16 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
         {
             New_Page->Buttons_Mouse_Clicked_Call(hwnd, umsg, lparam);
         }
+        Mouse::LH_Button_Down();
         break;
     case WM_LBUTTONUP:
         if (New_Page)
         {
             New_Page->Buttons_Mouse_Clicked_Call(hwnd, umsg, lparam);
         }
+        Mouse::LH_Button_Up();
+        Mouse::LH_BUTTON_Clicked();
         break;
-
 
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);

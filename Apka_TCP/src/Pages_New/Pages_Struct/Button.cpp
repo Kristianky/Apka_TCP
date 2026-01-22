@@ -25,50 +25,19 @@ void Button::Text_Set(int Position_1, int Position_2, std::wstring Text_In, cons
 
 void Button::Btn_In(HWND hwnd, LPARAM lparam)
 {
-    POINT Mouse = {GET_X_LPARAM(lparam), GET_Y_LPARAM(lparam)};
 
-    bool inside =
-        (Mouse.x > Sur_X &&
-         Mouse.y > Sur_Y &&
-         Mouse.x < Sur_X + Btn_Lenght &&
-         Mouse.y < Sur_Y + Btn_Width);
+    bool inside = Mouse::Inside(Rect);
 
     if (InButt_1 != inside)
     {
         InButt_1 = inside;
         InvalidateRect(hwnd, &Rect, FALSE); // žiadne UpdateWindow
     }
-}
-
-bool Button::L_Btn_Down(HWND hwnd, UINT umsg, LPARAM lparam)
-{
-    if (umsg == WM_LBUTTONDOWN)
+    else if (InButt_1 && Mouse::Lh_Butt_Down_Status)
     {
-
-        if (InButt_1)
-        {
-            Btn_Clicked = true;
-            return true;
-        }
+        InvalidateRect(hwnd,&Rect,FALSE);
     }
 }
 
-bool Button::L_Btn_Up(HWND hwnd, UINT umsg, LPARAM lparam)
-{
-    if (umsg == WM_LBUTTONUP && Btn_Clicked)
-    {
-        if (InButt_1)
-        {
-            Inside_Bool[1] = !Inside_Bool[1];
-            InvalidateRect(hwnd, NULL, TRUE);
-            if (Inside_Bool[1])
-            {
-                return true;
-            }
-            else
-                return false;
-        }
 
-        Btn_Clicked = false;
-    }
-}
+
