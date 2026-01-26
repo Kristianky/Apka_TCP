@@ -124,3 +124,33 @@ Node* LinkedList::Search(wchar_t *key)
    }
     return NULL;
 }*/
+
+//vkladanie 
+void LinkedList::Insert(wchar_t *Place,wchar_t *data)
+{
+    std::wstring Place_Temp = Place, Data_Tamp = data;
+    int temp_Place_int = std::stoi(Place_Temp),tamp_Data_int = std::stoi(Data_Tamp);
+    //Ak je to na zaciatku musi byt logika takato pretoze presuvame first node
+    if (temp_Place_int == 0)
+    {
+        Node *Temp = new Node;
+        Temp->data = tamp_Data_int;
+        Temp->Next = First;
+        First = Temp;
+    }
+    else
+    {
+        Node *Temp = First;
+        Node *NewNode = new Node;
+        NewNode->data = tamp_Data_int;
+        for (int i{};i < temp_Place_int - 1;i++)
+        {
+            if (!Temp->Next){break;}
+            Temp = Temp->Next;
+        }
+        NewNode->Next = Temp->Next;
+        Temp->Next = NewNode;
+        
+
+    }
+}

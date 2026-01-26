@@ -27,6 +27,7 @@ class LinkedList
        const wchar_t* Min();
        Node* Search(wchar_t *Key);
        int Count() {return count;}
+       void Insert(wchar_t *Place,wchar_t *data);
 
       
 };
