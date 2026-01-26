@@ -12,13 +12,11 @@ bool Mouse::Inside(RECT &rect)
     return X > rect.left && X < rect.right && Y < rect.bottom && Y > rect.top;
 }
 
-bool Mouse::LH_BUTTON_Clicked()
+void Mouse::LH_BUTTON_Clicked()
 {
     if (Lh_Butt_Down_Status)
     {
-        Lh_Butt_Down_Status = false;
-        return true;
+        Lh_Butt_Clicked_Status = true;
     }
-    else
-        return false;
+  
 }

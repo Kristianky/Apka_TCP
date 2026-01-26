@@ -35,9 +35,10 @@ void Button::Btn_In(HWND hwnd, LPARAM lparam)
     }
     else if (InButt_1 && Mouse::Lh_Butt_Down_Status)
     {
+        InvalidateRect(hwnd, &Rect, FALSE);
+    }
+    else if (InButt_1 && Mouse::Lh_Butt_Up_Status)
+    {
         InvalidateRect(hwnd,&Rect,FALSE);
     }
 }
-
-
-

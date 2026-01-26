@@ -44,32 +44,29 @@ void TCPPage::Buttons_Func(HWND hwnd, LPARAM lparam)
         {
             Buttons[0].Color_Set(150, 0, 0);
         }
-        else
+        else if (Mouse::Lh_Butt_Clicked_Status)
+        {
+            Buttons[0].Inside_Bool[1] = !Buttons[0].Inside_Bool[1];
+            InvalidateRect(hwnd,&Draw_Text,false);
+            if (Buttons[0].Inside_Bool[1])
+            {
+                Page_Calls();
+            }
+        }
+        else if (Mouse::Lh_Butt_Down_Status)
         {
             Buttons[0].Color_Set(0, 150, 0);
         }
     }
+
     else
     {
         Buttons[0].Color_Set(0, 0, 150);
     }
-
 }
 
 void TCPPage::Buttons_Mouse_Clicked_Call(HWND Main_hwnd, UINT umsg, LPARAM lparam)
 {
-    if (umsg == WM_LBUTTONUP)
-    {
-        if (Buttons[0].InButt_1 && Mouse::LH_BUTTON_Clicked())
-
-        {
-            Page_Calls();
-        }
-    }
-    if(Mouse::Lh_Butt_Down_Status)
-    {
-       Buttons[0].Color_Set(0, 150, 0);
-    }
 }
 
 void TCPPage::Page_Calls()

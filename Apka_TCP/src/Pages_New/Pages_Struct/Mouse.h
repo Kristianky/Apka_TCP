@@ -14,14 +14,21 @@ protected:
 
 public:
    inline static bool Lh_Butt_Down_Status;
+   inline static bool Lh_Butt_Up_Status;
+   inline static bool Lh_Butt_Clicked_Status;
    static void UpdatePosition(LPARAM lp);
    static bool Inside(RECT &rect);
-   static bool LH_Button_Down()
+   static void LH_Button_Down()
    {
       Lh_Butt_Down_Status = true;
-      return true;
+      Lh_Butt_Up_Status = false;
    }
-   static bool LH_Button_Up() { return true; }
-   static bool LH_BUTTON_Clicked();
+   static void LH_Button_Up()
+   {
+      Lh_Butt_Up_Status = true;
+      Lh_Butt_Clicked_Status = false;
+      Lh_Butt_Down_Status = false;
+   }
+   static void LH_BUTTON_Clicked();
 };
 #endif
