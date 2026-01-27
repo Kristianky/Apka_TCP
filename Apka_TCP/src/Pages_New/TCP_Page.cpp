@@ -1,10 +1,11 @@
 #include "TCP_Page.h"
-TCPPage::TCPPage(HWND hwnd) : VirtualPage(hwnd)
+TCPPage::TCPPage(HWND hwnd) : VirtualPage(hwnd),Edit1(Main_Rect,Main_Rect.left, Main_Rect.top + 200, 20, 100)
 {
     Buttons.push_back(Button(Main_Rect, Main_Rect.left, Main_Rect.top + 100, 100, 100)); // Vytvorenie Tlacidla ----------------connect button
     Buttons[0].Inside_Bool.push_back(false);                                             // Premenne vnutri tlacidla pre booly
     Buttons[0].Inside_Bool.push_back(false);
     Draw_Text = {Main_Rect.left + 10, Main_Rect.top + 20, Main_Rect.left + 100, Main_Rect.top + 40};
+    Mouse::Cursor = NULL;
 }
 void TCPPage::Button_Animation(HDC hdc)
 {
@@ -33,11 +34,14 @@ void TCPPage::Button_Animation(HDC hdc)
         SetTextColor(hdc, oldColor);
     }
     //--------------------------------------------------------------------------
+    //Kreslenie Edit Boxu
+     FillRect(hdc, &Edit1.Rect,FALSE);
 }
 
 void TCPPage::Buttons_Func(HWND hwnd, LPARAM lparam)
 {
     Buttons[0].Btn_In(Main_Hwnd, lparam);
+    Edit1.Edt_In(Main_Hwnd,lparam);
     if (Buttons[0].InButt_1)
     {
         if (!Mouse::Lh_Butt_Down_Status)

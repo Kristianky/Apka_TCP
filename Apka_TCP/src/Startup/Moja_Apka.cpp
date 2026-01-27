@@ -29,6 +29,7 @@ Moja_Apka::Moja_Apka(HINSTANCE Hinstance)
         NULL, NULL, Hinstance, this);
     ShowWindow(hwnd, SW_SHOW);
     UpdateWindow(hwnd);
+    Mouse::Cursor = LoadCursor(NULL,IDC_ARROW);
 }
 Moja_Apka::~Moja_Apka()
 {
@@ -213,7 +214,11 @@ LRESULT Moja_Apka::WindowProc(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam
             New_Page->Buttons_Func(hwnd, lparam);
         }
         break;
-
+    case WM_SETCURSOR:
+        {
+            SetCursor(Mouse::Cursor);
+            return true;
+        }
     default:
         return DefWindowProc(hwnd, umsg, wparam, lparam);
 

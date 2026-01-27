@@ -9,6 +9,7 @@ private:
   RECT Draw_Text; // potom vymazat ked urobime zvlast classu na text
   std::vector<Button> Buttons;
   TCPClient Client1;
+  EditWindow Edit1;
 
 public:
   virtual void Button_Animation(HDC hdc) override;

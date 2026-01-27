@@ -7,6 +7,7 @@
 #include <vector>
 #include "TCP_Client.h"
 #include "Button.h"
+#include "Edit.h"
 
 
 class VirtualPage 

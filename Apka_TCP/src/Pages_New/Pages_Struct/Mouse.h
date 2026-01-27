@@ -16,6 +16,7 @@ public:
    inline static bool Lh_Butt_Down_Status;
    inline static bool Lh_Butt_Up_Status;
    inline static bool Lh_Butt_Clicked_Status;
+   inline static HCURSOR Cursor;
    static void UpdatePosition(LPARAM lp);
    static bool Inside(RECT &rect);
    static void LH_Button_Down()
